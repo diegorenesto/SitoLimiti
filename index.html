@@ -3,36 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sito sui limiti matematici, con spiegazioni ed esempi interattivi.">
-    <title>Vai Oltre Il Limite</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Vai oltre il limite...</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1>Vai Oltre Il Limite</h1>
-            <p>Scopri il mondo dei limiti matematici!</p>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="tabs">
+            <a href="#home" class="tab">Home</a>
+            <a href="#theory" class="tab">Teoria</a>
+            <a href="#exercises" class="tab">Esercizi</a>
+            <a href="#tools" class="tab">Strumenti</a>
+            <a href="#contacts" class="tab">Contatti</a>
+            <span class="glider"></span>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <section class="intro">
-            <h2>Cosa sono i limiti?</h2>
-            <p>I limiti sono uno degli argomenti fondamentali del calcolo. Aiutano a comprendere il comportamento delle funzioni in prossimità di un punto.</p>
-        </section>
+    <!-- PARTICLE BACKGROUND -->
+    <div id="particles-js"></div>
+    
+    <!-- SEZIONI DEL SITO -->
+    <section id="home" class="section">
+        <h1>Benvenuto nel sito dei Limiti</h1>
+        <p>intro home page</p>
+        <button class="cta-button">Inizia ora</button>
+    </section>
 
-        <section class="interactive">
-            <h2>Calcoliamo un limite!</h2>
-            <p>Prova a calcolare il limite di una funzione con il nostro strumento interattivo.</p>
-            <button id="calculateBtn">Calcola Limite</button>
-            <div id="result"></div>
-        </section>
-    </main>
+    <section id="theory" class="section">
+        <h2>Teoria</h2>
+        <p>Scopri la teoria dei limiti con spiegazioni dettagliate e immagini.</p>
+    </section>
 
-    <footer>
-        <p>&copy; 2025 Vai Oltre Il Limite | Tutti i diritti riservati</p>
-    </footer>
+    <section id="exercises" class="section">
+        <h2>Esercizi</h2>
+        <p>Prova gli esercizi sui limiti e metti alla prova le tue conoscenze.</p>
+    </section>
 
-    <script src="script.js"></script>
+    <section id="tools" class="section">
+        <h2>Strumenti Interattivi</h2>
+        <p>Usa calcolatori, grafici e tool visivi per comprendere meglio i limiti.</p>
+    </section>
+
+    <section id="contacts" class="section">
+        <h2>Contatti</h2>
+        <p>Hai bisogno di aiuto? Contattaci per qualsiasi domanda.</p>
+    </section>
+    
+    <!-- PARTICLE JS LIBRARY -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </body>
 </html>
