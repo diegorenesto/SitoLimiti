@@ -1,0 +1,338 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a, a:visited, a:before, a:after {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	background-color: 	#D3D3D3;
+	
+}
+
+/* start navbar */
+/* The sidebar menu COLLAPSED SIDEBAR*/
+.sidebar {
+	height: 100%; /* 100% Full-height */
+	width: 0; /* 0 width - change this with JavaScript */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Stay on top */
+	top: 0;
+	left: 0;
+	background-color: black; /* Black*/
+	overflow-x: hidden; /* Disable horizontal scroll */
+	padding-top: 60px; /* Place content 60px from the top */
+	transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+  }
+  
+  /* The sidebar links */
+  .sidebar a {
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidebar a:hover {
+	color: #f1f1f1;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidebar .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+  }
+  
+  /* The button used to open the sidebar */
+  .openbtn {
+	font-size: 20px;
+	cursor: pointer;
+	background-color: white;
+	color: black;
+	padding: 10px 15px;
+	border: none;
+  }
+  
+  .openbtn:hover {
+	background-color: #444;
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+	transition: margin-left .5s; /* If you want a transition effect */
+	padding: 20px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+	.sidebar {padding-top: 15px;}
+	.sidebar a {font-size: 18px;}
+  }
+
+  
+
+  /*NAVBAR GIA' PRESENTE*/
+nav {
+	height: 50px;
+	box-shadow: 0 4px 2px -2px gray;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	background-color: white;
+}
+
+.nav-container {
+	display: flex;
+	width: 96%;
+	margin: auto;
+	justify-content: flex-end;
+	height: 50px;
+	align-items: center;
+	letter-spacing: 3px;
+	font-size: 1.1em;
+	
+}
+
+.company-name {
+	margin-right: auto;
+}
+
+.nav-right {
+	padding-right: 15px;
+	padding-left: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+/*end nav*/
+
+/*start main*/
+
+main {
+	margin-top: 50px;
+}
+
+.main-wrapper {
+	max-width: 1500px;
+	margin: auto;
+	text-align: center;
+	position: relative;
+	margin-top: 50px;
+	z-index: -1;
+}
+
+img {
+	z-index: -1;
+	position: relative;
+	max-width: 100%;
+	height: auto;
+}
+
+.company-name-main {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+h1 {
+	font-size: 3em;
+	letter-spacing: 3px;
+}
+
+.architects-img {
+	color: white;
+}
+
+.br-img {
+	padding: 8px 15px;
+	background-color: 	black;
+	color: white;
+	opacity: 0.75;
+}
+
+/*end main*/
+
+/*start projects section*/
+
+.projects-section {
+	padding-top: 70px;
+	padding-left: 25px;
+	padding-right: 25px;
+	max-width: 1500px;
+	margin: auto;
+}
+
+h3 {
+	font-weight: normal;
+	font-size: 1.6em;
+}
+
+hr {
+	margin-top: 20px;
+	opacity: 0.3;
+}
+
+.projects-container {
+	margin-top: 40px;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-column-gap: 15px;
+	grid-row-gap: 15px;
+}
+
+.house-container {
+	position: relative;
+}
+
+.house-name {
+	position: absolute;
+	padding: 8px 16px;
+	color: white;
+	background-color: black;
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+/*end projects section*/
+
+/*start about section*/
+
+.about-section {
+	padding-top: 70px;
+	padding-left: 25px;
+	padding-right: 25px;
+	/*height: 1000px;*/
+	max-width: 1500px;
+	margin: auto;
+}
+
+.about-section p {
+	line-height: 1.5;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.about-team {
+	display: flex;
+
+}
+
+.person-card {
+	padding: 8px;
+}
+
+#first-person {
+	padding-left: 0;
+}
+
+#second-person {
+	padding-right: 0;
+}
+
+.person-card h3 {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.person-title {
+	opacity: 0.60;
+}
+
+.person-contact {
+	display: block;
+	margin: 0;
+	/*box-sizing: border-box;*/
+	width: 100%;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	background-color: #f1f1f1;
+	border: none;
+	text-decoration: none;
+	font-size: 1.2em;
+}
+
+.person-contact:hover {
+	cursor: pointer;
+	background-color:		#C8C8C8;
+}
+
+/*end about section*/
+
+/*start contact section*/
+
+.contact-section {
+	padding-top: 70px;
+	padding-left: 25px;
+	padding-right: 25px;
+	/*height: 1000px;*/
+	max-width: 1500px;
+	margin: auto;
+}
+
+.contact-section p {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-size: 1.1em;
+}
+
+input {
+	display: block;
+	padding: 8px;
+	width: 100%;
+	margin-top: 15px;
+	opacity: 0.9;
+	font-size: 1.1em;
+}
+
+.send-btn {
+	margin-top: 30px;
+	padding: 8px 16px;
+	text-decoration: none;
+	border: none;
+	font-size: 1.1em;
+	background-color: black;
+	color: white;
+}
+
+.send-btn:hover {
+	cursor: pointer;
+	background-color: #C8C8C8;
+	color: black;
+}
+
+/*end contact section*/
+
+#googleMap {
+	margin-top: 60px;
+}
+
+
+/*footer*/
+
+footer {
+	padding-top: 16px;
+	padding-bottom: 16px;
+	text-align: center;
+	background-color: black;
+	color: white;
+}
+
+footer p {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
