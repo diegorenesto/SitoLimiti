@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+    <section id="contacts"
+        style="background: #f5f5f7; padding: 80px 0; text-align: center; font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;">
+        <h2 style="font-size: 3em; margin-bottom: 40px; color: #333; font-weight: bold; letter-spacing: -1px;">Contatti
+        </h2>
+        <div
+            style="display: flex; justify-content: center; align-items: flex-start; flex-wrap: wrap; max-width: 1200px; margin: auto; gap: 40px;">
+
+            <!-- Info Contatti -->
+            <div
+                style="flex: 1; min-width: 320px; background: #ffffff; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); text-align: left;">
+                <h3 style="color: #0078d4; font-size: 1.8em; margin-bottom: 20px;">Contattaci</h3>
+                <p style="font-size: 1.1em; line-height: 1.8; color: #333;"><strong>📞 Telefono:</strong> 0425 410699
+                </p>
+                <p style="font-size: 1.1em; line-height: 1.8; color: #333;"><strong>📧 Email:</strong> <a
+                        href="mailto:rois012001@istruzione.it"
+                        style="color: #0078d4; text-decoration: none;">rois012001@istruzione.it</a></p>
+                <p style="font-size: 1.1em; line-height: 1.8; color: #333;"><strong>📍 Indirizzo:</strong> Via Alcide De
+                    Gasperi, 21, 45100 Rovigo (RO)</p>
+                <p style="font-size: 1.1em; line-height: 1.8; color: #333;"><strong>⏰ Orari di apertura:</strong><br>
+                    Lunedì - Sabato: 08:00 - 13:30 <br> Domenica: Chiuso</p>
+            </div>
+
+            <!-- Mappa -->
+            <div style="flex: 1; min-width: 320px; padding: 20px;">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2817.20907403341!2d11.794024976082914!3d45.08155327107018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477efa0aff203935%3A0x534ddf2955ad5bde!2sVia%20Alcide%20de%20Gasperi%2C%2021%2C%2045100%20Rovigo%20RO!5e0!3m2!1sit!2sit!4v1743023636421!5m2!1sit!2sit"
+                    width="100%" height="350"
+                    style="border:0; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <!-- Form di Contatto -->
+        <div
+            style="max-width: 700px; margin: 60px auto 0; background: #ffffff; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); text-align: left;">
+            <h3 style="color: #0078d4; font-size: 1.8em; margin-bottom: 30px;">Invia un messaggio</h3>
+            <form action="mailto:mattia.pavarin@iisviolamarchesini.edu.it" method="post" enctype="text/plain">
+                <label for="name" style="font-weight: bold; font-size: 1.1em; color: #333;">Nome:</label>
+                <input type="text" id="name" name="name" required
+                    style="width: 100%; padding: 14px 20px; margin-bottom: 20px; border: 2px solid #ccc; border-radius: 10px; font-size: 16px; background-color: #f5f5f7;">
+
+                <label for="email" style="font-weight: bold; font-size: 1.1em; color: #333;">Email:</label>
+                <input type="email" id="email" name="email" required
+                    style="width: 100%; padding: 14px 20px; margin-bottom: 20px; border: 2px solid #ccc; border-radius: 10px; font-size: 16px; background-color: #f5f5f7;">
+
+                <label for="message" style="font-weight: bold; font-size: 1.1em; color: #333;">Messaggio:</label>
+                <textarea id="message" name="message" rows="6" required
+                    style="width: 100%; padding: 14px 20px; margin-bottom: 20px; border: 2px solid #ccc; border-radius: 10px; font-size: 16px; background-color: #f5f5f7;"></textarea>
+
+                <button type="submit"
+                    style="background-color: #0078d4; color: white; border: none; padding: 16px 24px; font-size: 18px; border-radius: 10px; cursor: pointer; transition: background 0.3s; width: 100%; font-weight: bold;">Invia</button>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
