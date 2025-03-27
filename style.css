@@ -53,17 +53,52 @@ a:hover {
   }
   
   /* The button used to open the sidebar */
+
   .openbtn {
-	font-size: 20px;
+	margin-top: 10px;
+	position: relative;
+	display: inline-block;
+	height: 50px;
 	cursor: pointer;
-	background-color: white;
-	color: black;
-	padding: 10px 15px;
-	border: none;
+  }
+
+  .openbtn div {
+	width: 70px;
+	height: 10px;
+	background-color: darkgray;
+	border-radius: 3px;
+	position: absolute;
+	transition: 0.4s;
+  }
+
+  .openbtn:hover div {
+	width: 100%;
+  }
+
+  .line1 {
+	top: 0;
   }
   
-  .openbtn:hover {
-	background-color: #444;
+  .line2 {
+	top: calc(30%);
+  }
+  
+  .line3 {
+	top: calc(60%);
+  }
+
+  .openbtn:hover .line1 {
+	transform: translate(10px, 7px) rotate(35deg);
+	border-radius: 7px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+  }
+  
+  .openbtn:hover .line3 {
+	transform: translate(10px, -7px) rotate(-35deg);
+	border-radius: 7px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
   }
   
   /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
@@ -128,7 +163,7 @@ main {
 	margin: auto;
 	text-align: center;
 	position: relative;
-	margin-top: 50px;
+	margin-top: 4%;
 	z-index: -1;
 }
 
