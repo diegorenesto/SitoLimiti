@@ -322,17 +322,27 @@ input {
 }
 
 
-/*footer*/
-
+/* footer */
 footer {
 	padding-top: 16px;
 	padding-bottom: 16px;
 	text-align: center;
 	background-color: black;
 	color: white;
-}
-
-footer p {
+  }
+  
+  footer p {
 	margin-top: 15px;
 	margin-bottom: 15px;
-}
+  }
+  
+  /* Personalizzazione dei link nel footer */
+  footer a {
+	color: white !important; 
+  }
+  
+  footer a:hover {
+	color: white;
+	text-decoration: underline;
+  }
+  
