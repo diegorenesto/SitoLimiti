@@ -112,6 +112,77 @@ a:hover {
 	border-bottom-right-radius: 10px;
 }
 
+/* NUOVO MAIN */
+.main-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1500px;
+    margin: auto;
+}
+
+.title-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.title-overlay h1 {
+    font-size: 64px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+}
+
+.title-box {
+    background: black;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+/*
+.title-light {
+    font-weight: 400;
+    color: #d1d1d1; 
+}
+	*/
+
+.title-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5); /* Leggero sfondo trasparente */
+    padding: 20px 40px;
+    border-radius: 10px;
+}
+
+.title-bold {
+    font-weight: bold;
+    font-size: 64px;
+    color: white;
+    background: linear-gradient(to right, #ff7e5f, #feb47b); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.title-divider {
+    font-size: 64px;
+    color: white;
+    padding: 0 10px;
+}
+
+.title-light {
+    font-weight: 300;
+    font-size: 64px;
+    color: white;
+}
+
+
+
+/* MAIN GIA' PRESENTE*/
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
 	transition: margin-left .5s;
