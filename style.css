@@ -83,7 +83,7 @@ a:hover {
 }
 
 .openbtn:hover div {
-	width: 100%;
+	width: 35%;
 }
 
 .line1 {
@@ -99,14 +99,14 @@ a:hover {
 }
 
 .openbtn:hover .line1 {
-	transform: translate(10px, 7px) rotate(35deg);
+	transform: translate(10px, 7px) rotate(30deg);
 	border-radius: 7px;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
 
 .openbtn:hover .line3 {
-	transform: translate(10px, -7px) rotate(-35deg);
+	transform: translate(10px, -7px) rotate(-30deg);
 	border-radius: 7px;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
@@ -114,70 +114,16 @@ a:hover {
 
 /* NUOVO MAIN */
 .main-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 1500px;
-    margin: auto;
-}
-
-.title-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-.title-overlay h1 {
-    font-size: 64px;
-    font-weight: bold;
-    color: white;
-    text-transform: uppercase;
-}
-
-.title-box {
-    background: black;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 5px;
-}
-/*
-.title-light {
-    font-weight: 400;
-    color: #d1d1d1; 
-}
-	*/
-
-.title-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    background: rgba(0, 0, 0, 0.5); /* Leggero sfondo trasparente */
-    padding: 20px 40px;
-    border-radius: 10px;
-}
-
-.title-bold {
-    font-weight: bold;
-    font-size: 64px;
-    color: white;
-    background: linear-gradient(to right, #ff7e5f, #feb47b); 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+	position: relative;
+	width: 100%;
+	max-width: 1500px;
+	margin: auto;
 }
 
 .title-divider {
-    font-size: 64px;
-    color: white;
-    padding: 0 10px;
-}
-
-.title-light {
-    font-weight: 300;
-    font-size: 64px;
-    color: white;
+	font-size: 64px;
+	color: gray;
+	padding: 0 10px;
 }
 
 
@@ -275,7 +221,7 @@ h1 {
 }
 
 .architects-img {
-	color: white;
+	color: gray;
 }
 
 .br-img {

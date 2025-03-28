@@ -27,11 +27,12 @@
 			<div class="w3-bar w3-white w3-wide w3-padding w3-card">
 
 				<!-- OPEN COLLAPSED SIDEBAR -->
-				<div class="openbtn w3-bar-item" onclick="openNav()">
+				<button class="openbtn w3-bar-item" onclick="openNav()"
+					style="background-color: transparent; padding-right: 5%;">
 					<div class="line1"></div>
 					<div class="line2"></div>
 					<div class="line3"></div>
-				</div>
+				</button>
 
 				<!-- CLOSE -->
 				<div id="mySidebar" class="sidebar">
@@ -53,16 +54,16 @@
 				<source src="Media/video/background-lim.mp4" type="video/mp4">
 				Il tuo browser non supporta il tag video.
 			</video>
-			<div class="title-container">
+			<div class="company-name-main">
 				<h1>
-					<span class="title-bold">VAI</span>
+					<span class="br-img">VAI</span>
 					<span class="title-divider">|</span>
-					<span class="title-light">OLTRE</span>
+					<span class="architects-img">OLTRE</span>
 				</h1>
-			</div>						
+			</div>
 		</div>
 	</main>
-	
+
 
 	<section class='projects-section' id=''>
 		<h3>
@@ -165,44 +166,39 @@
 			Lets get in touch and talk about your next project.
 		</p>
 
-		<form action="#">
-			<input type="text" placeholder='Name'>
+		<form action="mailto:francescobazaj@gmail.com" method="post" enctype="text/plain">
+			<input type="text" id="name" name="name" required placeholder='Nome'>
 			<input type="text" placeholder='Email'>
-			<input type="text" placeholder='Subject'>
-			<input type="text" placeholder='Comment'>
+			<input type="text" placeholder='Oggetto'>
+			<input type="text" placeholder='Corpo'>
 
+
+			<button class="send-btn" type="submit">
+				SEND MESSAGE
+			</button>
 		</form>
 
-		<button class="send-btn">
-			SEND MESSAGE
-		</button>
-
+		<div style="flex: 1; min-width: 320px; padding: 20px;">
+			<iframe
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2817.20907403341!2d11.794024976082914!3d45.08155327107018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477efa0aff203935%3A0x534ddf2955ad5bde!2sVia%20Alcide%20de%20Gasperi%2C%2021%2C%2045100%20Rovigo%20RO!5e0!3m2!1sit!2sit!4v1743023636421!5m2!1sit!2sit"
+				width="100%" height="350"
+				style="border:0; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);" allowfullscreen=""
+				loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</div>
 	</section>
 
-	<!-- Google Map -->
-	<div id="googleMap" class="w3-grayscale" style="width:100%;height:450px;"></div>
 
-	<!-- Add Google Maps -->
 	<script>
 		function myMap() {
-			myCenter = new google.maps.LatLng(45.0807944, 11.7929186);
-			var mapOptions = {
-				center: myCenter,
-				zoom: 12, scrollwheel: false, draggable: false,
-				mapTypeId: google.maps.MapTypeId.ROADMAP
+			var mapProp = {
+				center: new google.maps.LatLng(51.508742, -0.120850),
+				zoom: 5,
 			};
-			var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
-
-			var marker = new google.maps.Marker({
-				position: myCenter,
-			});
-			marker.setMap(map);
+			var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 		}
 	</script>
 	<script
-		src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2817.20907403341!2d11.794024976082914!3d45.08155327107018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477efa0aff203935%3A0x534ddf2955ad5bde!2sVia%20Alcide%20de%20Gasperi%2C%2021%2C%2045100%20Rovigo%20RO!5e0!3m2!1sit!2sit!4v1743023636421!5m2!1sit!2sit"
-		width="100%" height="350" style="border:0; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);"
-		allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></script>
+		src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2817.20907403341!2d11.794024976082914!3d45.08155327107018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477efa0aff203935%3A0x534ddf2955ad5bde!2sVia%20Alcide%20de%20Gasperi%2C%2021%2C%2045100%20Rovigo%20RO!5e0!3m2!1sit!2sit!4v1743023636421!5m2!1sit!2sit"></script>
 
 	<footer class="w3-center w3-black w3-padding-16">
 		<p>© 2025
