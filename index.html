@@ -44,8 +44,9 @@
             <a href="#">Esercizi</a>
             <a href="#">Limiti sociali</a>
             <a href="#">Podcast</a>
-            <a href="contatti.html">Contatti</a>
-          </div>
+            <a href="contatti.html" style="position: absolute; bottom: 0; margin-bottom: 20%;">Contatti</a>
+			<a href="#" style="position: absolute; bottom: 0; margin-bottom: 5%; font-size: 90%;">Chi siamo</a>
+		</div>
           <a href="index.html" class="w3-bar-item w3-button company-name-main"
             ><b>OLTRE</b> il limite</a
           >
@@ -55,7 +56,7 @@
 
     <main>
       <div class="main-wrapper">
-        <video autoplay muted loop width="1500" height="800">
+        <video autoplay muted loop width="100%" height="800">
           <source src="Media/video/background-lim.mp4" type="video/mp4" />
           Il tuo browser non supporta il tag video.
         </video>
@@ -69,47 +70,69 @@
       </div>
     </main>
 
+	<section class="about-section">
+		<hr class="w3-border-grey" style="margin: auto; width: 40%" />
+      <div class="w3-center">
+        <h3>Definizione generale di limite</h3>
+      </div>
+		<p>
+			Intuitivamente, la frase "la funzione f(x) tende a l quando x tende a x₀" significa che 
+			"i valori di f(x) sono vicini quanto si vuole a l, pur di scegliere x sufficientemente
+			vicino a x₀".<br><br>
+			Abbiamo ora tutti gli strumenti per tradurre questa definizione intuitiva in una
+			definizione formale:
+			<ol>
+				<li>Il concetto di intorno consente di esprimere con precisione il concetto di «vicinanza»;
+				<li>Il concetto di punto di accumulazione descrive quali caratteristiche deve avere un punto
+				x0 affinché abbia senso il calcolo del limite di una funzione f(x) per x³ x₀. Precisamente,
+				  traduce la richiesta che la variabile x possa avvicinarsi quanto si vuole al valore x₀.
+			</ol>
+			
+		</p>
+	  </div>
+	</section>
+
     <section class="projects-section" id="">
-		<h3>Sezioni</h3>
-  
-		<hr />
-  
-		<div class="projects-container">
-			<div class="grid-container">
-				<div class="house-container">
-					<div class="house-name">TEORIA</div>
-					<img src="Media/img/teoria.jpg" alt="">
-				</div>
+      <hr class="w3-border-grey" style="margin: auto; width: 40%" />
+      <div class="w3-center">
+        <h3>Sezioni</h3>
+      </div>
 
-				<div class="house-container">
-					<div class="house-name">ESERCIZI</div>
-					<img src="Media/img/esercizi.jpg" alt="">
-				</div>
+      <div class="projects-container">
+        <div class="grid-container">
+          <div class="house-container">
+            <div class="house-name">TEORIA</div>
+            <img src="Media/img/teoria.jpg" alt="" />
+          </div>
 
-				<div class="house-container">
-					<div class="house-name">LIMITI SOCIALI</div>
-					<img src="Media/img/limiti-sociali.jpg" alt="">
-				</div>
+          <div class="house-container">
+            <div class="house-name">ESERCIZI</div>
+            <img src="Media/img/esercizi.jpg" alt="" />
+          </div>
 
-				<div class="house-container">
-					<div class="house-name">PODCAST</div>
-					<img src="Media/img/podcast.jpg" alt="">
-				</div>
-				<div class="house-container">
-				</div>
-				<div class="house-container">
-				</div>
-				<div class="house-container">
-				</div>
-				<div class="house-container">
-				</div>
-			</div>
-		</div>
-	  </section>
+          <div class="house-container">
+            <div class="house-name">LIMITI SOCIALI</div>
+            <img src="Media/img/limiti-sociali.jpg" alt="" />
+          </div>
 
+          <div class="house-container">
+            <div class="house-name">PODCAST</div>
+            <img src="Media/img/podcast.jpg" alt="" />
+          </div>
+          <div class="house-container"></div>
+          <div class="house-container"></div>
+          <div class="house-container"></div>
+          <div class="house-container"></div>
+        </div>
+      </div>
+    </section>
+
+		<!--
     <section class="about-section">
-      <h3>Chi siamo</h3>
-      <hr />
+      <hr class="w3-border-grey" style="margin: auto; width: 40%" />
+      <div class="w3-center">
+        <h3>Chi siamo</h3>
+      </div>
 
       <div class="about-team">
         <div class="person-card" id="first-person">
@@ -119,42 +142,34 @@
             Diego Renesto
           </h3>
           <p class="person-title">Home page e struttura</p>
-          <!-- p class="person-info">Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p> -->
-          <!-- <button class="person-contact">Contact</button> -->
         </div>
 
         <div class="person-card">
           <img src="Media/img/person2.jpg" alt="" />
           <h3 class="person-name">Francesco Renesto</h3>
           <p class="person-title">Teoria e casi particolari</p>
-          <!-- <p class="person-info">Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p> -->
-          <!-- <button class="person-contact">Contact</button> -->
         </div>
 
         <div class="person-card">
           <img src="Media/img/person3.jpg" alt="" />
           <h3 class="person-name">Nicolò Zanforlin</h3>
           <p class="person-title">I limiti nella società</p>
-          <!-- <p class="person-info">Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p> -->
-          <!-- <button class="person-contact">Contact</button> -->
         </div>
 
         <div class="person-card" id="second-person">
           <img src="Media/img/person4.jpg" alt="" />
           <h3 class="person-name">Mattia Pavarin</h3>
           <p class="person-title">Contatti e maps</p>
-          <!-- <p class="person-info">Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p> -->
-          <!-- <button class="person-contact">Contact</button> -->
         </div>
       </div>
     </section>
+	-->
 
     <section class="contact-section">
-      <h3>Contact</h3>
-      <hr />
-
-      <p>Lets get in touch and talk about your next project.</p>
-
+      <hr class="w3-border-grey" style="margin: auto; width: 40%" />
+      <div class="w3-center">
+        <h3>Contatti</h3>
+      </div>
       <form
         action="mailto:francescobazaj@gmail.com"
         method="post"
@@ -165,7 +180,7 @@
         <input type="text" placeholder="Oggetto" />
         <input type="text" placeholder="Corpo" />
 
-        <button class="send-btn" type="submit">SEND MESSAGE</button>
+        <button class="send-btn" type="submit">INVIA MESSAGGIO</button>
       </form>
 
       <div style="flex: 1; min-width: 320px; padding: 20px">
