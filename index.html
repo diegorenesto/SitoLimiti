@@ -1,217 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vai oltre il limite</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
+  </head>
+  <script>
+    // OPEN SIDEBAR
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+    }
 
-<head>
-	<meta charset="UTF-8">
-	<title>Vai oltre il limite</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-</head>
-<script>
-	// OPEN SIDEBAR
-	function openNav() {
-		document.getElementById("mySidebar").style.width = "250px";
-	}
+    // CLOSE SIDEBAR
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft = "0";
+    }
+  </script>
 
-	// CLOSE SIDEBAR
-	function closeNav() {
-		document.getElementById("mySidebar").style.width = "0";
-		document.getElementById("main").style.marginLeft = "0";
-	}
-</script>
+  <body>
+    <!-- NAVBAR -->
+    <nav>
+      <div id="main" class="w3-top">
+        <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+          <!-- OPEN COLLAPSED SIDEBAR -->
+          <button
+            class="openbtn w3-bar-item"
+            onclick="openNav()"
+            style="background-color: transparent; padding-right: 5%"
+          >
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </button>
 
-<body>
-	<!-- NAVBAR -->
-	<nav>
-		<div id="main" class="w3-top">
-			<div class="w3-bar w3-white w3-wide w3-padding w3-card">
+          <!-- CLOSE -->
+          <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+              >&times;</a
+            >
+            <a href="#">Teoria</a>
+            <a href="#">Esercizi</a>
+            <a href="#">Limiti sociali</a>
+            <a href="#">Podcast</a>
+            <a href="contatti.html">Contatti</a>
+          </div>
+          <a href="index.html" class="w3-bar-item w3-button company-name-main"
+            ><b>OLTRE</b> il limite</a
+          >
+        </div>
+      </div>
+    </nav>
 
-				<!-- OPEN COLLAPSED SIDEBAR -->
-				<div class="openbtn w3-bar-item" onclick="openNav()">
-					<div class="line1"></div>
-					<div class="line2"></div>
-					<div class="line3"></div>
-				</div>
+    <main>
+      <div class="main-wrapper">
+        <video autoplay muted loop width="1500" height="800">
+          <source src="Media/video/background-lim.mp4" type="video/mp4" />
+          Il tuo browser non supporta il tag video.
+        </video>
+        <div class="company-name-main">
+          <h1>
+            <span class="br-img">VAI</span>
+            <span class="title-divider">|</span>
+            <span class="architects-img">OLTRE</span>
+          </h1>
+        </div>
+      </div>
+    </main>
 
-				<!-- CLOSE -->
-				<div id="mySidebar" class="sidebar">
-					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-					<a href="#">Teoria</a>
-					<a href="#">Esercizi</a>
-					<a href="#">Limiti sociali</a>
-					<a href="#">Podcast</a>
-					<a href="contatti.html">Contatti</a>
-				</div>
-				<a href="index.html" class="w3-bar-item w3-button company-name-main"><b>OLTRE</b> il limite</a>
-			</div>
-		</div>
-	</nav>
-
-	<main>
-		<div class="main-wrapper">
-			<video autoplay muted loop width="1500" height="800">
-				<source src="Media/video/background-lim.mp4" type="video/mp4">
-				Il tuo browser non supporta il tag video.
-			</video>
-			<div class="title-container">
-				<h1>
-					<span class="title-bold">VAI</span>
-					<span class="title-divider">|</span>
-					<span class="title-light">OLTRE</span>
-				</h1>
-			</div>						
-		</div>
-	</main>
-	
-
-	<section class='projects-section' id=''>
-		<h3>
-			Projects
-		</h3>
-
-		<hr>
-
+    <section class="projects-section" id="">
+		<h3>Sezioni</h3>
+  
+		<hr />
+  
 		<div class="projects-container">
-			<div class="grid-container">
-				<div class="house-container">
-					<div class="house-name">TEORIA</div>
-					<img src="Media/img/house1.jpg" alt="">
-				</div>
-
-				<div class="house-container">
-					<div class="house-name">ESERCIZI</div>
-					<img src="Media/img/house2.jpg" alt="">
-				</div>
-
-				<div class="house-container">
-					<div class="house-name">LIMITI SOCIALI</div>
-					<img src="Media/img/house3.jpg" alt="">
-				</div>
-
-				<div class="house-container">
-					<div class="house-name">PODCAST</div>
-					<img src="Media/img/house4.jpg" alt="">
-				</div>
-				<div class="house-container">
-				</div>
-				<div class="house-container">
-				</div>
-				<div class="house-container">
-				</div>
-				<div class="house-container">
-				</div>
+		  <div class="grid-container">
+			<div class="house-container">
+			  <div class="house-name">TEORIA</div>
+			  <img src="Media/img/teoria.jpg" alt="" />
 			</div>
+  
+			<div class="house-container">
+			  <div class="house-name">ESERCIZI</div>
+			  <img src="Media/img/esercizi.jpg" alt="" />
+			</div>
+  
+			<div class="house-container">
+			  <div class="house-name">LIMITI SOCIALI</div>
+			  <img src="Media/img/limiti-sociali.jpg" alt="" />
+			</div>
+  
+			<div class="house-container">
+			  <div class="house-name">PODCAST</div>
+			  <img src="Media/img/podcast.jpg" alt="" />
+			</div>
+			<div class="house-container"></div>
+			<div class="house-container"></div>
+			<div class="house-container"></div>
+			<div class="house-container"></div>
+		  </div>
 		</div>
+	  </section>
 
-	</section>
+    <section class="about-section">
+      <h3>Chi siamo</h3>
+      <hr />
 
-	<section class='about-section'>
-		<h3>
-			About
-		</h3>
-		<hr>
+      <div class="about-team">
+        <div class="person-card" id="first-person">
+          <img src="Media/img/person1.jpg" alt="" />
+          <h3 class="person-name">
+            Francesco Bazaj<br />
+            Diego Renesto
+          </h3>
+          <p class="person-title">Home page e struttura</p>
+          <!-- p class="person-info">Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p> -->
+          <!-- <button class="person-contact">Contact</button> -->
+        </div>
 
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-			magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-			commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-			anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-			aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat.</p>
+        <div class="person-card">
+          <img src="Media/img/person2.jpg" alt="" />
+          <h3 class="person-name">Francesco Renesto</h3>
+          <p class="person-title">Teoria e casi particolari</p>
+          <!-- <p class="person-info">Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p> -->
+          <!-- <button class="person-contact">Contact</button> -->
+        </div>
 
-		<div class="about-team">
-			<div class="person-card" id='first-person'>
-				<img src="Media/img/person1.jpg" alt="">
-				<h3 class="person-name">Francesco Bazaj<br>
-					Diego Renesto</h3>
-				<p class="person-title">Home page e struttura</p>
-				<!-- p class="person-info">Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p> -->
-				<!-- <button class="person-contact">Contact</button> -->
-			</div>
+        <div class="person-card">
+          <img src="Media/img/person3.jpg" alt="" />
+          <h3 class="person-name">Nicolò Zanforlin</h3>
+          <p class="person-title">I limiti nella società</p>
+          <!-- <p class="person-info">Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p> -->
+          <!-- <button class="person-contact">Contact</button> -->
+        </div>
 
-			<div class="person-card">
-				<img src="Media/img/person2.jpg" alt="">
-				<h3 class="person-name">Francesco Renesto</h3>
-				<p class="person-title">Teoria e casi particolari</p>
-				<!-- <p class="person-info">Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p> -->
-				<!-- <button class="person-contact">Contact</button> -->
-			</div>
+        <div class="person-card" id="second-person">
+          <img src="Media/img/person4.jpg" alt="" />
+          <h3 class="person-name">Mattia Pavarin</h3>
+          <p class="person-title">Contatti e maps</p>
+          <!-- <p class="person-info">Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p> -->
+          <!-- <button class="person-contact">Contact</button> -->
+        </div>
+      </div>
+    </section>
 
-			<div class="person-card">
-				<img src="Media/img/person3.jpg" alt="">
-				<h3 class="person-name">Nicolò Zanforlin</h3>
-				<p class="person-title">I limiti nella società</p>
-				<!-- <p class="person-info">Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p> -->
-				<!-- <button class="person-contact">Contact</button> -->
-			</div>
+    <section class="contact-section">
+      <h3>Contact</h3>
+      <hr />
 
-			<div class="person-card" id='second-person'>
-				<img src="Media/img/person4.jpg" alt="">
-				<h3 class="person-name">Mattia Pavarin</h3>
-				<p class="person-title">Contatti e maps</p>
-				<!-- <p class="person-info">Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p> -->
-				<!-- <button class="person-contact">Contact</button> -->
-			</div>
-		</div>
-	</section>
+      <p>Lets get in touch and talk about your next project.</p>
 
-	<section class="contact-section">
-		<h3>
-			Contact
-		</h3>
-		<hr>
+      <form
+        action="mailto:francescobazaj@gmail.com"
+        method="post"
+        enctype="text/plain"
+      >
+        <input type="text" id="name" name="name" required placeholder="Nome" />
+        <input type="text" placeholder="Email" />
+        <input type="text" placeholder="Oggetto" />
+        <input type="text" placeholder="Corpo" />
 
-		<p>
-			Lets get in touch and talk about your next project.
-		</p>
+        <button class="send-btn" type="submit">SEND MESSAGE</button>
+      </form>
 
-		<form action="#">
-			<input type="text" placeholder='Name'>
-			<input type="text" placeholder='Email'>
-			<input type="text" placeholder='Subject'>
-			<input type="text" placeholder='Comment'>
+      <div style="flex: 1; min-width: 320px; padding: 20px">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2817.20907403341!2d11.794024976082914!3d45.08155327107018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477efa0aff203935%3A0x534ddf2955ad5bde!2sVia%20Alcide%20de%20Gasperi%2C%2021%2C%2045100%20Rovigo%20RO!5e0!3m2!1sit!2sit!4v1743023636421!5m2!1sit!2sit"
+          width="100%"
+          height="350"
+          style="
+            border: 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          "
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </section>
 
-		</form>
+    <script>
+      function myMap() {
+        var mapProp = {
+          center: new google.maps.LatLng(51.508742, -0.12085),
+          zoom: 5,
+        };
+        var map = new google.maps.Map(
+          document.getElementById("googleMap"),
+          mapProp
+        );
+      }
+    </script>
+    <script src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2817.20907403341!2d11.794024976082914!3d45.08155327107018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477efa0aff203935%3A0x534ddf2955ad5bde!2sVia%20Alcide%20de%20Gasperi%2C%2021%2C%2045100%20Rovigo%20RO!5e0!3m2!1sit!2sit!4v1743023636421!5m2!1sit!2sit"></script>
 
-		<button class="send-btn">
-			SEND MESSAGE
-		</button>
-
-	</section>
-
-	<!-- Google Map -->
-	<div id="googleMap" class="w3-grayscale" style="width:100%;height:450px;"></div>
-
-	<!-- Add Google Maps -->
-	<script>
-		function myMap() {
-			myCenter = new google.maps.LatLng(45.0807944, 11.7929186);
-			var mapOptions = {
-				center: myCenter,
-				zoom: 12, scrollwheel: false, draggable: false,
-				mapTypeId: google.maps.MapTypeId.ROADMAP
-			};
-			var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
-
-			var marker = new google.maps.Marker({
-				position: myCenter,
-			});
-			marker.setMap(map);
-		}
-	</script>
-	<script
-		src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2817.20907403341!2d11.794024976082914!3d45.08155327107018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477efa0aff203935%3A0x534ddf2955ad5bde!2sVia%20Alcide%20de%20Gasperi%2C%2021%2C%2045100%20Rovigo%20RO!5e0!3m2!1sit!2sit!4v1743023636421!5m2!1sit!2sit"
-		width="100%" height="350" style="border:0; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);"
-		allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></script>
-
-	<footer class="w3-center w3-black w3-padding-16">
-		<p>© 2025
-			<a href="https://github.com/diegorenesto" target="_blank">Diego Renesto</a>,
-			<a href="https://github.com/JurijGagarinFB" target="_blank">Francesco Bazaj</a>,
-			<a href="https://github.com/xRennyx" target="_blank">Francesco Renesto</a>,
-			<a href="https://github.com/zanfooo" target="_blank">Nicolò Zanforlin</a>,
-			<a href="https://github.com/MattiaMystic" target="_blank">Mattia Pavarin</a>
-		</p>
-	</footer>
-</body>
-
+    <footer class="w3-center w3-black w3-padding-16">
+      <p>
+        © 2025
+        <a href="https://github.com/diegorenesto" target="_blank"
+          >Diego Renesto</a
+        >,
+        <a href="https://github.com/JurijGagarinFB" target="_blank"
+          >Francesco Bazaj</a
+        >,
+        <a href="https://github.com/xRennyx" target="_blank"
+          >Francesco Renesto</a
+        >,
+        <a href="https://github.com/zanfooo" target="_blank">Nicolò Zanforlin</a
+        >,
+        <a href="https://github.com/MattiaMystic" target="_blank"
+          >Mattia Pavarin</a
+        >
+      </p>
+    </footer>
+  </body>
 </html>
