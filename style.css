@@ -3,84 +3,136 @@
 	padding: 0;
 }
 
-a, a:visited, a:before, a:after {
+a,
+a:visited,
+a:before,
+a:after {
 	text-decoration: none;
 	color: black;
 }
 
 a:hover {
-	background-color: 	#D3D3D3;
-	
+	background-color: #D3D3D3;
+
 }
 
 /* start navbar */
 /* The sidebar menu COLLAPSED SIDEBAR*/
 .sidebar {
-	height: 100%; /* 100% Full-height */
-	width: 0; /* 0 width - change this with JavaScript */
-	position: fixed; /* Stay in place */
-	z-index: 1; /* Stay on top */
+	height: 100%;
+	/* 100% Full-height */
+	width: 0;
+	/* 0 width - change this with JavaScript */
+	position: fixed;
+	/* Stay in place */
+	z-index: 1;
+	/* Stay on top */
 	top: 0;
 	left: 0;
-	background-color: black; /* Black*/
-	overflow-x: hidden; /* Disable horizontal scroll */
-	padding-top: 60px; /* Place content 60px from the top */
-	transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
-  }
-  
-  /* The sidebar links */
-  .sidebar a {
+	background-color: black;
+	/* Black*/
+	overflow-x: hidden;
+	/* Disable horizontal scroll */
+	padding-top: 60px;
+	/* Place content 60px from the top */
+	transition: 0.5s;
+	/* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+.sidebar a {
 	padding: 8px 8px 8px 32px;
 	text-decoration: none;
 	font-size: 25px;
 	color: #818181;
 	display: block;
 	transition: 0.3s;
-  }
-  
-  /* When you mouse over the navigation links, change their color */
-  .sidebar a:hover {
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
 	color: #f1f1f1;
-  }
-  
-  /* Position and style the close button (top right corner) */
-  .sidebar .closebtn {
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
 	position: absolute;
 	top: 0;
 	right: 25px;
-	font-size: 36px;
+	font-size: 40px;
 	margin-left: 50px;
-  }
-  
-  /* The button used to open the sidebar */
-  .openbtn {
-	font-size: 20px;
+}
+
+/* The button used to open the sidebar */
+
+.openbtn {
+	margin-top: 10px;
+	position: relative;
+	display: inline-block;
+	height: 50px;
 	cursor: pointer;
-	background-color: white;
-	color: black;
-	padding: 10px 15px;
-	border: none;
-  }
-  
-  .openbtn:hover {
-	background-color: #444;
-  }
-  
-  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-  #main {
-	transition: margin-left .5s; /* If you want a transition effect */
+}
+
+.openbtn div {
+	width: 70px;
+	height: 10px;
+	background-color: darkgray;
+	border-radius: 3px;
+	position: absolute;
+	transition: 0.4s;
+}
+
+.openbtn:hover div {
+	width: 100%;
+}
+
+.line1 {
+	top: 0;
+}
+
+.line2 {
+	top: calc(30%);
+}
+
+.line3 {
+	top: calc(60%);
+}
+
+.openbtn:hover .line1 {
+	transform: translate(10px, 7px) rotate(35deg);
+	border-radius: 7px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.openbtn:hover .line3 {
+	transform: translate(10px, -7px) rotate(-35deg);
+	border-radius: 7px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+	transition: margin-left .5s;
+	/* If you want a transition effect */
 	padding: 20px;
-  }
-  
-  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-	.sidebar {padding-top: 15px;}
-	.sidebar a {font-size: 18px;}
-  }
+}
 
-  
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+	.sidebar {
+		padding-top: 15px;
+	}
 
-  /*NAVBAR GIA' PRESENTE*/
+	.sidebar a {
+		font-size: 18px;
+	}
+}
+
+
+
+/*NAVBAR GIA' PRESENTE*/
 nav {
 	height: 50px;
 	box-shadow: 0 4px 2px -2px gray;
@@ -101,7 +153,7 @@ nav {
 	align-items: center;
 	letter-spacing: 3px;
 	font-size: 1.1em;
-	
+
 }
 
 .company-name {
@@ -128,7 +180,7 @@ main {
 	margin: auto;
 	text-align: center;
 	position: relative;
-	margin-top: 50px;
+	margin-top: 4%;
 	z-index: -1;
 }
 
@@ -143,7 +195,7 @@ img {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%,-50%);
+	transform: translate(-50%, -50%);
 }
 
 h1 {
@@ -157,7 +209,7 @@ h1 {
 
 .br-img {
 	padding: 8px 15px;
-	background-color: 	black;
+	background-color: black;
 	color: white;
 	opacity: 0.75;
 }
@@ -268,7 +320,7 @@ hr {
 
 .person-contact:hover {
 	cursor: pointer;
-	background-color:		#C8C8C8;
+	background-color: #C8C8C8;
 }
 
 /*end about section*/
@@ -329,20 +381,19 @@ footer {
 	text-align: center;
 	background-color: black;
 	color: white;
-  }
-  
-  footer p {
+}
+
+footer p {
 	margin-top: 15px;
 	margin-bottom: 15px;
-  }
-  
-  /* Personalizzazione dei link nel footer */
-  footer a {
-	color: white !important; 
-  }
-  
-  footer a:hover {
+}
+
+/* Personalizzazione dei link nel footer */
+footer a {
+	color: white !important;
+}
+
+footer a:hover {
 	color: white;
 	text-decoration: underline;
-  }
-  
+}
