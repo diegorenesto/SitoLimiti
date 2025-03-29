@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Vai oltre il limite</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
+</head>
+<script>
+    // OPEN SIDEBAR
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+    }
+
+    // CLOSE SIDEBAR
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+    }
+</script>
+
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <div id="main" class="w3-top">
+            <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+                <!-- OPEN COLLAPSED SIDEBAR -->
+                <button class="openbtn w3-bar-item" onclick="openNav()"
+                    style="background-color: transparent; padding-right: 80px">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </button>
+
+                <!-- CLOSE -->
+                <div id="mySidebar" class="sidebar">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="teoria.html">Teoria</a>
+                    <a href="#">Esercizi</a>
+                    <a href="#">Limiti sociali</a>
+                    <a href="#">Podcast</a>
+                    <a href="contatti.html" style="position: absolute; bottom: 0; margin-bottom: 20%;">Contatti</a>
+                    <a href="#" style="position: absolute; bottom: 0; margin-bottom: 5%; font-size: 15px;">Chi siamo</a>
+                </div>
+                <a href="index.html" class="w3-bar-item w3-button company-name-main"><b>OLTRE</b> il limite</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="main-wrapper">
+            <!-- 
+            <img src="Media/img/teoria.jpg" />
+            <div class="company-name-main">
+                <h1>
+                    <span class="br-img">TEORIA</span>
+                    <span class="title-divider">|</span>
+					<span class="architects-img">OLTRE</span>
+                -->
+            </h1>
+        </div>
+        </div>
+    </main>
+
+    <section class="about-section">
+        <div class="w3-center">
+            <h2><b>Teoria dei Limiti </b></h2>
+        </div>
+
+        <p><strong>Siano</strong> <span class="math">x₀, l ∈ ℝ</span>.</p>
+
+        <p>Allora:</p>
+        <ul>
+            <li>Un <strong>intorno di l</strong> <span class="math"></span> è un intervallo aperto che contiene <span
+                    class="math">l</span>, cioè un intervallo del tipo <span class="math">(l - ε, l + ε)</span>, dove
+                <span class="math">ε > 0</span>. → In pratica, è "tutto ciò che sta vicino" a <span
+                    class="math">l</span>, distante meno di <span class="math">ε</span>.
+            </li>
+            <li>Allo stesso modo, un <strong>intorno di x₀</strong> <span class="math"></span> è un intervallo del tipo
+                <span class="math">(x₀ - δ, x₀ + δ)</span>, dove <span class="math">δ > 0</span>. → Quindi è "tutto ciò
+                che sta vicino" a <span class="math">x₀</span>, distante meno di <span class="math">δ</span>.
+            </li>
+        </ul>
+
+        <p>Questa idea degli <strong>intorni</strong> serve per scrivere in modo rigoroso la definizione di limite.</p>
+
+        <p>In parole semplici: La funzione <span class="math">f(x)</span> ha limite <span class="math">l</span> per
+            <span class="math">x → x₀</span> se, facendo <span class="math">x</span> sufficientemente vicino a <span
+                class="math">x₀</span> (cioè dentro un intorno di <span class="math">x₀</span>, tranne eventualmente il
+            punto <span class="math">x₀</span> stesso), il valore di <span class="math">f(x)</span> rimane vicino a
+            <span class="math">l</span> (cioè dentro un intorno di <span class="math">l</span>).
+        </p>
+
+        <p><strong>Scritta in simboli:</strong></p>
+        <p class="math">∀ ε > 0  ∃ δ > 0  tale che  x ∈ (x₀ − δ, x₀ + δ) ∖ {x₀} ⇒ f(x) ∈ (l − ε, l + ε)</p>
+
+        <p>Per ogni numero positivo <span class="math">ε</span> (anche piccolissimo), cioè per ogni "tolleranza" che
+            vogliamo avere rispetto al valore limite <span class="math">l</span>,</p>
+        <p>esiste un numero positivo <span class="math">δ</span> (anche molto piccolo), che rappresenta "quanto vicino"
+            dobbiamo prendere i valori di <span class="math">x</span> intorno a <span class="math">x₀</span>, tale che:
+            ogni volta che prendiamo un valore di <span class="math">x</span> dentro l'intervallo <span class="math">(x₀
+                − δ, x₀ + δ)</span> ma diverso da <span class="math">x₀</span> (quindi ci avviciniamo ma non lo
+            tocchiamo), allora il valore di <span class="math">f(x)</span> starà sicuramente dentro l'intervallo <span
+                class="math">(l − ε, l + ε)</span>, cioè sarà "vicino" a <span class="math">l</span>.</p>
+
+        <p><strong>In pratica:</strong> Quando diciamo che il limite di <span class="math">f(x)</span> per <span
+                class="math">x → x₀</span> è <span class="math">l</span>, stiamo dicendo che:</p>
+        <p><span class="important">Possiamo rendere f(x) quanto vogliamo vicino a l, semplicemente scegliendo x
+                abbastanza vicino a x₀ (ma senza che sia proprio uguale a x₀).</span></p>
+
+        <p><strong>La regola è:</strong></p>
+        <p>Più piccolo scegliamo <span class="math">ε</span> → più piccolo dovremo scegliere <span
+                class="math">δ</span>, ma la cosa importante è che questo <span class="math">δ</span> esiste sempre.</p>
+        <img src="Media/img/grafico0.jpg">
+        </div>
+        </div>
+
+        <hr class="w3-border-grey" style="margin: auto; width: 40%" />
+        <div class="w3-center">
+            <h3>Limite di una costante</h3>
+            <div class="w3-row">
+                <div class="w3-col m6 w3-center w3-padding-large">
+                    <img src="Media/img/grafico1.jpg" class="w3-round w3-image" width="500" height="333">
+                </div>
+                <div class="w3-col m6 w3-padding-large">
+                    <p>Limite:
+                        <br>
+                        lim (x → a) c = c<br><br>
+                        Dimostrazione:
+                        Per ogni ε > 0, dobbiamo trovare δ > 0 tale che:<br>
+                        0 < |x - a| < δ ⇒ |c - c| < ε <br><br>
+                            Ma:
+                            |c - c| = 0 < ε (sempre vero, qualunque sia ε> 0)
+                                <br><br><br><br>
+                                Conclusione: Qualsiasi δ > 0 va bene.
+                    </p>
+                </div>
+            </div>
+
+            <hr class="w3-border-grey" style="margin:auto; width:40%; margin-top:5%" />
+            <div class="w3-center">
+                <h3>Limite della funzione identità</h3>
+                <div class="w3-row">
+                    <div class="w3-col m6 w3-center w3-padding-large">
+                        <img src="Media/img/grafico2.jpg" class="w3-round w3-image" width="500" height="333">
+                    </div>
+                    <div class="w3-col m6 w3-padding-large">
+                        <p>Limite:
+                            <br>
+                            lim (x → a) x = a
+                            <br><br>
+                            Dimostrazione:
+                            Per ogni ε > 0, dobbiamo trovare δ > 0 tale che:<br>
+                            0 < |x - a| < δ ⇒ |x - a| < ε <br> <br><br><br>
+                                Questa è direttamente verificata se scegliamo δ = ε.
+                        </p>
+                    </div>
+                </div>
+
+                <hr class="w3-border-grey" style="margin:auto; width:40%; margin-top:5%" />
+                <div class="w3-center">
+                    <h3>Limite di un polinomio (caso: x²)</h3>
+                    <div class="w3-row">
+                        <div class="w3-col m6 w3-center w3-padding-large">
+                            <img src="Media/img/grafico3.jpg" class="w3-round w3-image" width="500" height="333">
+                        </div>
+                        <div class="w3-col m6 w3-padding-large">
+                            <p>Limite:
+                                <br>
+                                lim (x → a) x² = a²
+                                <br><br>
+                                Dimostrazione:
+                                Per ogni ε > 0, dobbiamo trovare δ > 0 tale che:<br>
+                                0 < |x - a| < δ ⇒ |x² - a²| < ε <br><br>
+                                    Si ha: |x² - a²| = |x - a| ⋅ |x + a|
+                                    <br>
+                                    Poniamo |x - a| < 1; allora: |x + a| ≤ |x - a| + 2|a| < 1 + 2|a| <br><br>
+                                        Vogliamo: |x - a| ⋅ |x + a| < ε <br><br><br>
+                                            Quindi, scegliamo δ = min {1, ε / (1 + 2|a|)}.
+                            </p>
+                        </div>
+                    </div>
+
+                    <hr class="w3-border-grey" style="margin:auto; width:40%; margin-top:5%" />
+                    <div class="w3-center">
+                        <h3>Limite della radice quadrata</h3>
+                        <div class="w3-row">
+                            <div class="w3-col m6 w3-center w3-padding-large">
+                                <img src="Media/img/grafico4.jpg" class="w3-round w3-image" width="500" height="333">
+                            </div>
+                            <div class="w3-col m6 w3-padding-large">
+                                <p>Limite:<br>
+                                    lim (x → a) √x = √a (a > 0)
+                                    <br><br>
+                                    Dimostrazione:
+                                    Per ogni ε > 0, dobbiamo trovare δ > 0 tale che:
+                                    0 < |x - a| < δ ⇒ |√x - √a| < ε <br>
+                                        Uso dell'identità:
+                                        |√x - √a| = |x - a| / (√x + √a)
+                                        <br><br>
+                                        Per |x - a| < 1 e a> 0, abbiamo √x + √a ≥ √a.
+
+                                            Vogliamo:
+                                            |x - a| / (√x + √a) < ε <br>
+                                                È sufficiente che |x - a| < ε ⋅ √a. <br><br><br><br>
+                                                    Scegliamo:
+                                                    δ = min {1, ε ⋅ √a}.
+                                </p>
+                            </div>
+                        </div>
+
+                        <hr class="w3-border-grey" style="margin:auto; width:40%; margin-top:5%" />
+                        <div class="w3-center">
+                            <h3>Limite notevole del logaritmo</h3>
+                            <div class="w3-row">
+                                <div class="w3-col m6 w3-center w3-padding-large">
+                                    <img src="Media/img/grafico5.jpg" class="w3-round w3-image" width="500"
+                                        height="333">
+                                </div>
+                                <div class="w3-col m6 w3-padding-large">
+                                    <p>Limite:<br>
+                                        lim (x → 1) log(x) = 0
+                                        <br><br>
+                                        Dimostrazione:
+                                        Per ogni ε > 0, dobbiamo trovare δ > 0 tale che:<br>
+                                        0 < |x - 1| < δ ⇒ |log(x)| < ε <br><br>
+                                            Si ha:
+                                            |log(x)| < ε ⇔ e^(-ε) < x < e^ε <br><br><br><br>
+                                                Possiamo scegliere:
+                                                δ = min {1 - e^(-ε), e^ε - 1}.
+                                    </p>
+                                </div>
+                            </div>
+    </section>
+
+    <section class="projects-section" id="">
+        <hr class="w3-border-grey" style="margin: auto; width: 40%" />
+        <div class="w3-center">
+            <h3>Sezioni</h3>
+        </div>
+
+        <div class="projects-container">
+            <div class="grid-container">
+                <a href="index.html">
+                    <div class="house-container">
+                        <div class="house-name">HOME</div>
+                        <img src="Media/img/home.jpg" alt="Home Image">
+                        <div class="overlay">Torna alla home page</div>
+                    </div>
+                </a>
+
+                <div class="house-container">
+                    <div class="house-name">ESERCIZI</div>
+                    <img src="Media/img/esercizi.jpg" alt="">
+                </div>
+
+                <div class="house-container">
+                    <div class="house-name">LIMITI SOCIALI</div>
+                    <img src="Media/img/limiti-sociali.jpg" alt="">
+                </div>
+
+                <div class="house-container">
+                    <div class="house-name">PODCAST</div>
+                    <img src="Media/img/podcast.jpg" alt="">
+                </div>
+                <div class="house-container">
+                </div>
+                <div class="house-container">
+                </div>
+                <div class="house-container">
+                </div>
+                <div class="house-container">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function myMap() {
+            var mapProp = {
+                center: new google.maps.LatLng(51.508742, -0.12085),
+                zoom: 5,
+            };
+            var map = new google.maps.Map(
+                document.getElementById("googleMap"),
+                mapProp
+            );
+        }
+    </script>
+    <script
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2817.20907403341!2d11.794024976082914!3d45.08155327107018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477efa0aff203935%3A0x534ddf2955ad5bde!2sVia%20Alcide%20de%20Gasperi%2C%2021%2C%2045100%20Rovigo%20RO!5e0!3m2!1sit!2sit!4v1743023636421!5m2!1sit!2sit"></script>
+
+    <footer class="w3-center w3-black w3-padding-16">
+        <p>
+            © 2025
+            <a href="https://github.com/diegorenesto" target="_blank">Diego Renesto</a>,
+            <a href="https://github.com/JurijGagarinFB" target="_blank">Francesco Bazaj</a>,
+            <a href="https://github.com/xRennyx" target="_blank">Francesco Renesto</a>,
+            <a href="https://github.com/zanfooo" target="_blank">Nicolò Zanforlin</a>,
+            <a href="https://github.com/MattiaMystic" target="_blank">Mattia Pavarin</a>
+        </p>
+    </footer>
+</body>
+
+</html>
