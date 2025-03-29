@@ -49,41 +49,43 @@
         </div>
     </nav>
 
-    <main>
-        <div class="main-wrapper">
-            <video autoplay muted loop width="100%" height="800">
-                <source src="Media/video/background-lim.mp4" type="video/mp4" />
-                Il tuo browser non supporta il tag video.
-            </video>
-            <div class="company-name-main">
-                <h1>
-                    <span class="br-img">VAI</span>
-                    <span class="title-divider">|</span>
-                    <span class="architects-img">OLTRE</span>
-                </h1>
+
+    <section class='about-section'>
+        <h3>
+            About
+        </h3>
+        <hr>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+        <div class="about-team">
+            <div class="person-card" id='first-person'>
+                <img src="Media/img/home.jpg" alt="" width="500" height="500">
+                <h3 class="person-name">Francesco Bazaj | Diego Renesto</h3>
+                <p class="person-title">Home page e struttura</p>
+                <button class="person-contact">Contact</button>
             </div>
-        </div>
-    </main>
 
-    <section class="about-section">
-        <hr class="w3-border-grey" style="margin: auto; width: 40%" />
-        <div class="w3-center">
-            <h3>Definizione generale di limite</h3>
-        </div>
-        <p>
-            Intuitivamente, la frase "la funzione f(x) tende a l quando x tende a x₀" significa che
-            "i valori di f(x) sono vicini quanto si vuole a l, pur di scegliere x sufficientemente
-            vicino a x₀".<br><br>
-            Abbiamo ora tutti gli strumenti per tradurre questa definizione intuitiva in una
-            definizione formale:
-        <ol>
-            <li>Il concetto di intorno consente di esprimere con precisione il concetto di «vicinanza»;
-            <li>Il concetto di punto di accumulazione descrive quali caratteristiche deve avere un punto
-                x0 affinché abbia senso il calcolo del limite di una funzione f(x) per x³ x₀. Precisamente,
-                traduce la richiesta che la variabile x possa avvicinarsi quanto si vuole al valore x₀.
-        </ol>
+            <div class="person-card">
+                <img src="Media/img/teoria.jpg" alt="" width="500" height="500">
+                <h3 class="person-name">Francesco Renesto</h3>
+                <p class="person-title">Teoria e casi particolari</p>
+                <button class="person-contact">Contact</button>
+            </div>
 
-        </p>
+            <div class="person-card">
+                <img src="Media/img/limiti-sociali.jpg" alt="" width="500" height="500">
+                <h3 class="person-name">Nicolò Zanforlin</h3>
+                <p class="person-title">Limiti nella società</p>
+                <button class="person-contact">Contact</button>
+            </div>
+
+            <div class="person-card" id='second-person'>
+                <img src="Media/img/podcast.jpg" alt="" width="500" height="500">
+                <h3 class="person-name">Mattia Pavarin</h3>
+                <p class="person-title">Contatti e maps</p>
+                <button class="person-contact">Contact</button>
+            </div>
         </div>
     </section>
 
@@ -93,8 +95,9 @@
             <h3>Sezioni</h3>
         </div>
 
-        <div class="projects-container">
-            <div class="grid-container">
+        <div class="projects-container"
+            style="display: flex; justify-content: center; align-items: center; margin-bottom: 5vh;">
+            <div class="grid-container" style="display: flex; justify-content: center;">
                 <a href="index.html">
                     <div class="house-container">
                         <div class="house-name">HOME</div>
@@ -102,40 +105,9 @@
                         <div class="overlay">Torna alla home page</div>
                     </div>
                 </a>
-
-                <a href="teoria.html">
-                    <div class="house-container">
-                        <div class="house-name">TEORIA</div>
-                        <img src="Media/img/teoria.jpg" alt="Home Image">
-                        <div class="overlay">Vai alla sezione teoria</div>
-                    </div>
-                </a>
-
-                <a href="esercizi.html">
-                    <div class="house-container">
-                        <div class="house-name">ESERCIZI</div>
-                        <img src="Media/img/esercizi.jpg" alt="Home Image">
-                        <div class="overlay">Vai alla sezione esercizi</div>
-                    </div>
-                </a>
-
-                <a href="podcast.html">
-                    <div class="house-container">
-                        <div class="house-name">PODCAST</div>
-                        <img src="Media/img/podcast.jpg" alt="Home Image">
-                        <div class="overlay">Vai alla sezione podcast</div>
-                    </div>
-                </a>
-                <div class="house-container">
-                </div>
-                <div class="house-container">
-                </div>
-                <div class="house-container">
-                </div>
-                <div class="house-container">
-                </div>
             </div>
         </div>
+
     </section>
 
     <footer class="w3-center w3-black w3-padding-16">

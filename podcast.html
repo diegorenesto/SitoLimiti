@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Vai oltre il limite</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
+</head>
+<script>
+    // OPEN SIDEBAR
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+    }
+
+    // CLOSE SIDEBAR
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+    }
+</script>
+
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <div id="main" class="w3-top">
+            <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+                <!-- OPEN COLLAPSED SIDEBAR -->
+                <button class="openbtn w3-bar-item" onclick="openNav()"
+                    style="background-color: transparent; padding-right: 80px">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </button>
+
+                <!-- CLOSE -->
+                <div id="mySidebar" class="sidebar">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="teoria.html">Teoria</a>
+                    <a href="esercizi.html">Esercizi</a>
+                    <a href="limiti-sociali.html">Limiti sociali</a>
+                    <a href="podcast.html">Podcast</a>
+                    <a href="contatti.html" style="position: absolute; bottom: 0; margin-bottom: 20%;">Contatti</a>
+                    <a href="chi-siamo.html"
+                        style="position: absolute; bottom: 0; margin-bottom: 5%; font-size: 15px;">Chi siamo</a>
+                </div>
+                <a href="index.html" class="w3-bar-item w3-button company-name-main"><b>OLTRE</b> il limite</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="main-wrapper">
+            <video autoplay muted loop width="100%" height="800">
+                <source src="Media/video/background-lim.mp4" type="video/mp4" />
+                Il tuo browser non supporta il tag video.
+            </video>
+            <div class="company-name-main">
+                <h1>
+                    <span class="br-img">VAI</span>
+                    <span class="title-divider">|</span>
+                    <span class="architects-img">OLTRE</span>
+                </h1>
+            </div>
+        </div>
+    </main>
+
+    <section class="about-section">
+        <hr class="w3-border-grey" style="margin: auto; width: 40%" />
+        <div class="w3-center">
+            <h3>Definizione generale di limite</h3>
+        </div>
+        <p>
+            Intuitivamente, la frase "la funzione f(x) tende a l quando x tende a x₀" significa che
+            "i valori di f(x) sono vicini quanto si vuole a l, pur di scegliere x sufficientemente
+            vicino a x₀".<br><br>
+            Abbiamo ora tutti gli strumenti per tradurre questa definizione intuitiva in una
+            definizione formale:
+        <ol>
+            <li>Il concetto di intorno consente di esprimere con precisione il concetto di «vicinanza»;
+            <li>Il concetto di punto di accumulazione descrive quali caratteristiche deve avere un punto
+                x0 affinché abbia senso il calcolo del limite di una funzione f(x) per x³ x₀. Precisamente,
+                traduce la richiesta che la variabile x possa avvicinarsi quanto si vuole al valore x₀.
+        </ol>
+
+        </p>
+        </div>
+    </section>
+
+    <section class="projects-section" id="">
+        <hr class="w3-border-grey" style="margin: auto; width: 40%" />
+        <div class="w3-center">
+            <h3>Sezioni</h3>
+        </div>
+
+        <div class="projects-container">
+            <div class="grid-container">
+                <a href="index.html">
+                    <div class="house-container">
+                        <div class="house-name">HOME</div>
+                        <img src="Media/img/home.jpg" alt="Home Image">
+                        <div class="overlay">Torna alla home page</div>
+                    </div>
+                </a>
+
+                <a href="teoria.html">
+                    <div class="house-container">
+                        <div class="house-name">TEORIA</div>
+                        <img src="Media/img/teoria.jpg" alt="Home Image">
+                        <div class="overlay">Vai alla sezione teoria</div>
+                    </div>
+                </a>
+
+                <a href="esercizi.html">
+                    <div class="house-container">
+                        <div class="house-name">ESERCIZI</div>
+                        <img src="Media/img/esercizi.jpg" alt="Home Image">
+                        <div class="overlay">Vai alla sezione esercizi</div>
+                    </div>
+                </a>
+
+                <a href="limiti-sociali.html">
+                    <div class="house-container">
+                        <div class="house-name">LIMITI SOCIALI</div>
+                        <img src="Media/img/limiti-sociali.jpg" alt="Home Image">
+                        <div class="overlay">Vai ai limiti sociali</div>
+                    </div>
+                </a>
+                <div class="house-container">
+                </div>
+                <div class="house-container">
+                </div>
+                <div class="house-container">
+                </div>
+                <div class="house-container">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="w3-center w3-black w3-padding-16">
+        <p>
+            © 2025
+            <a href="https://github.com/diegorenesto" target="_blank">Diego Renesto</a>,
+            <a href="https://github.com/JurijGagarinFB" target="_blank">Francesco Bazaj</a>,
+            <a href="https://github.com/xRennyx" target="_blank">Francesco Renesto</a>,
+            <a href="https://github.com/zanfooo" target="_blank">Nicolò Zanforlin</a>,
+            <a href="https://github.com/MattiaMystic" target="_blank">Mattia Pavarin</a>
+        </p>
+    </footer>
+</body>
+
+</html>
