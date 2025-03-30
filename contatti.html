@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
     <meta charset="UTF-8" />
@@ -7,28 +7,42 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
     <style>
-        .responsive-flex {
+        .contact-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 1200px;
+            margin: 0 auto 40px;
         }
-        .responsive-flex > div {
+        .contact-info {
+            flex: 1;
+            padding: 40px;
+            min-width: 300px;
+        }
+        .map-wrapper {
             flex: 1;
             min-width: 300px;
         }
-        .contact-card {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        .map-container {
+        #contact-map {
+            width: 100%;
             height: 100%;
             min-height: 350px;
+            border: 0;
         }
-        iframe {
-            border-radius: 20px;
-            height: 100%;
+        .form-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+            }
+            #contact-map {
+                min-height: 300px;
+            }
         }
     </style>
 </head>
@@ -66,7 +80,7 @@
         padding: 80px 20px;
         font-family: 'San Francisco', -apple-system, BlinkMacSystemFont,
           'Segoe UI', 'Roboto', sans-serif;
-      ">
+    ">
         <h2 style="
           font-size: 3em;
           margin-bottom: 40px;
@@ -78,10 +92,10 @@
             Contatti
         </h2>
 
-        <!-- PRIMA SEZIONE: Info + Mappa (affiancate) -->
-        <div class="responsive-flex" style="max-width: 1200px; margin: 0 auto 40px;">
-            <!-- Info Contatti -->
-            <div class="contact-card">
+        <!-- SEZIONE UNICA: Info + Mappa integrate -->
+        <div class="contact-container">
+            <!-- Info Contatti (sinistra) -->
+            <div class="contact-info">
                 <h3 style="color: #0078d4; font-size: 1.8em; margin-bottom: 20px;">Contattaci</h3>
                 <p style="font-size: 1.1em; line-height: 1.8; color: #333;"><strong>📞 Telefono:</strong> 0425 410699</p>
                 <p style="font-size: 1.1em; line-height: 1.8; color: #333;"><strong>📧 Email:</strong> <a href="mailto:rois012001@istruzione.it" style="color: #0078d4; text-decoration: none;">rois012001@istruzione.it</a></p>
@@ -89,15 +103,15 @@
                 <p style="font-size: 1.1em; line-height: 1.8; color: #333;"><strong>⏰ Orari di apertura:</strong><br> Lunedì - Sabato: 08:00 - 13:30 <br> Domenica: Chiuso</p>
             </div>
             
-            <!-- Mappa -->
-            <div class="contact-card map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2817.20907403341!2d11.794024976082914!3d45.08155327107018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477efa0aff203935%3A0x534ddf2955ad5bde!2sVia%20Alcide%20de%20Gasperi%2C%2021%2C%2045100%20Rovigo%20RO!5e0!3m2!1sit!2sit!4v1743023636421!5m2!1sit!2sit" 
-                    width="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <!-- Mappa (destra) - INTEGRATA NELLO STESSO RIQUADRO -->
+            <div class="map-wrapper">
+                <iframe id="contact-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2817.20907403341!2d11.794024976082914!3d45.08155327107018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477efa0aff203935%3A0x534ddf2955ad5bde!2sVia%20Alcide%20de%20Gasperi%2C%2021%2C%2045100%20Rovigo%20RO!5e0!3m2!1sit!2sit!4v1743023636421!5m2!1sit!2sit" 
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
 
-        <!-- SECONDA SEZIONE: Form Email (full-width sotto) -->
-        <div class="contact-card" style="max-width: 1200px; margin: 0 auto;">
+        <!-- SEZIONE FORM (sotto) -->
+        <div class="form-container contact-card">
             <h3 style="color: #0078d4; font-size: 1.8em; margin-bottom: 30px;">Invia un messaggio</h3>
             <form id="contactForm" action="https://formspree.io/f/xaneddwl" method="POST">
                 <input type="hidden" name="_next" value="success.html">
