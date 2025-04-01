@@ -2,20 +2,10 @@
 <html lang="en">
 
 <head>
-    <link rel="icon" href="Media/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8" />
     <title>Vai oltre il limite</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
-    <style>
-        .contenuto {
-            padding: 20px;
-            margin: 10px;
-            border: 1px solid #000;
-            display: none;
-            /* Impostiamo inizialmente a 'none' */
-        }
-    </style>
 </head>
 
 <body>
@@ -51,6 +41,16 @@
     <!-- MAIN -->
     <main>
         <div class="main-wrapper">
+            <!-- 
+            <img src="Media/img/teoria.jpg" />
+            <div class="company-name-main">
+                <h1>
+                    <span class="br-img">TEORIA</span>
+                    <span class="title-divider">|</span>
+					<span class="architects-img">OLTRE</span>
+                -->
+            </h1>
+        </div>
         </div>
     </main>
 
@@ -81,12 +81,14 @@
                 <!-- Pulsanti per scegliere quale contenuto vedere -->
                 <div class="w3-center">
                     <br><br>
-                    <div class="button-container">
+                    <div class="button-container flex-container">
                         <br><br>
-                        <button class="btn" onclick="showContent(0)">Ansia, panico e paura</button>
-                        <button class="btn" onclick="showContent(1)">Psicologia</button>
-                        <button class="btn" onclick="showContent(2)">La gestione del tempo</button>
-                        <button class="btn" onclick="showContent(3)">Psicologia delle relazioni</button>
+                        <button class="btn active w3-col m3 flex-item" onclick="showContent(0)">Ansia, panico e
+                            paura</button>
+                        <button class="btn w3-col m3 flex-item" onclick="showContent(1)">Psicologia</button>
+                        <button class="btn w3-col m3 flex-item" onclick="showContent(2)">La gestione del tempo</button>
+                        <button class="btn w3-col m3 flex-item" onclick="showContent(3)">Psicologia delle
+                            relazioni</button>
                     </div>
                 </div>
 
@@ -143,9 +145,7 @@
                 </div>
 
                 <div id="contenuto2" class="contenuto">
-                    <h2>PSICOLOGIA</h2>
-                    <h3>
-                        After Life</h3>
+                    <h2>AFTER LIFE</h2>
                     <p><strong>Partiamo da un semplice titolo di una serie TV, “After Life”, per affrontare un tema
                             delicato
                             ma
@@ -270,8 +270,8 @@
                 <table class="info-table">
                     <thead>
                         <tr>
-                            <th>Categorie</th>
-                            <th>Spiegazione e Q&A</th>
+                            <th style="background-color: lightgray;">Categorie</th>
+                            <th style="background-color: lightgray;">Spiegazione e Q&A</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -285,8 +285,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>Psicologia</strong></td>
-                            <td>
+                            <td style="background-color: lightgray;"><strong>Psicologia</strong></td>
+                            <td style="background-color: lightgray;">
                                 <p><strong>Perché l'elaborazione del lutto è così difficile?</strong> Ogni persona
                                     elabora la perdita in modo unico, e il lutto richiede tempo.</p>
                                 <p><strong>Come superare la Sindrome Post-Vacanze?</strong> Riconoscere i segnali e
@@ -301,8 +301,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>Relazioni familiari e impatto psicologico</strong></td>
-                            <td>
+                            <td style="background-color: lightgray;"><strong>Relazioni familiari e impatto
+                                    psicologico</strong></td>
+                            <td style="background-color: lightgray;">
                                 <p><strong>Come la psicologia aiuta nella vita quotidiana?</strong>
                                     Le relazioni familiari plasmano le nostre capacità sociali. Riconoscere e
                                     gestire i conflitti aiuta a prevenire disagi emotivi che possono influenzare la
@@ -393,30 +394,49 @@
     </script>
 
     <script>
-
-        window.onload = function () {
-            // Mostra automaticamente il contenuto "Ansia, panico e paura" al caricamento della pagina
-            showContent(0);
-        };
+        let activeContentIndex = null;
 
         function showContent(index) {
-            // Otteniamo tutti i contenuti
-            var contenuti = document.querySelectorAll('.contenuto');
+            let contents = document.getElementsByClassName("contenuto");
+            let buttons = document.getElementsByClassName("btn");
 
-            // Se il contenuto è già visibile, lo nascondiamo
-            if (contenuti[index].style.display === 'block') {
-                contenuti[index].style.display = 'none';
-            } else {
-                // Nascondiamo tutti i contenuti
-                contenuti.forEach(function (contenuto) {
-                    contenuto.style.display = 'none';
-                });
+            // Se la scheda è già aperta, non chiuderla
+            if (activeContentIndex === index) return;
 
-                // Mostriamo il contenuto selezionato
-                contenuti[index].style.display = 'block';
+            // Nasconde tutti i contenuti e rimuove la classe "active" dai bottoni
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].style.display = "none";
+                buttons[i].classList.remove("active");
             }
+
+            // Mostra il contenuto selezionato e aggiunge la classe "active"
+            contents[index].style.display = "block";
+            buttons[index].classList.add("active");
+
+            // Aggiorna l'indice della scheda attiva
+            activeContentIndex = index;
         }
+
+        // Assicura che la prima scheda sia visibile all'inizio
+        document.addEventListener("DOMContentLoaded", function () {
+            showContent(0);
+        });
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let buttons = document.querySelectorAll(".btn");
+
+            buttons.forEach(button => {
+                button.addEventListener("click", function () {
+                    // Rimuove la classe 'active' da tutti i bottoni
+                    buttons.forEach(btn => btn.classList.remove("active"));
+                    // Aggiunge la classe 'active' al bottone cliccato
+                    this.classList.add("active");
+                });
+            });
+        });
+    </script>
+
 </body>
 
 </html>
