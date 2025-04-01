@@ -434,7 +434,7 @@ footer a:hover {
 }
 
 /* Aggiungi uno spazio tra il bullet e il testo */
-bullet { 
+bullet {
   /* display: inline-block; */
   margin-left: 10px;
 }
@@ -444,4 +444,88 @@ bullet {
   .bullet {
     display: none; /* Nascondi i bullet sugli schermi piccoli */
   }
+}
+/* BUTTON */
+button {
+  background-color: gray;
+  color: white;
+  border: 1px solid gray;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: transform 0.2s ease, background-color 0.3s, border-color 0.3s;
+  outline: none;
+}
+
+/* Nuova classe per regolare solo i bottoni */
+.button-container {
+  position: relative;
+  top: -30px; /* Sposta i bottoni verso l'alto senza toccare il contenuto sottostante */
+}
+
+.button-container button {
+  margin-top: 0; /* Assicurati che i bottoni non abbiano margine sopra */
+}
+
+button:hover {
+  background-color: #357ab7;
+  border-color: #357ab7;
+  transform: translateY(-3px);
+}
+
+button:focus {
+  border-color: #357ab7;
+}
+
+/* STRUTTURA GENERALE */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-wrapper {
+  flex: 1;
+}
+
+footer {
+  margin-top: auto;
+}
+
+/* CONTENUTO & TABELLA */
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.text-content {
+  width: 65%;
+  max-width: 70%;
+}
+
+.right-column {
+  width: 30%;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-left: 2px solid #ddd;
+}
+
+/* TABELLA */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.info-table th, .info-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.info-table th {
+  background-color: #f1f1f1;
+  font-weight: bold;
 }

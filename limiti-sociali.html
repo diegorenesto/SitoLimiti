@@ -6,19 +6,16 @@
     <title>Vai oltre il limite</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
+    <style>
+        .contenuto {
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid #000;
+            display: none;
+            /* Impostiamo inizialmente a 'none' */
+        }
+    </style>
 </head>
-<script>
-    // OPEN SIDEBAR
-    function openNav() {
-        document.getElementById("mySidebar").style.width = "250px";
-    }
-
-    // CLOSE SIDEBAR
-    function closeNav() {
-        document.getElementById("mySidebar").style.width = "0";
-        document.getElementById("main").style.marginLeft = "0";
-    }
-</script>
 
 <body>
     <!-- NAVBAR -->
@@ -40,7 +37,8 @@
                     <a href="esercizi.html">Esercizi</a>
                     <a href="limiti-sociali.html">Limiti sociali</a>
                     <a href="podcast.html">Podcast</a>
-                    <a href="contatti.html" style="position: absolute; bottom: 0; margin-bottom: 20%;">Contatti</a>
+                    <a href="index.html#contatti"
+                        style="position: absolute; bottom: 0; margin-bottom: 20%;">Contatti</a>
                     <a href="chi-siamo.html"
                         style="position: absolute; bottom: 0; margin-bottom: 5%; font-size: 15px;">Chi siamo</a>
                 </div>
@@ -49,43 +47,281 @@
         </div>
     </nav>
 
+    <!-- MAIN -->
     <main>
         <div class="main-wrapper">
-            <video autoplay muted loop width="100%" height="800">
-                <source src="Media/video/background-lim.mp4" type="video/mp4" />
-                Il tuo browser non supporta il tag video.
-            </video>
+            <!-- 
+            <img src="Media/img/teoria.jpg" />
             <div class="company-name-main">
                 <h1>
-                    <span class="br-img">VAI</span>
+                    <span class="br-img">TEORIA</span>
                     <span class="title-divider">|</span>
-                    <span class="architects-img">OLTRE</span>
-                </h1>
-            </div>
+					<span class="architects-img">OLTRE</span>
+                -->
+            </h1>
+        </div>
         </div>
     </main>
 
     <section class="about-section">
         <hr class="w3-border-grey" style="margin: auto; width: 40%" />
         <div class="w3-center">
-            <h3>Definizione generale di limite</h3>
+            <h3 style="
+              font-size: 2.5em;
+              margin-bottom: 40px;
+              color: #333;
+              font-weight: bold;
+              letter-spacing: -1px;
+            ">
+                Limiti Sociali
+            </h3>
         </div>
-        <p>
-            Intuitivamente, la frase "la funzione f(x) tende a l quando x tende a x₀" significa che
-            "i valori di f(x) sono vicini quanto si vuole a l, pur di scegliere x sufficientemente
-            vicino a x₀".<br><br>
-            Abbiamo ora tutti gli strumenti per tradurre questa definizione intuitiva in una
-            definizione formale:
-        <ol>
-            <li>Il concetto di intorno consente di esprimere con precisione il concetto di «vicinanza»;
-            <li>Il concetto di punto di accumulazione descrive quali caratteristiche deve avere un punto
-                x0 affinché abbia senso il calcolo del limite di una funzione f(x) per x³ x₀. Precisamente,
-                traduce la richiesta che la variabile x possa avvicinarsi quanto si vuole al valore x₀.
-        </ol>
 
-        </p>
+        <div class="content-container">
+            <div class="text-content">
+                <p>
+                    Proprio come in matematica, dove i limiti ci mostrano cosa accade quando ci avviciniamo a un valore
+                    estremo, nella società esistono limiti invisibili che definiscono ciò che è accettabile, possibile o
+                    impossibile. In questa sezione esploreremo come questi "limiti sociali" influenzano le nostre
+                    interazioni quotidiane e come li possiamo superare o comprendere meglio, proprio come in un problema
+                    matematico.
+                </p>
+
+                <!-- Pulsanti per scegliere quale contenuto vedere -->
+                <div class="w3-center">
+                    <br><br>
+                    <div class="button-container">
+                        <br><br>
+                        <button class="btn" onclick="showContent(0)">Ansia, panico e paura</button>
+                        <button class="btn" onclick="showContent(1)">Psicologia</button>
+                        <button class="btn" onclick="showContent(2)">La gestione del tempo</button>
+                        <button class="btn" onclick="showContent(3)">Psicologia delle relazioni</button>
+                    </div>
+                </div>
+
+
+                <!-- I contenuti -->
+                <div id="contenuto1" class="contenuto">
+                    <h2>L'ANSIA TRA I BANCHI DI SCUOLA</h2>
+                    <p><strong>Quando la preoccupazione eccessiva per il successo scolastico diventa ansia</strong></p>
+                    <p>L'ansia scolastica è un disturbo molto comune tra gli adolescenti e i bambini della nostra
+                        generazione.
+                        Nasce
+                        dal desiderio di essere accettati, ammirati e amati e dalla paura di non riuscire a raggiungere
+                        le
+                        aspettative degli altri. Questo fenomeno è sempre più presente nelle scuole di oggi, dove le
+                        pressioni
+                        sociali e scolastiche sembrano crescere ogni anno di più.</p>
+
+                    <p><em>Therapy Center - Ansia, panico e paura, Gestione figli, Psicologia e scuola</em><br>Maggio
+                        16,
+                        2022
+                    </p>
+
+                    <h3>La carriera</h3>
+                    <p><strong>La sequenza psicologica legata alla sfera del lavoro</strong></p>
+                    <p>Il passaggio dal mondo scolastico a quello lavorativo non è facile. Al termine del percorso
+                        scolastico si
+                        verifica una situazione in cui si devono ricreare ruolo sociale, identità, prospettive di vita.
+                        Questo
+                        processo è una delle sfide più difficili per molti giovani, che spesso si trovano disorientati
+                        di
+                        fronte
+                        al
+                        mondo del lavoro e alle sue aspettative.</p>
+
+                    <p><em>Therapy Center - Ansia, panico e paura, Psicologia, Psicologia e altro</em><br>Marzo 21, 2022
+                    </p>
+
+                    <h3>L'Appiattimento: L'impoverimento della reattività emotiva</h3>
+                    <p><strong>Lo troviamo nella vita di tutti i giorni o solo nella psicopatologia?</strong></p>
+                    <p>Nella vita quotidiana accadono eventi che innescano, normalmente, in chi li vive delle emozioni,
+                        sia
+                        positive
+                        che negative. L'emotività è, infatti, una condizione essenziale dell'esistenza. Tuttavia, a
+                        volte,
+                        si
+                        può
+                        osservare un fenomeno di "appiattimento emotivo", in cui le persone non riescono più a provare
+                        una
+                        risposta
+                        emozionale adeguata agli stimoli. Questo stato può essere presente sia nella psicopatologia che
+                        nella
+                        vita
+                        quotidiana, ed è spesso un segno di disagio emotivo.</p>
+                </div>
+
+                <div id="contenuto2" class="contenuto">
+                    <h2>After Life</h2>
+                    <p><strong>Partiamo da un semplice titolo di una serie TV, “After Life”, per affrontare un tema
+                            delicato
+                            ma
+                            allo
+                            stesso tempo scomodo e difficile: la morte e le diverse fasi di elaborazione del
+                            lutto.</strong>
+                    </p>
+                    <p>Nella serie, il protagonista Tony, interpretato magistralmente dall'attore Ricky Gervais,
+                        attraversa
+                        una
+                        profonda sofferenza per la perdita della moglie, e la serie esplora le sue emozioni, i suoi
+                        conflitti e
+                        il
+                        modo in cui cerca di affrontare la sua vita dopo questa tragedia. L'elaborazione del lutto e il
+                        superamento
+                        della perdita sono temi fondamentali che toccano la fragilità umana e il percorso di
+                        accettazione e
+                        guarigione.</p>
+
+                    <p><em>Therapy Center - Psicologia</em><br>Settembre 23, 2024</p>
+
+                    <h3>Sindrome Post-Vacanze</h3>
+                    <p><strong>Nel dolce rifugio di giorni estivi, dove il sole danza e il tempo è un flusso, ci
+                            abbracciamo
+                            all'azzurro dei cieli, liberi, spensierati, come il vento. Ma ecco che l'ombra con passo
+                            furtivo
+                            s'insinua tra le risate e i canti…</strong></p>
+                    <p>La Sindrome Post-Vacanze è un fenomeno psicologico che colpisce molte persone dopo il ritorno
+                        dalle
+                        vacanze.
+                        La sensazione di tristezza, il ritorno alla routine quotidiana e la difficoltà nel riadattarsi
+                        alla
+                        vita
+                        lavorativa o scolastica possono creare uno stato di stress e ansia. Questo disturbo transitorio
+                        può
+                        essere
+                        visto come una sorta di "shock" che si verifica al ritorno dalla libertà delle vacanze, quando
+                        le
+                        aspettative e la realtà entrano in conflitto.</p>
+
+                    <p><em>Therapy Center - Psicologia</em><br>Settembre 23, 2024</p>
+
+                    <h3>Tecniche di stimolazione cerebrale non invasiva</h3>
+                    <p><strong>Sviluppo della neurostimolazione</strong></p>
+                    <p>I progressi delle neuroscienze cognitive sono legati all'affermarsi delle tecniche di
+                        neurostimolazione.
+                        L'applicazione di correnti elettriche al cervello umano ha una storia molto lunga che affonda le
+                        radici
+                        nella medicina. Oggi, tecniche non invasive come la stimolazione transcranica a corrente
+                        continua
+                        (tDCS)
+                        stanno guadagnando attenzione per i loro potenziali effetti positivi in ambito clinico e
+                        terapeutico.
+                        Questi
+                        approcci promettono di migliorare il trattamento di disturbi neurologici, come la depressione, e
+                        possono
+                        essere applicati anche nella riabilitazione cognitiva.</p>
+
+                    <p><em>Therapy Center - Psicologia</em><br>Maggio 7, 2023</p>
+                </div>
+
+                <div id="contenuto3" class="contenuto">
+                    <h2>LA STRESSANTE REALTÀ DELLA GESTIONE DEL TEMPO</h2>
+                    <p><strong>Come la gestione del tempo può influenzare il nostro benessere mentale</strong></p>
+                    <p>Molti di noi vivono con la costante sensazione di non avere abbastanza tempo. Le giornate
+                        sembrano sempre troppo brevi e gli impegni si accumulano. La gestione del tempo è una delle
+                        sfide più difficili in un mondo frenetico, dove la pressione sociale e le aspettative di
+                        produttività non fanno altro che aumentare.</p>
+
+                    <p><em>Time Management Expert - Gestione del tempo, Stress e produttività</em><br>Luglio 9, 2024</p>
+
+                    <h3>L'importanza della pianificazione</h3>
+                    <p><strong>Come una buona pianificazione può migliorare la qualità della vita</strong></p>
+                    <p>Pianificare le proprie giornate non significa solo organizzare il tempo, ma anche capire le
+                        priorità e concedersi momenti di relax. Una corretta gestione del tempo aiuta a ridurre lo
+                        stress e a migliorare il focus, permettendo di vivere una vita più equilibrata e soddisfacente.
+                    </p>
+
+                    <p><em>Time Management Expert - Organizzazione, Produttività e Stress</em><br>Luglio 14, 2024</p>
+
+                    <h3>Stress e procrastinazione</h3>
+                    <p><strong>Come lo stress influisce sulla nostra capacità di procrastinare</strong></p>
+                    <p>Lo stress è uno dei principali fattori che porta alla procrastinazione. Quando ci sentiamo
+                        sopraffatti dalla mole di lavoro, tendiamo a rimandare ciò che ci crea ansia. Questo crea un
+                        circolo vizioso che alimenta la frustrazione e aumenta ulteriormente il livello di stress.</p>
+
+                    <p><em>Time Management Expert - Stress, Ansia e Procrastinazione</em><br>Giugno 23, 2024</p>
+                </div>
+
+                <div id="contenuto4" class="contenuto">
+                    <h2>LA PSICOLOGIA DELLE RELAZIONI INTERPERSONALI</h2>
+                    <p><strong>Come le dinamiche sociali influenzano il nostro comportamento</strong></p>
+                    <p>Le relazioni interpersonali sono uno degli aspetti più importanti della vita umana. La psicologia
+                        delle relazioni ci aiuta a capire come interagiamo con gli altri, come costruiamo legami e come
+                        affrontiamo le sfide relazionali, dalla famiglia alla sfera professionale.</p>
+
+                    <p><em>Relational Psychology Institute - Psicologia delle relazioni, Comportamento
+                            sociale</em><br>Ottobre 2, 2024</p>
+
+                    <h3>Le dinamiche di potere nelle relazioni</h3>
+                    <p><strong>Quando il potere può influenzare le nostre scelte e le nostre emozioni</strong></p>
+                    <p>Ogni relazione interpersonale ha una dinamica di potere, che può essere esplicita o implicita. In
+                        molte situazioni, l'influenza e il controllo sono alla base di alcuni conflitti. Comprendere
+                        queste dinamiche è fondamentale per mantenere relazioni sane e rispettose.</p>
+
+                    <p><em>Relational Psychology Institute - Potere nelle relazioni, Psicologia sociale</em><br>Ottobre
+                        10, 2024</p>
+
+                    <h3>Relazioni familiari e impatto psicologico</h3>
+                    <p><strong>Il ruolo della famiglia nel nostro benessere psicologico</strong></p>
+                    <p>La famiglia è la prima fonte di supporto emotivo, ma anche di stress. Le dinamiche familiari
+                        influenzano profondamente il nostro sviluppo psicologico, la nostra autostima e la nostra
+                        capacità di relazionarci con gli altri. Esplorare queste dinamiche ci permette di capire meglio
+                        noi stessi e il nostro comportamento sociale.</p>
+
+                    <p><em>Relational Psychology Institute - Psicologia familiare, Comportamento umano</em><br>Settembre
+                        18, 2024</p>
+                </div>
+            </div>
+            <!-- RIGHT CONTENT (TABLE) -->
+            <div class="right-column">
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th>Categorie</th>
+                            <th>Spiegazione e Q&A</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Ansia, panico e paura</strong></td>
+                            <td>
+                                <p><strong>Cos'è l'ansia scolastica?</strong> È la preoccupazione eccessiva legata alle
+                                    aspettative scolastiche.</p>
+                                <p><strong>Come affrontare la paura del fallimento?</strong> Comprendere che gli errori
+                                    fanno parte del processo di crescita.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Psicologia</strong></td>
+                            <td>
+                                <p><strong>Perché l'elaborazione del lutto è così difficile?</strong> Ogni persona
+                                    elabora la perdita in modo unico, e il lutto richiede tempo.</p>
+                                <p><strong>Come superare la Sindrome Post-Vacanze?</strong> Riconoscere i segnali e
+                                    adattarsi lentamente alla routine quotidiana.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>La gestione del tempo</strong></td>
+                            <td>
+                                <p><strong>In che modo la psicologia può aiutare nella vita quotidiana?</strong> La
+                                    psicologia ci aiuta a comprendere le emozioni e migliorare il benessere mentale.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Relazioni familiari e impatto psicologico</strong></td>
+                            <td>
+                                <p><strong>Come la psicologia aiuta nella vita quotidiana?</strong>
+                                    Le relazioni familiari plasmano le nostre capacità sociali. Riconoscere e
+                                    gestire i conflitti aiuta a prevenire disagi emotivi che possono influenzare la
+                                    nostra vita e i rapporti con gli altri.</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
+
 
     <section class="projects-section" id="">
         <hr class="w3-border-grey" style="margin: auto; width: 40%" />
@@ -138,6 +374,7 @@
         </div>
     </section>
 
+
     <footer class="w3-center w3-black w3-padding-16">
         <p>
             © 2025
@@ -148,6 +385,45 @@
             <a href="https://github.com/MattiaMystic" target="_blank">Mattia Pavarin</a>
         </p>
     </footer>
+
+    <script>
+        // OPEN SIDEBAR
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+
+        // CLOSE SIDEBAR
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+
+    <script>
+
+        window.onload = function () {
+            // Mostra automaticamente il contenuto "Ansia, panico e paura" al caricamento della pagina
+            showContent(0);
+        };
+
+        function showContent(index) {
+            // Otteniamo tutti i contenuti
+            var contenuti = document.querySelectorAll('.contenuto');
+
+            // Se il contenuto è già visibile, lo nascondiamo
+            if (contenuti[index].style.display === 'block') {
+                contenuti[index].style.display = 'none';
+            } else {
+                // Nascondiamo tutti i contenuti
+                contenuti.forEach(function (contenuto) {
+                    contenuto.style.display = 'none';
+                });
+
+                // Mostriamo il contenuto selezionato
+                contenuti[index].style.display = 'block';
+            }
+        }
+    </script>
 </body>
 
 </html>
