@@ -139,44 +139,7 @@ a:hover {
   }
 }
 
-/*NAVBAR GIA' PRESENTE*/
-nav {
-  height: 50px;
-  box-shadow: 0 4px 2px -2px gray;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  background-color: white;
-}
-
-.nav-container {
-  display: flex;
-  width: 96%;
-  margin: auto;
-  justify-content: flex-end;
-  height: 50px;
-  align-items: center;
-  letter-spacing: 3px;
-  font-size: 1.1em;
-}
-
-.company-name {
-  margin-right: auto;
-}
-
-.nav-right {
-  padding-right: 15px;
-  padding-left: 15px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-/*end nav*/
-
 /*start main*/
-
 main {
   margin-top: 50px;
 }
@@ -474,12 +437,9 @@ button:hover {
   transform: translateY(-3px);
 }
 
-button:focus {
-  border-color: #357ab7;
-}
-
 /* STRUTTURA GENERALE */
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   display: flex;
@@ -506,6 +466,7 @@ footer {
   max-width: 70%;
 }
 
+/* TABELLA */
 .right-column {
   width: 30%;
   background-color: #f4f4f4;
@@ -513,13 +474,13 @@ footer {
   border-left: 2px solid #ddd;
 }
 
-/* TABELLA */
 .info-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.info-table th, .info-table td {
+.info-table th,
+.info-table td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
@@ -528,4 +489,35 @@ footer {
 .info-table th {
   background-color: #f1f1f1;
   font-weight: bold;
+}
+
+/* Casella di contenuto che può essere aperta */
+.content-box {
+  display: none;  /* Inizialmente nascosta */
+  background-color: #f0f0f0; /* Colore di sfondo predefinito */
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+/* Colore della casella quando è aperta */
+.content-box.open {
+  display: block;  /* Rende visibile la casella */
+  background-color: #d0f0d0; /* Cambia colore quando è aperta */
+}
+
+/* Stile dei bottoni */
+button.toggle-button {
+  background-color: #357ab7;
+  color: white;
+  border: 1px solid #357ab7;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button.toggle-button:hover {
+  background-color: #2e5d8c;
+  border-color: #2e5d8c;
 }
