@@ -432,3 +432,16 @@ footer a:hover {
 .house-container:hover .overlay {
   opacity: 1; /* Mostra il testo quando il cursore è sopra */
 }
+
+/* Aggiungi uno spazio tra il bullet e il testo */
+bullet { 
+  /* display: inline-block; */
+  margin-left: 10px;
+}
+
+/* Nascondi i bullet sugli schermi piccoli */
+@media only screen and (max-width: 600px) {
+  .bullet {
+    display: none; /* Nascondi i bullet sugli schermi piccoli */
+  }
+}

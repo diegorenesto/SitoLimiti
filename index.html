@@ -7,18 +7,6 @@
 	<link rel="stylesheet" href="style.css" />
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
 </head>
-<script>
-	// OPEN SIDEBAR
-	function openNav() {
-		document.getElementById("mySidebar").style.width = "250px";
-	}
-
-	// CLOSE SIDEBAR
-	function closeNav() {
-		document.getElementById("mySidebar").style.width = "0";
-		document.getElementById("main").style.marginLeft = "0";
-	}
-</script>
 
 <body>
 	<!-- NAVBAR -->
@@ -68,7 +56,15 @@
 	<section class="about-section">
 		<hr class="w3-border-grey" style="margin: auto; width: 40%" />
 		<div class="w3-center">
-			<h3>Definizione generale di limite</h3>
+			<h3 style="
+          font-size: 2.5em;
+          margin-bottom: 40px;
+          color: #333;
+          font-weight: bold;
+          letter-spacing: -1px;
+        ">
+				Definizione generale di limite
+			</h3>
 		</div>
 		<p>
 			Intuitivamente, la frase "la funzione f(x) tende a l quando x tende a x₀" significa che
@@ -90,7 +86,15 @@
 	<section class="projects-section" id="">
 		<hr class="w3-border-grey" style="margin: auto; width: 40%" />
 		<div class="w3-center">
-			<h3>Sezioni</h3>
+			<h3 style="
+          font-size: 2.5em;
+          margin-bottom: 40px;
+          color: #333;
+          font-weight: bold;
+          letter-spacing: -1px;
+        ">
+				Sezioni
+			</h3>
 		</div>
 
 		<div class="projects-container">
@@ -139,32 +143,60 @@
 	</section>
 
 	<!-- CONTATTI -->
-	
 	<section class="contact-section">
-		<hr class="w3-border-grey" style="margin:auto; width:40%; margin-bottom: 2%;">
-		<!-- Mappa -->
-		<div class="w3-col m6" style="flex: 1; min-width: 320px; padding: 20px">
-			<iframe
-				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2817.20907403341!2d11.794024976082914!3d45.08155327107018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477efa0aff203935%3A0x534ddf2955ad5bde!2sVia%20Alcide%20de%20Gasperi%2C%2021%2C%2045100%20Rovigo%20RO!5e0!3m2!1sit!2sit!4v1743023636421!5m2!1sit!2sit"
-				width="100%" height="350" style="
-            border: 0;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-          " allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		<hr class="w3-border-grey" style="margin:auto; width:40%">
+		<div class="w3-center">
+			<h3 style="
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: bold;
+  letter-spacing: -1px;
+">
+				Contattaci
+			</h3>
+		</div>
+		<div class="w3-col m6" style="padding: 20px">
+			<form id="contactForm" action="https://formspree.io/f/xaneddwl" method="POST">
+				<input type="text" id="name" name="name" required placeholder="Nome"
+					style="width: 100%; margin-bottom: 10px;" />
+				<input type="email" id="email" name="email" required placeholder="Email"
+					style="width: 100%; margin-bottom: 10px;" />
+				<input type="text" id="message" name="message" required placeholder="Oggetto"
+					style="width: 100%; margin-bottom: 10px;" />
+				<textarea id="body" name="body" rows="6" required placeholder="Corpo del messaggio"
+					style="width: 100%; margin-bottom: 10px; height: 147px"></textarea>
+				<button class="send-btn" type="submit">INVIA MESSAGGIO</button>
+			</form>
 		</div>
 
-		<div class="w3-col m6">
-			
-			<h3 class="w3-center">Contattaci</h3>
+		<div class="w3-col m6"
+			style="background: white; border: 1px solid #ccc; box-sizing: border-box; border-radius: 5px; margin-top: 20px; ">
+			<p><strong><a style="color: transparent;">&nbsp &nbsp</a>Indirizzo:</strong> Via Alcide De Gasperi, 21
+				Rovigo</p>
+			<p><strong><a style="color: transparent;">&nbsp &nbsp</a>CAP:</strong> 45100</p>
+			<p><strong><a style="color: transparent;">&nbsp &nbsp</a>Orari:</strong><br>
+				<bullet class="bullet">&bullet;</bullet> Orario studentesse e studenti: 07.55-13.30<br>
+				<bullet class="bullet">&bullet;</bullet> Orario per il pubblico, segreteria didattica: 12.00-13.00
+			</p>
 
-			<form action="mailto:francescobazaj@gmail.com" method="post" enctype="text/plain">
-				<input type="text" id="name" name="name" required placeholder="Nome" />
-				<input type="text" type="email" id="email" name="email" required placeholder="Email" />
-				<input type="text" id="message" name="message" rows="6" required placeholder="Oggetto" />
-				<input type="text" placeholder="Corpo" />
 
-				<button class="send-btn" type="submit">SEND MESSAGE</button>
-			</form>
+			</ul>
+			<p><strong><a style="color: transparent;">&nbsp &nbsp</a>Email:</strong> <a
+					href="mailto:rois012001@istruzione.it">rois012001@istruzione.it</a></p>
+			<p><strong><a style="color: transparent;">&nbsp &nbsp</a>PEC:</strong> <a
+					href="mailto:rois012001@pec.istruzione.it">rois012001@pec.istruzione.it</a></p>
+			<p><strong><a style="color: transparent;">&nbsp &nbsp</a>Telefono:</strong> <a href="tel:+390425410699">+39
+					0425410699</a></p>
+		</div>
+
+
+		<div class="w3-col m12" style="padding: 20px;">
+			<iframe
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2817.20907403341!2d11.794024976082914!3d45.08155327107018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477efa0aff203935%3A0x534ddf2955ad5bde!2sVia%20Alcide%20de%20Gasperi%2C%2021%2C%2045100%20Rovigo%20RO!5e0!3m2!1sit!2sit!4v1743023636421!5m2!1sit!2sit"
+				width="100%" height="350"
+				style="border: 0; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);" allowfullscreen=""
+				loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 		</div>
 	</section>
 
@@ -178,6 +210,63 @@
 			<a href="https://github.com/MattiaMystic" target="_blank">Mattia Pavarin</a>
 		</p>
 	</footer>
+
+	<!-- SCRIPT EMAIL -->
+	<script>
+
+		document.getElementById("contactForm").addEventListener("submit", function (e) {
+			e.preventDefault();
+			const form = e.target;
+			const submitButton = form.querySelector('button[type="submit"]');
+			const originalButtonText = submitButton.textContent;
+
+			submitButton.disabled = true;
+			submitButton.textContent = "Invio in corso...";
+			submitButton.style.backgroundColor = "#5a9bd5";
+
+			fetch(form.action, {
+				method: "POST",
+				body: new FormData(form),
+				headers: {
+					'Accept': 'application/json'
+				}
+			})
+				.then(response => {
+					if (response.ok) {
+						alert("Messaggio inviato con successo!");
+						submitButton.disabled = true;
+						submitButton.textContent = "MESSAGGIO INVIATO";
+						submitButton.style.backgroundColor = "#45fc03";
+					} else {
+						alert("Si è verificato un errore durante l'invio. Riprova più tardi.");
+						submitButton.disabled = false;
+						submitButton.textContent = "ERRORE, RIPROVA";
+						submitButton.style.backgroundColor = "#fc0303";
+					}
+				})
+				.catch(error => {
+					alert("Errore di connessione. Verifica la tua connessione internet e riprova.");
+					submitButton.disabled = false;
+					submitButton.textContent = "ERRORE CONNESSIONE, RIPROVA";
+					submitButton.style.backgroundColor = "#fc0303";
+				});
+		});
+	</script>
+
+	<!-- SCRIPT SIDEBAR -->
+	<script>
+		// OPEN SIDEBAR
+		function openNav() {
+			document.getElementById("mySidebar").style.width = "250px";
+		}
+
+		// CLOSE SIDEBAR
+		function closeNav() {
+			document.getElementById("mySidebar").style.width = "0";
+			document.getElementById("main").style.marginLeft = "0";
+		}
+	</script>
+
 </body>
 
 </html>
