@@ -406,11 +406,13 @@ footer a:hover {
 .house-container img {
   width: 100%;
   height: auto;
-  transition: filter 0.3s ease; /* Per l'effetto di transizione */
+  transition: filter 0.3s ease;
+  /* Per l'effetto di transizione */
 }
 
 .house-container:hover img {
-  filter: grayscale(100%); /* Immagine diventa grigia */
+  filter: grayscale(100%);
+  /* Immagine diventa grigia */
 }
 
 .house-container .overlay {
@@ -419,7 +421,8 @@ footer a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Colore scuro semi-trasparente */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Colore scuro semi-trasparente */
   color: white;
   display: flex;
   align-items: center;
@@ -430,7 +433,8 @@ footer a:hover {
 }
 
 .house-container:hover .overlay {
-  opacity: 1; /* Mostra il testo quando il cursore è sopra */
+  opacity: 1;
+  /* Mostra il testo quando il cursore è sopra */
 }
 
 /* Aggiungi uno spazio tra il bullet e il testo */
@@ -440,11 +444,13 @@ bullet {
 }
 
 /* Nascondi i bullet sugli schermi piccoli */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
   .bullet {
-    display: none; /* Nascondi i bullet sugli schermi piccoli */
+    display: none;
+    /* Nascondi i bullet sugli schermi piccoli */
   }
 }
+
 /* BUTTON */
 button {
   background-color: gray;
@@ -453,7 +459,8 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-  border-radius: 5px;
+  border-bottom-right-radius: 500px;
+  border-top-left-radius: 500px;
   transition: transform 0.2s ease, background-color 0.3s, border-color 0.3s;
   outline: none;
 }
@@ -461,11 +468,13 @@ button {
 /* Nuova classe per regolare solo i bottoni */
 .button-container {
   position: relative;
-  top: -30px; /* Sposta i bottoni verso l'alto senza toccare il contenuto sottostante */
+  top: -30px;
+  /* Sposta i bottoni verso l'alto senza toccare il contenuto sottostante */
 }
 
 .button-container button {
-  margin-top: 0; /* Assicurati che i bottoni non abbiano margine sopra */
+  margin-top: 0;
+  /* Assicurati che i bottoni non abbiano margine sopra */
 }
 
 button:hover {
@@ -474,12 +483,11 @@ button:hover {
   transform: translateY(-3px);
 }
 
-button:focus {
-  border-color: #357ab7;
-}
+
 
 /* STRUTTURA GENERALE */
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   display: flex;
@@ -506,11 +514,26 @@ footer {
   max-width: 70%;
 }
 
+
 .right-column {
-  width: 30%;
-  background-color: #f4f4f4;
-  padding: 20px;
+  position: relative;
+  top: 55%;
+  right: 7%;
+  width: 27%;
+  height: fit-content;
   border-left: 2px solid #ddd;
+  border-top: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;
+}
+
+@media only screen and (max-width: 1000px) {
+  .right-column {
+    height: fit-content;
+    position: relative;
+    top: 55%;
+    right: 2%;
+    width: 34.1%;
+  }
 }
 
 /* TABELLA */
@@ -519,7 +542,8 @@ footer {
   border-collapse: collapse;
 }
 
-.info-table th, .info-table td {
+.info-table th,
+.info-table td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
@@ -528,4 +552,33 @@ footer {
 .info-table th {
   background-color: #f1f1f1;
   font-weight: bold;
+}
+
+.contenuto {
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid #000;
+  display: none;
+  /* Impostiamo inizialmente a 'none' */
+}
+
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 10px;
+  /* Spazio tra gli elementi */
+}
+
+.flex-item {
+  flex: 1 1 10vw;
+  /* Ogni elemento occupa circa il 30% della larghezza dello schermo */
+  min-width: 200px;
+  /* Evita che diventi troppo stretto */
+}
+
+.btn.active {
+  background-color: #357ab7;
+  color: white;
 }
