@@ -502,7 +502,7 @@ footer {
   margin-top: auto;
 }
 
-/* CONTENUTO & TABELLA */
+/* CONTENUTO & TABELLA LIMITI SOCIALI*/
 .content-container {
   display: flex;
   justify-content: space-between;
@@ -552,6 +552,10 @@ footer {
 .info-table th {
   background-color: #f1f1f1;
   font-weight: bold;
+}
+
+.tabella-alternata{
+  background-color: lightgray;
 }
 
 .contenuto {
@@ -632,6 +636,14 @@ footer {
   color: #333;
   font-weight: bold;
   letter-spacing: -1px;
+}
+
+.dati {
+  background: #f7f7f7;
+  border: 0px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-top: 20px;
 }
 
 /* PODCAST SECTION */

@@ -2,54 +2,55 @@
 <html lang="en">
 
 <head>
-    <link rel="icon" href="Media/favicon.ico" type="image/x-icon">
-    <meta charset="UTF-8" />
-    <title>Vai oltre il limite</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
+	<link rel="icon" href="Media/favicon.ico" type="image/x-icon">
+	<meta charset="UTF-8" />
+	<title>Vai oltre il limite</title>
+	<link id="theme-style" rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
 </head>
-<script>
-    // OPEN SIDEBAR
-    function openNav() {
-        document.getElementById("mySidebar").style.width = "250px";
-    }
-
-    // CLOSE SIDEBAR
-    function closeNav() {
-        document.getElementById("mySidebar").style.width = "0";
-        document.getElementById("main").style.marginLeft = "0";
-    }
-</script>
 
 <body>
-    <!-- NAVBAR -->
-    <nav>
-        <div id="main" class="w3-top">
-            <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-                <!-- OPEN COLLAPSED SIDEBAR -->
-                <button class="openbtn w3-bar-item" onclick="openNav()"
-                    style="background-color: transparent; padding-right: 80px">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
-                </button>
+	<nav>
+		<div id="main" class="w3-top">
+			<div id="theme-color" class="w3-bar w3-white w3-wide w3-padding w3-card">
+				<!-- OPEN COLLAPSED SIDEBAR -->
+				<button class="openbtn w3-bar-item" onclick="openNav()"
+					style="background-color: transparent; padding-right: 80px">
+					<div class="line1"></div>
+					<div class="line2"></div>
+					<div class="line3"></div>
+				</button>
 
-                <!-- CLOSE -->
-                <div id="mySidebar" class="sidebar">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="teoria.html">Teoria</a>
-                    <a href="esercizi.html">Esercizi</a>
-                    <a href="limiti-sociali.html">Limiti sociali</a>
-                    <a href="podcast.html">Podcast</a>
-                    <a href="index.html#contatti"
-                        style="position: absolute; bottom: 0; margin-bottom: 20%;">Contatti</a>
-                    <a href="chi-siamo.html"
-                        style="position: absolute; bottom: 0; margin-bottom: 5%; font-size: 15px;">Chi siamo</a>
-                </div>
-                <a href="index.html" class="w3-bar-item w3-button company-name-main"><b>OLTRE</b> il limite</a>
-            </div>
-        </div>
-    </nav>
+				<!-- CLOSE -->
+				<div id="mySidebar" class="sidebar">
+					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+					<a href="teoria.html">Teoria</a>
+					<a href="esercizi.html">Esercizi</a>
+					<a href="limiti-sociali.html">Limiti sociali</a>
+					<a href="podcast.html">Podcast</a>
+					<a href="index.html#contatti"
+						style="position: absolute; bottom: 0; margin-bottom: 20%;">Contatti</a>
+					<a href="chi-siamo.html"
+						style="position: absolute; bottom: 0; margin-bottom: 5%; font-size: 15px;">Chi siamo</a>
+				</div>
+				<a href="index.html" class="w3-bar-item w3-button company-name-main"><b>OLTRE</b> il limite</a>
+
+				<!-- SWITCH DARK-LIGHT MODE -->
+				<div class="switch" style="position: absolute;
+				top: 30%;
+				right: 5%;">
+					<input hidden="" id="check" name="check" type="checkbox" onchange="toggleTheme()">
+					<label class="toggle" for="check">
+						<div class="toggle__circle"></div>
+					</label>
+					<div class="toggle-text">
+						<span id="theme-icon"></span>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</nav>
 
     <main>
         <div class="main-wrapper">
@@ -278,35 +279,6 @@
         }
     </style>
 
-    <script>
-        function myMap() {
-            var mapProp = {
-                center: new google.maps.LatLng(51.508742, -0.12085),
-                zoom: 5,
-            };
-            var map = new google.maps.Map(
-                document.getElementById("googleMap"),
-                mapProp
-            );
-        }
-    </script>
-    <script
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2817.20907403341!2d11.794024976082914!3d45.08155327107018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477efa0aff203935%3A0x534ddf2955ad5bde!2sVia%20Alcide%20de%20Gasperi%2C%2021%2C%2045100%20Rovigo%20RO!5e0!3m2!1sit!2sit!4v1743023636421!5m2!1sit!2sit"></script>
-    </script>
-
-    <script>
-        // Script to open and close sidebar
-        function w3_open() {
-            document.getElementById("mySidebar").style.display = "block";
-            document.getElementById("myOverlay").style.display = "block";
-        }
-
-        function w3_close() {
-            document.getElementById("mySidebar").style.display = "none";
-            document.getElementById("myOverlay").style.display = "none";
-        }
-    </script>
-
     <footer class="w3-center w3-black w3-padding-16">
         <p>
             © 2025
@@ -317,6 +289,67 @@
             <a href="https://github.com/MattiaMystic" target="_blank">Mattia Pavarin</a>
         </p>
     </footer>
+
+    <!-- SCRIPT SIDEBAR -->
+	<script>
+		// OPEN SIDEBAR
+		function openNav() {
+			document.getElementById("mySidebar").style.width = "250px";
+		}
+
+		// CLOSE SIDEBAR
+		function closeNav() {
+			document.getElementById("mySidebar").style.width = "0";
+			document.getElementById("main").style.marginLeft = "0";
+		}
+	</script>
+
+	<!-- SCRIPT THEME TOGGLE -->
+	<script>
+		function toggleTheme() {
+			const themeStyle = document.getElementById('theme-style');
+			const themeIcon = document.getElementById('theme-icon');
+			const switchInput = document.getElementById('check'); // Lo switch
+			const themeColor = document.getElementById('theme-color');
+
+			if (switchInput.checked) {
+				themeStyle.setAttribute('href', 'dark.css'); // Cambia il CSS a dark.css
+				themeColor.setAttribute('class', 'w3-bar w3-black w3-wide w3-padding w3-card');
+				localStorage.setItem('theme', 'dark');
+				themeIcon.textContent = "🌙";
+			} else {
+				themeStyle.setAttribute('href', 'style.css'); // Cambia il CSS a style.css
+				themeColor.setAttribute('class', 'w3-bar w3-white w3-wide w3-padding w3-card');
+				localStorage.setItem('theme', 'light');
+				themeIcon.textContent = "☀️";
+			}
+		}
+
+
+		// Al caricamento della pagina, applica il tema preferito dall'utente
+		window.onload = function () {
+			const savedTheme = localStorage.getItem('theme');
+			const themeStyle = document.getElementById('theme-style');
+			const themeColor = document.getElementById('theme-color');
+			const themeIcon = document.getElementById('theme-icon');
+			const switchInput = document.getElementById('check'); // Lo switch
+
+			if (savedTheme === 'dark') {
+				themeStyle.setAttribute('href', 'dark.css');
+				themeColor.setAttribute('class', 'w3-bar w3-black w3-wide w3-padding w3-card');
+				themeIcon.textContent = "🌙";
+				switchInput.checked = true; // Attiva lo switch
+			} else {
+				themeStyle.setAttribute('href', 'style.css');
+				themeColor.setAttribute('class', 'w3-bar w3-white w3-wide w3-padding w3-card');
+				themeIcon.textContent = "☀️";
+				switchInput.checked = false; // Disattiva lo switch
+			}
+		};
+
+
+
+	</script>
 </body>
 
 </html>

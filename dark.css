@@ -512,7 +512,7 @@ footer {
   margin-top: auto;
 }
 
-/* CONTENUTO & TABELLA */
+/* CONTENUTO & TABELLA LIMITI SOCIALI*/
 .content-container {
   display: flex;
   justify-content: space-between;
@@ -549,6 +549,7 @@ footer {
 .info-table {
   width: 100%;
   border-collapse: collapse;
+  color: #bbbbbb;
 }
 
 .info-table th,
@@ -563,12 +564,20 @@ footer {
   font-weight: bold;
 }
 
+.tabella-alternata{
+  background-color: #444444;
+}
+
 .contenuto {
   padding: 20px;
   margin: 10px;
-  border: 1px solid #000;
+  border: 1px solid #444444;
   display: none;
   /* Impostiamo inizialmente a 'none' */
+}
+
+.contenuto h2{
+  color: #bbbbbb;
 }
 
 .flex-container {
@@ -648,3 +657,4 @@ footer {
   border-radius: 5px;
   margin-top: 20px;
 }
+
