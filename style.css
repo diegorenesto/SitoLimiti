@@ -633,3 +633,65 @@ footer {
   font-weight: bold;
   letter-spacing: -1px;
 }
+
+/* PODCAST SECTION */
+
+.podcast-section {
+  padding-top: 70px;
+  padding-left: 25px;
+  padding-right: 25px;
+  max-width: 1500px;
+  margin: auto;
+}
+.podcast-section h3 {
+  font-weight: normal;
+  font-size: 1.6em;
+}
+.podcast-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  align-items: start;
+  padding: 20px;
+}
+
+.podcast-item {
+  max-width: 350px;
+  min-height: 400px; /* Imposta un'altezza minima per uniformare i blocchi */
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuisce uniformemente il contenuto */
+  padding: 20px;
+}
+
+.podcast-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.podcast-item h4 {
+  font-size: 1.5em;
+  margin: 15px 0;
+  color: #333;
+}
+
+.podcast-item p {
+  font-size: 1em;
+  color: #666;
+  margin: 10px 0;
+  flex-grow: 1; /* Permette al testo di occupare lo spazio disponibile */
+}
+
+.podcast-item audio {
+  width: 90%;
+  margin: 15px auto 0 auto;
+  border-radius: 5px;
+  box-shadow: none; /* Rimuove l'ombra intorno al player audio */
+  background-color: transparent; /* Rende il sottofondo trasparente */
+}
