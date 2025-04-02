@@ -3,11 +3,11 @@ a:visited,
 a:before,
 a:after {
   text-decoration: none;
-  color: black;
+  color: #d1d1d1; /* Adjusted for dark mode */
 }
 
 a:hover {
-  background-color: #d3d3d3;
+  background-color: #444444; /* Adjusted for dark mode */
 }
 
 /* start navbar */
@@ -23,8 +23,7 @@ a:hover {
   /* Stay on top */
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.900);
-  /* Black*/
+  background-color: rgba(160, 160, 160, 0.9); /* Dark background */
   overflow-x: hidden;
   /* Disable horizontal scroll */
   padding-top: 60px;
@@ -38,14 +37,14 @@ a:hover {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #ffffff;
+  color: #000000; /* Adjusted for dark mode */
   display: block;
   transition: 0.3s;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidebar a:hover {
-  color: #000000;
+  color: #f1f1f1;
 }
 
 /* Position and style the close button (top right corner) */
@@ -70,7 +69,7 @@ a:hover {
 .openbtn div {
   width: 70px;
   height: 10px;
-  background-color: darkgray;
+  background-color: lightgray; /* Adjusted for dark mode */
   border-radius: 3px;
   position: absolute;
   transition: 0.4s;
@@ -116,7 +115,7 @@ a:hover {
 
 .title-divider {
   font-size: 64px;
-  color: gray;
+  color: #000000; /* Adjusted for dark mode */
   padding: 0 10px;
 }
 
@@ -142,13 +141,13 @@ a:hover {
 /*NAVBAR GIA' PRESENTE*/
 nav {
   height: 50px;
-  box-shadow: 0 4px 2px -2px gray;
+  box-shadow: 0 4px 2px -2px #ffffff; /* Adjusted for dark mode */
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 1000;
-  background-color: white;
+  background-color: #333333; /* Adjusted for dark mode */
 }
 
 .nav-container {
@@ -207,10 +206,11 @@ img {
 h1 {
   font-size: 3em;
   letter-spacing: 3px;
+  color: #ffffff; /* Adjusted for dark mode */
 }
 
 .architects-img {
-  color: gray;
+  color: black;
 }
 
 .br-img {
@@ -235,6 +235,7 @@ h1 {
 h3 {
   font-weight: normal;
   font-size: 1.6em;
+  color: #bbbbbb; /* Adjusted for dark mode */
 }
 
 .projects-container {
@@ -256,7 +257,7 @@ h3 {
   position: absolute;
   padding: 8px 16px;
   color: white;
-  background-color: black;
+  background-color: #444444; /* Adjusted for dark mode */
   font-size: 18px;
   line-height: 1.5;
 }
@@ -278,6 +279,7 @@ h3 {
   line-height: 1.5;
   margin-top: 15px;
   margin-bottom: 15px;
+  color: #bbbbbb; /* Adjusted for dark mode */
 }
 
 .about-team {
@@ -286,6 +288,8 @@ h3 {
 
 .person-card {
   padding: 8px;
+  background-color: #333333; /* Adjusted for dark mode */
+  color: white; /* Adjusted for dark mode */
 }
 
 #first-person {
@@ -312,7 +316,7 @@ h3 {
   width: 100%;
   padding-top: 8px;
   padding-bottom: 8px;
-  background-color: #f1f1f1;
+  background-color: #444444; /* Adjusted for dark mode */
   border: none;
   text-decoration: none;
   font-size: 1.2em;
@@ -320,7 +324,7 @@ h3 {
 
 .person-contact:hover {
   cursor: pointer;
-  background-color: #c8c8c8;
+  background-color: #666666;
 }
 
 /*end about section*/
@@ -340,6 +344,7 @@ h3 {
   margin-top: 15px;
   margin-bottom: 15px;
   font-size: 1.1em;
+  color: #bbbbbb; /* Adjusted for dark mode */
 }
 
 input {
@@ -349,6 +354,13 @@ input {
   margin-top: 15px;
   opacity: 0.9;
   font-size: 1.1em;
+  background-color: #444444; /* Adjusted for dark mode */
+  color: white; /* Adjusted for dark mode */
+}
+
+textarea {
+  background-color: #444444; /* Adjusted for dark mode */
+  color: white; /* Adjusted for dark mode */
 }
 
 .send-btn {
@@ -357,13 +369,13 @@ input {
   text-decoration: none;
   border: none;
   font-size: 1.1em;
-  background-color: black;
+  background-color: #444444; /* Adjusted for dark mode */
   color: white;
 }
 
 .send-btn:hover {
   cursor: pointer;
-  background-color: #c8c8c8;
+  background-color: #444444;
   color: black;
 }
 
@@ -378,8 +390,8 @@ footer {
   padding-top: 16px;
   padding-bottom: 16px;
   text-align: center;
-  background-color: black;
-  color: white;
+  background-color: #222222; /* Adjusted for dark mode */
+  color: white; /* Adjusted for dark mode */
 }
 
 footer p {
@@ -421,8 +433,7 @@ footer a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  /* Colore scuro semi-trasparente */
+  background-color: rgba(0, 0, 0, 0.7); /* Adjusted for dark mode */
   color: white;
   display: flex;
   align-items: center;
@@ -453,9 +464,9 @@ bullet {
 
 /* BUTTON */
 button {
-  background-color: gray;
+  background-color: #555555; /* Adjusted for dark mode */
   color: white;
-  border: 1px solid gray;
+  border: 1px solid #444444; /* Adjusted for dark mode */
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
@@ -483,15 +494,14 @@ button:hover {
   transform: translateY(-3px);
 }
 
-
-
 /* STRUTTURA GENERALE */
-html,
+
 body {
   height: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;
+  background-color: #222222; /* Adjusted for dark mode */
 }
 
 .main-wrapper {
@@ -514,16 +524,15 @@ footer {
   max-width: 70%;
 }
 
-
 .right-column {
   position: relative;
   top: 55%;
   right: 7%;
   width: 27%;
   height: fit-content;
-  border-left: 2px solid #ddd;
-  border-top: 2px solid #ddd;
-  border-bottom: 2px solid #ddd;
+  border-left: 2px solid #444444; /* Adjusted for dark mode */
+  border-top: 2px solid #444444; /* Adjusted for dark mode */
+  border-bottom: 2px solid #444444; /* Adjusted for dark mode */
 }
 
 @media only screen and (max-width: 1000px) {
@@ -546,11 +555,11 @@ footer {
 .info-table td {
   padding: 10px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #444444;
 }
 
 .info-table th {
-  background-color: #f1f1f1;
+  background-color: #444444; /* Adjusted for dark mode */
   font-weight: bold;
 }
 
@@ -561,7 +570,6 @@ footer {
   display: none;
   /* Impostiamo inizialmente a 'none' */
 }
-
 
 .flex-container {
   display: flex;
@@ -606,7 +614,7 @@ footer {
 .toggle__circle {
   width: 20px;
   height: 20px;
-  background-color: hsl(0, 0%, 95%);
+  background-color: hsl(0, 0%, 0%);
   border-radius: 50%;
   margin-top: calc(30px - (.25rem * 2) - 0px);
   transition: margin 500ms ease-in-out;
@@ -615,21 +623,28 @@ footer {
 .toggle-text {
   display: flex;
   flex-direction: column;
-
 }
 
-#check:checked+.toggle>.toggle__circle {
+#check:checked + .toggle > .toggle__circle {
   margin-top: 0;
 }
 
-#check:checked+.toggle {
-  background-color: #41a63c;
+#check:checked + .toggle {
+  background-color: lightgray;
 }
 
 .sezione {
   font-size: 2.5em;
   margin-bottom: 40px;
-  color: #333;
+  color: #bbbbbb;
   font-weight: bold;
   letter-spacing: -1px;
+}
+
+.dati {
+  background: #444444;
+  border: 0px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-top: 20px;
 }
