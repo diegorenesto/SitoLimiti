@@ -654,8 +654,11 @@
         }
 
         function previousContent() {
+            const totalContents = document.querySelectorAll(".nascondi.card__title").length;
             if (currentIndex > 0) {
                 showContent(currentIndex - 1);
+            } else {
+                showContent(totalContents - 1); // Go to the last content if at the first
             }
         }
 
@@ -663,6 +666,8 @@
             const totalContents = document.querySelectorAll(".nascondi.card__title").length;
             if (currentIndex < totalContents - 1) {
                 showContent(currentIndex + 1);
+            } else {
+                showContent(0); // Go to the first content if at the last
             }
         }
 
