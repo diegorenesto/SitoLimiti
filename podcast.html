@@ -66,7 +66,7 @@
             </h3>
         </div>
 
-        <div class="card" style="height: auto;">
+        <div id="contenuto1" class="card contenuto" style="height: auto;">
             <!-- menu a tendina -->
             <div class="dropdown">
                 <a class="card__btn card__btn-menu dropbtn">
@@ -136,11 +136,276 @@
                     <header class="w3-container card_testo_titolo">
                         <h4>Altri Episodi</h4>
                     </header>
+                    <div class="w3-center">
+                        <br><br>
+                        <div class="button-container flex-container">
+                            <br><br>
+                            <button class="btn active w3-col m3 flex-item" onclick="showContent(0)">Ansia, panico e
+                                paura</button>
+                            <button class="btn w3-col m3 flex-item" onclick="showContent(1)">Psicologia</button>
+                            <button class="btn w3-col m3 flex-item" onclick="showContent(2)">La gestione del tempo</button>
+                            <button class="btn w3-col m3 flex-item" onclick="showContent(3)">Psicologia delle
+                                relazioni</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="contenuto2" class="card contenuto" style="height: auto;">
+            <!-- menu a tendina -->
+            <div class="dropdown">
+                <a class="card__btn card__btn-menu dropbtn">
+                    <svg fill="none" height="18" viewBox="0 0 24 18" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m0 0h24v3h-12-12zm0 7.5h24v3h-24zm0 7.5h24v3h-24z" fill="#fff"></path>
+                    </svg>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </a>
+            </div>
+            <!-- immagine -->
+            <div class="card__img">
+                <a
+                    style="height: 224px; width: 224px; display: flex; align-items: center; justify-content: center; margin-inline: auto; background: linear-gradient(to bottom, red 0%, #222222 85%);"></a>
+            </div>
+            <div class="card__title">Runaway</div>
+            <div class="card__subtitle">Smalltown Boy , Shane D</div>
+            <!-- barra di progresso -->
+            <div class="card__wrapper">
+                <div style="margin-left: 20%;" class="card__time card__time-passed">03:34</div>
+                <div class="card__timeline"><progress value="50" max="100"></progress></div>
+                <div style="margin-right: 20%;" class="card__time card__time-left">02:04</div>
+            </div>
+            <!-- pulsanti -->
+            <div class="card__wrapper">
+                <!-- pulsante per tornare indietro -->
+                <a style="margin-left: 15%;" class="card__btn"><svg width="23" height="16" viewBox="0 0 23 16"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.5 8V0L0 8L11.5 16V8ZM23 0L11.5 8L23 16V0Z"></path>
+                    </svg></a>
+                <!-- pulsante per play/pausa -->
+                 <!-- pause: <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 310.284 310.284" style="enable-background:new 0 0 310.284 310.284;" xml:space="preserve">
+               <path d="M155.142,0C69.597,0,0,69.597,0,155.142s69.597,155.142,155.142,155.142s155.142-69.597,155.142-155.142
+                   S240.688,0,155.142,0z M130.392,212.864c0,9.665-7.835,17.5-17.5,17.5s-17.5-7.835-17.5-17.5v-115c0-9.665,7.835-17.5,17.5-17.5
+                   s17.5,7.835,17.5,17.5V212.864z M209.392,212.864c0,9.665-7.835,17.5-17.5,17.5s-17.5-7.835-17.5-17.5v-115
+                   c0-9.665,7.835-17.5,17.5-17.5s17.5,7.835,17.5,17.5V212.864z"/>
+               </svg>-->
+                <a class="card__btn card__btn-play"><svg width="50px" height="50px" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg" fill="none">
+                        <path fill="#000000" fill-rule="evenodd"
+                            d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm8.528-4.882a1 1 0 0 1 1.027.05l6 4a1 1 0 0 1 0 1.664l-6 4A1 1 0 0 1 9 16V8a1 1 0 0 1 .528-.882z" />
+                    </svg></a>
+                <!-- pulsante per andare avanti -->
+                <a style="margin-right: 15%;" class="card__btn"><svg width="23" height="16" viewBox="0 0 23 16"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.5 8V0L23 8L11.5 16V8ZM0 0L11.5 8L0 16V0Z"></path>
+                    </svg></a>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <div class="dati hover-scroll card_testo" style="overflow-y: auto; display: inline-block; max-height: 200px; max-width: 400px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <header class="w3-container card_testo_titolo">
+                        <h4>Testo</h4>
+                    </header>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae nemo dicta ad officia perspiciatis. Veniam.</p>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae nemo dicta ad officia perspiciatis. Veniam.</p>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae nemo dicta ad officia perspiciatis. Veniam.</p>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae nemo dicta ad officia perspiciatis. Veniam.</p>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae nemo dicta ad officia perspiciatis. Veniam.</p>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <div class="dati card_testo" style=" max-height: 200px; max-width: 400px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <header class="w3-container card_testo_titolo">
+                        <h4>Altri Episodi</h4>
+                    </header>
+                    <div class="w3-center">
+                        <br><br>
+                        <div class="button-container flex-container">
+                            <br><br>
+                            <button class="btn active w3-col m3 flex-item" onclick="showContent(0)">Ansia, panico e
+                                paura</button>
+                            <button class="btn w3-col m3 flex-item" onclick="showContent(1)">Psicologia</button>
+                            <button class="btn w3-col m3 flex-item" onclick="showContent(2)">La gestione del tempo</button>
+                            <button class="btn w3-col m3 flex-item" onclick="showContent(3)">Psicologia delle
+                                relazioni</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="contenuto3" class="card contenuto" style="height: auto;">
+            <!-- menu a tendina -->
+            <div class="dropdown">
+                <a class="card__btn card__btn-menu dropbtn">
+                    <svg fill="none" height="18" viewBox="0 0 24 18" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m0 0h24v3h-12-12zm0 7.5h24v3h-24zm0 7.5h24v3h-24z" fill="#fff"></path>
+                    </svg>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </a>
+            </div>
+            <!-- immagine -->
+            <div class="card__img">
+                <a
+                    style="height: 224px; width: 224px; display: flex; align-items: center; justify-content: center; margin-inline: auto; background: linear-gradient(to bottom, yellow 0%, #222222 85%);"></a>
+            </div>
+            <div class="card__title">Runaway</div>
+            <div class="card__subtitle">Smalltown Boy , Shane D</div>
+            <!-- barra di progresso -->
+            <div class="card__wrapper">
+                <div style="margin-left: 20%;" class="card__time card__time-passed">03:34</div>
+                <div class="card__timeline"><progress value="50" max="100"></progress></div>
+                <div style="margin-right: 20%;" class="card__time card__time-left">02:04</div>
+            </div>
+            <!-- pulsanti -->
+            <div class="card__wrapper">
+                <!-- pulsante per tornare indietro -->
+                <a style="margin-left: 15%;" class="card__btn"><svg width="23" height="16" viewBox="0 0 23 16"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.5 8V0L0 8L11.5 16V8ZM23 0L11.5 8L23 16V0Z"></path>
+                    </svg></a>
+                <!-- pulsante per play/pausa -->
+                 <!-- pause: <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 310.284 310.284" style="enable-background:new 0 0 310.284 310.284;" xml:space="preserve">
+               <path d="M155.142,0C69.597,0,0,69.597,0,155.142s69.597,155.142,155.142,155.142s155.142-69.597,155.142-155.142
+                   S240.688,0,155.142,0z M130.392,212.864c0,9.665-7.835,17.5-17.5,17.5s-17.5-7.835-17.5-17.5v-115c0-9.665,7.835-17.5,17.5-17.5
+                   s17.5,7.835,17.5,17.5V212.864z M209.392,212.864c0,9.665-7.835,17.5-17.5,17.5s-17.5-7.835-17.5-17.5v-115
+                   c0-9.665,7.835-17.5,17.5-17.5s17.5,7.835,17.5,17.5V212.864z"/>
+               </svg>-->
+                <a class="card__btn card__btn-play"><svg width="50px" height="50px" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg" fill="none">
+                        <path fill="#000000" fill-rule="evenodd"
+                            d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm8.528-4.882a1 1 0 0 1 1.027.05l6 4a1 1 0 0 1 0 1.664l-6 4A1 1 0 0 1 9 16V8a1 1 0 0 1 .528-.882z" />
+                    </svg></a>
+                <!-- pulsante per andare avanti -->
+                <a style="margin-right: 15%;" class="card__btn"><svg width="23" height="16" viewBox="0 0 23 16"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.5 8V0L23 8L11.5 16V8ZM0 0L11.5 8L0 16V0Z"></path>
+                    </svg></a>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <div class="dati hover-scroll card_testo" style="overflow-y: auto; display: inline-block; max-height: 200px; max-width: 400px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <header class="w3-container card_testo_titolo">
+                        <h4>Testo</h4>
+                    </header>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae nemo dicta ad officia perspiciatis. Veniam.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae nemo dicta ad officia perspiciatis. Veniam.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae nemo dicta ad officia perspiciatis. Veniam.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae nemo dicta ad officia perspiciatis. Veniam.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae nemo dicta ad officia perspiciatis. Veniam.</p>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <div class="dati card_testo" style=" max-height: 200px; max-width: 400px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <header class="w3-container card_testo_titolo">
+                        <h4>Altri Episodi</h4>
+                    </header>
+                    <div class="w3-center">
+                        <br><br>
+                        <div class="button-container flex-container">
+                            <br><br>
+                            <button class="btn active w3-col m3 flex-item" onclick="showContent(0)">Ansia, panico e
+                                paura</button>
+                            <button class="btn w3-col m3 flex-item" onclick="showContent(1)">Psicologia</button>
+                            <button class="btn w3-col m3 flex-item" onclick="showContent(2)">La gestione del tempo</button>
+                            <button class="btn w3-col m3 flex-item" onclick="showContent(3)">Psicologia delle
+                                relazioni</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="contenuto4" class="card contenuto" style="height: auto;">
+            <!-- menu a tendina -->
+            <div class="dropdown">
+                <a class="card__btn card__btn-menu dropbtn">
+                    <svg fill="none" height="18" viewBox="0 0 24 18" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m0 0h24v3h-12-12zm0 7.5h24v3h-24zm0 7.5h24v3h-24z" fill="#fff"></path>
+                    </svg>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </a>
+            </div>
+            <!-- immagine -->
+            <div class="card__img">
+                <a
+                    style="height: 224px; width: 224px; display: flex; align-items: center; justify-content: center; margin-inline: auto; background: linear-gradient(to bottom, green 0%, #222222 85%);"></a>
+            </div>
+            <div class="card__title">Runaway</div>
+            <div class="card__subtitle">Smalltown Boy , Shane D</div>
+            <!-- barra di progresso -->
+            <div class="card__wrapper">
+                <div style="margin-left: 20%;" class="card__time card__time-passed">03:34</div>
+                <div class="card__timeline"><progress value="50" max="100"></progress></div>
+                <div style="margin-right: 20%;" class="card__time card__time-left">02:04</div>
+            </div>
+            <!-- pulsanti -->
+            <div class="card__wrapper">
+                <!-- pulsante per tornare indietro -->
+                <a style="margin-left: 15%;" class="card__btn"><svg width="23" height="16" viewBox="0 0 23 16"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.5 8V0L0 8L11.5 16V8ZM23 0L11.5 8L23 16V0Z"></path>
+                    </svg></a>
+                <!-- pulsante per play/pausa -->
+                 <!-- pause: <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 310.284 310.284" style="enable-background:new 0 0 310.284 310.284;" xml:space="preserve">
+               <path d="M155.142,0C69.597,0,0,69.597,0,155.142s69.597,155.142,155.142,155.142s155.142-69.597,155.142-155.142
+                   S240.688,0,155.142,0z M130.392,212.864c0,9.665-7.835,17.5-17.5,17.5s-17.5-7.835-17.5-17.5v-115c0-9.665,7.835-17.5,17.5-17.5
+                   s17.5,7.835,17.5,17.5V212.864z M209.392,212.864c0,9.665-7.835,17.5-17.5,17.5s-17.5-7.835-17.5-17.5v-115
+                   c0-9.665,7.835-17.5,17.5-17.5s17.5,7.835,17.5,17.5V212.864z"/>
+               </svg>-->
+                <a class="card__btn card__btn-play"><svg width="50px" height="50px" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg" fill="none">
+                        <path fill="#000000" fill-rule="evenodd"
+                            d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm8.528-4.882a1 1 0 0 1 1.027.05l6 4a1 1 0 0 1 0 1.664l-6 4A1 1 0 0 1 9 16V8a1 1 0 0 1 .528-.882z" />
+                    </svg></a>
+                <!-- pulsante per andare avanti -->
+                <a style="margin-right: 15%;" class="card__btn"><svg width="23" height="16" viewBox="0 0 23 16"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.5 8V0L23 8L11.5 16V8ZM0 0L11.5 8L0 16V0Z"></path>
+                    </svg></a>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <div class="dati hover-scroll card_testo" style="overflow-y: auto; display: inline-block; max-height: 200px; max-width: 400px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <header class="w3-container card_testo_titolo">
+                        <h4>Testo</h4>
+                    </header>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae nemo dicta ad officia perspiciatis. Veniam.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae nemo dicta ad officia perspiciatis. Veniam.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae nemo dicta ad officia perspiciatis. Veniam.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae nemo dicta ad officia perspiciatis. Veniam.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae nemo dicta ad officia perspiciatis. Veniam.</p>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <div class="dati card_testo" style=" max-height: 200px; max-width: 400px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <header class="w3-container card_testo_titolo">
+                        <h4>Altri Episodi</h4>
+                    </header>
+                    <div class="w3-center">
+                        <br><br>
+                        <div class="button-container flex-container">
+                            <br><br>
+                            <button class="btn active w3-col m3 flex-item" onclick="showContent(0)">Ansia, panico e
+                                paura</button>
+                            <button class="btn w3-col m3 flex-item" onclick="showContent(1)">Psicologia</button>
+                            <button class="btn w3-col m3 flex-item" onclick="showContent(2)">La gestione del tempo</button>
+                            <button class="btn w3-col m3 flex-item" onclick="showContent(3)">Psicologia delle
+                                relazioni</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -269,6 +534,50 @@
 
 
 
+</script>
+
+<script>
+    let activeContentIndex = null;
+
+    function showContent(index) {
+        let contents = document.getElementsByClassName("contenuto");
+        let buttons = document.getElementsByClassName("btn");
+
+        // Se la scheda è già aperta, non chiuderla
+        if (activeContentIndex === index) return;
+
+        // Nasconde tutti i contenuti e rimuove la classe "active" dai bottoni
+        for (let i = 0; i < contents.length; i++) {
+            contents[i].style.display = "none";
+            buttons[i].classList.remove("active");
+        }
+
+        // Mostra il contenuto selezionato e aggiunge la classe "active"
+        contents[index].style.display = "block";
+        buttons[index].classList.add("active");
+
+        // Aggiorna l'indice della scheda attiva
+        activeContentIndex = index;
+    }
+
+    // Assicura che la prima scheda sia visibile all'inizio
+    document.addEventListener("DOMContentLoaded", function () {
+        showContent(0);
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let buttons = document.querySelectorAll(".btn");
+
+        buttons.forEach(button => {
+            button.addEventListener("click", function () {
+                // Rimuove la classe 'active' da tutti i bottoni
+                buttons.forEach(btn => btn.classList.remove("active"));
+                // Aggiunge la classe 'active' al bottone cliccato
+                this.classList.add("active");
+            });
+        });
+    });
 </script>
 </body>
 
