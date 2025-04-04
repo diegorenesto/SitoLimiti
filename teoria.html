@@ -125,33 +125,53 @@
 
         <hr class="w3-border-grey" style="margin: auto; width: 40%" />
         <div class="w3-center">
-            <h3>Limite di una costante</h3>
-            <div class="w3-row">
-                <div class="w3-col m6 w3-center w3-padding-large">
-                    <img src="Media/img/grafico1.jpg" class="w3-round w3-image" width="500" height="333">
+            <br><br>
+
+            <!-- Pulsanti per scegliere quale contenuto vedere -->
+            <div class="w3-center">
+                <br><br>
+                <div class="button-container flex-container">
+                    <br><br>
+                    <button class="btn w3-col m3 flex-item" onclick="showContent(0)">Limite di una costante</button>
+                    <button class="btn w3-col m3 flex-item" onclick="showContent(1)">Limite della funzione
+                        identità</button>
+                    <button class="btn w3-col m3 flex-item" onclick="showContent(2)">Limite di un polinomio</button>
+                    <button class="btn w3-col m3 flex-item" onclick="showContent(3)">Limite della radice
+                        quadrata</button>
+                    <button class="btn w3-col m3 flex-item" onclick="showContent(4)">Limite notevole del
+                        logaritmo</button>
                 </div>
-                <div class="w3-col m6 w3-padding-large">
-                    <p>Limite:
-                        <br>
-                        lim (x → a) c = c<br><br>
-                        Dimostrazione:
-                        Per ogni ε > 0, dobbiamo trovare δ > 0 tale che:<br>
-                        0 < |x - a| < δ ⇒ |c - c| < ε <br><br>
-                            Ma:
-                            |c - c| = 0 < ε (sempre vero, qualunque sia ε> 0)
-                                <br><br><br><br>
-                                Conclusione: Qualsiasi δ > 0 va bene.
-                    </p>
-                    <div class="w3-center">
-                        <button onclick="location.href='risoluzione-limite-costante.html'"
-                            class="w3-button w3-blue" style="height: 50px; width: 300px;">Vai all'esercizio</button>
+            </div>
+
+
+            <div id="contenuto1" class="contenuto">
+                <h3 class="sezione">Limite di una costante</h3>
+                <div class="w3-row">
+                    <div class="w3-col m6 w3-center w3-padding-large">
+                        <img src="Media/img/grafico1.jpg" class="w3-round w3-image" width="500" height="333">
+                    </div>
+                    <div class="w3-col m6 w3-padding-large">
+                        <p>Limite:
+                            <br>
+                            lim (x → a) c = c<br><br>
+                            Dimostrazione:
+                            Per ogni ε > 0, dobbiamo trovare δ > 0 tale che:<br>
+                            0 < |x - a| < δ ⇒ |c - c| < ε <br><br>
+                                Ma:
+                                |c - c| = 0 < ε (sempre vero, qualunque sia ε> 0)
+                                    <br><br><br><br>
+                                    Conclusione: Qualsiasi δ > 0 va bene.
+                        </p>
+                        <div class="w3-center">
+                            <button onclick="location.href='risoluzione-limite-costante.html'" class="w3-button w3-blue"
+                                style="height: 50px; width: 300px;">Vai all'esercizio</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <hr class="w3-border-grey" style="margin:auto; width:40%; margin-top:5%" />
-            <div class="w3-center">
-                <h3>Limite della funzione identità</h3>
+            <div id="contenuto2" class="contenuto">
+                <h3 class="sezione">Limite della funzione identità</h3>
                 <div class="w3-row">
                     <div class="w3-col m6 w3-center w3-padding-large">
                         <img src="Media/img/grafico2.jpg" class="w3-round w3-image" width="500" height="333">
@@ -167,16 +187,15 @@
                                 Questa è direttamente verificata se scegliamo δ = ε.
                         </p>
                         <div class="w3-center">
-                            <button onclick="location.href='risoluzione-limite-identita.html'"
-                                class="w3-button w3-blue" style="height: 50px; width: 300px;">Vai all'esercizio</button>
+                            <button onclick="location.href='risoluzione-limite-identita.html'" class="w3-button w3-blue"
+                                style="height: 50px; width: 300px;">Vai all'esercizio</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <hr class="w3-border-grey" style="margin:auto; width:40%; margin-top:5%" />
-            <div class="w3-center">
-                <h3>Limite di un polinomio (caso: x²)</h3>
+            <div id="contenuto3" class="contenuto">
+                <h3 class="sezione">Limite di un polinomio (caso: x²)</h3>
                 <div class="w3-row">
                     <div class="w3-col m6 w3-center w3-padding-large">
                         <img src="Media/img/grafico3.jpg" class="w3-round w3-image" width="500" height="333">
@@ -196,16 +215,15 @@
                                         Quindi, scegliamo δ = min {1, ε / (1 + 2|a|)}.
                         </p>
                         <div class="w3-center">
-                            <button onclick="location.href='risoluzione-limite-x2.html'"
-                                class="w3-button w3-blue" style="height: 50px; width: 300px;">Vai all'esercizio</button>
+                            <button onclick="location.href='risoluzione-limite-x2.html'" class="w3-button w3-blue"
+                                style="height: 50px; width: 300px;">Vai all'esercizio</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <hr class="w3-border-grey" style="margin:auto; width:40%; margin-top:5%" />
-            <div class="w3-center">
-                <h3>Limite della radice quadrata</h3>
+            <div id="contenuto4" class="contenuto" style="display: none;">
+                <h3 class="sezione">Limite della radice quadrata</h3>
                 <div class="w3-row">
                     <div class="w3-col m6 w3-center w3-padding-large">
                         <img src="Media/img/grafico4.jpg" class="w3-round w3-image" width="500" height="333">
@@ -229,45 +247,44 @@
                                             δ = min {1, ε ⋅ √a}.
                         </p>
                         <div class="w3-center">
-                            <button onclick="location.href='risoluzione-limite-radice.html'"
-                                class="w3-button w3-blue" style="height: 50px; width: 300px;">Vai all'esercizio</button>
+                            <button onclick="location.href='risoluzione-limite-radice.html'" class="w3-button w3-blue"
+                                style="height: 50px; width: 300px;">Vai all'esercizio</button>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <hr class="w3-border-grey" style="margin:auto; width:40%; margin-top:5%" />
-                <div class="w3-center">
-                    <h3>Limite notevole del logaritmo</h3>
-                    <div class="w3-row">
-                        <div class="w3-col m6 w3-center w3-padding-large">
-                            <img src="Media/img/grafico5.jpg" class="w3-round w3-image" width="500" height="333">
-                        </div>
-                        <div class="w3-col m6 w3-padding-large">
-                            <p>Limite:<br>
-                                lim (x → 1) log(x) = 0
-                                <br><br>
-                                Dimostrazione:
-                                Per ogni ε > 0, dobbiamo trovare δ > 0 tale che:<br>
-                                0 < |x - 1| < δ ⇒ |log(x)| < ε <br><br>
-                                    Si ha:
-                                    |log(x)| < ε ⇔ e^(-ε) < x < e^ε <br><br><br><br>
-                                        Possiamo scegliere:
-                                        δ = min {1 - e^(-ε), e^ε - 1}.
-                            </p>
-                            <br>
-                            <div class="w3-center">
-                                <button onclick="location.href='risoluzione-limite-log.html'"
-                                    class="w3-button w3-blue" style="height: 50px; width: 300px;">Vai all'esercizio</button>
-                            </div>
+            <div id="contenuto5" class="contenuto" style="display: none;">
+                <h3 class="sezione">Limite notevole del logaritmo</h3>
+                <div class="w3-row">
+                    <div class="w3-col m6 w3-center w3-padding-large">
+                        <img src="Media/img/grafico5.jpg" class="w3-round w3-image" width="500" height="333">
+                    </div>
+                    <div class="w3-col m6 w3-padding-large">
+                        <p>Limite:<br>
+                            lim (x → 1) log(x) = 0
+                            <br><br>
+                            Dimostrazione:
+                            Per ogni ε > 0, dobbiamo trovare δ > 0 tale che:<br>
+                            0 < |x - 1| < δ ⇒ |log(x)| < ε <br><br>
+                                Si ha:
+                                |log(x)| < ε ⇔ e^(-ε) < x < e^ε <br><br><br><br>
+                                    Possiamo scegliere:
+                                    δ = min {1 - e^(-ε), e^ε - 1}.
+                        </p>
+                        <div class="w3-center">
+                            <button onclick="location.href='risoluzione-limite-log.html'" class="w3-button w3-blue"
+                                style="height: 50px; width: 300px;">Vai all'esercizio</button>
                         </div>
                     </div>
                 </div>
+            </div>
     </section>
 
     <section class="projects-section" id="">
         <hr class="w3-border-grey" style="margin: auto; width: 40%" />
         <div class="w3-center">
-            <h3>Sezioni</h3>
+            <h3 class="sezione">Sezioni</h3>
         </div>
 
         <div class="projects-container">
@@ -386,9 +403,50 @@
                 switchInput.checked = false; // Disattiva lo switch
             }
         };
+    </script>
 
+    <script>
+        let activeContentIndex = null;
 
+        function showContent(index) {
+            let contents = document.getElementsByClassName("contenuto");
+            let buttons = document.getElementsByClassName("btn");
 
+            // Se la scheda è già aperta, non chiuderla
+            if (activeContentIndex === index) return;
+
+            // Nasconde tutti i contenuti e rimuove la classe "active" dai bottoni
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].style.display = "none";
+                buttons[i].classList.remove("active");
+            }
+
+            // Mostra il contenuto selezionato e aggiunge la classe "active"
+            contents[index].style.display = "block";
+            buttons[index].classList.add("active");
+
+            // Aggiorna l'indice della scheda attiva
+            activeContentIndex = index;
+        }
+
+        // Assicura che la prima scheda sia visibile all'inizio
+        document.addEventListener("DOMContentLoaded", function () {
+            showContent(0);
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let buttons = document.querySelectorAll(".btn");
+
+            buttons.forEach(button => {
+                button.addEventListener("click", function () {
+                    // Rimuove la classe 'active' da tutti i bottoni
+                    buttons.forEach(btn => btn.classList.remove("active"));
+                    // Aggiunge la classe 'active' al bottone cliccato
+                    this.classList.add("active");
+                });
+            });
+        });
     </script>
 </body>
 
