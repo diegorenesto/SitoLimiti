@@ -2,100 +2,239 @@
 <html lang="en">
 
 <head>
-    <link rel="icon" href="Media/favicon.ico" type="image/x-icon">
-    <meta charset="UTF-8" />
-    <title>Risoluzione: Limite notevole del logaritmo</title>
-    <link id="theme-style" rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risoluzione: Limite notevole del logaritmo - Vai oltre il limite</title>
+    <link rel="icon" href="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/icons/infinity.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
     <nav>
-        <div id="main" class="w3-top w3-center">
-            <div id="theme-color" class="w3-bar w3-white w3-wide w3-padding w3-card">
-                <a href="esercizi.html" class="w3-bar-item w3-button">Torna agli esercizi</a>
-                <a href="teoria.html" class="w3-bar-item w3-button">Torna alla teoria</a>
+        <div id="main" class="w3-top">
+            <div id="theme-color" class="w3-bar w3-white w3-wide w3-padding w3-card nav-container">
+                <a href="esercizi.html" class="w3-bar-item w3-button btn-text">
+                    <i class="fas fa-arrow-left"></i> Torna agli esercizi
+                </a>
+                <a href="teoria.html" class="w3-bar-item w3-button btn-text">
+                    <i class="fas fa-book"></i> Torna alla teoria
+                </a>
+
+                <!-- SWITCH DARK-LIGHT MODE -->
+                <div class="switch-container">
+                    <input hidden id="check" name="check" type="checkbox" onchange="toggleTheme()">
+                    <label class="toggle" for="check">
+                        <i class="fas fa-moon" id="moon-icon"></i>
+                        <i class="fas fa-sun" id="sun-icon"></i>
+                        <div class="toggle__circle"></div>
+                    </label>
+                </div>
             </div>
         </div>
     </nav>
 
-    <main>
-        <div class="main-wrapper">
-            <!-- 
-            <img src="Media/img/teoria.jpg" />
-            <div class="company-name-main">
-                <h1>
-                    <span class="br-img">TEORIA</span>
-                    <span class="title-divider">|</span>
-					<span class="architects-img">OLTRE</span>
-                -->
-            </h1>
+    <main class="resolution-main">
+        <section class="resolution-header" data-aos="fade-up">
+            <h1 class="resolution-title">Risoluzione: Limite notevole del logaritmo</h1>
+            <p class="resolution-subtitle">Analisi e dimostrazione del limite fondamentale del logaritmo</p>
+        </section>
+
+        <section class="example-box" data-aos="fade-up">
+            <h2>Esempio:</h2>
+            <div class="example-formula" data-aos="zoom-in">
+                \[ \lim_{x \to 0} \frac{\ln(1 + x)}{x} = 1 \]
+            </div>
+            <p>In questo esempio, calcoliamo uno dei limiti notevoli fondamentali del calcolo, che collega la funzione logaritmica alla sua approssimazione lineare vicino all'origine.</p>
+        </section>
+
+        <section class="step-by-step" data-aos="fade-up">
+            <h2>Risoluzione:</h2>
+
+            <div class="step" data-aos="fade-right">
+                <div class="step-title">
+                    <div class="step-number">1</div>
+                    <span>Approccio alla dimostrazione</span>
+                </div>
+                <p>Esistono diversi metodi per dimostrare questo limite notevole. Useremo un'approccio basato sulla definizione del logaritmo naturale e sulle proprietà dei limiti.</p>
+                <p>Quando \(x\) tende a 0, sia il numeratore \(\ln(1+x)\) che il denominatore \(x\) tendono a 0, quindi ci troviamo di fronte a una forma indeterminata del tipo \(\frac{0}{0}\).</p>
+            </div>
+
+            <div class="step" data-aos="fade-right" data-aos-delay="100">
+                <div class="step-title">
+                    <div class="step-number">2</div>
+                    <span>Metodo del cambio di variabile</span>
+                </div>
+                <p>Possiamo affrontare questo limite con un cambio di variabile. Poniamo \(t = 1 + x\), quindi \(x = t - 1\). Quando \(x \to 0\), abbiamo \(t \to 1\).</p>
+                <div class="step-formula">
+                    \[ \lim_{x \to 0} \frac{\ln(1 + x)}{x} = \lim_{t \to 1} \frac{\ln(t)}{t - 1} \]
+                </div>
+                <p>Questa espressione equivalente può essere analizzata utilizzando la definizione del logaritmo naturale come integrale.</p>
+            </div>
+
+            <div class="step" data-aos="fade-right" data-aos-delay="200">
+                <div class="step-title">
+                    <div class="step-number">3</div>
+                    <span>Utilizzo della definizione integrale del logaritmo</span>
+                </div>
+                <p>Ricordiamo che il logaritmo naturale può essere espresso come:</p>
+                <div class="step-formula">
+                    \[ \ln(t) = \int_{1}^{t} \frac{1}{u} \, du \]
+                </div>
+                <p>Sostituendo nella nostra espressione:</p>
+                <div class="step-formula">
+                    \[ \lim_{t \to 1} \frac{\ln(t)}{t - 1} = \lim_{t \to 1} \frac{\int_{1}^{t} \frac{1}{u} \, du}{t - 1} \]
+                </div>
+                <p>Per \(t\) vicino a 1, sappiamo che \(\frac{1}{u}\) è compresa tra \(\frac{1}{t}\) (valore minimo) e \(\frac{1}{1}\) (valore massimo) nell'intervallo \([1, t]\) (o \([t, 1]\) se \(t < 1\)).</p>
+            </div>
+
+            <div class="step" data-aos="fade-right" data-aos-delay="300">
+                <div class="step-title">
+                    <div class="step-number">4</div>
+                    <span>Applicazione del teorema dei valori intermedi</span>
+                </div>
+                <p>Per il teorema dei valori intermedi dell'integrale:</p>
+                <div class="step-formula">
+                    \[ \frac{1}{t} \cdot (t - 1) \leq \int_{1}^{t} \frac{1}{u} \, du \leq \frac{1}{1} \cdot (t - 1) \]
+                </div>
+                <p>Che possiamo semplificare in:</p>
+                <div class="step-formula">
+                    \[ \frac{t - 1}{t} \leq \ln(t) \leq t - 1 \]
+                </div>
+                <p>Dividendo tutti i termini per \((t - 1)\) (assumendo \(t > 1\), un argomento simile vale per \(t < 1\)):</p>
+                <div class="step-formula">
+                    \[ \frac{1}{t} \leq \frac{\ln(t)}{t - 1} \leq 1 \]
+                </div>
+            </div>
+
+            <div class="step" data-aos="fade-right" data-aos-delay="400">
+                <div class="step-title">
+                    <div class="step-number">5</div>
+                    <span>Applicazione del teorema del confronto</span>
+                </div>
+                <p>Quando \(t \to 1\), anche \(\frac{1}{t} \to 1\). Quindi, per il teorema del confronto (o dei carabinieri):</p>
+                <div class="step-formula">
+                    \[ \lim_{t \to 1} \frac{1}{t} = 1 \leq \lim_{t \to 1} \frac{\ln(t)}{t - 1} \leq 1 = \lim_{t \to 1} 1 \]
+                </div>
+                <p>Questo dimostra che:</p>
+                <div class="step-formula">
+                    \[ \lim_{t \to 1} \frac{\ln(t)}{t - 1} = 1 \]
+                </div>
+                <p>E di conseguenza, tornando alla variabile originale:</p>
+                <div class="step-formula">
+                    \[ \lim_{x \to 0} \frac{\ln(1 + x)}{x} = 1 \]
+                </div>
+            </div>
+        </section>
+
+        <div class="result-box" data-aos="zoom-in">
+            <h2>Risultato finale:</h2>
+            <div class="result-formula">
+                \[ \lim_{x \to 0} \frac{\ln(1 + x)}{x} = 1 \]
+            </div>
+            <p>Questo limite notevole è fondamentale in molte applicazioni del calcolo e rappresenta l'approssimazione lineare del logaritmo naturale vicino a \(x = 0\), suggerendo che \(\ln(1+x) \approx x\) per valori piccoli di \(x\).</p>
         </div>
+
+        <div class="graph-image" data-aos="fade-up">
+            <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+                <!-- Coordinate system -->
+                <line x1="50" y1="150" x2="450" y2="150" stroke="var(--text-color)" stroke-width="2" />
+                <line x1="250" y1="50" x2="250" y2="250" stroke="var(--text-color)" stroke-width="2" />
+                
+                <!-- Axis labels -->
+                <text x="460" y="150" fill="var(--text-color)" font-size="16">x</text>
+                <text x="250" y="40" fill="var(--text-color)" font-size="16">y</text>
+                
+                <!-- Origin point -->
+                <circle cx="250" cy="150" r="3" fill="var(--text-color)" />
+                <text x="240" y="170" fill="var(--text-color)" font-size="12">O</text>
+                
+                <!-- Function curves -->
+                <!-- ln(1+x) curve -->
+                <path d="M150,210 Q200,180 250,150 Q300,120 350,100" 
+                      stroke="var(--secondary-color)" stroke-width="2" fill="none" />
+                <text x="150" y="220" fill="var(--secondary-color)" font-size="14">ln(1+x)</text>
+                
+                <!-- x line (y = x) -->
+                <line x1="150" y1="200" x2="350" y2="100" stroke="var(--primary-color)" stroke-width="2" />
+                <text x="360" y="100" fill="var(--primary-color)" font-size="14">y = x</text>
+                
+                <!-- ln(1+x)/x = 1 label -->
+                <text x="250" y="270" fill="var(--accent-color)" font-size="16" text-anchor="middle">
+                    lim (ln(1+x)/x) = 1
+                </text>
+                <text x="250" y="290" fill="var(--accent-color)" font-size="14" text-anchor="middle">
+                    x → 0
+                </text>
+                
+                <!-- Point where functions meet -->
+                <circle cx="250" cy="150" r="5" fill="var(--accent-color)" />
+            </svg>
+        </div>
+
+        <div class="action-buttons" data-aos="fade-up">
+            <a href="esercizi.html" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Torna agli esercizi
+            </a>
+            <a href="teoria.html" class="btn btn-primary">
+                Continua con la teoria <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
     </main>
 
-    <main class="w3-container w3-margin-top"
-        style="max-width: 800px; margin: auto; text-align: center; font-family: Arial, sans-serif;">
-        <h2 class="w3-center" style="font-size: 2em; font-weight: bold; margin-bottom: 20px;">Risoluzione: Limite
-            notevole del logaritmo</h2>
-        <p style="font-size: 1.2em; margin-bottom: 20px;"><strong>Esempio:</strong></p>
-        <p style="font-size: 1.5em; font-family: 'Times New Roman', Times, serif;">
-            lim <sub>x → 0</sub> (ln(1 + x) / x)
-        </p>
-        <p style="font-size: 1.2em; margin-bottom: 20px;"><strong>Risoluzione:</strong></p>
-
-        <p style="font-size: 1.2em; margin-bottom: 10px;">
-            Per calcolare il limite, consideriamo l'espressione:
-        </p>
-        <p style="font-size: 1.5em; font-family: 'Times New Roman', Times, serif;">
-            ln(1 + x) = ln[(1 + x)(1 - x) / (1 - x)]
-        </p>
-        <p style="font-size: 1.2em; margin-bottom: 20px;">
-            Riscrivendo l'argomento del logaritmo sfruttando il denominatore coniugato:
-        </p>
-        <p style="font-size: 1.5em; font-family: 'Times New Roman', Times, serif;">
-            ln(1 + x) = ln((1 - x + x - x²) / (1 - x)) = ln((1 - x²) / (1 - x))
-        </p>
-        <p style="font-size: 1.2em; margin-bottom: 20px;">
-            Utilizzando la proprietà del logaritmo:
-        </p>
-        <p style="font-size: 1.5em; font-family: 'Times New Roman', Times, serif;">
-            ln(1 + x) = ln(1 - x²) - ln(1 - x)
-        </p>
-        <p style="font-size: 1.2em; margin-bottom: 20px;">
-            Per valori di x prossimi a zero, possiamo approssimare ln(1 - x) ≈ -x e ln(1 - x²) ≈ -x².
-        </p>
-        <p style="font-size: 1.5em; font-family: 'Times New Roman', Times, serif;">
-            ln(1 + x) ≈ -x² + x
-        </p>
-        <p style="font-size: 1.2em; margin-bottom: 20px;">
-            Ora possiamo dividere per x:
-        </p>
-        <p style="font-size: 1.5em; font-family: 'Times New Roman', Times, serif;">
-            (ln(1 + x) / x) ≈ (-x² + x) / x = 1 - x
-        </p>
-        <p style="font-size: 1.2em; margin-bottom: 20px;">
-            Facendo tendere x a 0, otteniamo il risultato finale:
-        </p>
-        <p style="font-size: 1.5em; font-weight: bold; font-family: 'Times New Roman', Times, serif;">
-            lim <sub>x → 0</sub> (ln(1 + x) / x) = 1
-        </p>
-        <br><br>
-        <img src="Media/img/limite-logaritmo.png" alt="Limite Logaritmo"
-            style="width: 100%; max-width: 400px; margin-bottom: 20px; border-radius: 10px;">
-    </main>
-
-
-    <footer class="w3-center w3-black w3-padding-16">
-        <p>
-            © 2025
-            <a href="https://github.com/diegorenesto" target="_blank">Diego Renesto</a>,
-            <a href="https://github.com/JurijGagarinFB" target="_blank">Francesco Bazaj</a>,
-            <a href="https://github.com/xRennyx" target="_blank">Francesco Renesto</a>,
-            <a href="https://github.com/zanfooo" target="_blank">Nicolò Zanforlin</a>,
-            <a href="https://github.com/MattiaMystic" target="_blank">Mattia Pavarin</a>
-        </p>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="index.html" class="company-name-main">
+                    <span class="logo-oltre">OLTRE</span> 
+                    <span class="logo-il">il</span> 
+                    <span class="logo-limite">limite</span>
+                </a>
+                <p>Esplora il mondo affascinante dei limiti matematici</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>Contenuti</h3>
+                    <ul>
+                        <li><a href="teoria.html">Teoria</a></li>
+                        <li><a href="esercizi.html">Esercizi</a></li>
+                        <li><a href="limiti-sociali.html">Limiti sociali</a></li>
+                        <li><a href="podcast.html">Podcast</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Info</h3>
+                    <ul>
+                        <li><a href="chi-siamo.html">Chi siamo</a></li>
+                        <li><a href="index.html#contatti">Contatti</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025
+                <a href="https://github.com/diegorenesto" target="_blank">Diego Renesto</a>,
+                <a href="https://github.com/JurijGagarinFB" target="_blank">Francesco Bazaj</a>,
+                <a href="https://github.com/xRennyx" target="_blank">Francesco Renesto</a>,
+                <a href="https://github.com/zanfooo" target="_blank">Nicolò Zanforlin</a>,
+                <a href="https://github.com/MattiaMystic" target="_blank">Mattia Pavarin</a>
+            </p>
+        </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/gsap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out'
+        });
+    </script>
 </body>
 
 </html>

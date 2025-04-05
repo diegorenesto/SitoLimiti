@@ -2,692 +2,433 @@
 <html lang="en">
 
 <head>
-    <link rel="icon" href="Media/favicon.ico" type="image/x-icon">
-    <meta charset="UTF-8" />
-    <title>Vai oltre il limite</title>
-    <link id="theme-style" rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast - Vai oltre il limite</title>
+    <link rel="icon" href="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/icons/infinity.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js"></script>
 </head>
 
 <body>
     <nav>
         <div id="main" class="w3-top">
-            <div id="theme-color" class="w3-bar w3-white w3-wide w3-padding w3-card">
+            <div id="theme-color" class="w3-bar w3-white w3-wide w3-padding w3-card nav-container">
                 <!-- OPEN COLLAPSED SIDEBAR -->
-                <button class="openbtn w3-bar-item" onclick="openNav()"
-                    style="background-color: transparent; padding-right: 80px">
+                <button class="openbtn w3-bar-item" onclick="openNav()" aria-label="Open sidebar">
                     <div class="line1"></div>
                     <div class="line2"></div>
                     <div class="line3"></div>
                 </button>
 
-                <!-- CLOSE -->
+                <!-- SIDEBAR -->
                 <div id="mySidebar" class="sidebar">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="teoria.html">Teoria</a>
-                    <a href="esercizi.html">Esercizi</a>
-                    <a href="limiti-sociali.html">Limiti sociali</a>
-                    <a href="podcast.html">Podcast</a>
-                    <a href="index.html#contatti"
-                        style="position: absolute; bottom: 0; margin-bottom: 20%;">Contatti</a>
-                    <a href="chi-siamo.html"
-                        style="position: absolute; bottom: 0; margin-bottom: 5%; font-size: 15px;">Chi siamo</a>
-                </div>
-                <a href="index.html" class="w3-bar-item w3-button company-name-main"><b>OLTRE</b> il limite</a>
-
-                <!-- SWITCH DARK-LIGHT MODE -->
-                <div class="switch" style="position: absolute;
-				top: 30%;
-				right: 5%;">
-                    <input hidden="" id="check" name="check" type="checkbox" onchange="toggleTheme()">
-                    <label class="toggle" for="check">
-                        <div class="toggle__circle"></div>
-                    </label>
-                    <div class="toggle-text">
-                        <span id="theme-icon"></span>
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" aria-label="Close sidebar">&times;</a>
+                    <div class="sidebar-links">
+                        <a href="teoria.html" class="sidebar-link" data-aos="fade-right" data-aos-delay="100">
+                            <i class="fas fa-book-open"></i> Teoria
+                        </a>
+                        <a href="esercizi.html" class="sidebar-link" data-aos="fade-right" data-aos-delay="200">
+                            <i class="fas fa-pencil-alt"></i> Esercizi
+                        </a>
+                        <a href="limiti-sociali.html" class="sidebar-link" data-aos="fade-right" data-aos-delay="300">
+                            <i class="fas fa-users"></i> Limiti sociali
+                        </a>
+                        <a href="podcast.html" class="sidebar-link active" data-aos="fade-right" data-aos-delay="400">
+                            <i class="fas fa-podcast"></i> Podcast
+                        </a>
+                    </div>
+                    <div class="sidebar-footer">
+                        <a href="index.html#contatti" class="sidebar-link" data-aos="fade-right" data-aos-delay="500">
+                            <i class="fas fa-envelope"></i> Contatti
+                        </a>
+                        <a href="chi-siamo.html" class="sidebar-link" data-aos="fade-right" data-aos-delay="600">
+                            <i class="fas fa-users"></i> Chi siamo
+                        </a>
                     </div>
                 </div>
 
+                <a href="index.html" class="w3-bar-item w3-button company-name-main logo-text">
+                    <span class="logo-oltre">OLTRE</span> 
+                    <span class="logo-il">il</span> 
+                    <span class="logo-limite">limite</span>
+                </a>
+
+                <!-- SWITCH DARK-LIGHT MODE -->
+                <div class="switch-container">
+                    <input hidden id="check" name="check" type="checkbox" onchange="toggleTheme()">
+                    <label class="toggle" for="check">
+                        <i class="fas fa-moon" id="moon-icon"></i>
+                        <i class="fas fa-sun" id="sun-icon"></i>
+                        <div class="toggle__circle"></div>
+                    </label>
+                </div>
             </div>
         </div>
     </nav>
 
-    <main>
-        <div class="main-wrapper">
-        </div>
-        </div>
+    <main class="podcast-main">
+        <section class="podcast-header" data-aos="fade-up">
+            <div class="podcast-title">
+                <h1>I nostri Podcast</h1>
+                <p>Ascolta e impara i concetti matematici in un formato coinvolgente</p>
+            </div>
+        </section>
+
+        <section class="podcast-player" data-aos="fade-up">
+            <div class="card podcast-card">
+                <!-- Menu a tendina -->
+                <div class="dropdown">
+                    <button class="card__btn card__btn-menu dropbtn" aria-label="Menu episodi">
+                        <svg fill="none" height="18" viewBox="0 0 24 18" width="24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m0 0h24v3h-12-12zm0 7.5h24v3h-24zm0 7.5h24v3h-24z" fill="#fff"></path>
+                        </svg>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="showContent(0)">Introduzione ai limiti</a>
+                            <a href="#" onclick="showContent(1)">Limiti e continuità</a>
+                            <a href="#" onclick="showContent(2)">Limiti all'infinito</a>
+                            <a href="#" onclick="showContent(3)">Limiti notevoli</a>
+                            <a href="#" onclick="showContent(4)">Applicazioni dei limiti</a>
+                            <a href="#" onclick="showContent(5)">Limiti e derivate</a>
+                            <a href="#" onclick="showContent(6)">Q&A sui limiti</a>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Visualizzazione principale -->
+                <div class="card__img">
+                    <!-- Carosello -->
+                    <div class="container podcast-carousel">
+                        <input type="radio" name="slider" id="item-1" checked>
+                        <input type="radio" name="slider" id="item-2">
+                        <input type="radio" name="slider" id="item-3">
+                        <input type="radio" name="slider" id="item-4">
+                        <input type="radio" name="slider" id="item-5">
+                        <input type="radio" name="slider" id="item-6">
+                        <input type="radio" name="slider" id="item-7">
+                        <div class="cards-carosello">
+                            <label class="card-carosello" for="item-1" id="song-1" onclick="showContent(0)">
+                                <svg class="podcast-cover" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100%" height="100%" fill="var(--primary-color)" />
+                                    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="20">Intro</text>
+                                    <circle cx="100" cy="100" r="70" stroke="white" stroke-width="2" fill="none" />
+                                    <path d="M80,70 L80,130 L130,100 Z" fill="white" />
+                                </svg>
+                            </label>
+                            <label class="card-carosello" for="item-2" id="song-2" onclick="showContent(1)">
+                                <svg class="podcast-cover" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100%" height="100%" fill="var(--secondary-color)" />
+                                    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="16">Continuità</text>
+                                    <path d="M50,100 Q100,50 150,100" stroke="white" stroke-width="3" fill="none" />
+                                </svg>
+                            </label>
+                            <label class="card-carosello" for="item-3" id="song-3" onclick="showContent(2)">
+                                <svg class="podcast-cover" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100%" height="100%" fill="var(--accent-color)" />
+                                    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="16">Infinito</text>
+                                    <path d="M70,100 C90,80 110,120 130,100 C150,80 170,120 190,100" stroke="white" stroke-width="3" fill="none" />
+                                </svg>
+                            </label>
+                            <label class="card-carosello" for="item-4" id="song-4" onclick="showContent(3)">
+                                <svg class="podcast-cover" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100%" height="100%" fill="#6c5ce7" />
+                                    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="16">Notevoli</text>
+                                    <path d="M70,130 C100,70 120,70 150,130" stroke="white" stroke-width="3" fill="none" />
+                                </svg>
+                            </label>
+                            <label class="card-carosello" for="item-5" id="song-5" onclick="showContent(4)">
+                                <svg class="podcast-cover" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100%" height="100%" fill="#e84393" />
+                                    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="16">Applicazioni</text>
+                                    <rect x="70" y="70" width="60" height="60" stroke="white" stroke-width="2" fill="none" />
+                                </svg>
+                            </label>
+                            <label class="card-carosello" for="item-6" id="song-6" onclick="showContent(5)">
+                                <svg class="podcast-cover" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100%" height="100%" fill="#00b894" />
+                                    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="16">Derivate</text>
+                                    <path d="M50,150 L150,50" stroke="white" stroke-width="3" fill="none" />
+                                </svg>
+                            </label>
+                            <label class="card-carosello" for="item-7" id="song-7" onclick="showContent(6)">
+                                <svg class="podcast-cover" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100%" height="100%" fill="#fdcb6e" />
+                                    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="16">Q&A</text>
+                                    <text x="50%" y="80" text-anchor="middle" fill="white" font-size="30">?</text>
+                                </svg>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informazioni sull'episodio -->
+                <div id="contenuto1" class="card__title">Introduzione ai limiti</div>
+                <div id="contenuto1" class="card__subtitle">Episodio 1: Concetti fondamentali e definizioni</div>
+                
+                <div id="contenuto2" class="card__title nascondi">Limiti e continuità</div>
+                <div id="contenuto2" class="card__subtitle nascondi">Episodio 2: La relazione tra limiti e funzioni continue</div>
+                
+                <div id="contenuto3" class="card__title nascondi">Limiti all'infinito</div>
+                <div id="contenuto3" class="card__subtitle nascondi">Episodio 3: Comportamento asintotico delle funzioni</div>
+                
+                <div id="contenuto4" class="card__title nascondi">Limiti notevoli</div>
+                <div id="contenuto4" class="card__subtitle nascondi">Episodio 4: I limiti fondamentali per il calcolo</div>
+                
+                <div id="contenuto5" class="card__title nascondi">Applicazioni dei limiti</div>
+                <div id="contenuto5" class="card__subtitle nascondi">Episodio 5: Usi pratici dei limiti in vari campi</div>
+                
+                <div id="contenuto6" class="card__title nascondi">Limiti e derivate</div>
+                <div id="contenuto6" class="card__subtitle nascondi">Episodio 6: Collegamento tra limiti e calcolo differenziale</div>
+                
+                <div id="contenuto7" class="card__title nascondi">Q&A sui limiti</div>
+                <div id="contenuto7" class="card__subtitle nascondi">Episodio 7: Risposte alle domande più frequenti</div>
+
+                <!-- Barra di progresso per ogni episodio -->
+                <div id="contenuto1" class="card__wrapper">
+                    <div class="progress-container">
+                        <div class="card__time card__time-passed">0:00</div>
+                        <div class="card__timeline"><progress value="0" max="100"></progress></div>
+                        <div class="card__time card__time-left">30:45</div>
+                    </div>
+                </div>
+                
+                <div id="contenuto2" class="card__wrapper nascondi">
+                    <div class="progress-container">
+                        <div class="card__time card__time-passed">0:00</div>
+                        <div class="card__timeline"><progress value="0" max="100"></progress></div>
+                        <div class="card__time card__time-left">28:12</div>
+                    </div>
+                </div>
+                
+                <div id="contenuto3" class="card__wrapper nascondi">
+                    <div class="progress-container">
+                        <div class="card__time card__time-passed">0:00</div>
+                        <div class="card__timeline"><progress value="0" max="100"></progress></div>
+                        <div class="card__time card__time-left">25:37</div>
+                    </div>
+                </div>
+                
+                <div id="contenuto4" class="card__wrapper nascondi">
+                    <div class="progress-container">
+                        <div class="card__time card__time-passed">0:00</div>
+                        <div class="card__timeline"><progress value="0" max="100"></progress></div>
+                        <div class="card__time card__time-left">31:05</div>
+                    </div>
+                </div>
+                
+                <div id="contenuto5" class="card__wrapper nascondi">
+                    <div class="progress-container">
+                        <div class="card__time card__time-passed">0:00</div>
+                        <div class="card__timeline"><progress value="0" max="100"></progress></div>
+                        <div class="card__time card__time-left">22:48</div>
+                    </div>
+                </div>
+                
+                <div id="contenuto6" class="card__wrapper nascondi">
+                    <div class="progress-container">
+                        <div class="card__time card__time-passed">0:00</div>
+                        <div class="card__timeline"><progress value="0" max="100"></progress></div>
+                        <div class="card__time card__time-left">27:30</div>
+                    </div>
+                </div>
+                
+                <div id="contenuto7" class="card__wrapper nascondi">
+                    <div class="progress-container">
+                        <div class="card__time card__time-passed">0:00</div>
+                        <div class="card__timeline"><progress value="0" max="100"></progress></div>
+                        <div class="card__time card__time-left">33:15</div>
+                    </div>
+                </div>
+
+                <!-- Pulsanti di controllo -->
+                <div class="podcast-controls">
+                    <button class="control-btn" id="prevBtn" aria-label="Precedente">
+                        <i class="fas fa-step-backward"></i>
+                    </button>
+                    <button class="control-btn" id="rewindBtn" aria-label="Indietro di 10 secondi">
+                        <i class="fas fa-backward"></i>
+                    </button>
+                    <button class="control-btn play-btn" id="playBtn" aria-label="Play">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="control-btn" id="forwardBtn" aria-label="Avanti di 10 secondi">
+                        <i class="fas fa-forward"></i>
+                    </button>
+                    <button class="control-btn" id="nextBtn" aria-label="Successivo">
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                </div>
+
+                <!-- Volume e velocità -->
+                <div class="audio-settings">
+                    <div class="volume-control">
+                        <i class="fas fa-volume-up" id="volumeIcon"></i>
+                        <input type="range" id="volumeSlider" min="0" max="100" value="80" class="slider">
+                    </div>
+                    <div class="speed-control">
+                        <select id="playbackSpeed">
+                            <option value="0.5">0.5x</option>
+                            <option value="0.75">0.75x</option>
+                            <option value="1" selected>1x</option>
+                            <option value="1.25">1.25x</option>
+                            <option value="1.5">1.5x</option>
+                            <option value="2">2x</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="podcast-episodes" data-aos="fade-up">
+            <h2 class="section-title">Tutti gli episodi</h2>
+            <div class="episodes-grid">
+                <div class="episode-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="episode-number">01</div>
+                    <div class="episode-details">
+                        <h3>Introduzione ai limiti</h3>
+                        <p>Un'introduzione completa al concetto di limite, la sua definizione e il suo significato intuitivo.</p>
+                        <div class="episode-meta">
+                            <span><i class="fas fa-clock"></i> 30:45</span>
+                            <span><i class="fas fa-calendar-alt"></i> 12 Gennaio 2023</span>
+                        </div>
+                        <button class="btn btn-text" onclick="showContent(0)">Ascolta ora <i class="fas fa-play"></i></button>
+                    </div>
+                </div>
+
+                <div class="episode-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="episode-number">02</div>
+                    <div class="episode-details">
+                        <h3>Limiti e continuità</h3>
+                        <p>Esploriamo la relazione fondamentale tra il concetto di limite e la continuità delle funzioni.</p>
+                        <div class="episode-meta">
+                            <span><i class="fas fa-clock"></i> 28:12</span>
+                            <span><i class="fas fa-calendar-alt"></i> 19 Gennaio 2023</span>
+                        </div>
+                        <button class="btn btn-text" onclick="showContent(1)">Ascolta ora <i class="fas fa-play"></i></button>
+                    </div>
+                </div>
+
+                <div class="episode-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="episode-number">03</div>
+                    <div class="episode-details">
+                        <h3>Limiti all'infinito</h3>
+                        <p>Come si comportano le funzioni quando la variabile tende all'infinito? Scopriamolo insieme.</p>
+                        <div class="episode-meta">
+                            <span><i class="fas fa-clock"></i> 25:37</span>
+                            <span><i class="fas fa-calendar-alt"></i> 26 Gennaio 2023</span>
+                        </div>
+                        <button class="btn btn-text" onclick="showContent(2)">Ascolta ora <i class="fas fa-play"></i></button>
+                    </div>
+                </div>
+
+                <div class="episode-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="episode-number">04</div>
+                    <div class="episode-details">
+                        <h3>Limiti notevoli</h3>
+                        <p>I limiti fondamentali che sono alla base di molti calcoli e applicazioni matematiche.</p>
+                        <div class="episode-meta">
+                            <span><i class="fas fa-clock"></i> 31:05</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2 Febbraio 2023</span>
+                        </div>
+                        <button class="btn btn-text" onclick="showContent(3)">Ascolta ora <i class="fas fa-play"></i></button>
+                    </div>
+                </div>
+
+                <div class="episode-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="episode-number">05</div>
+                    <div class="episode-details">
+                        <h3>Applicazioni dei limiti</h3>
+                        <p>Scopriamo come i limiti vengono utilizzati in fisica, economia, ingegneria e altre discipline.</p>
+                        <div class="episode-meta">
+                            <span><i class="fas fa-clock"></i> 22:48</span>
+                            <span><i class="fas fa-calendar-alt"></i> 9 Febbraio 2023</span>
+                        </div>
+                        <button class="btn btn-text" onclick="showContent(4)">Ascolta ora <i class="fas fa-play"></i></button>
+                    </div>
+                </div>
+
+                <div class="episode-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="episode-number">06</div>
+                    <div class="episode-details">
+                        <h3>Limiti e derivate</h3>
+                        <p>Come i limiti sono collegati alle derivate e come vengono utilizzati nel calcolo differenziale.</p>
+                        <div class="episode-meta">
+                            <span><i class="fas fa-clock"></i> 27:30</span>
+                            <span><i class="fas fa-calendar-alt"></i> 16 Febbraio 2023</span>
+                        </div>
+                        <button class="btn btn-text" onclick="showContent(5)">Ascolta ora <i class="fas fa-play"></i></button>
+                    </div>
+                </div>
+
+                <div class="episode-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="episode-number">07</div>
+                    <div class="episode-details">
+                        <h3>Q&A sui limiti</h3>
+                        <p>Rispondiamo alle domande più frequenti degli studenti sul concetto di limite e le sue applicazioni.</p>
+                        <div class="episode-meta">
+                            <span><i class="fas fa-clock"></i> 33:15</span>
+                            <span><i class="fas fa-calendar-alt"></i> 23 Febbraio 2023</span>
+                        </div>
+                        <button class="btn btn-text" onclick="showContent(6)">Ascolta ora <i class="fas fa-play"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <section class="about-section">
-        <hr class="w3-border-grey" style="margin: auto; width: 40%" />
-        <div class="w3-center">
-            <h3 class="sezione">
-                Podcast
-            </h3>
-        </div>
-
-        <div class="card" style="height: 1000px;">
-            <!-- menu a tendina -->
-            <div class="dropdown">
-                <a class="card__btn card__btn-menu dropbtn">
-                    <svg fill="none" height="18" viewBox="0 0 24 18" width="24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="m0 0h24v3h-12-12zm0 7.5h24v3h-24zm0 7.5h24v3h-24z" fill="#fff"></path>
-                    </svg>
-                    <div class="dropdown-content">
-                        <a href="#" onclick="showContent(0)">Contenuto 1</a>
-                        <a href="#" onclick="showContent(1)">Contenuto 2</a>
-                        <a href="#" onclick="showContent(2)">Contenuto 3</a>
-                        <a href="#" onclick="showContent(3)">Contenuto 4</a>
-                        <a href="#" onclick="showContent(4)">Contenuto 5</a>
-                        <a href="#" onclick="showContent(5)">Contenuto 6</a>
-                        <a href="#" onclick="showContent(6)">Contenuto 7</a>
-                    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="index.html" class="company-name-main">
+                    <span class="logo-oltre">OLTRE</span> 
+                    <span class="logo-il">il</span> 
+                    <span class="logo-limite">limite</span>
                 </a>
+                <p>Esplora il mondo affascinante dei limiti matematici</p>
             </div>
-            <!-- immagine -->
-            <div class="card__img">
-                <!-- carosello -->
-                <div class="container">
-                    <input type="radio" name="slider" id="item-1" checked>
-                    <input type="radio" name="slider" id="item-2">
-                    <input type="radio" name="slider" id="item-3">
-                    <input type="radio" name="slider" id="item-4">
-                    <input type="radio" name="slider" id="item-5">
-                    <input type="radio" name="slider" id="item-6">
-                    <input type="radio" name="slider" id="item-7">
-                    <div class="cards-carosello">
-                        <label class="card-carosello" for="item-1" id="song-1" onclick="showContent(0)">
-                            <img style="width: 100%;
-                    height: 100%;
-                    border-radius: 10px;
-                    object-fit: cover;"
-                                src="https://images.unsplash.com/photo-1530651788726-1dbf58eeef1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=882&q=80"
-                                alt="song">
-                        </label>
-                        <label class="card-carosello" for="item-2" id="song-2" onclick="showContent(1)">
-                            <img style="width: 100%;
-                    height: 100%;
-                    border-radius: 10px;
-                    object-fit: cover;"
-                                src="https://images.unsplash.com/photo-1559386484-97dfc0e15539?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80"
-                                alt="song">
-                        </label>
-                        <label class="card-carosello" for="item-3" id="song-3" onclick="showContent(2)">
-                            <img style="width: 100%;
-                    height: 100%;
-                    border-radius: 10px;
-                    object-fit: cover;"
-                                src="https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-                                alt="song">
-                        </label>
-                        <label class="card-carosello" for="item-4" id="song-4" onclick="showContent(3)">
-                            <img style="width: 100%;
-                    height: 100%;
-                    border-radius: 10px;
-                    object-fit: cover;"
-                                src="https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-                                alt="song">
-                        </label>
-                        <label class="card-carosello" for="item-5" id="song-5" onclick="showContent(4)">
-                            <img style="width: 100%;
-                    height: 100%;
-                    border-radius: 10px;
-                    object-fit: cover;"
-                                src="https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-                                alt="song">
-                        </label>
-                        <label class="card-carosello" for="item-6" id="song-6" onclick="showContent(5)">
-                            <img style="width: 100%;
-                    height: 100%;
-                    border-radius: 10px;
-                    object-fit: cover;"
-                                src="https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-                                alt="song">
-                        </label>
-                        <label class="card-carosello" for="item-7" id="song-7" onclick="showContent(6)">
-                            <img style="width: 100%;
-                    height: 100%;
-                    border-radius: 10px;
-                    object-fit: cover;"
-                                src="https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-                                alt="song">
-                        </label>
-                    </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>Contenuti</h3>
+                    <ul>
+                        <li><a href="teoria.html">Teoria</a></li>
+                        <li><a href="esercizi.html">Esercizi</a></li>
+                        <li><a href="limiti-sociali.html">Limiti sociali</a></li>
+                        <li><a href="podcast.html">Podcast</a></li>
+                    </ul>
                 </div>
-            </div>
-            <div id="contenuto1" class="nascondi card__title">titolo1</div>
-            <div id="contenuto1" class="nascondi card__subtitle">sottotitolo1</div>
-            <div id="contenuto2" class="nascondi card__title">titolo2</div>
-            <div id="contenuto2" class="nascondi card__subtitle">sottotitolo2</div>
-            <div id="contenuto3" class="nascondi card__title">titolo3</div>
-            <div id="contenuto3" class="nascondi card__subtitle">sottotitolo3</div>
-            <div id="contenuto4" class="nascondi card__title">titolo4</div>
-            <div id="contenuto4" class="nascondi card__subtitle">sottotitolo4</div>
-            <div id="contenuto5" class="nascondi card__title">titolo5</div>
-            <div id="contenuto5" class="nascondi card__subtitle">sottotitolo5</div>
-            <div id="contenuto6" class="nascondi card__title">titolo6</div>
-            <div id="contenuto6" class="nascondi card__subtitle">sottotitolo6</div>
-            <div id="contenuto7" class="nascondi card__title">titolo7</div>
-            <div id="contenuto7" class="nascondi card__subtitle">sottotitolo7</div>
-            <!-- barra di progresso -->
-            <div id="contenuto1" class="nascondi card__wrapper">
-                <div style="position:relative; translate: 21.5% 125%;" class="card__time card__time-passed">0:00</div>
-                <div style="position:relative; translate: 50% 0%;" class="card__timeline"><progress value="0"
-                        max="100"></progress></div>
-                <div style="position:relative; translate: 76% 0%;" class="card__time card__time-left">0:00</div>
-            </div>
-            <div id="contenuto2" class="nascondi card__wrapper">
-                <div style="position:relative; translate: 21.5% 125%;" class="card__time card__time-passed">0:00</div>
-                <div style="position:relative; translate: 50% 0%;" class="card__timeline"><progress value="0"
-                        max="100"></progress></div>
-                <div style="position:relative; translate: 76% 0%;" class="card__time card__time-left">0:00</div>
-            </div>
-            <div id="contenuto3" class="nascondi card__wrapper">
-                <div style="position:relative; translate: 21.5% 125%;" class="card__time card__time-passed">0:00</div>
-                <div style="position:relative; translate: 50% 0%;" class="card__timeline"><progress value="0"
-                        max="100"></progress></div>
-                <div style="position:relative; translate: 76% 0%;" class="card__time card__time-left">0:00</div>
-            </div>
-            <div id="contenuto4" class="nascondi card__wrapper">
-                <div style="position:relative; translate: 21.5% 125%;" class="card__time card__time-passed">0:00</div>
-                <div style="position:relative; translate: 50% 0%;" class="card__timeline"><progress value="0"
-                        max="100"></progress></div>
-                <div style="position:relative; translate: 76% 0%;" class="card__time card__time-left">0:00</div>
-            </div>
-            <div id="contenuto5" class="nascondi card__wrapper">
-                <div style="position:relative; translate: 21.5% 125%;" class="card__time card__time-passed">0:00</div>
-                <div style="position:relative; translate: 50% 0%;" class="card__timeline"><progress value="0"
-                        max="100"></progress></div>
-                <div style="position:relative; translate: 76% 0%;" class="card__time card__time-left">0:00</div>
-            </div>
-            <div id="contenuto6" class="nascondi card__wrapper">
-                <div style="position:relative; translate: 21.5% 125%;" class="card__time card__time-passed">0:00</div>
-                <div style="position:relative; translate: 50% 0%;" class="card__timeline"><progress value="0"
-                        max="100"></progress></div>
-                <div style="position:relative; translate: 76% 0%;" class="card__time card__time-left">0:00</div>
-            </div>
-            <div id="contenuto7" class="nascondi card__wrapper">
-                <div style="position:relative; translate: 21.5% 125%;" class="card__time card__time-passed">0:00</div>
-                <div style="position:relative; translate: 50% 0%;" class="card__timeline"><progress value="0"
-                        max="100"></progress></div>
-                <div style="position:relative; translate: 76% 0%;" class="card__time card__time-left">0:00</div>
-            </div>
-            <!-- pulsanti -->
-            <div class="card__wrapper">
-                <!-- pulsante per tornare indietro -->
-                <a style="margin-left: 15%;" class="card__btn" onclick="previousContent()">
-                    <svg width="23" height="16" viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M11.5 8V0L0 8L11.5 16V8ZM23 0L11.5 8L23 16V0Z"></path>
-                    </svg>
-                </a>
-                <!-- pulsante per play/pausa -->
-                <a class="card__btn card__btn-play" onclick="playPauseAudio(currentIndex || 0)">
-                    <svg width="50px" height="50px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
-                        <path fill="#000000" fill-rule="evenodd"
-                            d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm8.528-4.882a1 1 0 0 1 1.027.05l6 4a1 1 0 0 1 0 1.664l-6 4A1 1 0 0 1 9 16V8a1 1 0 0 1 .528-.882z" />
-                    </svg>
-                </a>
-                <!-- pulsante per andare avanti -->
-                <a style="margin-right: 15%;" class="card__btn" onclick="nextContent()">
-                    <svg width="23" height="16" viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M11.5 8V0L23 8L11.5 16V8ZM0 0L11.5 8L0 16V0Z"></path>
-                    </svg>
-                </a>
-            </div>
-
-            <!-- testo -->
-            <div style="display: flex; justify-content: center; align-items: center;">
-                <div id="contenuto1" class="nascondi dati hover-scroll card_testo"
-                    style="overflow-y: auto; display: inline-block; max-height: 200px; max-width: 400px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
-                    <header class="w3-container card_testo_titolo">
-                        <h4>Testo1</h4>
-                    </header>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                </div>
-                <div id="contenuto2" class="nascondi dati hover-scroll card_testo"
-                    style="overflow-y: auto; display: inline-block; max-height: 200px; max-width: 400px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
-                    <header class="w3-container card_testo_titolo">
-                        <h4>Testo2</h4>
-                    </header>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                </div>
-                <div id="contenuto3" class="nascondi dati hover-scroll card_testo"
-                    style="overflow-y: auto; display: inline-block; max-height: 200px; max-width: 400px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
-                    <header class="w3-container card_testo_titolo">
-                        <h4>Testo3</h4>
-                    </header>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                </div>
-                <div id="contenuto4" class="nascondi dati hover-scroll card_testo"
-                    style="overflow-y: auto; display: inline-block; max-height: 200px; max-width: 400px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
-                    <header class="w3-container card_testo_titolo">
-                        <h4>Testo4</h4>
-                    </header>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                </div>
-                <div id="contenuto5" class="nascondi dati hover-scroll card_testo"
-                    style="overflow-y: auto; display: inline-block; max-height: 200px; max-width: 400px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
-                    <header class="w3-container card_testo_titolo">
-                        <h4>Testo5</h4>
-                    </header>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                </div>
-                <div id="contenuto6" class="nascondi dati hover-scroll card_testo"
-                    style="overflow-y: auto; display: inline-block; max-height: 200px; max-width: 400px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
-                    <header class="w3-container card_testo_titolo">
-                        <h4>Testo6</h4>
-                    </header>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                </div>
-                <div id="contenuto7" class="nascondi dati hover-scroll card_testo"
-                    style="overflow-y: auto; display: inline-block; max-height: 200px; max-width: 400px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
-                    <header class="w3-container card_testo_titolo">
-                        <h4>Testo7</h4>
-                    </header>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
+                <div class="footer-section">
+                    <h3>Info</h3>
+                    <ul>
+                        <li><a href="chi-siamo.html">Chi siamo</a></li>
+                        <li><a href="index.html#contatti">Contatti</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
-
-
-    </section>
-
-    <section class="projects-section" id="">
-        <hr class="w3-border-grey" style="margin: auto; width: 40%" />
-        <div class="w3-center">
-            <h3 class="sezione">
-                Sezioni
-            </h3>
+        <div class="footer-bottom">
+            <p>© 2025
+                <a href="https://github.com/diegorenesto" target="_blank">Diego Renesto</a>,
+                <a href="https://github.com/JurijGagarinFB" target="_blank">Francesco Bazaj</a>,
+                <a href="https://github.com/xRennyx" target="_blank">Francesco Renesto</a>,
+                <a href="https://github.com/zanfooo" target="_blank">Nicolò Zanforlin</a>,
+                <a href="https://github.com/MattiaMystic" target="_blank">Mattia Pavarin</a>
+            </p>
         </div>
-
-        <div class="projects-container">
-            <div class="grid-container">
-                <a href="index.html">
-                    <div class="house-container">
-                        <div class="house-name">HOME</div>
-                        <img src="Media/img/home.jpg" alt="Home Image">
-                        <div class="overlay">Torna alla home page</div>
-                    </div>
-                </a>
-
-                <a href="esercizi.html">
-                    <div class="house-container">
-                        <div class="house-name">ESERCIZI</div>
-                        <img src="Media/img/esercizi.jpg" alt="Home Image">
-                        <div class="overlay">Vai alla sezione esercizi</div>
-                    </div>
-                </a>
-
-                <a href="limiti-sociali.html">
-                    <div class="house-container">
-                        <div class="house-name">LIMITI SOCIALI</div>
-                        <img src="Media/img/limiti-sociali.jpg" alt="Home Image">
-                        <div class="overlay">Vai ai limiti sociali</div>
-                    </div>
-                </a>
-
-                <a href="podcast.html">
-                    <div class="house-container">
-                        <div class="house-name">PODCAST</div>
-                        <img src="Media/img/podcast.jpg" alt="Home Image">
-                        <div class="overlay">Vai alla sezione podcast</div>
-                    </div>
-                </a>
-                <div class="house-container">
-                </div>
-                <div class="house-container">
-                </div>
-                <div class="house-container">
-                </div>
-                <div class="house-container">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="w3-center w3-black w3-padding-16">
-        <p>
-            © 2025
-            <a href="https://github.com/diegorenesto" target="_blank">Diego Renesto</a>,
-            <a href="https://github.com/JurijGagarinFB" target="_blank">Francesco Bazaj</a>,
-            <a href="https://github.com/xRennyx" target="_blank">Francesco Renesto</a>,
-            <a href="https://github.com/zanfooo" target="_blank">Nicolò Zanforlin</a>,
-            <a href="https://github.com/MattiaMystic" target="_blank">Mattia Pavarin</a>
-        </p>
     </footer>
 
-    <!-- SCRIPT SIDEBAR -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/gsap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
     <script>
-        // OPEN SIDEBAR
-        function openNav() {
-            document.getElementById("mySidebar").style.width = "250px";
-        }
-
-        // CLOSE SIDEBAR
-        function closeNav() {
-            document.getElementById("mySidebar").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
-        }
-    </script>
-
-    <!-- SCRIPT THEME TOGGLE -->
-    <script>
-        function toggleTheme() {
-            const themeStyle = document.getElementById('theme-style');
-            const themeIcon = document.getElementById('theme-icon');
-            const switchInput = document.getElementById('check'); // Lo switch
-            const themeColor = document.getElementById('theme-color');
-
-            if (switchInput.checked) {
-                themeStyle.setAttribute('href', 'dark.css'); // Cambia il CSS a dark.css
-                themeColor.setAttribute('class', 'w3-bar w3-black w3-wide w3-padding w3-card');
-                localStorage.setItem('theme', 'dark');
-                themeIcon.textContent = "🌙";
-            } else {
-                themeStyle.setAttribute('href', 'style.css'); // Cambia il CSS a style.css
-                themeColor.setAttribute('class', 'w3-bar w3-white w3-wide w3-padding w3-card');
-                localStorage.setItem('theme', 'light');
-                themeIcon.innerHTML = `<svg width="45px" height="45px" style="position: relative;" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet"><path d="M37.41 41.95c-9.71 12.48-9.54 34.65 2.87 45.64c14.09 12.47 33.92 12.34 46.39.87c14.95-13.76 14.09-36.66.87-49.63c-13.29-13.04-37.04-13.72-50.13 3.12z" fill="#fcc11a"></path><path d="M53 37.67c-3.84-1.7-8.04 2.93-9.87 6.09c-1.83 3.17-3.53 9.38.37 10.97c3.9 1.58 6.7-1.1 9.51-5.73c2.79-4.63 4.38-9.38-.01-11.33z" fill="#fee269"></path><path d="M63 20.27c-.93 1.74-.62 3.08 1.23 3.52c1.85.44 13.36 2.31 14.33 2.37c1.41.09 1.93-.97 1.76-2.2c-.18-1.23-2.99-18.46-3.25-20.04S75.14.76 73.55 2.87S63.7 18.96 63 20.27z" fill="#ffa722"></path><path d="M92.8 32.23c-1.81.56-1.76 1.67-.79 3.08c.97 1.41 7.65 11.6 8.26 12.31c.62.7 1.67.88 2.55-.18c.88-1.05 11.86-16.45 12.66-17.41c1.32-1.58.53-3.25-1.49-2.73c-1.54.41-20.05 4.58-21.19 4.93z" fill="#ffa722"></path><path d="M106.6 61.86c-1.3-.74-2.99-.53-3.43 1.14c-.44 1.67-2.37 13.8-2.55 14.86s.62 2.11 1.93 1.85s19.45-2.95 20.66-3.25c2.11-.53 2.81-2.64.62-4.22c-1.42-1.03-16-9.68-17.23-10.38z" fill="#ffa722"></path><path d="M92.09 90.6c1.4-.75 2.64-.18 2.99 1.41c.35 1.58 4.22 17.76 4.84 20.75c.31 1.5-1.41 2.73-2.81 1.85c-1.41-.88-16.69-11.53-17.67-12.4c-1.41-1.23-.43-2.51.26-3.16c1.4-1.33 11.07-7.74 12.39-8.45z" fill="#ffa722"></path><path d="M49.54 99.48c-1.77-.17-2.29 1.41-2.02 2.81c.26 1.41 2.9 19.24 3.08 20.57c.26 1.93 2.29 2.73 3.6.79s10.35-16.4 11.08-17.76c1.32-2.46.35-2.99-.97-3.6c-1.31-.61-12.92-2.63-14.77-2.81z" fill="#ffa722"></path><path d="M24.23 79c1.23-2.02 2.81-1.49 3.96.44c.78 1.32 7.38 10.2 8 11.16c.62.97.88 2.81-1.05 3.25c-1.95.45-17.68 4.58-20.14 5.02c-2.46.44-3.87-1.49-2.29-3.6c.92-1.24 10.82-15.12 11.52-16.27z" fill="#ffa722"></path><path d="M20.89 63.7c2.25 1 3.31.64 3.78-.97c.62-2.11 2.46-11.78 2.55-13.98c.06-1.43-.53-2.81-2.73-2.46S6.47 48.85 4.45 49.55c-2.35.82-2.18 3.4-.62 4.22c1.85.97 15.47 9.23 17.06 9.93z" fill="#ffa722"></path><path d="M48.23 26.78c1.27-1.01.88-2.46-.26-3.25c-1.14-.79-15.26-11-17.05-12.4c-1.58-1.23-3.52-.79-2.99 2.02c.38 2.02 4.88 19.7 5.19 20.92c.35 1.41 1.41 2.11 2.64 1.23c1.21-.87 11.15-7.46 12.47-8.52z" fill="#ffa722"></path></svg>`;
-
-            }
-        }
-
-
-        // Al caricamento della pagina, applica il tema preferito dall'utente
-        window.onload = function () {
-            const savedTheme = localStorage.getItem('theme');
-            const themeStyle = document.getElementById('theme-style');
-            const themeColor = document.getElementById('theme-color');
-            const themeIcon = document.getElementById('theme-icon');
-            const switchInput = document.getElementById('check'); // Lo switch
-
-            if (savedTheme === 'dark') {
-                themeStyle.setAttribute('href', 'dark.css');
-                themeColor.setAttribute('class', 'w3-bar w3-black w3-wide w3-padding w3-card');
-                themeIcon.textContent = "🌙";
-                switchInput.checked = true; // Attiva lo switch
-            } else {
-                themeStyle.setAttribute('href', 'style.css');
-                themeColor.setAttribute('class', 'w3-bar w3-white w3-wide w3-padding w3-card');
-                themeIcon.innerHTML = `<svg width="45px" height="45px" style="position: relative;" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet"><path d="M37.41 41.95c-9.71 12.48-9.54 34.65 2.87 45.64c14.09 12.47 33.92 12.34 46.39.87c14.95-13.76 14.09-36.66.87-49.63c-13.29-13.04-37.04-13.72-50.13 3.12z" fill="#fcc11a"></path><path d="M53 37.67c-3.84-1.7-8.04 2.93-9.87 6.09c-1.83 3.17-3.53 9.38.37 10.97c3.9 1.58 6.7-1.1 9.51-5.73c2.79-4.63 4.38-9.38-.01-11.33z" fill="#fee269"></path><path d="M63 20.27c-.93 1.74-.62 3.08 1.23 3.52c1.85.44 13.36 2.31 14.33 2.37c1.41.09 1.93-.97 1.76-2.2c-.18-1.23-2.99-18.46-3.25-20.04S75.14.76 73.55 2.87S63.7 18.96 63 20.27z" fill="#ffa722"></path><path d="M92.8 32.23c-1.81.56-1.76 1.67-.79 3.08c.97 1.41 7.65 11.6 8.26 12.31c.62.7 1.67.88 2.55-.18c.88-1.05 11.86-16.45 12.66-17.41c1.32-1.58.53-3.25-1.49-2.73c-1.54.41-20.05 4.58-21.19 4.93z" fill="#ffa722"></path><path d="M106.6 61.86c-1.3-.74-2.99-.53-3.43 1.14c-.44 1.67-2.37 13.8-2.55 14.86s.62 2.11 1.93 1.85s19.45-2.95 20.66-3.25c2.11-.53 2.81-2.64.62-4.22c-1.42-1.03-16-9.68-17.23-10.38z" fill="#ffa722"></path><path d="M92.09 90.6c1.4-.75 2.64-.18 2.99 1.41c.35 1.58 4.22 17.76 4.84 20.75c.31 1.5-1.41 2.73-2.81 1.85c-1.41-.88-16.69-11.53-17.67-12.4c-1.41-1.23-.43-2.51.26-3.16c1.4-1.33 11.07-7.74 12.39-8.45z" fill="#ffa722"></path><path d="M49.54 99.48c-1.77-.17-2.29 1.41-2.02 2.81c.26 1.41 2.9 19.24 3.08 20.57c.26 1.93 2.29 2.73 3.6.79s10.35-16.4 11.08-17.76c1.32-2.46.35-2.99-.97-3.6c-1.31-.61-12.92-2.63-14.77-2.81z" fill="#ffa722"></path><path d="M24.23 79c1.23-2.02 2.81-1.49 3.96.44c.78 1.32 7.38 10.2 8 11.16c.62.97.88 2.81-1.05 3.25c-1.95.45-17.68 4.58-20.14 5.02c-2.46.44-3.87-1.49-2.29-3.6c.92-1.24 10.82-15.12 11.52-16.27z" fill="#ffa722"></path><path d="M20.89 63.7c2.25 1 3.31.64 3.78-.97c.62-2.11 2.46-11.78 2.55-13.98c.06-1.43-.53-2.81-2.73-2.46S6.47 48.85 4.45 49.55c-2.35.82-2.18 3.4-.62 4.22c1.85.97 15.47 9.23 17.06 9.93z" fill="#ffa722"></path><path d="M48.23 26.78c1.27-1.01.88-2.46-.26-3.25c-1.14-.79-15.26-11-17.05-12.4c-1.58-1.23-3.52-.79-2.99 2.02c.38 2.02 4.88 19.7 5.19 20.92c.35 1.41 1.41 2.11 2.64 1.23c1.21-.87 11.15-7.46 12.47-8.52z" fill="#ffa722"></path></svg>`;
-
-                switchInput.checked = false; // Disattiva lo switch
-            }
-        };
-
-
-
-    </script>
-
-    <script>
-        let currentAudio = null; // To track the currently playing audio
-        let currentIndex = null; // To track the current content index
-        let progressInterval = null; // To update the progress bar
-
-        function initializeAudioData() {
-            const audios = document.querySelectorAll("audio");
-            audios.forEach((audio, index) => {
-                const progressBar = document.querySelector(`#contenuto${index + 1} progress`);
-                const timePassed = document.querySelector(`#contenuto${index + 1} .card__time-passed`);
-                const timeLeft = document.querySelector(`#contenuto${index + 1} .card__time-left`);
-
-                // Set progress bar to 0
-                progressBar.value = 0;
-
-                // Set initial time values
-                audio.addEventListener("loadedmetadata", () => {
-                    timePassed.textContent = formatTime(0);
-                    timeLeft.textContent = formatTime(audio.duration || 0);
-                });
-
-                // Add click event to progress bar for seeking
-                progressBar.addEventListener("click", (event) => {
-                    if (audio.duration) {
-                        const rect = progressBar.getBoundingClientRect();
-                        const clickX = event.clientX - rect.left;
-                        const newTime = (clickX / rect.width) * audio.duration;
-                        audio.currentTime = newTime;
-
-                        // Update progress bar and time display immediately
-                        timePassed.textContent = formatTime(audio.currentTime);
-                        timeLeft.textContent = formatTime(audio.duration - audio.currentTime);
-                        progressBar.value = (audio.currentTime / audio.duration) * 100;
-                    }
-                });
-            });
-        }
-
-        function resetPlayButton() {
-            const playButton = document.querySelector(".card__btn-play");
-            playButton.innerHTML = `<svg width="50px" height="50px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
-                <path fill="#000000" fill-rule="evenodd"
-                    d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm8.528-4.882a1 1 0 0 1 1.027.05l6 4a1 1 0 0 1 0 1.664l-6 4A1 1 0 0 1 9 16V8a1 1 0 0 1 .528-.882z" />
-            </svg>`;
-        }
-
-        function playPauseAudio(index) {
-            const audioId = `audio${index + 1}`;
-            const audioElement = document.getElementById(audioId);
-            const playButton = document.querySelector(".card__btn-play");
-            const timePassed = document.querySelector(`#contenuto${index + 1} .card__time-passed`);
-            const timeLeft = document.querySelector(`#contenuto${index + 1} .card__time-left`);
-            const progressBar = document.querySelector(`#contenuto${index + 1} progress`);
-
-            if (currentAudio && currentAudio !== audioElement) {
-                // Pause the currently playing audio if it's different
-                currentAudio.pause();
-                currentAudio.currentTime = 0;
-                clearInterval(progressInterval);
-            }
-
-            if (currentAudio === audioElement && !audioElement.paused) {
-                // Pause the current audio
-                audioElement.pause();
-                resetPlayButton();
-                clearInterval(progressInterval);
-            } else {
-                // Play the selected audio
-                audioElement.play();
-                currentAudio = audioElement;
-                currentIndex = index;
-
-                playButton.innerHTML = `<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    viewBox="0 0 310.284 310.284" style="enable-background:new 0 0 310.284 310.284;" xml:space="preserve">
-                    <path d="M155.142,0C69.597,0,0,69.597,0,155.142s69.597,155.142,155.142,155.142s155.142-69.597,155.142-155.142
-                        S240.688,0,155.142,0z M130.392,212.864c0,9.665-7.835,17.5-17.5,17.5s-17.5-7.835-17.5-17.5v-115c0-9.665,7.835-17.5,17.5-17.5
-                        s17.5,7.835,17.5,17.5V212.864z M209.392,212.864c0,9.665-7.835,17.5-17.5,17.5s-17.5-7.835-17.5-17.5v-115
-                        c0-9.665,7.835-17.5,17.5-17.5s17.5,7.835,17.5,17.5V212.864z"/>
-                </svg>`;
-
-                // Update progress bar and time
-                progressInterval = setInterval(() => {
-                    const currentTime = audioElement.currentTime;
-                    const duration = audioElement.duration;
-
-                    if (!isNaN(duration)) {
-                        timePassed.textContent = formatTime(currentTime);
-                        timeLeft.textContent = formatTime(duration - currentTime);
-                        progressBar.value = (currentTime / duration) * 100;
-                    }
-
-                    if (currentTime >= duration) {
-                        clearInterval(progressInterval);
-                        resetPlayButton();
-                    }
-                }, 500);
-            }
-        }
-
-        function formatTime(seconds) {
-            const minutes = Math.floor(seconds / 60);
-            const secs = Math.floor(seconds % 60);
-            return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
-        }
-
-        function showContent(index) {
-            // Stop the current audio when switching content
-            if (currentAudio) {
-                currentAudio.pause();
-                currentAudio.currentTime = 0;
-                clearInterval(progressInterval);
-            }
-
-            // Reset the play button to its default state
-            resetPlayButton();
-
-            // Update the current index
-            currentIndex = index;
-
-            // Hide all contents
-            const contents = document.querySelectorAll(".nascondi");
-            contents.forEach(content => {
-                content.style.display = "none";
-            });
-
-            // Show the selected content
-            const visibleContents = document.querySelectorAll(`#contenuto${index + 1}`);
-            visibleContents.forEach(content => {
-                content.style.display = "block";
-            });
-
-            // Update the carousel to the correct image
-            const carouselRadio = document.getElementById(`item-${index + 1}`);
-            if (carouselRadio) {
-                carouselRadio.checked = true;
-            }
-        }
-
-        function previousContent() {
-            const totalContents = document.querySelectorAll(".nascondi.card__title").length;
-            if (currentIndex > 0) {
-                showContent(currentIndex - 1);
-            } else {
-                showContent(totalContents - 1); // Go to the last content if at the first
-            }
-        }
-
-        function nextContent() {
-            const totalContents = document.querySelectorAll(".nascondi.card__title").length;
-            if (currentIndex < totalContents - 1) {
-                showContent(currentIndex + 1);
-            } else {
-                showContent(0); // Go to the first content if at the last
-            }
-        }
-
-        // Ensure the first content is visible but do not play audio automatically
-        document.addEventListener("DOMContentLoaded", function () {
-            initializeAudioData(); // Initialize progress bars and time values
-            showContent(0); // Show the first content without playing audio
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out'
         });
     </script>
-
-    <!-- Add audio elements for each content -->
-    <audio id="audio1" src="Media/audio/audio1.mp3"></audio>
-    <audio id="audio2" src="Media/audio/audio2.mp3"></audio>
-    <audio id="audio3" src="Media/audio/audio3.mp3"></audio>
-    <audio id="audio4" src="Media/audio/audio4.mp3"></audio>
-    <audio id="audio5" src="Media/audio/audio5.mp3"></audio>
-    <audio id="audio6" src="Media/audio/audio6.mp3"></audio>
-    <audio id="audio7" src="Media/audio/audio7.mp3"></audio>
 </body>
 
 </html>
