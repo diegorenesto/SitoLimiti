@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" href="Media/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi Siamo - Vai oltre il limite</title>
@@ -286,6 +287,19 @@
             duration: 800,
             easing: 'ease-in-out'
         });
+    </script>
+    <!-- SCRIPT SIDEBAR -->
+    <script>
+        // OPEN SIDEBAR
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "300px";
+        }
+
+        // CLOSE SIDEBAR
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
     </script>
 </body>
 

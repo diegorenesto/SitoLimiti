@@ -2,12 +2,15 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" href="Media/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esercizi - Vai oltre il limite</title>
-    <link rel="icon" href="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/icons/infinity.svg" type="image/svg+xml">
+    <link rel="icon" href="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/icons/infinity.svg"
+        type="image/svg+xml">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="modern-style.css">
@@ -95,7 +98,8 @@
                             <a href="risoluzione-limite-costante.html" class="btn btn-primary">Risoluzione</a>
                         </div>
                         <div class="hint-box">
-                            <p>Ricorda: il limite di una costante è la costante stessa, indipendentemente dal punto in cui si calcola il limite.</p>
+                            <p>Ricorda: il limite di una costante è la costante stessa, indipendentemente dal punto in
+                                cui si calcola il limite.</p>
                         </div>
                     </div>
                 </div>
@@ -133,7 +137,8 @@
                             <a href="risoluzione-limite-x2.html" class="btn btn-primary">Risoluzione</a>
                         </div>
                         <div class="hint-box">
-                            <p>I polinomi sono funzioni continue, quindi puoi sostituire direttamente il valore di x nel polinomio.</p>
+                            <p>I polinomi sono funzioni continue, quindi puoi sostituire direttamente il valore di x nel
+                                polinomio.</p>
                         </div>
                     </div>
                 </div>
@@ -152,7 +157,8 @@
                             <a href="risoluzione-limite-radice.html" class="btn btn-primary">Risoluzione</a>
                         </div>
                         <div class="hint-box">
-                            <p>La funzione radice quadrata è continua per x > 0, quindi puoi sostituire direttamente il valore di x.</p>
+                            <p>La funzione radice quadrata è continua per x > 0, quindi puoi sostituire direttamente il
+                                valore di x.</p>
                         </div>
                     </div>
                 </div>
@@ -171,7 +177,8 @@
                             <a href="risoluzione-limite-log.html" class="btn btn-primary">Risoluzione</a>
                         </div>
                         <div class="hint-box">
-                            <p>Questo è un limite notevole. Puoi usare lo sviluppo in serie di Taylor di ln(1+x) o il teorema di De L'Hôpital.</p>
+                            <p>Questo è un limite notevole. Puoi usare lo sviluppo in serie di Taylor di ln(1+x) o il
+                                teorema di De L'Hôpital.</p>
                         </div>
                     </div>
                 </div>
@@ -187,7 +194,8 @@
                         <p>Calcola il limite di questa funzione razionale con forma indeterminata 0/0.</p>
                         <div class="esercizio-actions">
                             <button class="btn btn-secondary show-hint">Suggerimento</button>
-                            <a href="#" class="btn btn-primary solution-btn" data-solution="Fattorizzando il numeratore come (x-2)(x+2), si ottiene (x+2) per x→2, quindi il limite è 4.">Risoluzione</a>
+                            <a href="#" class="btn btn-primary solution-btn"
+                                data-solution="Fattorizzando il numeratore come (x-2)(x+2), si ottiene (x+2) per x→2, quindi il limite è 4.">Risoluzione</a>
                         </div>
                         <div class="hint-box">
                             <p>Prova a fattorizzare il numeratore per eliminare la forma indeterminata.</p>
@@ -240,8 +248,8 @@
             <div class="footer-logo">
                 <a href="index.html" class="company-name-main">
                     <span class="logo-vai">Vai</span>
-                    <span class="logo-oltre">OLTRE</span> 
-                    <span class="logo-il">il</span> 
+                    <span class="logo-oltre">OLTRE</span>
+                    <span class="logo-il">il</span>
                     <span class="logo-limite">limite</span>
                 </a>
                 <p>Esplora il mondo affascinante dei limiti matematici</p>
@@ -287,6 +295,19 @@
             duration: 800,
             easing: 'ease-in-out'
         });
+    </script>
+    <!-- SCRIPT SIDEBAR -->
+    <script>
+        // OPEN SIDEBAR
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "300px";
+        }
+
+        // CLOSE SIDEBAR
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
     </script>
 </body>
 
