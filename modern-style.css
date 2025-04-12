@@ -2,8 +2,8 @@
   /* Modern Light Theme Colors */
   --bg-color: #ffffff;
   --text-color: #161925;
-  --accent-color: #3F5EFB;
-  --accent-gradient: linear-gradient(135deg, #3F5EFB 0%, #FC466B 100%);
+  --accent-color: #3f5efb;
+  --accent-gradient: linear-gradient(135deg, #3f5efb 0%, #fc466b 100%);
   --primary-color: #4a6cf7;
   --secondary-color: #6c7ee1;
   --tertiary-color: #a3bffa;
@@ -15,7 +15,7 @@
   --error-color: #f87171;
   --warning-color: #fbbf24;
   --info-color: #60a5fa;
-  
+
   /* UI Elements */
   --nav-height: 70px;
   --sidebar-width: 280px;
@@ -27,12 +27,12 @@
   --glass-bg: rgba(255, 255, 255, 0.15);
   --glass-border: rgba(255, 255, 255, 0.18);
   --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-  
+
   /* Typography */
-  --heading-font: 'Montserrat', sans-serif;
-  --body-font: 'Roboto', sans-serif;
-  --code-font: 'Courier New', monospace;
-  --math-font: 'Georgia', serif;
+  --heading-font: "Montserrat", sans-serif;
+  --body-font: "Roboto", sans-serif;
+  --code-font: "Courier New", monospace;
+  --math-font: "Georgia", serif;
 }
 
 /* Dark Theme Colors */
@@ -40,7 +40,7 @@
   --bg-color: #0f172a;
   --text-color: #e2e8f0;
   --accent-color: #818cf8;
-  --accent-gradient: linear-gradient(135deg, #818cf8 0%, #FC466B 100%);
+  --accent-gradient: linear-gradient(135deg, #818cf8 0%, #fc466b 100%);
   --primary-color: #6366f1;
   --secondary-color: #a5b4fc;
   --tertiary-color: #c4b5fd;
@@ -61,7 +61,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 html {
@@ -82,7 +83,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--heading-font);
   font-weight: 700;
   margin-bottom: 1.2rem;
@@ -106,7 +112,7 @@ h2 {
 }
 
 h2::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: -10px;
@@ -138,7 +144,7 @@ a:hover {
 }
 
 a:not(.btn, .nav-link)::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   transform: scaleX(0);
@@ -349,7 +355,7 @@ input:checked + .toggle #sun-icon {
 }
 
 .btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -408,10 +414,10 @@ input:checked + .toggle #sun-icon {
 }
 
 .btn-text::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 0;
-  height: .2rem;
+  height: 0.2rem;
   bottom: 0;
   left: 0;
   background: var(--accent-gradient);
@@ -506,7 +512,7 @@ input:checked + .toggle #sun-icon {
 }
 
 .feature-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -553,7 +559,11 @@ input:checked + .toggle #sun-icon {
 }
 
 .teoria-header {
-  background: linear-gradient(135deg, rgba(63, 94, 251, 0.05) 0%, rgba(252, 70, 107, 0.05) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(63, 94, 251, 0.05) 0%,
+    rgba(252, 70, 107, 0.05) 100%
+  );
   padding: 6rem 2rem;
   text-align: center;
   position: relative;
@@ -561,7 +571,7 @@ input:checked + .toggle #sun-icon {
 }
 
 .teoria-header::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 200%;
   height: 200%;
@@ -624,7 +634,8 @@ input:checked + .toggle #sun-icon {
   transition: all 0.3s ease;
 }
 
-.tab-btn.active, .tab-btn:hover {
+.tab-btn.active,
+.tab-btn:hover {
   background: var(--accent-gradient);
   color: white;
   transform: translateY(-3px);
@@ -669,13 +680,17 @@ input:checked + .toggle #sun-icon {
 }
 
 .graph-container::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(63, 94, 251, 0.05) 0%, rgba(252, 70, 107, 0.05) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(63, 94, 251, 0.05) 0%,
+    rgba(252, 70, 107, 0.05) 100%
+  );
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -711,7 +726,11 @@ input:checked + .toggle #sun-icon {
 }
 
 .resolution-header {
-  background: linear-gradient(135deg, rgba(63, 94, 251, 0.05) 0%, rgba(252, 70, 107, 0.05) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(63, 94, 251, 0.05) 0%,
+    rgba(252, 70, 107, 0.05) 100%
+  );
   padding: 5rem 2rem;
   text-align: center;
 }
@@ -765,7 +784,7 @@ input:checked + .toggle #sun-icon {
 }
 
 .step::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -871,13 +890,17 @@ footer {
 }
 
 footer::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(63, 94, 251, 0.03) 0%, rgba(252, 70, 107, 0.03) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(63, 94, 251, 0.03) 0%,
+    rgba(252, 70, 107, 0.03) 100%
+  );
 }
 
 .footer-content {
@@ -924,7 +947,7 @@ footer::before {
 }
 
 .footer-section h3::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: -8px;
@@ -950,7 +973,7 @@ footer::before {
 }
 
 .footer-section a::before {
-  content: '→';
+  content: "→";
   position: absolute;
   left: 0;
   opacity: 0;
@@ -1055,57 +1078,59 @@ footer::before {
   html {
     font-size: 14px;
   }
-  
+
   .hero {
     flex-direction: column-reverse;
     padding: 2rem 0;
   }
-  
+
   .hero-content {
     padding: 2rem 1rem;
   }
-  
+
   .hero-title {
     font-size: 2.8rem;
   }
-  
+
   .hero-buttons {
     flex-direction: column;
     width: 100%;
   }
-  
+
   .feature-card {
     min-height: auto;
   }
-  
+
   .teoria-tabs {
     gap: 0.5rem;
   }
-  
+
   .tab-btn {
     padding: 0.6rem 1rem;
     font-size: 0.9rem;
   }
-  
+
   .theory-section {
     padding: 1.5rem;
   }
-  
+
   .footer-content {
     flex-direction: column;
     gap: 2rem;
   }
-  
+
   .action-buttons {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .resolution-title {
     font-size: 2.2rem;
   }
-  
-  .example-box, .step, .result-box {
+
+  .example-box,
+  .step,
+  .result-box {
     padding: 1.5rem;
   }
 }

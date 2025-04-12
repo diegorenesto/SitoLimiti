@@ -17,7 +17,7 @@
 
   /* UI Elements */
   --nav-height: 70px;
-  --sidebar-width: 280px;
+  --sidebar-width: 320px;
   --border-radius: 8px;
   --card-radius: 16px;
   --button-radius: 30px;
@@ -210,16 +210,17 @@ section {
 
 /* Sidebar Navigation */
 .sidebar {
-  height: 100%; /* Occupare l'intera altezza della finestra */
-  width: 0; /* Larghezza iniziale a 0 */
-  position: fixed; /* Fissata sul lato sinistro */
-  z-index: 1000; /* Sopra il contenuto */
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111; /* Colore di sfondo */
-  overflow-x: hidden; /* Nascondere il contenuto orizzontale */
-  transition: 0.5s; /* Transizione fluida */
-  padding-top: 60px; /* Spazio superiore */
+  background-color: var(--bg-color);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar a {
@@ -232,7 +233,8 @@ section {
 }
 
 .sidebar a:hover {
-  color: #f1f1f1;
+  color: var(--accent-color);
+  text-decoration: none;
 }
 
 .sidebar .closebtn {
@@ -241,6 +243,13 @@ section {
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar .closebtn:hover {
+  color: var(--accent-color);
+  text-decoration: none;
 }
 
 .nav-container {
@@ -253,7 +262,7 @@ section {
 
 /* Quando la sidebar è aperta */
 .sidebar.open {
-  width: 250px; /* Larghezza della sidebar aperta */
+  width: 280px;/* Larghezza della sidebar aperta */
 }
 
 .nav-container.shifted {
@@ -297,20 +306,6 @@ section {
   color: var(--primary-color);
   background-color: var(--muted-color);
   transform: translateX(10px);
-}
-
-.sidebar .closebtn {
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  font-size: 2.5rem;
-  color: var(--text-color);
-  transition: all 0.3s ease;
-}
-
-.sidebar .closebtn:hover {
-  color: var(--accent-color);
-  transform: rotate(90deg);
 }
 
 /* Navigation Toggle Button */
@@ -2151,13 +2146,10 @@ footer {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.9);
-  /* Black*/
   overflow-x: hidden;
-  /* Disable horizontal scroll */
-  padding-top: 60px;
-  /* Place content 60px from the top */
   transition: 0.5s;
-  /* 0.5 second transition effect to slide in the sidebar */
+  padding-top: 60px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 /* The sidebar links */
@@ -2172,7 +2164,8 @@ footer {
 
 /* When you mouse over the navigation links, change their color */
 .sidebar a:hover {
-  color: #000000;
+  color: var(--accent-color);
+  text-decoration: none;
 }
 
 /* Position and style the close button (top right corner) */
@@ -2182,6 +2175,8 @@ footer {
   right: 25px;
   font-size: 40px;
   margin-left: 50px;
+  color: white;
+  text-decoration: none;
 }
 
 /* The button used to open the sidebar */
