@@ -267,19 +267,33 @@
     display: block;
 }
 
+/* Stili aggiuntivi per il grafico 3D */
 .graph-container {
+    position: relative;
     width: 100%;
-    height: 400px;
-    background-color: var(--muted-color);
+    height: 500px;
+    background-color: var(--card-bg);
     border-radius: var(--border-radius);
     overflow: hidden;
 }
 
+#graph3d-container {
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+}
+
+#graph3d-container:active {
+    cursor: grabbing;
+}
+
 .graph-controls {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: var(--muted-color);
+    border-radius: var(--border-radius);
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     gap: 1.5rem;
 }
 
@@ -288,10 +302,10 @@
     min-width: 200px;
 }
 
-.slider-container label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
+@media (max-width: 768px) {
+    .graph-container {
+        height: 350px;
+    }
 }
 
 .slider {
@@ -539,4 +553,20 @@
     .graph-container {
         height: 300px;
     }
+}
+
+.error {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.function-input-wrapper .error {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    display: block;
+}
+
+input.error-input {
+    border-color: #e74c3c !important;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1) !important;
 }

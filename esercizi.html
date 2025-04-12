@@ -10,62 +10,50 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modern-style.css">
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
     <nav>
         <div id="main" class="w3-top">
-            <div id="theme-color" class="w3-bar w3-white w3-wide w3-padding w3-card nav-container">
+            <div id="theme-color" class="w3-bar w3-white w3-wide w3-padding w3-card">
                 <!-- OPEN COLLAPSED SIDEBAR -->
-                <button class="openbtn w3-bar-item" onclick="openNav()" aria-label="Open sidebar">
+                <button class="openbtn w3-bar-item" onclick="openNav()"
+                    style="background-color: transparent; padding-right: 80px">
                     <div class="line1"></div>
                     <div class="line2"></div>
                     <div class="line3"></div>
                 </button>
 
-                <!-- SIDEBAR -->
+                <!-- CLOSE -->
                 <div id="mySidebar" class="sidebar">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" aria-label="Close sidebar">&times;</a>
-                    <div class="sidebar-links">
-                        <a href="teoria.html" class="sidebar-link" data-aos="fade-right" data-aos-delay="100">
-                            <i class="fas fa-book-open"></i> Teoria
-                        </a>
-                        <a href="esercizi.html" class="sidebar-link active" data-aos="fade-right" data-aos-delay="200">
-                            <i class="fas fa-pencil-alt"></i> Esercizi
-                        </a>
-                        <a href="limiti-sociali.html" class="sidebar-link" data-aos="fade-right" data-aos-delay="300">
-                            <i class="fas fa-users"></i> Limiti sociali
-                        </a>
-                        <a href="podcast.html" class="sidebar-link" data-aos="fade-right" data-aos-delay="400">
-                            <i class="fas fa-podcast"></i> Podcast
-                        </a>
-                    </div>
-                    <div class="sidebar-footer">
-                        <a href="index.html#contatti" class="sidebar-link" data-aos="fade-right" data-aos-delay="500">
-                            <i class="fas fa-envelope"></i> Contatti
-                        </a>
-                        <a href="chi-siamo.html" class="sidebar-link" data-aos="fade-right" data-aos-delay="600">
-                            <i class="fas fa-users"></i> Chi siamo
-                        </a>
-                    </div>
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="teoria.html">Teoria</a>
+                    <a href="esercizi.html">Esercizi</a>
+                    <a href="limiti-sociali.html">Limiti sociali</a>
+                    <a href="podcast.html">Podcast</a>
+                    <a href="index.html#contatti"
+                        style="position: absolute; bottom: 0; margin-bottom: 20%;">Contatti</a>
+                    <a href="chi-siamo.html"
+                        style="position: absolute; bottom: 0; margin-bottom: 5%; font-size: 15px;">Chi siamo</a>
                 </div>
-
-                <a href="index.html" class="w3-bar-item w3-button company-name-main logo-text">
-                    <span class="logo-oltre">OLTRE</span> 
-                    <span class="logo-il">il</span> 
-                    <span class="logo-limite">limite</span>
-                </a>
+                <a href="index.html" class="w3-bar-item w3-button company-name-main">Vai <b>OLTRE</b> il
+                    limite</a>
 
                 <!-- SWITCH DARK-LIGHT MODE -->
-                <div class="switch-container">
-                    <input hidden id="check" name="check" type="checkbox" onchange="toggleTheme()">
+                <div class="switch" style="position: absolute;
+				top: 30%;
+				right: 5%;">
+                    <input hidden="" id="check" name="check" type="checkbox" onchange="toggleTheme()">
                     <label class="toggle" for="check">
-                        <i class="fas fa-moon" id="moon-icon"></i>
-                        <i class="fas fa-sun" id="sun-icon"></i>
                         <div class="toggle__circle"></div>
                     </label>
+                    <div class="toggle-text">
+                        <span id="theme-icon"></span>
+                    </div>
                 </div>
+
             </div>
         </div>
     </nav>
@@ -250,6 +238,7 @@
         <div class="footer-content">
             <div class="footer-logo">
                 <a href="index.html" class="company-name-main">
+                    <span class="logo-vai">Vai</span>
                     <span class="logo-oltre">OLTRE</span> 
                     <span class="logo-il">il</span> 
                     <span class="logo-limite">limite</span>

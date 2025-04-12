@@ -111,60 +111,25 @@ function initLimitCalculator() {
         const direction = limitDirection.value;
         
         if (funcStr === '') {
-            limitResult.innerHTML = 'Inserisci una funzione valida';
+            limitResult.innerHTML = '<span class="error">Inserisci una funzione valida</span>';
             return;
         }
         
         try {
-            // Effettua una chiamata API al server per calcolare il limite
-            fetch('/api/calculate-limit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    function: funcStr,
-                    point: pointStr,
-                    direction: direction
-                }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    limitResult.innerHTML = `<span class="error">Errore: ${data.error}</span>`;
-                    return;
-                }
-                
-                // Aggiorna la notazione del limite
-                updateLimitNotation(funcStr, pointStr, direction);
-                
-                // Aggiorna il risultato del limite
-                updateLimitResult(data.result);
-                
-                // Aggiorna la spiegazione del limite
-                updateLimitExplanation(funcStr, pointStr, data.result);
-                
-                // Aggiorna i grafici
-                updateGraphs(funcStr, pointStr, direction, data.result);
-            })
-            .catch(error => {
-                console.error('Errore durante il calcolo del limite:', error);
-                
-                // Se c'è un errore nella chiamata API, proviamo a stimare il limite localmente
-                const localResult = evaluateLimit(funcStr, pointStr, direction);
-                
-                // Aggiorna la notazione del limite
-                updateLimitNotation(funcStr, pointStr, direction);
-                
-                // Aggiorna il risultato del limite
-                updateLimitResult(localResult);
-                
-                // Aggiorna la spiegazione del limite
-                updateLimitExplanation(funcStr, pointStr, localResult);
-                
-                // Aggiorna i grafici
-                updateGraphs(funcStr, pointStr, direction, localResult);
-            });
+            // Calcola il limite localmente
+            const result = evaluateLimit(funcStr, pointStr, direction);
+            
+            // Aggiorna la notazione del limite
+            updateLimitNotation(funcStr, pointStr, direction);
+            
+            // Aggiorna il risultato del limite
+            updateLimitResult(result);
+            
+            // Aggiorna la spiegazione del limite
+            updateLimitExplanation(funcStr, pointStr, result);
+            
+            // Aggiorna i grafici
+            updateGraphs(funcStr, pointStr, direction, result);
         } catch (error) {
             limitResult.innerHTML = `<span class="error">Errore: ${error.message}</span>`;
         }
@@ -561,16 +526,17 @@ function updateLimitPoint(chart, funcStr, point) {
 }
 
 // Funzione per creare il grafico 3D
+// Funzione migliorata per creare il grafico 3D
 function createGraph3D(funcStr, point) {
     const container = document.getElementById('graph3d-container');
     if (!container) return;
-    
+
     try {
         // Pulisci il container
         while (container.firstChild) {
             container.removeChild(container.firstChild);
         }
-        
+
         // Inizializza scena, camera e renderer
         scene3D = new THREE.Scene();
         scene3D.background = new THREE.Color(0xf5f5f5);
@@ -578,21 +544,20 @@ function createGraph3D(funcStr, point) {
         // Imposta la camera
         const width = container.clientWidth;
         const height = container.clientHeight;
-        const aspect = width / height;
-        camera3D = new THREE.PerspectiveCamera(75, aspect, 0.1, 1000);
+        camera3D = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
         camera3D.position.set(5, 5, 5);
         camera3D.lookAt(0, 0, 0);
-        
+
         // Crea il renderer
         renderer3D = new THREE.WebGLRenderer({ antialias: true });
         renderer3D.setSize(width, height);
         container.appendChild(renderer3D.domElement);
-        
+
         // Aggiungi controlli per la telecamera
         controls3D = new THREE.OrbitControls(camera3D, renderer3D.domElement);
         controls3D.enableDamping = true;
         controls3D.dampingFactor = 0.25;
-        
+
         // Aggiungi luci
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
         scene3D.add(ambientLight);
@@ -600,21 +565,23 @@ function createGraph3D(funcStr, point) {
         const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
         directionalLight.position.set(1, 1, 1);
         scene3D.add(directionalLight);
-        
+
+        // Aggiungi griglia di riferimento
+        const gridHelper = new THREE.GridHelper(20, 20, 0x888888, 0x888888);
+        scene3D.add(gridHelper);
+
         // Aggiungi assi di riferimento
         const axesHelper = new THREE.AxesHelper(5);
         scene3D.add(axesHelper);
-        
+
         // Converti il punto in un valore numerico
-        let pointValue = point;
+        let pointValue = parseFloat(point);
         if (point === 'Infinity' || point === '+Infinity') {
             pointValue = 10;
         } else if (point === '-Infinity') {
             pointValue = -10;
-        } else {
-            pointValue = parseFloat(point);
         }
-        
+
         // Crea la superficie della funzione
         const parser = math.parser();
         const geometry = new THREE.ParametricBufferGeometry((u, v, target) => {
@@ -629,15 +596,15 @@ function createGraph3D(funcStr, point) {
                 parser.set('x', x);
                 y = parser.evaluate(funcStr);
                 
-                // Limita l'altezza
-                y = Math.max(-5, Math.min(5, y));
+                // Limita l'altezza per evitare valori estremi
+                y = Math.max(-10, Math.min(10, y));
             } catch (error) {
                 y = 0;
             }
             
             target.set(x, y, z);
         }, 50, 50);
-        
+
         const material = new THREE.MeshPhongMaterial({
             color: 0x3f5efb,
             side: THREE.DoubleSide,
@@ -648,33 +615,31 @@ function createGraph3D(funcStr, point) {
         
         mesh3D = new THREE.Mesh(geometry, material);
         scene3D.add(mesh3D);
-        
-        // Aggiungi wireframe
+
+        // Aggiungi wireframe per migliorare la leggibilità
         const wireframe = new THREE.WireframeGeometry(geometry);
         const line = new THREE.LineSegments(wireframe);
         line.material.color.set(0x000000);
         line.material.opacity = 0.2;
         line.material.transparent = true;
         scene3D.add(line);
-        
+
         // Aggiungi un punto per indicare il punto limite
         const pointGeometry = new THREE.SphereGeometry(0.2, 32, 32);
         const pointMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
         const pointSphere = new THREE.Mesh(pointGeometry, pointMaterial);
         
-        // Posiziona la sfera al punto limite
         try {
             parser.set('x', pointValue);
             const y = parser.evaluate(funcStr);
             pointSphere.position.set(pointValue, isFinite(y) ? y : 0, 0);
             scene3D.add(pointSphere);
         } catch (error) {
-            console.error('Errore nel posizionamento del punto limite:', error);
             pointSphere.position.set(pointValue, 0, 0);
             scene3D.add(pointSphere);
         }
-        
-        // Aggiungi event listener per il ridimensionamento
+
+        // Gestione del ridimensionamento della finestra
         function onWindowResize() {
             const width = container.clientWidth;
             const height = container.clientHeight;
@@ -686,16 +651,20 @@ function createGraph3D(funcStr, point) {
         }
         
         window.addEventListener('resize', onWindowResize, false);
-        
-        // Funzione di rendering
+
+        // Animazione
         function animate() {
             requestAnimationFrame(animate);
+            
+            // Aggiorna i controlli della telecamera
             controls3D.update();
+            
+            // Renderizza la scena
             renderer3D.render(scene3D, camera3D);
         }
         
         animate();
-        
+
         return { scene: scene3D, camera: camera3D, renderer: renderer3D, controls: controls3D, mesh: mesh3D };
     } catch (error) {
         console.error('Errore nella creazione del grafico 3D:', error);
@@ -1282,111 +1251,134 @@ function convertToLatex(funcStr) {
 }
 
 // Funzione per valutare il limite localmente
+// Funzione migliorata per valutare il limite
 function evaluateLimit(funcStr, point, direction) {
     try {
         const parser = math.parser();
         
-        // Converti le stringhe speciali
-        let pointValue;
-        if (point === 'Infinity' || point === '+Infinity') {
-            return evaluateLimitAtInfinity(funcStr, true);
-        } else if (point === '-Infinity') {
-            return evaluateLimitAtInfinity(funcStr, false);
-        } else {
-            pointValue = parseFloat(point);
+        // Gestione dei casi speciali (infinito)
+        if (point === 'Infinity' || point === '+Infinity' || point === '-Infinity') {
+            return evaluateLimitAtInfinity(funcStr, point === '-Infinity');
         }
         
-        // Controllo se ci sono forme indeterminate
-        let hasIndeterminate = false;
+        const pointValue = parseFloat(point);
         
+        // Prima prova a valutare direttamente
         try {
             parser.set('x', pointValue);
             const directResult = parser.evaluate(funcStr);
             
-            if (!isNaN(directResult) && isFinite(directResult)) {
+            if (!isNaN(directResult) {
                 return directResult;
             }
-            
-            hasIndeterminate = true;
-        } catch (error) {
-            hasIndeterminate = true;
+        } catch (e) {
+            // Continua con l'approssimazione se la valutazione diretta fallisce
         }
         
-        if (hasIndeterminate) {
-            // Se abbiamo forme indeterminate, approssimiamo il limite
-            const epsilon = 1e-10;
-            const values = [];
-            
-            if (direction === 'left' || direction === 'both') {
-                // Approssimazione da sinistra
-                for (let i = 1; i <= 5; i++) {
-                    const x = pointValue - epsilon * Math.pow(10, 5 - i);
-                    try {
-                        parser.set('x', x);
-                        const y = parser.evaluate(funcStr);
-                        if (!isNaN(y) && isFinite(y)) {
-                            values.push(y);
-                        }
-                    } catch (error) {
-                        // Ignora errori di valutazione
+        // Approssimazione del limite
+        const epsilon = 1e-10;
+        const steps = 5;
+        const values = [];
+        
+        // Calcola da entrambi i lati se necessario
+        if (direction === 'both' || direction === 'left') {
+            for (let i = 1; i <= steps; i++) {
+                const x = pointValue - epsilon * Math.pow(10, steps - i);
+                try {
+                    parser.set('x', x);
+                    const y = parser.evaluate(funcStr);
+                    if (!isNaN(y)) {
+                        values.push(y);
                     }
+                } catch (e) {
+                    // Ignora errori
                 }
             }
-            
-            if (direction === 'right' || direction === 'both') {
-                // Approssimazione da destra
-                for (let i = 1; i <= 5; i++) {
-                    const x = pointValue + epsilon * Math.pow(10, 5 - i);
-                    try {
-                        parser.set('x', x);
-                        const y = parser.evaluate(funcStr);
-                        if (!isNaN(y) && isFinite(y)) {
-                            values.push(y);
-                        }
-                    } catch (error) {
-                        // Ignora errori di valutazione
-                    }
-                }
-            }
-            
-            // Analizziamo i valori
-            return estimateConvergence(values);
         }
         
-        return 'NaN';
+        if (direction === 'both' || direction === 'right') {
+            for (let i = 1; i <= steps; i++) {
+                const x = pointValue + epsilon * Math.pow(10, steps - i);
+                try {
+                    parser.set('x', x);
+                    const y = parser.evaluate(funcStr);
+                    if (!isNaN(y)) {
+                        values.push(y);
+                    }
+                } catch (e) {
+                    // Ignora errori
+                }
+            }
+        }
+        
+        // Se non ci sono valori validi
+        if (values.length === 0) {
+            return 'undefined';
+        }
+        
+        // Stima il limite
+        return estimateConvergence(values);
     } catch (error) {
         console.error('Errore nella valutazione del limite:', error);
-        return 'NaN';
+        return 'undefined';
     }
 }
 
-// Funzione per valutare limiti all'infinito
-function evaluateLimitAtInfinity(funcStr, isPositive) {
+
+// Funzione migliorata per valutare limiti all'infinito
+function evaluateLimitAtInfinity(funcStr, isNegative) {
     try {
         const parser = math.parser();
         const values = [];
+        const steps = 5;
+        const base = isNegative ? -1 : 1;
         
-        // Valuta la funzione per valori molto grandi
-        const baseValue = isPositive ? 1e5 : -1e5;
-        
-        for (let i = 1; i <= 5; i++) {
-            const x = baseValue * i;
+        for (let i = 1; i <= steps; i++) {
+            const x = base * Math.pow(10, i);
             try {
                 parser.set('x', x);
                 const y = parser.evaluate(funcStr);
-                if (!isNaN(y) && isFinite(y)) {
+                if (!isNaN(y)) {
                     values.push(y);
                 }
-            } catch (error) {
-                // Ignora errori di valutazione
+            } catch (e) {
+                // Ignora errori
             }
         }
         
         return estimateConvergence(values);
     } catch (error) {
         console.error('Errore nella valutazione del limite all\'infinito:', error);
-        return 'NaN';
+        return 'undefined';
     }
+}
+
+// Funzione migliorata per stimare la convergenza
+function estimateConvergence(values) {
+    if (values.length === 0) return 'undefined';
+    
+    // Calcola la media degli ultimi valori
+    const lastValues = values.slice(-3);
+    const sum = lastValues.reduce((a, b) => a + b, 0);
+    const avg = sum / lastValues.length;
+    
+    // Controlla se tende a infinito
+    const last = values[values.length - 1];
+    const prev = values.length > 1 ? values[values.length - 2] : last;
+    
+    if (Math.abs(last) > 1e10 && Math.abs(last) > 2 * Math.abs(prev)) {
+        return last > 0 ? 'Infinity' : '-Infinity';
+    }
+    
+    // Controlla la convergenza
+    const stdDev = Math.sqrt(lastValues.reduce((a, b) => a + Math.pow(b - avg, 2), 0) / lastValues.length;
+    
+    if (stdDev < 1e-6 * Math.abs(avg) || stdDev < 1e-10) {
+        return avg;
+    }
+    
+    // Se non converge, restituisci l'ultimo valore
+    return last;
 }
 
 // Funzione per stimare la convergenza da una serie di valori
