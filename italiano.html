@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limiti Matematici e Letteratura | Vai Oltre il Limite</title>
+    <meta name="description" content="Esplora le connessioni tra i limiti matematici e le opere di Alfieri e Parini. Scopri come il concetto di limite si manifesta in ambito scientifico e letterario.">
+    <link rel="icon" href="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/icons/infinity.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modern-style.css">
+    <style>
+        /* Standardized container sizes */
+        .standard-container {
+            min-height: 400px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .standard-card {
+            height: 100%;
+            min-height: 350px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .standard-section {
+            padding: 4rem 0;
+        }
+        
+        .author-card, .comparison-card, .work-card {
+            height: 100%;
+            min-height: 350px;
+        }
+        
+        .w3-row-padding {
+            margin: 0 -16px;
+        }
+        
+        .w3-col {
+            padding: 0 16px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div id="main" class="w3-top">
+            <div id="theme-color" class="w3-bar w3-white w3-wide w3-padding w3-card">
+                <!-- OPEN COLLAPSED SIDEBAR -->
+                <button class="openbtn w3-bar-item" onclick="openNav()" style="background-color: transparent; padding-right: 80px">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </button>
+
+                <!-- CLOSE -->
+                <div id="mySidebar" class="sidebar">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="teoria.html">Teoria</a>
+                    <a href="esercizi.html">Esercizi</a>
+                    <a href="limiti-sociali.html">Limiti sociali</a>
+                    <a href="italiano.html">Limiti letterari</a>
+                    <a href="podcast.html">Podcast</a>
+                    <a href="index.html#contatti" style="position: absolute; bottom: 0; margin-bottom: 20%;">Contatti</a>
+                    <a href="chi-siamo.html" style="position: absolute; bottom: 0; margin-bottom: 5%; font-size: 15px;">Chi siamo</a>
+                </div>
+                <a href="index.html" class="w3-bar-item w3-button company-name-main">Vai <b>OLTRE</b> il limite</a>
+
+                <!-- SWITCH DARK-LIGHT MODE -->
+                <div class="switch" style="position: absolute; top: 30%; right: 5%;">
+                    <input hidden="" id="check" name="check" type="checkbox" onchange="toggleTheme()">
+                    <label class="toggle" for="check">
+                        <div class="toggle__circle"></div>
+                    </label>
+                    <div class="toggle-text">
+                        <span id="theme-icon"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero-literature" data-aos="fade-up">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span>Limiti tra</span>
+                    <span class="accent-text">Matematica</span>
+                    <span>e Letteratura</span>
+                </h1>
+                <p class="hero-subtitle">Esplora le connessioni tra i concetti matematici e le opere di Alfieri e Parini</p>
+            </div>
+        </section>
+
+        <section class="intro-section w3-container standard-section">
+            <div class="w3-row-padding">
+                <div class="w3-col m6 standard-container" data-aos="fade-right">
+                    <h2 class="section-title">Il concetto di limite: un ponte tra discipline</h2>
+                    <p>Il concetto di limite, fondamentale in matematica, trova sorprendenti analogie nella letteratura italiana del Settecento, in particolare nelle opere di Vittorio Alfieri e Giuseppe Parini. Entrambi gli autori esplorano i limiti umani - sociali, morali ed esistenziali - così come i matematici studiano i limiti delle funzioni.</p>
+                    <p>In matematica, il limite descrive il comportamento di una funzione quando si avvicina a un punto particolare. Nella letteratura, Alfieri e Parini esaminano come gli individui e la società si avvicinano ai propri confini, spesso cercando di superarli.</p>
+                </div>
+                <div class="w3-col m6" data-aos="fade-left">
+                    <div class="math-formula w3-center">
+                        \[ \lim_{x \to c} f(x) = L \]
+                        <p class="w3-small">Il limite matematico: avvicinamento a un punto senza necessariamente raggiungerlo</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="authors-section w3-light-grey standard-section">
+            <div class="w3-container">
+                <h2 class="section-title w3-center">Gli autori e i loro limiti</h2>
+                
+                <div class="w3-row-padding w3-margin-top">
+                    <!-- Alfieri -->
+                    <div class="w3-col m6" data-aos="zoom-in">
+                        <div class="w3-card w3-white standard-card author-card">
+                            <div class="w3-row">
+                                <div class="w3-col m4">
+                                    <img src="Media/img/pers/alfieri.jpg" alt="Vittorio Alfieri" class="w3-image" style="border-radius: 8px; width: 100%; height: auto;">
+                                </div>
+                                <div class="w3-col m8" style="padding-left: 1.5rem;">
+                                    <h3>Vittorio Alfieri</h3>
+                                    <p>Il limite come tensione verso la libertà e superamento delle costrizioni</p>
+                                </div>
+                            </div>
+                            <div class="w3-panel" style="margin-top: 1.5rem;">
+                                <p>Nelle opere di Alfieri, il concetto di limite è centrale nella rappresentazione dell'eroe tragico che lotta contro i vincoli imposti dalla società, dalla tirannia e dal destino.</p>
+                                <p>Come una funzione che tende all'infinito, i personaggi alfierani tendono verso la libertà assoluta, spesso senza mai raggiungerla pienamente.</p>
+                                <div class="literary-quote" style="margin-top: 1rem;">
+                                    <blockquote>"Volli, sempre volli, fortissimamente volli"</blockquote>
+                                    <p class="w3-small">- Vittorio Alfieri, <em>Vita</em></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Parini -->
+                    <div class="w3-col m6" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="w3-card w3-white standard-card author-card">
+                            <div class="w3-row">
+                                <div class="w3-col m4">
+                                    <img src="Media/img/pers/parini.jpg" alt="Giuseppe Parini" class="w3-image" style="border-radius: 8px; width: 100%; height: 100%;">
+                                </div>
+                                <div class="w3-col m8" style="padding-left: 1.5rem;">
+                                    <h3>Giuseppe Parini</h3>
+                                    <p>Il limite come confine tra apparenza e sostanza, nobiltà e virtù</p>
+                                </div>
+                            </div>
+                            <div class="w3-panel" style="margin-top: 1.5rem;">
+                                <p>Parini, nel <em>Giorno</em>, esplora i limiti della società aristocratica, mostrando come essa si avvicini sempre più alla decadenza morale senza mai riconoscerla pienamente.</p>
+                                <p>Come un limite matematico che approssima un valore senza raggiungerlo, la nobiltà pariniana si avvicina alla consapevolezza della propria vacuità senza mai giungere a una completa presa di coscienza.</p>
+                                <div class="literary-quote" style="margin-top: 1rem;">
+                                    <blockquote>"Oh ciechi, il tanto affaticar che giova?"</blockquote>
+                                    <p class="w3-small">- Giuseppe Parini, <em>Il Giorno</em></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="comparison-section w3-container standard-section">
+            <h2 class="section-title w3-center">Analogie tra limiti matematici e letterari</h2>
+            
+            <div class="w3-row-padding w3-margin-top">
+                <div class="w3-col m4" data-aos="fade-up">
+                    <div class="w3-card w3-padding standard-card comparison-card">
+                        <h3 class="w3-center" style="margin-bottom: 12.5%;">1. Avvicinamento asintotico</h3>
+                        <div class="w3-center">
+                            <svg viewBox="0 0 200 100" class="comparison-svg">
+                                <line x1="10" y1="50" x2="190" y2="50" stroke="var(--text-color)" stroke-width="1"/>
+                                <path d="M10,90 Q100,50 190,10" fill="none" stroke="var(--accent-color)" stroke-width="2"/>
+                                <line x1="10" y1="10" x2="190" y2="10" stroke="var(--accent-color)" stroke-width="1" stroke-dasharray="3,3"/>
+                            </svg>
+                        </div>
+                        <p>In matematica, un asintoto rappresenta una linea a cui una funzione si avvicina indefinitamente senza mai toccarla.</p>
+                        <p>Nella <em>Vita</em> di Alfieri, l'autore si avvicina asintoticamente all'ideale di libertà assoluta, senza mai raggiungerla completamente.</p>
+                    </div>
+                </div>
+                
+                <div class="w3-col m4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w3-card w3-padding standard-card comparison-card">
+                        <h3 class="w3-center" style="margin-bottom: 17%;">2. Limite infinito</h3>
+                        <div class="w3-center">
+                            <svg viewBox="0 0 200 100" class="comparison-svg">
+                                <line x1="10" y1="50" x2="190" y2="50" stroke="var(--text-color)" stroke-width="1"/>
+                                <line x1="100" y1="10" x2="100" y2="90" stroke="var(--text-color)" stroke-width="1"/>
+                                <path d="M10,90 Q50,70 90,50 Q130,30 190,10" fill="none" stroke="var(--accent-color)" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <p>Una funzione può tendere all'infinito quando si avvicina a un certo punto.</p>
+                        <p>Nei personaggi alfierani, la passione e la volontà tendono all'infinito, superando ogni limite razionale, come in <em>Saul</em> o <em>Mirra</em>.</p>
+                    </div>
+                </div>
+                
+                <div class="w3-col m4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w3-card w3-padding standard-card comparison-card">
+                        <h3 class="w3-center" style="margin-bottom: 7.3%;">3. Limite destro e sinistro</h3>
+                        <div class="w3-center">
+                            <svg viewBox="0 0 200 100" class="comparison-svg">
+                                <line x1="10" y1="50" x2="190" y2="50" stroke="var(--text-color)" stroke-width="1"/>
+                                <path d="M10,10 L100,10 L100,90 L190,90" fill="none" stroke="var(--accent-color)" stroke-width="2"/>
+                                <circle cx="100" cy="10" r="3" fill="var(--accent-color)"/>
+                                <circle cx="100" cy="90" r="3" fill="var(--accent-color)"/>
+                            </svg>
+                        </div>
+                        <p>In matematica, una funzione può avere comportamenti diversi avvicinandosi a un punto da destra o da sinistra.</p>
+                        <p>Nel <em>Giorno</em> di Parini, la nobiltà viene descritta da due prospettive: l'apparenza esteriore (limite destro) e la sostanza interiore (limite sinistro), che non coincidono.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="works-section w3-padding-64 w3-white standard-section">
+            <div class="w3-container">
+                <h2 class="section-title w3-center">Opere esemplari</h2>
+                
+                <div class="w3-row-padding w3-margin-top">
+                    <div class="w3-col m6" data-aos="fade-right">
+                        <div class="w3-card w3-padding standard-card work-card">
+                            <h3>Alfieri: <em>Saul</em></h3>
+                            <p>Nella tragedia <em>Saul</em>, il protagonista rappresenta l'uomo che si avvicina al limite della follia e della disperazione. Come una funzione che tende a un punto di discontinuità, Saul oscilla tra lucidità e follia, avvicinandosi sempre più al suo tragico destino.</p>
+                            <div class="w3-panel w3-light-grey w3-leftbar w3-border-grey">
+                                <p>"Io già nel cor sento crescer le furie, che a te non lice raffrenar più mai."</p>
+                            </div>
+                            <p>Questa progressione verso il limite estremo ricorda il concetto matematico di limite infinito, dove la funzione cresce senza bound.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="w3-col m6" data-aos="fade-left">
+                        <div class="w3-card w3-padding standard-card work-card">
+                            <h3>Parini: <em>Il Giorno</em></h3>
+                            <p>Nel poema <em>Il Giorno</em>, Parini descrive la vita oziosa della nobiltà milanese, mostrando come essa si avvicini al limite della decadenza morale senza mai riconoscerla pienamente.</p>
+                            <div class="w3-panel w3-light-grey w3-leftbar w3-border-grey">
+                                <p>"E tu, lento seguendo i suoi vestigi, pensoso passerai fra il lazzo e il gioco."</p>
+                            </div>
+                            <p>Questa situazione ricorda il concetto matematico di limite che non esiste perché i limiti destro e sinistro non coincidono: la nobiltà vede solo l'apparenza (limite destro) ma non la sostanza (limite sinistro).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="conclusion-section w3-padding-64 w3-light-grey standard-section">
+            <div class="w3-container" data-aos="fade-up">
+                <h2 class="section-title w3-center">Oltre i limiti: conclusioni</h2>
+                <div class="w3-row-padding">
+                    <div class="w3-col m6 standard-container">
+                        <p>L'analisi comparata tra limiti matematici e letterari dimostra come concetti apparentemente distanti possano illuminarsi a vicenda. In entrambi i casi, il limite rappresenta non una barriera statica, ma un dinamico punto di interazione e trasformazione.</p>
+                        <p>Per Alfieri, superare i limiti significa affermare la propria libertà individuale contro ogni costrizione. Per Parini, riconoscere i limiti sociali è il primo passo verso una società più giusta. In matematica, comprendere i limiti permette di descrivere comportamenti complessi e apparentemente paradossali.</p>
+                    </div>
+                    <div class="w3-col m6">
+                        <div class="w3-panel w3-white w3-card w3-padding standard-card">
+                            <h3>Esercizio interdisciplinare</h3>
+                            <p>Prova a trovare altre analogie tra concetti matematici e opere letterarie:</p>
+                            <ol>
+                                <li>Come potresti rappresentare graficamente il conflitto interiore di un personaggio alfierano usando il concetto di derivata?</li>
+                                <li>Quale tipo di discontinuità matematica potrebbe rappresentare meglio la frattura tra apparenza e realtà nel <em>Giorno</em> di Parini?</li>
+                                <li>Come potresti usare il concetto di limite per descrivere l'evoluzione di un personaggio tragico?</li>
+                            </ol>
+                            <a href="esercizi.html" class="btn btn-primary">Proponi la tua soluzione</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="index.html" class="company-name-main">
+                    <span class="logo-vai">Vai</span>
+                    <span class="logo-oltre">OLTRE</span>
+                    <span class="logo-il">il</span>
+                    <span class="logo-limite">limite</span>
+                </a>
+                <p>Esplora il mondo affascinante dei limiti matematici</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>Contenuti</h3>
+                    <ul>
+                        <li><a href="teoria.html">Teoria</a></li>
+                        <li><a href="esercizi.html">Esercizi</a></li>
+                        <li><a href="limiti-sociali.html">Limiti sociali</a></li>
+                        <li><a href="podcast.html">Podcast</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Info</h3>
+                    <ul>
+                        <li><a href="chi-siamo.html">Chi siamo</a></li>
+                        <li><a href="#contatti">Contatti</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025
+                <a href="https://github.com/diegorenesto" target="_blank">Diego Renesto</a>,
+                <a href="https://github.com/JurijGagarinFB" target="_blank">Francesco Bazaj</a>,
+                <a href="https://github.com/xRennyx" target="_blank">Francesco Renesto</a>,
+                <a href="https://github.com/zanfooo" target="_blank">Nicolò Zanforlin</a>,
+                <a href="https://github.com/MattiaMystic" target="_blank">Mattia Pavarin</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/gsap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out'
+        });
+
+        // OPEN SIDEBAR
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+
+        // CLOSE SIDEBAR
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+
+        // THEME TOGGLE
+        function toggleTheme() {
+            const themeStyle = document.getElementById('theme-style');
+            const themeIcon = document.getElementById('theme-icon');
+            const switchInput = document.getElementById('check');
+            const themeColor = document.getElementById('theme-color');
+
+            if (switchInput.checked) {
+                themeStyle.setAttribute('href', 'dark.css');
+                themeColor.setAttribute('class', 'w3-bar w3-black w3-wide w3-padding w3-card');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.textContent = "🌙";
+            } else {
+                themeStyle.setAttribute('href', 'style.css');
+                themeColor.setAttribute('class', 'w3-bar w3-white w3-wide w3-padding w3-card');
+                localStorage.setItem('theme', 'light');
+                themeIcon.innerHTML = `<svg width="45px" height="45px" style="position: relative;" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet"><path d="M37.41 41.95c-9.71 12.48-9.54 34.65 2.87 45.64c14.09 12.47 33.92 12.34 46.39.87c14.95-13.76 14.09-36.66.87-49.63c-13.29-13.04-37.04-13.72-50.13 3.12z" fill="#fcc11a"></path><path d="M53 37.67c-3.84-1.7-8.04 2.93-9.87 6.09c-1.83 3.17-3.53 9.38.37 10.97c3.9 1.58 6.7-1.1 9.51-5.73c2.79-4.63 4.38-9.38-.01-11.33z" fill="#fee269"></path><path d="M63 20.27c-.93 1.74-.62 3.08 1.23 3.52c1.85.44 13.36 2.31 14.33 2.37c1.41.09 1.93-.97 1.76-2.2c-.18-1.23-2.99-18.46-3.25-20.04S75.14.76 73.55 2.87S63.7 18.96 63 20.27z" fill="#ffa722"></path><path d="M92.8 32.23c-1.81.56-1.76 1.67-.79 3.08c.97 1.41 7.65 11.6 8.26 12.31c.62.7 1.67.88 2.55-.18c.88-1.05 11.86-16.45 12.66-17.41c1.32-1.58.53-3.25-1.49-2.73c-1.54.41-20.05 4.58-21.19 4.93z" fill="#ffa722"></path><path d="M106.6 61.86c-1.3-.74-2.99-.53-3.43 1.14c-.44 1.67-2.37 13.8-2.55 14.86s.62 2.11 1.93 1.85s19.45-2.95 20.66-3.25c2.11-.53 2.81-2.64.62-4.22c-1.42-1.03-16-9.68-17.23-10.38z" fill="#ffa722"></path><path d="M92.09 90.6c1.4-.75 2.64-.18 2.99 1.41c.35 1.58 4.22 17.76 4.84 20.75c.31 1.5-1.41 2.73-2.81 1.85c-1.41-.88-16.69-11.53-17.67-12.4c-1.41-1.23-.43-2.51.26-3.16c1.4-1.33 11.07-7.74 12.39-8.45z" fill="#ffa722"></path><path d="M49.54 99.48c-1.77-.17-2.29 1.41-2.02 2.81c.26 1.41 2.9 19.24 3.08 20.57c.26 1.93 2.29 2.73 3.6.79s10.35-16.4 11.08-17.76c1.32-2.46.35-2.99-.97-3.6c-1.31-.61-12.92-2.63-14.77-2.81z" fill="#ffa722"></path><path d="M24.23 79c1.23-2.02 2.81-1.49 3.96.44c.78 1.32 7.38 10.2 8 11.16c.62.97.88 2.81-1.05 3.25c-1.95.45-17.68 4.58-20.14 5.02c-2.46.44-3.87-1.49-2.29-3.6c.92-1.24 10.82-15.12 11.52-16.27z" fill="#ffa722"></path><path d="M20.89 63.7c2.25 1 3.31.64 3.78-.97c.62-2.11 2.46-11.78 2.55-13.98c.06-1.43-.53-2.81-2.73-2.46S6.47 48.85 4.45 49.55c-2.35.82-2.18 3.4-.62 4.22c1.85.97 15.47 9.23 17.06 9.93z" fill="#ffa722"></path><path d="M48.23 26.78c1.27-1.01.88-2.46-.26-3.25c-1.14-.79-15.26-11-17.05-12.4c-1.58-1.23-3.52-.79-2.99 2.02c.38 2.02 4.88 19.7 5.19 20.92c.35 1.41 1.41 2.11 2.64 1.23c1.21-.87 11.15-7.46 12.47-8.52z" fill="#ffa722"></path></svg>`;
+                switchInput.checked = false;
+            }
+        }
+
+        // Apply saved theme on load
+        window.onload = function() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeStyle = document.getElementById('theme-style');
+            const themeColor = document.getElementById('theme-color');
+            const themeIcon = document.getElementById('theme-icon');
+            const switchInput = document.getElementById('check');
+
+            if (savedTheme === 'dark') {
+                themeStyle.setAttribute('href', 'dark.css');
+                themeColor.setAttribute('class', 'w3-bar w3-black w3-wide w3-padding w3-card');
+                themeIcon.textContent = "🌙";
+                switchInput.checked = true;
+            } else {
+                themeStyle.setAttribute('href', 'style.css');
+                themeColor.setAttribute('class', 'w3-bar w3-white w3-wide w3-padding w3-card');
+                themeIcon.innerHTML = `<svg width="45px" height="45px" style="position: relative;" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet"><path d="M37.41 41.95c-9.71 12.48-9.54 34.65 2.87 45.64c14.09 12.47 33.92 12.34 46.39.87c14.95-13.76 14.09-36.66.87-49.63c-13.29-13.04-37.04-13.72-50.13 3.12z" fill="#fcc11a"></path><path d="M53 37.67c-3.84-1.7-8.04 2.93-9.87 6.09c-1.83 3.17-3.53 9.38.37 10.97c3.9 1.58 6.7-1.1 9.51-5.73c2.79-4.63 4.38-9.38-.01-11.33z" fill="#fee269"></path><path d="M63 20.27c-.93 1.74-.62 3.08 1.23 3.52c1.85.44 13.36 2.31 14.33 2.37c1.41.09 1.93-.97 1.76-2.2c-.18-1.23-2.99-18.46-3.25-20.04S75.14.76 73.55 2.87S63.7 18.96 63 20.27z" fill="#ffa722"></path><path d="M92.8 32.23c-1.81.56-1.76 1.67-.79 3.08c.97 1.41 7.65 11.6 8.26 12.31c.62.7 1.67.88 2.55-.18c.88-1.05 11.86-16.45 12.66-17.41c1.32-1.58.53-3.25-1.49-2.73c-1.54.41-20.05 4.58-21.19 4.93z" fill="#ffa722"></path><path d="M106.6 61.86c-1.3-.74-2.99-.53-3.43 1.14c-.44 1.67-2.37 13.8-2.55 14.86s.62 2.11 1.93 1.85s19.45-2.95 20.66-3.25c2.11-.53 2.81-2.64.62-4.22c-1.42-1.03-16-9.68-17.23-10.38z" fill="#ffa722"></path><path d="M92.09 90.6c1.4-.75 2.64-.18 2.99 1.41c.35 1.58 4.22 17.76 4.84 20.75c.31 1.5-1.41 2.73-2.81 1.85c-1.41-.88-16.69-11.53-17.67-12.4c-1.41-1.23-.43-2.51.26-3.16c1.4-1.33 11.07-7.74 12.39-8.45z" fill="#ffa722"></path><path d="M49.54 99.48c-1.77-.17-2.29 1.41-2.02 2.81c.26 1.41 2.9 19.24 3.08 20.57c.26 1.93 2.29 2.73 3.6.79s10.35-16.4 11.08-17.76c1.32-2.46.35-2.99-.97-3.6c-1.31-.61-12.92-2.63-14.77-2.81z" fill="#ffa722"></path><path d="M24.23 79c1.23-2.02 2.81-1.49 3.96.44c.78 1.32 7.38 10.2 8 11.16c.62.97.88 2.81-1.05 3.25c-1.95.45-17.68 4.58-20.14 5.02c-2.46.44-3.87-1.49-2.29-3.6c.92-1.24 10.82-15.12 11.52-16.27z" fill="#ffa722"></path><path d="M20.89 63.7c2.25 1 3.31.64 3.78-.97c.62-2.11 2.46-11.78 2.55-13.98c.06-1.43-.53-2.81-2.73-2.46S6.47 48.85 4.45 49.55c-2.35.82-2.18 3.4-.62 4.22c1.85.97 15.47 9.23 17.06 9.93z" fill="#ffa722"></path><path d="M48.23 26.78c1.27-1.01.88-2.46-.26-3.25c-1.14-.79-15.26-11-17.05-12.4c-1.58-1.23-3.52-.79-2.99 2.02c.38 2.02 4.88 19.7 5.19 20.92c.35 1.41 1.41 2.11 2.64 1.23c1.21-.87 11.15-7.46 12.47-8.52z" fill="#ffa722"></path></svg>`;
+                switchInput.checked = false;
+            }
+        };
+    </script>
+</body>
+</html>
