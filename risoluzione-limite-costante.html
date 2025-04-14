@@ -6,12 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Risoluzione: Limiti di una costante - Vai oltre il limite</title>
-    <link rel="icon" href="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/icons/infinity.svg" type="image/svg+xml">
+    <link rel="icon" href="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/icons/infinity.svg"
+        type="image/svg+xml">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="modern-style.css">
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
@@ -204,6 +205,35 @@
             duration: 800,
             easing: 'ease-in-out'
         });
+    </script>
+
+    <!-- SCRIPT THEME TOGGLE -->
+    <script>
+        function applyTheme(theme) {
+            const root = document.documentElement;
+
+            if (theme === 'dark') {
+                root.setAttribute('data-theme', 'dark');
+                document.querySelector('#theme-color').classList.add('dark-mode'); // Aggiunto per debug
+            } else {
+                root.setAttribute('data-theme', 'light');
+                document.querySelector('#theme-color').classList.remove('dark-mode'); // Aggiunto per debug
+            }
+        }
+
+        function toggleTheme() {
+            const switchInput = document.getElementById('check');
+            const newTheme = switchInput.checked ? 'dark' : 'light';
+            localStorage.setItem('theme', newTheme);
+            applyTheme(newTheme);
+        }
+
+        window.onload = function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const switchInput = document.getElementById('check');
+            switchInput.checked = (savedTheme === 'dark');
+            applyTheme(savedTheme);
+        };
     </script>
 </body>
 

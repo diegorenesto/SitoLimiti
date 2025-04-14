@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vai oltre il limite - Scopri il mondo dei limiti matematici</title>
-    <meta name="description"
-        content="Scopri il mondo affascinante dei limiti matematici con spiegazioni chiare, esercizi interattivi, e visualizzazioni animate per rendere l'apprendimento più coinvolgente.">
     <link rel="icon" href="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/icons/infinity.svg"
         type="image/svg+xml">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
@@ -14,7 +12,6 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="modern-style.css">
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
@@ -443,18 +440,47 @@
         <script src="script.js"></script>
         <script src="calcolatore.js"></script>
         <!-- SCRIPT SIDEBAR -->
-        <script>
-            // OPEN SIDEBAR
-            function openNav() {
-                document.getElementById("mySidebar").style.width = "300px";
-            }
+    <script>
+        // OPEN SIDEBAR
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "300px";
+        }
 
-            // CLOSE SIDEBAR
-            function closeNav() {
-                document.getElementById("mySidebar").style.width = "0";
-                document.getElementById("main").style.marginLeft = "0";
+        // CLOSE SIDEBAR
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+
+    <!-- SCRIPT THEME TOGGLE -->
+    <script>
+        function applyTheme(theme) {
+            const root = document.documentElement;
+
+            if (theme === 'dark') {
+                root.setAttribute('data-theme', 'dark');
+                document.querySelector('#theme-color').classList.add('dark-mode'); // Aggiunto per debug
+            } else {
+                root.setAttribute('data-theme', 'light');
+                document.querySelector('#theme-color').classList.remove('dark-mode'); // Aggiunto per debug
             }
-        </script>
+        }
+
+        function toggleTheme() {
+            const switchInput = document.getElementById('check');
+            const newTheme = switchInput.checked ? 'dark' : 'light';
+            localStorage.setItem('theme', newTheme);
+            applyTheme(newTheme);
+        }
+
+        window.onload = function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const switchInput = document.getElementById('check');
+            switchInput.checked = (savedTheme === 'dark');
+            applyTheme(savedTheme);
+        };
+    </script>
 </body>
 
 
