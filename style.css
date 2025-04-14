@@ -273,7 +273,7 @@ section {
 
 /* Quando la sidebar è aperta */
 .sidebar.open {
-  width: 280px;/* Larghezza della sidebar aperta */
+  width: 280px; /* Larghezza della sidebar aperta */
 }
 
 .nav-container.shifted {
@@ -781,7 +781,8 @@ textarea {
   padding: 8px;
   font-size: 1.1em;
   resize: vertical; /* Permette il ridimensionamento verticale */
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 textarea:focus {
@@ -1424,7 +1425,7 @@ footer {
 .dropdown {
   position: absolute;
   top: 1.5rem;
-  right: 1.5rem;
+  left: 1.5rem;
   z-index: 10;
 }
 
@@ -1453,7 +1454,7 @@ footer {
 .dropdown-content {
   display: none;
   position: absolute;
-  right: 0;
+  left: 0;
   min-width: 250px;
   background-color: var(--card-bg);
   box-shadow: 0 8px 16px var(--shadow-color);
@@ -1486,6 +1487,11 @@ footer {
   overflow: hidden;
 }
 
+input[type="radio"] {
+  /* toglie i puntini sopra, e NON permette di parlare in francese */
+  display: none;
+}
+
 .cards-carosello {
   display: flex;
   align-items: center;
@@ -1497,8 +1503,8 @@ footer {
 
 .card-carosello {
   position: absolute;
-  width: 60%;
-  height: 200px;
+  width: 40%;
+  height: 350px;
   left: 0;
   right: 0;
   margin: auto;
@@ -2285,8 +2291,6 @@ footer {
   font-weight: bold;
   letter-spacing: -1px;
 }
-
-
 
 /*start contact section*/
 
@@ -3482,4 +3486,166 @@ footer::before {
 [data-aos="zoom-in"].aos-animate {
   transform: scale(1);
   opacity: 1;
+}
+
+/* Nascondi la barra di scorrimento di default */
+.card_testo {
+  overflow-y: hidden; /* Nasconde la barra di scorrimento */
+  transition: overflow-y 0.3s ease;
+  margin-left: 23.5%;
+}
+
+/* Mostra la barra di scorrimento quando il mouse è sopra */
+.card_testo:hover {
+  overflow-y: auto; /* Mostra la barra di scorrimento */
+}
+
+/* Personalizza la barra di scorrimento */
+.card_testo::-webkit-scrollbar {
+  width: 8px; /* Larghezza della barra di scorrimento */
+}
+
+.card_testo::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color); /* Colore della barra */
+  border-radius: 4px; /* Angoli arrotondati */
+}
+
+.card_testo::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-color); /* Colore al passaggio del mouse */
+}
+
+.card_testo::-webkit-scrollbar-track {
+  background-color: var(--muted-color); /* Colore dello sfondo della barra */
+}
+
+/* Nuovi stili per i controlli del player */
+.card__controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.card__navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.card__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.card__btn:hover {
+  transform: scale(1.1);
+}
+
+.card__btn-prev,
+.card__btn-next {
+  width: 30px;
+  height: 30px;
+}
+
+.card__btn-play {
+  width: 60px;
+  height: 60px;
+}
+
+.card__progress {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  gap: 10px;
+}
+
+.card__timeline {
+  flex-grow: 1;
+}
+
+.card__timeline progress {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+}
+
+.card__time {
+  font-size: 14px;
+  min-width: 40px;
+  text-align: center;
+  color: #fff;
+}
+
+/* Container principale del progresso */
+.card__progress-container {
+  display: flex;
+  align-items: center; /* Allinea verticalmente */
+  justify-content: center; /* Allinea orizzontalmente */
+  gap: 1rem; /* Spaziatura tra gli elementi */
+  margin: 1rem auto; /* Centra il contenitore */
+  text-align: center;
+}
+
+.progress-bar-container {
+  flex-grow: 1; /* Permette alla barra di occupare lo spazio disponibile */
+  max-width: 400px; /* Imposta una larghezza massima */
+}
+
+.audio-progress {
+  width: 100%; /* La barra occupa tutta la larghezza del contenitore */
+  height: 8px; /* Altezza della barra di progresso */
+  border-radius: 4px; /* Angoli arrotondati */
+  appearance: none; /* Rimuove lo stile di default */
+}
+
+.audio-progress::-webkit-progress-bar {
+  background-color: var(--muted-color); /* Colore dello sfondo */
+  border-radius: 4px;
+}
+
+.audio-progress::-webkit-progress-value {
+  background-color: var(--accent-color); /* Colore della barra di avanzamento */
+  border-radius: 4px;
+}
+
+/* Center the progress bar container */
+.card__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Style for the progress bar container */
+.progress-container {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  gap: 10px;
+}
+
+/* Style for the progress bar */
+.card__timeline {
+  flex-grow: 1;
+  height: 4px;
+  cursor: pointer;
+}
+
+/* Style for time indicators */
+.card__time {
+  font-size: 12px;
+  min-width: 40px;
+  text-align: center;
 }

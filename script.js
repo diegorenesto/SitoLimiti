@@ -1393,3 +1393,41 @@ function initAudioContext() {
         // In a real app, this would load and play actual audio files
     }
 }
+
+function initializeAudioData() {
+    const audios = document.querySelectorAll("audio");
+    audios.forEach((audio, index) => {
+        const progressBar = document.querySelector(`#contenuto${index + 1} .audio-progress`);
+        const currentTimeEl = document.querySelector(`#contenuto${index + 1} .current-time`);
+        const durationEl = document.querySelector(`#contenuto${index + 1} .duration`);
+
+        // Aggiorna il tempo totale quando i metadati sono caricati
+        audio.addEventListener("loadedmetadata", () => {
+            durationEl.textContent = formatTime(audio.duration || 0);
+        });
+
+        // Permette di cercare nella traccia cliccando sulla barra
+        progressBar.addEventListener("click", (e) => {
+            if (audio.duration) {
+                const rect = progressBar.getBoundingClientRect();
+                const pos = (e.clientX - rect.left) / rect.width;
+                audio.currentTime = pos * audio.duration;
+            }
+        });
+    });
+}
+
+function updateProgressBar(audioElement, index) {
+    const progressBar = document.querySelector(`#contenuto${index + 1} .audio-progress`);
+    const currentTimeEl = document.querySelector(`#contenuto${index + 1} .current-time`);
+    const durationEl = document.querySelector(`#contenuto${index + 1} .duration`);
+
+    const currentTime = audioElement.currentTime;
+    const duration = audioElement.duration;
+
+    if (!isNaN(duration)) {
+        currentTimeEl.textContent = formatTime(currentTime);
+        durationEl.textContent = formatTime(duration - currentTime);
+        progressBar.value = (currentTime / duration) * 100;
+    }
+}
