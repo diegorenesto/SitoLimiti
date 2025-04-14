@@ -419,6 +419,7 @@ input:checked + .toggle #sun-icon {
   animation: fadeInUp 1s ease;
   background: var(--accent-gradient);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 
@@ -556,12 +557,13 @@ input:checked + .toggle #sun-icon {
   margin-top: 3rem;
 }
 
+/* Effetto hover per sollevare le card */
 .feature-card {
   background-color: var(--card-bg);
   border-radius: var(--card-radius);
   padding: 2rem;
   box-shadow: 0 8px 20px var(--shadow-color);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   height: 100%;
   display: flex;
@@ -570,8 +572,8 @@ input:checked + .toggle #sun-icon {
 }
 
 .feature-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 30px var(--shadow-color);
+  transform: translateY(-10px); /* Solleva la card */
+  box-shadow: 0 12px 30px var(--shadow-color); /* Ombra più pronunciata */
 }
 
 .feature-icon {
