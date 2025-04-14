@@ -15,6 +15,8 @@
   --error-color: #c62828; /* Errore */
   --warning-color: #ef6c00; /* Avviso */
   --info-color: #4681d8; /* Informazioni */
+  --podcast-gradiente: linear-gradient(135deg, #fc466b 0%, #818cf8 100%);
+
 
   /* UI Elements */
   --nav-height: 70px;
@@ -49,6 +51,7 @@
   --error-color: #b85450; /* Errore */
   --warning-color: #d19440; /* Avviso */
   --info-color: #4f79a7; /* Informazioni */
+  --podcast-gradiente: linear-gradient(135deg, #182e99 0%, #9e1631 100%); 
 }
 
 [data-theme="dark"] .company-name-main:hover {
@@ -1579,14 +1582,22 @@ input[type="radio"] {
   margin: 1.5rem 0;
 }
 
+/* Colore per il minutaggio in light mode */
 .card__time {
   font-size: 0.9rem;
-  color: var(--secondary-color);
-  font-family: var(--code-font);
+  color: var(--text-color) !important; /* Usa il colore del testo del tema light */
+}
+
+/* Colore per il minutaggio in dark mode */
+[data-theme="dark"] .card__time {
+  color: var(--text-color); /* Usa il colore del testo del tema dark */
 }
 
 .card__timeline {
-  flex-grow: 1;
+  width: 70%;
+  height: 4px;
+  align-items: center;
+  cursor: pointer;
 }
 
 .card__timeline progress {
@@ -2771,6 +2782,7 @@ input:checked + .toggle #sun-icon {
   overflow: hidden;
   transition: all 0.3s ease;
   height: 100%;
+  background: var(--podcast-gradiente);
   display: flex;
   flex-direction: column;
   position: relative;
