@@ -778,7 +778,14 @@ function createStandardChartOptions() {
                     color: getComputedStyle(document.documentElement).getPropertyValue('--border-color').trim()
                 },
                 ticks: {
-                    color: getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim()
+                    color: getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim(),
+                    callback: function(value, index, ticks) {
+                        if (typeof value === 'number') {
+                            return value.toFixed(1);
+                        }
+                        const num = parseFloat(value);
+                        return isFinite(num) ? num.toFixed(1) : value;
+                    }
                 }
             },
             y: {
@@ -786,7 +793,14 @@ function createStandardChartOptions() {
                     color: getComputedStyle(document.documentElement).getPropertyValue('--border-color').trim()
                 },
                 ticks: {
-                    color: getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim()
+                    color: getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim(),
+                    callback: function(value, index, ticks) {
+                        if (typeof value === 'number') {
+                            return value.toFixed(1);
+                        }
+                        const num = parseFloat(value);
+                        return isFinite(num) ? num.toFixed(1) : value;
+                    }
                 }
             }
         },
@@ -803,11 +817,19 @@ function createStandardChartOptions() {
                 titleColor: getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim(),
                 bodyColor: getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim(),
                 borderColor: getComputedStyle(document.documentElement).getPropertyValue('--border-color').trim(),
-                borderWidth: 1
+                borderWidth: 1,
+                callbacks: {
+                    label: function(context) {
+                        const label = context.dataset.label || '';
+                        const value = context.parsed.y;
+                        return `${label}: ${isFinite(value) ? value.toFixed(1) : 'N/A'}`;
+                    }
+                }
             }
         }
     };
 }
+
 
 // Initialize the limit calculator
 function initLimitCalculator() {
