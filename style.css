@@ -377,23 +377,7 @@ input:checked + .toggle .toggle__circle {
   color: var(--text-color);
 }
 
-#moon-icon {
-  right: 10px;
-  opacity: 1;
-}
 
-#sun-icon {
-  left: 10px;
-  opacity: 0;
-}
-
-input:checked + .toggle #moon-icon {
-  opacity: 0;
-}
-
-input:checked + .toggle #sun-icon {
-  opacity: 1;
-}
 
 /* Hero Section */
 .hero {
@@ -1594,8 +1578,7 @@ input[type="radio"] {
 .card__timeline {
   width: 70%;
   height: 4px;
-  align-items: center;
-  cursor: pointer;
+  
 }
 
 .card__timeline progress {
@@ -3534,62 +3517,12 @@ footer::before {
   height: 60px;
 }
 
-.card__progress {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  max-width: 500px;
-  gap: 10px;
-}
 
-.card__timeline {
-  flex-grow: 1;
-}
 
-.card__timeline progress {
-  width: 100%;
-  height: 6px;
-  cursor: pointer;
-}
 
-.card__time {
-  font-size: 14px;
-  min-width: 40px;
-  text-align: center;
-  color: #fff;
-}
 
 /* Container principale del progresso */
-.card__progress-container {
-  display: flex;
-  align-items: center; /* Allinea verticalmente */
-  justify-content: center; /* Allinea orizzontalmente */
-  gap: 1rem; /* Spaziatura tra gli elementi */
-  margin: 1rem auto; /* Centra il contenitore */
-  text-align: center;
-}
 
-.progress-bar-container {
-  flex-grow: 1; /* Permette alla barra di occupare lo spazio disponibile */
-  max-width: 400px; /* Imposta una larghezza massima */
-}
-
-.audio-progress {
-  width: 100%; /* La barra occupa tutta la larghezza del contenitore */
-  height: 8px; /* Altezza della barra di progresso */
-  border-radius: 4px; /* Angoli arrotondati */
-  appearance: none; /* Rimuove lo stile di default */
-}
-
-.audio-progress::-webkit-progress-bar {
-  background-color: var(--muted-color); /* Colore dello sfondo */
-  border-radius: 4px;
-}
-
-.audio-progress::-webkit-progress-value {
-  background-color: var(--accent-color); /* Colore della barra di avanzamento */
-  border-radius: 4px;
-}
 
 /* Center the progress bar container */
 .card__wrapper {
@@ -3601,19 +3534,9 @@ footer::before {
 }
 
 /* Style for the progress bar container */
-.progress-container {
-  display: flex;
-  align-items: center;
-  width: 60%;
-  gap: 10px;
-}
 
-/* Style for the progress bar */
-.card__timeline {
-  flex-grow: 1;
-  height: 4px;
-  cursor: pointer;
-}
+
+
 
 /* Style for time indicators */
 .card__time {
