@@ -64,7 +64,7 @@
     </nav>
 
     <main>
-        <section class="hero" data-aos="fade-up">
+        <section class="hero" data-aos="fade-up" style="margin-top: -90px;">
             <div class="hero-content">
                 <h1 class="hero-title">
                     <span>Vai</span>
@@ -78,28 +78,10 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <svg class="limit-graph" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="graphGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="var(--accent-color)" />
-                            <stop offset="100%" stop-color="var(--secondary-color)" />
-                        </linearGradient>
-                    </defs>
-                    <!-- Axis -->
-                    <line x1="50" y1="250" x2="450" y2="250" stroke="var(--text-color)" stroke-width="2" />
-                    <line x1="250" y1="50" x2="250" y2="250" stroke="var(--text-color)" stroke-width="2" />
-                    <!-- Axis labels -->
-                    <text x="460" y="250" fill="var(--text-color)" font-size="14">x</text>
-                    <text x="255" y="40" fill="var(--text-color)" font-size="14">y</text>
-                    <!-- Graph path -->
-                    <path id="limitCurve" d="M100,250 Q150,50 250,50 Q350,50 400,250" fill="none"
-                        stroke="url(#graphGradient)" stroke-width="3" />
-                    <!-- Vertical asymptote -->
-                    <line id="asymptote" x1="250" y1="50" x2="250" y2="250" stroke="var(--accent-color)"
-                        stroke-width="1" stroke-dasharray="5,5" />
-                    <!-- Limit point -->
-                    <circle id="limitPoint" cx="250" cy="50" r="6" fill="var(--accent-color)" />
-                </svg>
+                <video autoplay muted loop width="100%" height="800">
+                    <source src="Media/video/background-lim.mp4" type="video/mp4" />
+                    Il tuo browser non supporta il tag video.
+                </video>
             </div>
         </section>
 
