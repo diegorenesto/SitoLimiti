@@ -17,7 +17,6 @@
   --info-color: #4681d8; /* Informazioni */
   --podcast-gradiente: linear-gradient(135deg, #fc466b 0%, #818cf8 100%);
 
-
   /* UI Elements */
   --nav-height: 70px;
   --sidebar-width: 320px;
@@ -51,7 +50,7 @@
   --error-color: #b85450; /* Errore */
   --warning-color: #d19440; /* Avviso */
   --info-color: #4f79a7; /* Informazioni */
-  --podcast-gradiente: linear-gradient(135deg, #182e99 0%, #9e1631 100%); 
+  --podcast-gradiente: linear-gradient(135deg, #182e99 0%, #9e1631 100%);
 }
 
 [data-theme="dark"] .company-name-main:hover {
@@ -1585,7 +1584,9 @@ input[type="radio"] {
 /* Colore per il minutaggio in light mode */
 .card__time {
   font-size: 0.9rem;
-  color: var(--text-color) !important; /* Usa il colore del testo del tema light */
+  color: var(
+    --text-color
+  ) !important; /* Usa il colore del testo del tema light */
 }
 
 /* Colore per il minutaggio in dark mode */
@@ -1775,30 +1776,26 @@ input[type="radio"] {
 }
 
 .member-avatar {
-  background-color: var(--muted-color);
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  height: auto;
 }
 
 .avatar-placeholder {
-  width: 100px;
-  height: 100px;
-  background-color: var(--accent-color);
+  width: 100%;
+  aspect-ratio: 1 / 1; /* mantiene forma quadrata */
   border-radius: 50%;
+  overflow: hidden;
+  background-color: #f0f0f0;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 3rem;
-  position: relative;
 }
 
-.member-initials {
-  position: absolute;
-  font-size: 1.5rem;
-  font-weight: 700;
+.avatar-placeholder img.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .member-info {
@@ -3660,4 +3657,20 @@ footer::before {
   font-size: 12px;
   min-width: 40px;
   text-align: center;
+}
+
+.pdf-notice {
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+.pdf-link {
+  color: #e74c3c; /* Rosso per evidenziare */
+  text-decoration: none;
+  font-weight: 500;
+}
+.pdf-link:hover {
+  text-decoration: underline;
+}
+.pdf-link i {
+  margin-right: 5px;
 }
