@@ -1,488 +1,394 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vai oltre il limite - Scopri il mondo dei limiti matematici</title>
-    <link rel="icon" href="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/icons/infinity.svg"
-        type="image/svg+xml">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <title>Calcolatore del Limite di Funzione 3D</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: var(--body-font);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .input-section {
+      width: 300px;
+      padding: 20px;
+      position: absolute;
+      top: 100px;
+      right: 20px;
+      z-index: 1;
+    }
+
+    input,
+    button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 8px;
+      font-family: var(--body-font);
+      font-size: 1rem;
+      background-color: var(--muted-color);
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    input:focus,
+    button:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 2px rgba(44, 109, 213, 0.2);
+    }
+
+    button {
+      background: var(--info-color);
+      color: var(--text-color);
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background: var(--accent-color);
+      transform: translateY(-2px);
+    }
+
+    #graph {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    #result {
+      margin-top: 20px;
+      padding: 10px;
+      background: var(--muted-color);
+      color: var(--text-color);
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 5px var(--shadow-color);
+    }
+  </style>
+
+  <!-- Contenuti aggiunti da index.html -->
+  <link rel="icon" href="Media/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Scopri il mondo affascinante dei limiti matematici con spiegazioni chiare, esercizi interattivi, e visualizzazioni animate per rendere l'apprendimento più coinvolgente.">
+  <link rel="icon" href="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/icons/infinity.svg"
+    type="image/svg+xml">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
-    <nav>
-        <div id="main" class="w3-top">
-            <div id="theme-color" class="w3-bar w3-white w3-wide w3-padding w3-card">
-                <!-- OPEN COLLAPSED SIDEBAR -->
-                <button class="openbtn w3-bar-item" onclick="openNav()"
-                    style="background-color: transparent; padding-right: 80px">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
-                </button>
+  <nav style="z-index: 10;">
+    <div id="main" class="w3-top">
+      <div id="theme-color" class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <!-- OPEN COLLAPSED SIDEBAR -->
+        <button class="openbtn w3-bar-item" onclick="openNav()"
+          style="background-color: transparent; padding-right: 80px">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </button>
 
-                <!-- CLOSE -->
-                <div id="mySidebar" class="sidebar">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="teoria.html">Teoria</a>
-                    <a href="esercizi.html">Esercizi</a>
-                    <a href="calcolatore.html">Calcolatore 3D</a>
-                    <a href="limiti-sociali.html">Limiti sociali</a>
-                    <a href="italiano.html">Limiti letterari</a>
-                    <a href="podcast.html">Podcast</a>
-                    <a href="index.html#contatti"
-                        style="position: absolute; bottom: 0; margin-bottom: 20%;">Contatti</a>
-                    <a href="chi-siamo.html"
-                        style="position: absolute; bottom: 0; margin-bottom: 5%; font-size: 15px;">Chi siamo</a>
-                </div>
-                <a href="index.html" class="w3-bar-item w3-button company-name-main">Vai <b>OLTRE</b> il
-                    limite</a>
-
-                <!-- SWITCH DARK-LIGHT MODE -->
-                <div class="switch" style="position: absolute;
-				top: 30%;
-				right: 5%;">
-                    <input hidden="" id="check" name="check" type="checkbox" onchange="toggleTheme()">
-                    <label class="toggle" for="check">
-                        <div class="toggle__circle"></div>
-                    </label>
-                    <div class="toggle-text">
-                        <span id="theme-icon"></span>
-                    </div>
-                </div>
-
-            </div>
+        <!-- CLOSE -->
+        <div id="mySidebar" class="sidebar">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="teoria.html">Teoria</a>
+          <a href="esercizi.html">Esercizi</a>
+          <a href="calcolatore3D.html">Calcolatore 3D</a>
+          <a href="limiti-sociali.html">Limiti sociali</a>
+          <a href="italiano.html">Limiti letterari</a>
+          <a href="podcast.html">Podcast</a>
+          <a href="index.html#contatti" style="position: absolute; bottom: 0; margin-bottom: 20%;">Contatti</a>
+          <a href="chi-siamo.html" style="position: absolute; bottom: 0; margin-bottom: 5%; font-size: 15px;">Chi
+            siamo</a>
         </div>
-    </nav>
+        <a href="index.html" class="w3-bar-item w3-button company-name-main">Vai <b>OLTRE</b> il
+          limite</a>
 
-    <main>
-        <nav>
-            <div id="main" class="w3-top">
-                <div id="theme-color" class="w3-bar w3-white w3-wide w3-padding w3-card">
-                    <!-- OPEN COLLAPSED SIDEBAR -->
-                    <button class="openbtn w3-bar-item" onclick="openNav()"
-                        style="background-color: transparent; padding-right: 80px">
-                        <div class="line1"></div>
-                        <div class="line2"></div>
-                        <div class="line3"></div>
-                    </button>
+        <!-- SWITCH DARK-LIGHT MODE -->
+        <div class="switch" style="position: absolute;
+    top: 30%;
+    right: 5%;">
+          <input hidden="" id="check" name="check" type="checkbox" onchange="toggleTheme()">
+          <label class="toggle" for="check">
+            <div class="toggle__circle"></div>
+          </label>
+          <div class="toggle-text">
+            <span id="theme-icon"></span>
+          </div>
+        </div>
 
-                    <!-- CLOSE -->
-                    <div id="mySidebar" class="sidebar">
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <a href="teoria.html">Teoria</a>
-                        <a href="esercizi.html">Esercizi</a>
-                        <a href="limiti-sociali.html">Limiti sociali</a>
-                        <a href="italiano.html">Limiti letterari</a>
-                        <a href="podcast.html">Podcast</a>
-                        <a href="index.html#contatti"
-                            style="position: absolute; bottom: 0; margin-bottom: 20%;">Contatti</a>
-                        <a href="chi-siamo.html"
-                            style="position: absolute; bottom: 0; margin-bottom: 5%; font-size: 15px;">Chi siamo</a>
-                    </div>
-                    <a href="index.html" class="w3-bar-item w3-button company-name-main">Vai <b>OLTRE</b> il
-                        limite</a>
+      </div>
+    </div>
+  </nav>
 
-                    <!-- SWITCH DARK-LIGHT MODE -->
-                    <div class="switch" style="position: absolute;
-				top: 30%;
-				right: 5%;">
-                        <input hidden="" id="check" name="check" type="checkbox" onchange="toggleTheme()">
-                        <label class="toggle" for="check">
-                            <div class="toggle__circle"></div>
-                        </label>
-                        <div class="toggle-text">
-                            <span id="theme-icon"></span>
-                        </div>
-                    </div>
+  <div class="container" style="margin-top: var(--nav-height);">
+    <div class="input-section">
+      <input type="text" id="function" placeholder="Inserisci la funzione (es. (x^2-4)/(x-2))">
+      <input type="text" id="limitPoint" placeholder="Punto del limite (x₀; usa 'inf' o '-inf' per infinito)">
+      <button onclick="calculateLimit()">Calcola Limite</button>
+      <div id="result"></div>
+    </div>
+    <div id="graph"></div>
+  </div>
 
-                </div>
-            </div>
-        </nav>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <a href="index.html" class="company-name-main">
+          <span class="logo-vai">Vai</span>
+          <span class="logo-oltre">OLTRE</span>
+          <span class="logo-il">il</span>
+          <span class="logo-limite">limite</span>
+        </a>
+        <p>Esplora il mondo affascinante dei limiti matematici</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-section">
+          <h3>Contenuti</h3>
+          <ul>
+            <li><a href="teoria.html">Teoria</a></li>
+            <li><a href="esercizi.html">Esercizi</a></li>
+            <li><a href="limiti-sociali.html">Limiti sociali</a></li>
+            <li><a href="italiano.html">Limiti letterari</a></li>
+            <li><a href="podcast.html">Podcast</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Info</h3>
+          <ul>
+            <li><a href="chi-siamo.html">Chi siamo</a></li>
+            <li><a href="#contatti">Contatti</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025
+        <a href="https://github.com/diegorenesto" target="_blank">Diego Renesto</a>,
+        <a href="https://github.com/JurijGagarinFB" target="_blank">Francesco Bazaj</a>,
+        <a href="https://github.com/xRennyx" target="_blank">Francesco Renesto</a>,
+        <a href="https://github.com/zanfooo" target="_blank">Nicolò Zanforlin</a>,
+        <a href="https://github.com/MattiaMystic" target="_blank">Mattia Pavarin</a>
+      </p>
+    </div>
+  </footer>
 
-        <!-- Main Content -->
-        <main class="calculator-main">
-            <!-- Calculator Header -->
-            <div class="calculator-header">
-                <h1 class="calculator-title" data-aos="fade-up">Calcolatore di Limiti Interattivo</h1>
-                <p class="calculator-subtitle" data-aos="fade-up" data-aos-delay="200">
-                    Inserisci una funzione matematica e calcola il suo limite. Visualizza il risultato con grafici 2D e
-                    3D
-                    interattivi e animazioni che mostrano il comportamento della funzione.
-                </p>
-            </div>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/gsap.min.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out'
+    });
+  </script>
 
-            <!-- Calculator Content -->
-            <div class="calculator-content">
-                <div class="calculator-container" data-aos="fade-up" data-aos-delay="300">
-                    <!-- Calculator Input Area -->
-                    <div class="calculator-input-area">
-                        <h3>Inserisci la funzione</h3>
-                        <div class="input-group">
-                            <label for="function-input">Funzione f(x):</label>
-                            <input type="text" id="function-input" placeholder="es. x^2, sin(x), ln(x), ..."
-                                autocomplete="off">
-                            <div class="function-preview" id="function-preview">
-                                <!-- MathJax preview will appear here -->
-                            </div>
-                        </div>
+  <script>
+    let scene, camera, renderer, tubeMesh, controls, markerMesh;
 
-                        <div class="limit-controls">
-                            <div class="input-group">
-                                <label for="limit-point">Punto x₀:</label>
-                                <input type="text" id="limit-point" placeholder="es. 0, 1, +Infinity, ..." value="0">
-                            </div>
-                            <div class="input-group">
-                                <label for="limit-direction">Direzione:</label>
-                                <select id="limit-direction">
-                                    <option value="both">Entrambe</option>
-                                    <option value="left">Da sinistra (x → x₀⁻)</option>
-                                    <option value="right">Da destra (x → x₀⁺)</option>
-                                </select>
-                            </div>
-                        </div>
+    function init() {
+      scene = new THREE.Scene();
+      const graphDiv = document.getElementById('graph');
+      camera = new THREE.PerspectiveCamera(75, graphDiv.clientWidth / graphDiv.clientHeight, 0.1, 1000);
 
-                        <div class="action-buttons">
-                            <button id="calculate-btn" class="btn btn-primary">
-                                <i class="fas fa-calculator"></i> Calcola limite
-                            </button>
-                            <button id="reset-btn" class="btn btn-secondary">
-                                <i class="fas fa-sync-alt"></i> Reset
-                            </button>
-                        </div>
-                    </div>
+      renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(graphDiv.clientWidth, graphDiv.clientHeight);
+      graphDiv.appendChild(renderer.domElement);
 
-                    <!-- Calculator Result Area -->
-                    <div class="calculator-result">
-                        <div class="result-card">
-                            <h3>Risultato</h3>
-                            <div class="limit-notation" id="limit-notation">
-                                <!-- Limit notation will appear here -->
-                                \[ \lim_{x \to x_0} f(x) \]
-                            </div>
-                            <div class="limit-result" id="limit-result">
-                                <!-- Calculation result will appear here -->
-                                Inserisci una funzione e premi "Calcola limite"
-                            </div>
-                            <div class="limit-explanation" id="limit-explanation">
-                                <!-- Explanation of the limit calculation will appear here -->
-                                <p>Il risultato del limite sarà mostrato qui con una spiegazione.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      camera.position.set(5, 5, 5);
+      camera.lookAt(0, 0, 0);
 
-                <!-- Visualization Container -->
-                <div class="visualization-container" data-aos="fade-up" data-aos-delay="400">
-                    <div class="visualization-tabs">
-                        <button class="viz-tab-btn active" data-tab="graph2d">Grafico 2D</button>
-                        <button class="viz-tab-btn" data-tab="graph3d">Grafico 3D</button>
-                        <button class="viz-tab-btn" data-tab="animation">Animazione</button>
-                    </div>
+      controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
 
-                    <div class="visualization-content">
-                        <!-- 2D Graph Panel -->
-                        <div class="viz-panel active" id="graph2d-panel">
-                            <div class="graph-container" id="graph2d-container">
-                                <canvas id="graph2d-canvas"></canvas>
-                            </div>
-                            <div class="graph-controls">
-                                <div class="slider-container">
-                                    <label for="zoom-slider">Zoom:</label>
-                                    <input type="range" id="zoom-slider" class="slider" min="1" max="100" value="50">
-                                </div>
-                                <div class="checkbox-container">
-                                    <input type="checkbox" id="show-grid" checked>
-                                    <label for="show-grid">Mostra griglia</label>
-                                </div>
-                                <div class="checkbox-container">
-                                    <input type="checkbox" id="show-point" checked>
-                                    <label for="show-point">Mostra punto limite</label>
-                                </div>
-                            </div>
-                        </div>
+      // Griglia orizzontale (piano X-Z)
+      let gridH = new THREE.GridHelper(20, 20);
+      scene.add(gridH);
 
-                        <!-- 3D Graph Panel -->
-                        <div class="viz-panel" id="graph3d-panel">
-                            <div class="graph-container" id="graph3d-container">
-                                <!-- THREE.js will render here -->
-                            </div>
-                            <div class="graph-controls">
-                                <div class="slider-container">
-                                    <label for="rotation-speed">Velocità rotazione:</label>
-                                    <input type="range" id="rotation-speed" class="slider" min="0" max="100" value="50">
-                                </div>
-                                <div class="checkbox-container">
-                                    <input type="checkbox" id="auto-rotate" checked>
-                                    <label for="auto-rotate">Rotazione automatica</label>
-                                </div>
-                            </div>
-                        </div>
+      // Griglia verticale (piano X-Y)
+      let gridV = new THREE.GridHelper(20, 20);
+      gridV.rotation.z = Math.PI / 2;
+      scene.add(gridV);
 
-                        <!-- Animation Panel -->
-                        <div class="viz-panel" id="animation-panel">
-                            <div class="graph-container" id="animation-container">
-                                <canvas id="animation-canvas"></canvas>
-                            </div>
-                            <div class="graph-controls">
-                                <div class="animation-controls">
-                                    <button id="play-btn" class="control-btn">
-                                        <i class="fas fa-play"></i>
-                                    </button>
-                                    <button id="pause-btn" class="control-btn" disabled>
-                                        <i class="fas fa-pause"></i>
-                                    </button>
-                                    <button id="reset-animation-btn" class="control-btn">
-                                        <i class="fas fa-undo"></i>
-                                    </button>
-                                </div>
-                                <div class="slider-container">
-                                    <label for="animation-speed">Velocità:</label>
-                                    <input type="range" id="animation-speed" class="slider" min="1" max="100"
-                                        value="50">
-                                </div>
-                            </div>
-                            <div class="sequence-value" id="sequence-value">
-                                <div>x = <span id="x-value">0</span></div>
-                                <div>f(x) = <span id="fx-value">0</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      scene.add(new THREE.AmbientLight(0xffffff, 0.8));
 
-                <!-- Calculator Examples -->
-                <div class="calculator-examples" data-aos="fade-up" data-aos-delay="500">
-                    <h2>Esempi di limiti comuni</h2>
-                    <div class="examples-grid">
-                        <div class="example-card">
-                            <h4>Limite costante</h4>
-                            <div class="example-formula">
-                                \[ \lim_{x \to 0} 5 = 5 \]
-                            </div>
-                            <button class="btn btn-outline" onclick="useExample('5', '0')">
-                                Usa questo esempio
-                            </button>
-                        </div>
-                        <div class="example-card">
-                            <h4>Limite polinomiale</h4>
-                            <div class="example-formula">
-                                \[ \lim_{x \to 2} x^2 = 4 \]
-                            </div>
-                            <button class="btn btn-outline" onclick="useExample('x^2', '2')">
-                                Usa questo esempio
-                            </button>
-                        </div>
-                        <div class="example-card">
-                            <h4>Limite trigonometrico</h4>
-                            <div class="example-formula">
-                                \[ \lim_{x \to 0} \frac{\sin(x)}{x} = 1 \]
-                            </div>
-                            <button class="btn btn-outline" onclick="useExample('sin(x)/x', '0')">
-                                Usa questo esempio
-                            </button>
-                        </div>
-                        <div class="example-card">
-                            <h4>Limite esponenziale</h4>
-                            <div class="example-formula">
-                                \[ \lim_{x \to 0} \frac{e^x - 1}{x} = 1 \]
-                            </div>
-                            <button class="btn btn-outline" onclick="useExample('(exp(x) - 1) / x', '0')">
-                                Usa questo esempio
-                            </button>
-                        </div>
-                        <div class="example-card">
-                            <h4>Limite logaritmico</h4>
-                            <div class="example-formula">
-                                \[ \lim_{x \to 1} \frac{\ln(x)}{x - 1} = 1 \]
-                            </div>
-                            <button class="btn btn-outline" onclick="useExample('ln(x)/(x-1)', '1')">
-                                Usa questo esempio
-                            </button>
-                        </div>
-                        <div class="example-card">
-                            <h4>Limite all'infinito</h4>
-                            <div class="example-formula">
-                                \[ \lim_{x \to \infty} \frac{x^2 + 1}{x^3 + 2} = 0 \]
-                            </div>
-                            <button class="btn btn-outline" onclick="useExample('(x^2 + 1)/(x^3 + 2)', 'Infinity')">
-                                Usa questo esempio
-                            </button>
-                        </div>
-                    </div>
-                </div>
+      animate();
+    }
 
-                <!-- Theory Section -->
-                <div class="calculator-theory" data-aos="fade-up" data-aos-delay="600">
-                    <div class="theory-container">
-                        <h2 class="section-title">Concetti teorici sui limiti</h2>
+    function animate() {
+      requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+    }
 
-                        <div class="theory-box">
-                            <h3>Definizione di limite</h3>
-                            <p>Il concetto di limite è uno dei fondamenti dell'analisi matematica. Esso descrive il
-                                comportamento di una funzione quando la variabile indipendente si avvicina a un
-                                determinato
-                                valore.</p>
+    function calculateLimit() {
+      const funcStr = document.getElementById('function').value;
+      const limitInput = document.getElementById('limitPoint').value.trim().toLowerCase();
 
-                            <div class="formal-definition">
-                                <p>Formalmente, diciamo che il limite di una funzione \(f(x)\) per \(x\) che tende a
-                                    \(x_0\)
-                                    è uguale a \(L\), e scriviamo:</p>
-                                <p>\[ \lim_{x \to x_0} f(x) = L \]</p>
-                                <p>se per ogni \(\varepsilon > 0\) esiste un \(\delta > 0\) tale che:</p>
-                                <p>\[ 0 < |x - x_0| < \delta \Rightarrow |f(x) - L| < \varepsilon \]</p>
-                            </div>
-                        </div>
+      // Gestione di valori infiniti per x₀
+      let x0;
+      if (limitInput === "inf") x0 = Infinity;
+      else if (limitInput === "-inf") x0 = -Infinity;
+      else x0 = parseFloat(limitInput);
 
-                        <div class="theory-box">
-                            <h3>Tipi di limiti</h3>
-                            <div class="split-definition">
-                                <div>
-                                    <h4>Limite destro</h4>
-                                    <p>\[ \lim_{x \to x_0^+} f(x) = L \]</p>
-                                    <p>Il limite viene calcolato considerando solo i valori di \(x\) che si avvicinano a
-                                        \(x_0\) da destra (maggiori di \(x_0\)).</p>
-                                </div>
-                                <div>
-                                    <h4>Limite sinistro</h4>
-                                    <p>\[ \lim_{x \to x_0^-} f(x) = L \]</p>
-                                    <p>Il limite viene calcolato considerando solo i valori di \(x\) che si avvicinano a
-                                        \(x_0\) da sinistra (minori di \(x_0\)).</p>
-                                </div>
-                            </div>
-                            <p>Un limite esiste solo se i limiti destro e sinistro coincidono.</p>
-                        </div>
+      try {
+        // Semplifica la funzione con math.js; per esempio, "(x^2-4)/(x-2)" diventa "x+2"
+        let simplifiedStr = math.simplify(funcStr).toString();
+        // Compila la funzione semplificata per valutazioni numeriche
+        const f = math.compile(simplifiedStr);
 
-                        <div class="theory-box">
-                            <h3>Regole di calcolo dei limiti</h3>
-                            <p>Ecco alcune delle regole fondamentali per il calcolo dei limiti:</p>
-                            <ul>
-                                <li>\[ \lim_{x \to x_0} [f(x) \pm g(x)] = \lim_{x \to x_0} f(x) \pm \lim_{x \to x_0}
-                                    g(x) \]
-                                </li>
-                                <li>\[ \lim_{x \to x_0} [f(x) \cdot g(x)] = \lim_{x \to x_0} f(x) \cdot \lim_{x \to x_0}
-                                    g(x) \]</li>
-                                <li>\[ \lim_{x \to x_0} \frac{f(x)}{g(x)} = \frac{\lim_{x \to x_0} f(x)}{\lim_{x \to
-                                    x_0}
-                                    g(x)} \quad \text{se} \quad \lim_{x \to x_0} g(x) \neq 0 \]</li>
-                                <li>\[ \lim_{x \to x_0} f(g(x)) = f\left(\lim_{x \to x_0} g(x)\right) \quad \text{se}
-                                    \quad
-                                    f \text{ è continua in } \lim_{x \to x_0} g(x) \]</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-logo">
-                        <h2 class="logo-text">Limiti<span class="highlight">Matematica</span></h2>
-                        <p>La tua risorsa completa per imparare i limiti matematici</p>
-                    </div>
-                    <div class="footer-links">
-                        <div class="footer-links-column">
-                            <h3>Esplora</h3>
-                            <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="teoria.html">Teoria</a></li>
-                                <li><a href="esercizi.html">Esercizi</a></li>
-                                <li><a href="limiti-sociali.html">Limiti sociali</a></li>
-                                <li><a href="italiano.html">Limiti letterari</a></li>
-                                <li><a href="podcast.html">Podcast</a></li>
-                                <li><a href="calcolatore.html">Calcolatore</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-links-column">
-                            <h3>Risorse</h3>
-                            <ul>
-                                <li><a href="teoria.html#definizione">Definizione di limite</a></li>
-                                <li><a href="teoria.html#proprietà">Proprietà dei limiti</a></li>
-                                <li><a href="teoria.html#teoremi">Teoremi fondamentali</a></li>
-                                <li><a href="esercizi.html">Esercizi pratici</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-links-column">
-                            <h3>Informazioni</h3>
-                            <ul>
-                                <li><a href="chi-siamo.html">Chi siamo</a></li>
-                                <li><a href="chi-siamo.html#contatti">Contattaci</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Termini di utilizzo</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2025 LimitiMatematica. Tutti i diritti riservati.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Seguici su Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Seguici su Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Seguici su Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Seguici su YouTube"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-        <!-- JavaScript Libraries -->
-        <script src="https://cdn.jsdelivr.net/npm/gsap@3.9.1/dist/gsap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/gsap@3.9.1/dist/ScrollTrigger.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-        <script src="modern-script.js"></script>
-        <script src="script.js"></script>
-        <script src="calcolatore.js"></script>
-        <!-- SCRIPT SIDEBAR -->
-    <script>
-        // OPEN SIDEBAR
-        function openNav() {
-            document.getElementById("mySidebar").style.width = "300px";
+        let resultText = "";
+        if (x0 === Infinity || x0 === -Infinity) {
+          resultText = "Limite calcolato per x₀ = " + (x0 === Infinity ? "∞" : "-∞") + ". Verifica il comportamento della funzione.";
+        } else {
+          const delta = 1e-6;
+          const L = f.evaluate({ x: x0 - delta });
+          const R = f.evaluate({ x: x0 + delta });
+          const tol = 1e-3;
+          if (L == null || R == null) {
+            resultText = "Il limite non esiste o è indefinito in questo punto.";
+          } else if (Math.abs(L - R) < tol) {
+            const avg = (L + R) / 2;
+            resultText = "Il limite esiste ed è uguale a " + avg.toFixed(4);
+          } else {
+            resultText = "Il limite non esiste (limiti sinistro e destro differenti)";
+          }
         }
+        document.getElementById('result').innerHTML = resultText;
 
-        // CLOSE SIDEBAR
-        function closeNav() {
-            document.getElementById("mySidebar").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
+        visualizeFunction(f, x0);
+      } catch (e) {
+        console.error(e);
+        document.getElementById('result').innerHTML = "Funzione non valida o errore di calcolo.";
+      }
+    }
+
+    function visualizeFunction(f, x0) {
+      // Rimuove eventuali grafici precedenti
+      if (tubeMesh) {
+        scene.remove(tubeMesh);
+        tubeMesh.geometry.dispose();
+        tubeMesh.material.dispose();
+        tubeMesh = null;
+      }
+      if (markerMesh) {
+        scene.remove(markerMesh);
+        markerMesh.geometry.dispose();
+        markerMesh.material.dispose();
+        markerMesh = null;
+      }
+
+      // Imposta l'intervallo per il grafico: se x₀ è finito, centriamo l'intervallo attorno ad x₀; altrimenti, usiamo [-10,10]
+      let startX = (x0 === Infinity || x0 === -Infinity) ? -10 : x0 - 10;
+      let endX = (x0 === Infinity || x0 === -Infinity) ? 10 : x0 + 10;
+      let points = [];
+      let step = 0.1;
+
+      for (let x = startX; x <= endX; x += step) {
+        try {
+          let y = f.evaluate({ x: x });
+          points.push(new THREE.Vector3(x, y, 0));
+        } catch (e) {
+          points.push(new THREE.Vector3(x, 0, 0));
         }
-    </script>
+      }
 
-    <!-- SCRIPT THEME TOGGLE -->
-    <script>
-        function applyTheme(theme) {
-            const root = document.documentElement;
+      // Crea una curva liscia con i punti
+      let curve = new THREE.CatmullRomCurve3(points);
+      // Usa TubeGeometry per creare un "tubo" lungo la curva (questo darà un aspetto più spesso al grafico)
+      let tubeGeometry = new THREE.TubeGeometry(curve, 200, 0.05, 8, false);
+      let tubeMaterial = new THREE.MeshLambertMaterial({ color: 0x00ff00 });
+      tubeMesh = new THREE.Mesh(tubeGeometry, tubeMaterial);
+      scene.add(tubeMesh);
 
-            if (theme === 'dark') {
-                root.setAttribute('data-theme', 'dark');
-                document.querySelector('#theme-color').classList.add('dark-mode'); // Aggiunto per debug
-            } else {
-                root.setAttribute('data-theme', 'light');
-                document.querySelector('#theme-color').classList.remove('dark-mode'); // Aggiunto per debug
-            }
-        }
+      // Se x₀ è finito, disegna un marcatore (un cilindro) al punto corrispondente
+      if (x0 !== Infinity && x0 !== -Infinity) {
+        try {
+          let y0 = f.evaluate({ x: x0 });
+          let markerGeometry = new THREE.CylinderGeometry(0.1, 0.1, 2, 16);
+          let markerMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+          markerMesh = new THREE.Mesh(markerGeometry, markerMaterial);
+          markerMesh.position.set(x0, y0, 0);
+          scene.add(markerMesh);
+        } catch (e) { /* se fallisce, ignora */ }
+      }
+    }
 
-        function toggleTheme() {
-            const switchInput = document.getElementById('check');
-            const newTheme = switchInput.checked ? 'dark' : 'light';
-            localStorage.setItem('theme', newTheme);
-            applyTheme(newTheme);
-        }
+    window.addEventListener('resize', () => {
+      const graphDiv = document.getElementById('graph');
+      camera.aspect = graphDiv.clientWidth / graphDiv.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(graphDiv.clientWidth, graphDiv.clientHeight);
+    });
 
-        window.onload = function () {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            const switchInput = document.getElementById('check');
-            switchInput.checked = (savedTheme === 'dark');
-            applyTheme(savedTheme);
-        };
-    </script>
+    init();
+  </script>
+
+
+  <!-- SCRIPT SIDEBAR -->
+  <script>
+    // OPEN SIDEBAR
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "300px";
+    }
+
+    // CLOSE SIDEBAR
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft = "0";
+    }
+  </script>
+
+  <!-- SCRIPT THEME TOGGLE -->
+  <script>
+    function applyTheme(theme) {
+      const root = document.documentElement;
+
+      if (theme === 'dark') {
+        root.setAttribute('data-theme', 'dark');
+        document.querySelector('#theme-color').classList.add('dark-mode'); // Aggiunto per debug
+      } else {
+        root.setAttribute('data-theme', 'light');
+        document.querySelector('#theme-color').classList.remove('dark-mode'); // Aggiunto per debug
+      }
+    }
+
+    function toggleTheme() {
+      const switchInput = document.getElementById('check');
+      const newTheme = switchInput.checked ? 'dark' : 'light';
+      localStorage.setItem('theme', newTheme);
+      applyTheme(newTheme);
+    }
+
+    window.onload = function () {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      const switchInput = document.getElementById('check');
+      switchInput.checked = (savedTheme === 'dark');
+      applyTheme(savedTheme);
+    };
+  </script>
 </body>
-
 
 </html>
