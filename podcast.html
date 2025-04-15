@@ -34,6 +34,7 @@
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                     <a href="teoria.html">Teoria</a>
                     <a href="esercizi.html">Esercizi</a>
+                    <a href="calcolatore.html">Calcolatore 3D</a>
                     <a href="limiti-sociali.html">Limiti sociali</a>
                     <a href="italiano.html">Limiti letterari</a>
                     <a href="podcast.html">Podcast</a>
@@ -86,7 +87,6 @@
                         <a onclick="showContent(3)">Limiti notevoli</a>
                         <a onclick="showContent(4)">Applicazioni dei limiti</a>
                         <a onclick="showContent(5)">Limiti e derivate</a>
-                        <a onclick="showContent(6)">Q&A sui limiti</a>
                     </div>
                 </div>
 
@@ -128,7 +128,7 @@
                 <div id="contenuto1" class="nascondi card__subtitle">Nicolò Zanforlin</div>
                 <div id="contenuto2" class="nascondi card__title">Limite e continuità</div>
                 <div id="contenuto2" class="nascondi card__subtitle">Francesco Renesto</div>
-                <div id="contenuto3" class="nascondi card__title">Funzioni all'infinito: concetto base</div>
+                <div id="contenuto3" class="nascondi card__title">Funzioni all'infinito: concetti base</div>
                 <div id="contenuto3" class="nascondi card__subtitle">Mattia Pavarin</div>
                 <div id="contenuto4" class="nascondi card__title">I limiti fondamentali</div>
                 <div id="contenuto4" class="nascondi card__subtitle">Francesco Renesto</div>
@@ -212,8 +212,8 @@
                     </header>
                     <p>Cos'è un limite?
                         <br>
-                        Il limite è un concetto fondamentale dell'analisi matematica che serve a descrivere il
-                        comportamento di una funzione o di una successione quando l'argomento si avvicina a un certo
+                        Il limite è un concetto fondamentale dell’analisi matematica che serve a descrivere il
+                        comportamento di una funzione o di una successione quando l’argomento si avvicina a un certo
                         valore (finito o infinito).
                         In parole semplici, il limite ci dice “a cosa si avvicina una funzione” quando la variabile
                         indipendente si avvicina a un certo punto.
@@ -227,10 +227,10 @@
                         <br>
                         Non ci interessa necessariamente cosa vale f(x) nel punto x = a, ma intorno ad esso.
                         <br>
-                        Ad esempio, se f(x) = \frac{x^2 - 1}{x - 1}, per x = 1 la funzione non è definita (divisione per
+                        Ad esempio, se f(x) = (x^2 - 1) / (x - 1), per x = 1 la funzione non è definita (divisione per
                         zero).
                         Ma se avviciniamo x a 1 da sinistra e da destra, vedremo che f(x) tende a 2.
-                        Quindi diremo che il limite di f(x) per x \to 1 è 2, anche se la funzione non è definita in quel
+                        Quindi diremo che il limite di f(x) per x → 1 è 2, anche se la funzione non è definita in quel
                         punto.
                         <br>
                         ⸻
@@ -239,13 +239,12 @@
                         <br>
                         Per la funzione f(x), si dice che:
                         <br>
-                        \lim_{x \to a} f(x) = L
+                        lim (x → a) f(x) = L
                         <br>
-                        se per ogni \varepsilon > 0 esiste un \delta > 0 tale che:
+                        se per ogni ε > 0 esiste un δ > 0 tale che:
                         <br>
-                        0 < |x - a| < \delta \quad \Rightarrow \quad |f(x) - L| < \varepsilon Intuitivamente: Significa
-                            che possiamo avvicinarci quanto vogliamo al valore L, basta avvicinarsi abbastanza al punto
-                            a (senza toccarlo).</p>
+                        0 < |x - a| < δ ⇒ |f(x) - L| < ε Intuitivamente: Significa che possiamo avvicinarci quanto
+                            vogliamo al valore L, basta avvicinarsi abbastanza al punto a (senza toccarlo).</p>
                 </div>
                 <div id="contenuto2" class="nascondi dati hover-scroll card_testo"
                     style="overflow-y: hidden; display: inline-block; max-height: 200px; max-width: 400px; border-radius: 20px;"
@@ -254,7 +253,27 @@
                     <header class="w3-container card_testo_titolo">
                         <h4>Testo</h4>
                     </header>
-                    <p>Relazione tra limite e continuità
+                    <p>In matematica, dire che una funzione è continua significa che il suo grafico non ha interruzioni
+                        Una funzione è continua in un punto se tre condizioni sono tutte vere:<br>
+                        1. La funzione è definita in quel punto, cioè ha un valore preciso.<br>
+                        2. Esiste un limite, cioè si può dire con certezza verso quale valore tende la funzione quando
+                        ci si avvicina a quel punto.<br>
+                        3. Il valore verso cui tende la funzione coincide con il valore che la funzione ha in quel
+                        punto.<br>
+                        Se anche solo una di queste condizioni non è soddisfatta, la funzione non è continua in quel
+                        punto.<br>
+                        Immagina una funzione che a ogni numero assegna il suo quadrato.
+                        Ad esempio: se metti due, ottieni quattro. Se metti tre, ottieni nove.
+                        <br>In questo caso:<br>
+                        • La funzione è definita ovunque.<br>
+                        • Quando ti avvicini a due da sinistra o da destra, ottieni sempre valori che si avvicinano a
+                        quattro.<br>
+                        • E in effetti, la funzione vale proprio quattro in quel punto.
+                        Quindi: è continua.
+                        Per essere continua, deve essere definita, avvicinarsi a un certo valore in modo regolare, e
+                        avere proprio quel valore.
+                        il limite è ciò che ci permette di studiare il comportamento della funzione intorno al punto,
+                        anche se nel punto stesso la funzione ha problemi.
                         <br>
                     </p>
                 </div>
@@ -265,7 +284,7 @@
                     <header class="w3-container card_testo_titolo">
                         <h4>Testo</h4>
                     </header>
-                    <p>Funzioni all'infinito: concetto base
+                    <p>Funzioni all'infinito: concetti base<br>
                         Quando diciamo che “x tende all'infinito”, intendiamo che stiamo osservando il comportamento
                         della funzione per valori molto grandi (positivi o negativi).
                         <br>
@@ -328,26 +347,55 @@
                     <header class="w3-container card_testo_titolo">
                         <h4>Testo</h4>
                     </header>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem
-                        repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem
-                        repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem
-                        repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem
-                        repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem
-                        repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
+                    I limiti fondamentali sono come dei "mattoni base" che si usano per calcolare limiti più complessi,
+                    derivare formule e comprendere il comportamento delle funzioni.
+                    Limite del rapporto tra seno e x
+                    <br>
+                    > Quando x tende a zero:
+                    <br>
+                    il seno di x diviso x tende a uno
+                    <br>
+                    Limite di uno meno coseno su x²
+                    <br>
+                    > Quando x tende a zero:
+                    <br>
+                    uno meno il coseno di x, diviso x al quadrato, tende a mezza unità
+                    <br>
+                    Limite di uno più uno su x, elevato a x
+                    <br>
+                    > Quando x tende all'infinito:
+                    <br>
+                    questo espressione tende a un numero speciale chiamato “e”, che vale circa due virgola sette uno
+                    <br>
+                    Limite di x alla n (quando x tende a zero o infinito)
+                    <br>
+                    Se x tende a zero, allora x alla n tende a zero (per n positivo)
+                    <br>
+                    Se x tende all'infinito, x alla n cresce all'infinito (per n positivo)
+                    <br>
+                    Se n è negativo, l'effetto è inverso: si va verso zero o infinito a seconda del caso
+                    <br>
+                    Limite di uno su x
+                    <br>
+                    Quando x va verso zero da destra: il risultato va all'infinito
+                    <br>
+                    Quando x va verso zero da sinistra: il risultato va a meno infinito
+                    <br>
+                    Quindi: il limite non esiste in senso stretto, ma tende all'infinito o meno infinito
+                    <br>
+                    Limite della radice quadrata di x quando x tende a zero
+                    <br>
+                    Si avvicina sempre a zero da valori positivi
+                    <br><br>
+                    Questi limiti:
+                    <br>
+                    Servono per derivare le funzioni trigonometriche ed esponenziali
+                    <br>
+                    Aiutano a semplificare espressioni complesse
+                    <br>
+                    Sono la base per molti teoremi e regole
+                    <br>
+                    Entrano in gioco nel calcolo infinitesimale, nello studio di serie, e molto altro</p>
                 </div>
                 <div id="contenuto5" class="nascondi dati hover-scroll card_testo"
                     style="overflow-y: hidden; display: inline-block; max-height: 200px; max-width: 400px; border-radius: 20px;"
@@ -435,26 +483,22 @@
                     <header class="w3-container card_testo_titolo">
                         <h4>Testo</h4>
                     </header>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem
-                        repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem
-                        repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem
-                        repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem
-                        repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam modi repudiandae possimus
-                        expedita voluptas excepturi dignissimos quasi dolorem! Aut placeat praesentium rem
-                        repudiandae
-                        nemo dicta ad officia perspiciatis. Veniam.</p>
+                    <p>Una derivata ci dice quanto cambia una funzione in un certo punto.<br>
+                        Per capire quanto cambia una funzione, guardiamo due punti vicini e calcoliamo il rapporto tra
+                        quanto è cambiato il valore e quanto sono distanti i punti. Ma se vogliamo sapere quanto cambia
+                        esattamente in un solo punto, i due punti devono avvicinarsi sempre di più, fino a coincidere.
+                        La derivata è il limite del rapporto tra cambiamento della funzione e cambiamento della
+                        variabile, quando la distanza tra i due punti tende a zero.<br><br>
+                        In parole povere:<br>
+                        La derivata è il limite di una variazione media che diventa istantanea.
+                        Grazie al legame tra limiti e derivate, possiamo:
+                        1. Studiare l'andamento delle funzioni: dove crescono, dove decrescono, dove si fermano<br>
+                        2. Trovare massimi e minimi: i punti in cui la derivata è zero sono candidati a essere
+                        “picchi”<br>
+                        o “valli” <br>
+                        3. Disegnare curve con precisione: la derivata ci dice la pendenza in ogni punto<br>
+                        4. Risolvere equazioni differenziali: cioè equazioni in cui le derivate rappresentano
+                        leggi di cambiamento</p>
                 </div>
             </div>
         </section>
@@ -470,8 +514,8 @@
                             significato
                             intuitivo.</p>
                         <div class="episode-meta">
-                            <span><i class="fas fa-clock"></i> 30:45</span>
-                            <span><i class="fas fa-calendar-alt"></i> 12 Gennaio 2023</span>
+                            <span><i class="fas fa-clock"></i> 1:49</span>
+                            <span><i class="fas fa-calendar-alt"></i>14 Aprile 2025</span>
                         </div>
                         <button class="btn btn-text" onclick="showContent(0)">Ascolta ora <i
                                 class="fas fa-play"></i></button>
@@ -485,8 +529,8 @@
                         <p>Esploriamo la relazione fondamentale tra il concetto di limite e la continuità delle
                             funzioni.</p>
                         <div class="episode-meta">
-                            <span><i class="fas fa-clock"></i> 28:12</span>
-                            <span><i class="fas fa-calendar-alt"></i> 19 Gennaio 2023</span>
+                            <span><i class="fas fa-clock"></i> 1:04</span>
+                            <span><i class="fas fa-calendar-alt"></i> 14 Aprile 2025</span>
                         </div>
                         <button class="btn btn-text" onclick="showContent(1)">Ascolta ora <i
                                 class="fas fa-play"></i></button>
@@ -501,8 +545,8 @@
                             insieme.
                         </p>
                         <div class="episode-meta">
-                            <span><i class="fas fa-clock"></i> 25:37</span>
-                            <span><i class="fas fa-calendar-alt"></i> 26 Gennaio 2023</span>
+                            <span><i class="fas fa-clock"></i> 2:00</span>
+                            <span><i class="fas fa-calendar-alt"></i> 14 Aprile 2025</span>
                         </div>
                         <button class="btn btn-text" onclick="showContent(2)">Ascolta ora <i
                                 class="fas fa-play"></i></button>
@@ -516,8 +560,8 @@
                         <p>I limiti fondamentali che sono alla base di molti calcoli e applicazioni matematiche.
                         </p>
                         <div class="episode-meta">
-                            <span><i class="fas fa-clock"></i> 31:05</span>
-                            <span><i class="fas fa-calendar-alt"></i> 2 Febbraio 2023</span>
+                            <span><i class="fas fa-clock"></i> 1:35</span>
+                            <span><i class="fas fa-calendar-alt"></i> 14 Aprile 2025</span>
                         </div>
                         <button class="btn btn-text" onclick="showContent(3)">Ascolta ora <i
                                 class="fas fa-play"></i></button>
@@ -531,8 +575,8 @@
                         <p>Scopriamo come i limiti vengono utilizzati in fisica, economia, ingegneria e altre
                             discipline.</p>
                         <div class="episode-meta">
-                            <span><i class="fas fa-clock"></i> 22:48</span>
-                            <span><i class="fas fa-calendar-alt"></i> 9 Febbraio 2023</span>
+                            <span><i class="fas fa-clock"></i> 3:02</span>
+                            <span><i class="fas fa-calendar-alt"></i> 14 Aprile 2025</span>
                         </div>
                         <button class="btn btn-text" onclick="showContent(4)">Ascolta ora <i
                                 class="fas fa-play"></i></button>
@@ -546,25 +590,10 @@
                         <p>Come i limiti sono collegati alle derivate e come vengono utilizzati nel calcolo
                             differenziale.</p>
                         <div class="episode-meta">
-                            <span><i class="fas fa-clock"></i> 27:30</span>
-                            <span><i class="fas fa-calendar-alt"></i> 16 Febbraio 2023</span>
+                            <span><i class="fas fa-clock"></i> 0:56</span>
+                            <span><i class="fas fa-calendar-alt"></i> 14 Aprile 2025</span>
                         </div>
                         <button class="btn btn-text" onclick="showContent(5)">Ascolta ora <i
-                                class="fas fa-play"></i></button>
-                    </div>
-                </div>
-
-                <div class="episode-card" data-aos="fade-up" data-aos-delay="700">
-                    <div class="episode-number">07</div>
-                    <div class="episode-details">
-                        <h3>Q&A sui limiti</h3>
-                        <p>Rispondiamo alle domande più frequenti degli studenti sul concetto di limite e le sue
-                            applicazioni.</p>
-                        <div class="episode-meta">
-                            <span><i class="fas fa-clock"></i> 33:15</span>
-                            <span><i class="fas fa-calendar-alt"></i> 23 Febbraio 2023</span>
-                        </div>
-                        <button class="btn btn-text" onclick="showContent(6)">Ascolta ora <i
                                 class="fas fa-play"></i></button>
                     </div>
                 </div>
@@ -832,11 +861,10 @@
     <!-- Add audio elements for each content -->
     <audio id="audio1" src="Media/audio/audio1.mp3"></audio>
     <audio id="audio2" src="Media/audio/audio2.opus"></audio>
-    <audio id="audio3" src="Media/audio/audio3.mp3"></audio>
+    <audio id="audio3" src="Media/audio/audio3.opus"></audio>
     <audio id="audio4" src="Media/audio/audio4.opus"></audio>
     <audio id="audio5" src="Media/audio/audio5.mp3"></audio>
     <audio id="audio6" src="Media/audio/audio6.opus"></audio>
-    <audio id="audio7" src="Media/audio/audio7.mp3"></audio>
 </body>
 
 </html>
