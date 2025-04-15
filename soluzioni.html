@@ -92,7 +92,8 @@
         <div id="main" class="w3-top">
             <div id="theme-color" class="w3-bar w3-white w3-wide w3-padding w3-card">
                 <!-- OPEN COLLAPSED SIDEBAR -->
-                <button class="openbtn w3-bar-item" onclick="openNav()" style="background-color: transparent; padding-right: 80px">
+                <button class="openbtn w3-bar-item" onclick="openNav()"
+                    style="background-color: transparent; padding-right: 80px">
                     <div class="line1"></div>
                     <div class="line2"></div>
                     <div class="line3"></div>
@@ -107,13 +108,19 @@
                     <a href="limiti-sociali.html">Limiti sociali</a>
                     <a href="italiano.html">Limiti letterari</a>
                     <a href="podcast.html">Podcast</a>
-                    <a href="index.html#contatti" style="position: absolute; bottom: 0; margin-bottom: 20%;">Contatti</a>
-                    <a href="chi-siamo.html" style="position: absolute; bottom: 0; margin-bottom: 5%; font-size: 15px;">Chi siamo</a>
+                    <a href="index.html#contatti"
+                        style="position: absolute; bottom: 0; margin-bottom: 20%;">Contatti</a>
+                    <a href="chi-siamo.html"
+                        style="position: absolute; bottom: 0; margin-bottom: 5%; font-size: 15px;">Chi siamo</a>
                 </div>
-                <a href="index.html" class="w3-bar-item w3-button company-name-main">Vai <b>OLTRE</b> il limite</a>
+                <a href="index.html" class="w3-bar-item w3-button company-name-main">Vai <b>OLTRE</b> il
+                    limite</a>
 
                 <!-- SWITCH DARK-LIGHT MODE -->
-                <div class="switch" style="position: absolute; top: 30%; right: 5%;">
+                <div class="switch" style="position: absolute;
+				top: 30%;
+				right: 5%;">
+                    
                     <input hidden="" id="check" name="check" type="checkbox" onchange="toggleTheme()">
                     <label class="toggle" for="check">
                         <div class="toggle__circle"></div>
@@ -121,7 +128,29 @@
                     <div class="toggle-text">
                         <span id="theme-icon"></span>
                     </div>
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="sun-icon" style="flex-shrink: 0; position: relative; translate: -120% -120%;">
+                        <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" />
+                        <path d="M12 1V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        <path d="M12 21V23" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        <path d="M4.22 4.22L5.64 5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        <path d="M18.36 18.36L19.78 19.78" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
+                        <path d="M1 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        <path d="M21 12H23" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        <path d="M4.22 19.78L5.64 18.36" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
+                        <path d="M18.36 5.64L19.78 4.22" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
+                    </svg>
+                    
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="moon-icon" style="flex-shrink: 0; position: relative; translate: 80% -120%;">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
                 </div>
+                
             </div>
         </div>
     </nav>
