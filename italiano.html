@@ -27,6 +27,15 @@
             min-height: 350px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
+            background-color: var(--card-bg);
+            border-radius: var(--card-radius);
+            box-shadow: 0 8px 20px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+        
+        .standard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px var(--shadow-color);
         }
         
         .standard-section {
@@ -36,6 +45,7 @@
         .author-card, .comparison-card, .work-card {
             height: 100%;
             min-height: 350px;
+            background-color: var(--card-bg);
         }
         
         .w3-row-padding {
@@ -45,8 +55,113 @@
         .w3-col {
             padding: 0 16px;
         }
+
+        /* Hero section */
+        .hero-literature {
+            background: linear-gradient(135deg, rgba(63, 94, 251, 0.05) 0%, rgba(252, 70, 107, 0.05) 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .standard-card {
+                min-height: auto;
+            }
+            
+            .author-card .w3-row {
+                flex-direction: column;
+            }
+            
+            .author-card .w3-col {
+                width: 100% !important;
+            }
+            
+            .author-card img {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .standard-section {
+                padding: 2rem 0;
+            }
+            
+            .w3-col {
+                width: 100% !important;
+                margin-bottom: 1.5rem;
+            }
+            
+            .math-formula {
+                margin-top: 1.5rem;
+            }
+        }
+
+        /* Dark mode fixes */
+        [data-theme="dark"] .w3-card {
+            background-color: var(--card-bg) !important;
+            color: var(--text-color) !important;
+        }
+
+        [data-theme="dark"] .w3-light-grey {
+            background-color: var(--muted-color) !important;
+            color: var(--text-color) !important;
+        }
+
+        [data-theme="dark"] .w3-white {
+            background-color: var(--card-bg) !important;
+            color: var(--text-color) !important;
+        }
+
+        [data-theme="dark"] .literary-quote blockquote {
+            color: var(--text-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+        }
+
+        [data-theme="dark"] .comparison-svg line,
+        [data-theme="dark"] .comparison-svg path {
+            stroke: var(--text-color);
+        }
+
+        [data-theme="dark"] .comparison-svg circle {
+            fill: var(--accent-color);
+        }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
@@ -107,7 +222,7 @@
                     <p>In matematica, il limite descrive il comportamento di una funzione quando si avvicina a un punto particolare. Nella letteratura, Alfieri e Parini esaminano come gli individui e la società si avvicinano ai propri confini, spesso cercando di superarli.</p>
                 </div>
                 <div class="w3-col m6" data-aos="fade-left">
-                    <div class="math-formula w3-center">
+                    <div class="math-formula w3-card w3-padding w3-center">
                         \[ \lim_{x \to c} f(x) = L \]
                         <p class="w3-small">Il limite matematico: avvicinamento a un punto senza necessariamente raggiungerlo</p>
                     </div>
@@ -121,8 +236,8 @@
                 
                 <div class="w3-row-padding w3-margin-top">
                     <!-- Alfieri -->
-                    <div class="w3-col m6" data-aos="zoom-in">
-                        <div class="w3-card w3-white standard-card author-card">
+                    <div class="w3-col m6" data-aos="zoom-in" style="height: 620px;">
+                        <div class="w3-card standard-card author-card">
                             <div class="w3-row">
                                 <div class="w3-col m4">
                                     <img src="Media/img/pers/alfieri.jpg" alt="Vittorio Alfieri" class="w3-image" style="border-radius: 8px; width: 100%; height: auto;">
@@ -144,8 +259,8 @@
                     </div>
                     
                     <!-- Parini -->
-                    <div class="w3-col m6" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="w3-card w3-white standard-card author-card">
+                    <div class="w3-col m6" data-aos="zoom-in" data-aos-delay="200" style="height: 620px;">
+                        <div class="w3-card standard-card author-card">
                             <div class="w3-row">
                                 <div class="w3-col m4">
                                     <img src="Media/img/pers/parini.jpg" alt="Giuseppe Parini" class="w3-image" style="border-radius: 8px; width: 100%; height: 100%;">
@@ -174,7 +289,7 @@
             
             <div class="w3-row-padding w3-margin-top">
                 <div class="w3-col m4" data-aos="fade-up">
-                    <div class="w3-card w3-padding standard-card comparison-card">
+                    <div class="w3-card w3-padding standard-card comparison-card" style="height: 650px;">
                         <h3 class="w3-center" style="margin-bottom: 12.5%;">1. Avvicinamento asintotico</h3>
                         <div class="w3-center">
                             <svg viewBox="0 0 200 100" class="comparison-svg">
@@ -189,8 +304,8 @@
                 </div>
                 
                 <div class="w3-col m4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w3-card w3-padding standard-card comparison-card">
-                        <h3 class="w3-center" style="margin-bottom: 17%;">2. Limite infinito</h3>
+                    <div class="w3-card w3-padding standard-card comparison-card" style="height: 650px;">
+                        <h3 class="w3-center" style="margin-bottom: 12.5%;">2. Limite infinito</h3>
                         <div class="w3-center">
                             <svg viewBox="0 0 200 100" class="comparison-svg">
                                 <line x1="10" y1="50" x2="190" y2="50" stroke="var(--text-color)" stroke-width="1"/>
@@ -204,8 +319,8 @@
                 </div>
                 
                 <div class="w3-col m4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w3-card w3-padding standard-card comparison-card">
-                        <h3 class="w3-center" style="margin-bottom: 7.3%;">3. Limite destro e sinistro</h3>
+                    <div class="w3-card w3-padding standard-card comparison-card" style="height: 650px;">
+                        <h3 class="w3-center" style="margin-bottom: 12.5%;">3. Limite destro e sinistro</h3>
                         <div class="w3-center">
                             <svg viewBox="0 0 200 100" class="comparison-svg">
                                 <line x1="10" y1="50" x2="190" y2="50" stroke="var(--text-color)" stroke-width="1"/>
@@ -221,12 +336,12 @@
             </div>
         </section>
 
-        <section class="works-section w3-padding-64 w3-white standard-section">
+        <section class="works-section w3-padding-64 standard-section">
             <div class="w3-container">
                 <h2 class="section-title w3-center">Opere esemplari</h2>
                 
                 <div class="w3-row-padding w3-margin-top">
-                    <div class="w3-col m6" data-aos="fade-right">
+                    <div class="w3-col m6" data-aos="fade-right" style="height: 400px;">
                         <div class="w3-card w3-padding standard-card work-card">
                             <h3>Alfieri: <em>Saul</em></h3>
                             <p>Nella tragedia <em>Saul</em>, il protagonista rappresenta l'uomo che si avvicina al limite della follia e della disperazione. Come una funzione che tende a un punto di discontinuità, Saul oscilla tra lucidità e follia, avvicinandosi sempre più al suo tragico destino.</p>
@@ -238,7 +353,7 @@
                     </div>
                     
                     <div class="w3-col m6" data-aos="fade-left">
-                        <div class="w3-card w3-padding standard-card work-card">
+                        <div class="w3-card w3-padding standard-card work-card" style="height: 400px;">
                             <h3>Parini: <em>Il Giorno</em></h3>
                             <p>Nel poema <em>Il Giorno</em>, Parini descrive la vita oziosa della nobiltà milanese, mostrando come essa si avvicini al limite della decadenza morale senza mai riconoscerla pienamente.</p>
                             <div class="w3-panel w3-light-grey w3-leftbar w3-border-grey">
@@ -260,7 +375,7 @@
                         <p>Per Alfieri, superare i limiti significa affermare la propria libertà individuale contro ogni costrizione. Per Parini, riconoscere i limiti sociali è il primo passo verso una società più giusta. In matematica, comprendere i limiti permette di descrivere comportamenti complessi e apparentemente paradossali.</p>
                     </div>
                     <div class="w3-col m6">
-                        <div class="w3-panel w3-white w3-card w3-padding standard-card">
+                        <div class="w3-card w3-padding standard-card">
                             <h3>Esercizio interdisciplinare</h3>
                             <p>Prova a trovare altre analogie tra concetti matematici e opere letterarie:</p>
                             <ol>
