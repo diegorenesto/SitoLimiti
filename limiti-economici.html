@@ -1,90 +1,85 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <link rel="icon" href="Media/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proponi la tua soluzione | Vai Oltre il Limite</title>
-    <link rel="icon" href="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/icons/infinity.svg"
-        type="image/svg+xml">
+    <title>Limiti economici | Vai Oltre il Limite</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        .solution-container {
-            max-width: 800px;
-            margin: 0 auto;
+        .hero-patrimonio {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.1), rgba(156, 39, 176, 0.1));
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .standard-section {
+            padding: 4rem 0;
+        }
+
+        .standard-card {
             padding: 2rem;
+            border-radius: 16px;
+            background: #fff;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
-        
-        .solution-form {
-            background-color: var(--card-bg);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+        .standard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
         }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
+
+        .w3-light-grey {
+            background-color: #f1f1f1 !important;
         }
-        
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
         }
-        
-        input[type="text"],
-        input[type="email"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            font-family: inherit;
-            background-color: var(--input-bg);
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #555;
+        }
+
+        .accent-text {
+            color: #3f51b5;
+        }
+
+        /* Dark mode fixes */
+        [data-theme="dark"] .standard-card {
+            background-color: var(--card-bg) !important;
+            color: var(--text-color) !important;
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.05);
+        }
+
+        [data-theme="dark"] .standard-section {
+            background-color: var(--muted-color);
             color: var(--text-color);
         }
-        
-        textarea {
-            min-height: 150px;
-            resize: vertical;
+
+        [data-theme="dark"] .w3-light-grey {
+            background-color: var(--muted-color) !important;
+            color: var(--text-color) !important;
         }
-        
-        .submit-btn {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background-color 0.3s;
-        }
-        
-        .submit-btn:hover {
-            background-color: var(--accent-hover);
-        }
-        
-        .examples-section {
-            margin-top: 3rem;
-            padding: 2rem;
-            background-color: var(--light-bg);
-            border-radius: 8px;
-        }
-        
-        .example-card {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            border-left: 4px solid var(--accent-color);
+
+        [data-theme="dark"] footer {
             background-color: var(--card-bg);
+            color: var(--text-color);
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
@@ -114,14 +109,13 @@
                     <a href="chi-siamo.html"
                         style="position: absolute; bottom: 0; margin-bottom: 5%; font-size: 15px;">Chi siamo</a>
                 </div>
-                <a href="index.html" class="w3-bar-item w3-button company-name-main">Vai <b>OLTRE</b> il
-                    limite</a>
+                <a href="index.html" class="w3-bar-item w3-button company-name-main">Vai <b>OLTRE</b> il limite</a>
 
                 <!-- SWITCH DARK-LIGHT MODE -->
                 <div class="switch" style="position: absolute;
 				top: 30%;
 				right: 5%;">
-                    
+
                     <input hidden="" id="check" name="check" type="checkbox" onchange="toggleTheme()">
                     <label class="toggle" for="check">
                         <div class="toggle__circle"></div>
@@ -130,7 +124,7 @@
                         <span id="theme-icon"></span>
                     </div>
                     <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                        class="sun-icon" style="flex-shrink: 0; position: relative; translate: -120% -120%;">
+                        class="sun-icon" style="flex-shrink: 0; position: relative; translate: -120% -100%;">
                         <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" />
                         <path d="M12 1V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                         <path d="M12 21V23" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
@@ -144,75 +138,111 @@
                         <path d="M18.36 5.64L19.78 4.22" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" />
                     </svg>
-                    
+
                     <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                        class="moon-icon" style="flex-shrink: 0; position: relative; translate: 80% -120%;">
+                        class="moon-icon" style="flex-shrink: 0; position: relative; translate: 80% -100%;">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </div>
-                
             </div>
         </div>
     </nav>
 
-    <main class="w3-padding-64">
-        <section class="solution-container" data-aos="fade-up">
-            <h1 class="w3-center" style="margin-bottom: 2rem;">Proponi la tua soluzione</h1>
-            
-            <div class="solution-form">
-                <form id="solutionForm">
-                    <div class="form-group">
-                        <label for="name">Nome e cognome</label>
-                        <input type="text" id="name" name="name" required>
+    <main>
+        <header class="hero-patrimonio" data-aos="fade-up">
+            <h1 class="hero-title">Limiti <span class="accent-text">Economici</span></h1>
+            <p class="hero-subtitle">Orientamento tra strumenti giuridici, economici e strategici</p>
+        </header>
+
+        <section class="w3-container standard-section">
+            <div class="w3-row-padding">
+                <div class="w3-col m6">
+                    <div class="standard-card">
+                        <h2 class="section-title"><strong>Il concetto di limite</strong></h2>
+                        <p>Nel contesto patrimoniale, i "limiti" rappresentano vincoli legali, fiscali, morali e
+                            sociali.
+                            Rispettarli significa prevenire sanzioni, conflitti e perdite economiche.</p>
+                        <p>Un esempio concreto: i limiti di deducibilità fiscale degli investimenti aziendali o quelli
+                            imposti alle donazioni per evitare elusione.</p>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email (facoltativa)</label>
-                        <input type="email" id="email" name="email">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="exercise">Esercizio scelto</label>
-                        <select id="exercise" name="exercise" required>
-                            <option value="">-- Seleziona un esercizio --</option>
-                            <option value="1">Rappresentazione grafica del conflitto interiore con la derivata</option>
-                            <option value="2">Discontinuità tra apparenza e realtà nel Giorno di Parini</option>
-                            <option value="3">Uso del concetto di limite per descrivere l'evoluzione di un personaggio</option>
-                            <option value="other">Altro (specifica nel testo)</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="solution">La tua soluzione</label>
-                        <textarea id="solution" name="solution" required placeholder="Descrivi la tua soluzione creativa, puoi includere testo, formule matematiche (usando la sintassi LaTeX tra \( \) o \[ \]), o riferimenti letterari..."></textarea>
-                        <p class="w3-small">Puoi usare formule matematiche come: \( \lim_{x \to \infty} f(x) \) oppure \[ \frac{dy}{dx} \]</p>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="attachment">Allega un'immagine (facoltativo)</label>
-                        <input type="file" id="attachment" name="attachment" accept="image/*">
-                    </div>
-                    
-                    <div class="w3-center">
-                        <button type="submit" class="submit-btn">Invia soluzione</button>
-                    </div>
-                </form>
-            </div>
-            
-            <div class="examples-section">
-                <h3>Esempi di soluzioni creative</h3>
-                
-                <div class="example-card">
-                    <h4>1. Il conflitto interiore di Saul come derivata seconda</h4>
-                    <p>Nella tragedia <em>Saul</em> di Alfieri, l'evoluzione del protagonista può essere rappresentata come una funzione \( S(t) \) dove t è il tempo drammatico. La derivata prima \( S'(t) \) rappresenta la sua volontà di potere, mentre la derivata seconda \( S''(t) \) mostra l'accelerazione del suo conflitto interiore...</p>
-                    <p class="w3-small w3-text-grey">Inviato da: Maria Rossi</p>
                 </div>
-                
-                <div class="example-card">
-                    <h4>2. Discontinuità di prima specie in Parini</h4>
-                    <p>Nel <em>Giorno</em>, la frattura tra apparenza e realtà può essere rappresentata come una funzione a gradino (discontinuità di prima specie). Da un lato (limite destro) abbiamo i valori superficiali della nobiltà \( f(x^+) \), dall'altro (limite sinistro) la realtà vuota \( f(x^-) \), con \( f(x^+) \neq f(x^-) \).</p>
-                    <p class="w3-small w3-text-grey">Inviato da: Luca Bianchi</p>
+                <div class="w3-col m6">
+                    <div class="standard-card">
+                        <h2 class="section-title"><strong>Superamento consapevole</strong></h2>
+                        <p>Non tutti i limiti vanno accettati passivamente. Con la giusta consulenza è possibile
+                            ridefinire
+                            strategicamente i confini, per esempio mediante trust o holding patrimoniali.</p>
+                        <p>Ridefinire i limiti significa saperli interpretare, aggirare legalmente quando necessario, o
+                            trasformarli in leve di vantaggio competitivo nella gestione del proprio patrimonio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="w3-light-grey standard-section" id="strumenti">
+            <div class="w3-container">
+                <h2 class="section-title w3-center">Strumenti giuridici contro i limiti</h2>
+                <div class="w3-row-padding">
+                    <div class="w3-col m4">
+                        <div class="standard-card" style="height: 240px;">
+                            <h3>Deposito</h3>
+                            <p>Protegge opere e segni distintivi. Serve a fissare nel tempo l'origine di un'idea o un
+                                marchio, tracciando una linea legale che ne delimita la titolarità.</p>
+                        </div>
+                    </div>
+                    <div class="w3-col m4">
+                        <div class="standard-card" style="height: 240px;">
+                            <h3>Contratti</h3>
+                            <p>La vendita, la donazione e il testamento sono strumenti che regolano il passaggio di
+                                beni,
+                                rispettando i limiti del Codice Civile e prevenendo future contestazioni.</p>
+                        </div>
+                    </div>
+                    <div class="w3-col m4">
+                        <div class="standard-card" style="height: 240px;">
+                            <h3>Brevetti e Copyright</h3>
+                            <p>Limitano l'uso improprio di invenzioni o creazioni. Rappresentano un confine tra lecito e
+                                illecito nell'economia dell'innovazione.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="standard-section">
+            <div class="w3-container">
+                <h2 class="section-title w3-center">Strategie di investimento e monitoraggio</h2>
+                <p class="w3-center" style="max-width: 800px; margin: 0 auto;">Un'attenta strategia patrimoniale prevede
+                    il
+                    bilanciamento tra investimenti <strong>a breve</strong> (liquidità, titoli di stato) e <strong>a
+                        medio
+                        termine</strong> (fondi, immobili, strumenti assicurativi). È fondamentale un monitoraggio
+                    costante
+                    per reagire ai cambiamenti fiscali, economici e familiari.</p>
+            </div>
+        </section>
+
+        <section class="w3-light-grey w3-padding-64">
+            <div class="w3-container">
+                <h2 class="section-title w3-center">Casistiche pratiche</h2>
+                <div class="w3-row-padding">
+                    <div class="w3-col m6">
+                        <div class="standard-card">
+                            <h3>Start-up e marchi</h3>
+                            <p>Una giovane impresa può tutelarsi registrando il proprio marchio prima di andare sul
+                                mercato:
+                                questo previene plagio e garantisce riconoscibilità.</p>
+                        </div>
+                    </div>
+                    <div class="w3-col m6">
+                        <div class="standard-card">
+                            <h3>Artisti e diritto d'autore</h3>
+                            <p>Un musicista che registra le proprie opere in SIAE protegge la propria creatività e
+                                ottiene
+                                diritti economici per ogni utilizzo pubblico della musica.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -263,6 +293,7 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/gsap.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
     <script src="script.js"></script>
     <script>
         AOS.init({
@@ -313,4 +344,5 @@
         };
     </script>
 </body>
+
 </html>
