@@ -15,6 +15,78 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="script.js"></script>
+    <style>
+        .podcast-visual {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 300px;
+        }
+        
+        .podcast-visual img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .podcast-visual .math-equation {
+            font-size: 1.2rem;
+            background: rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .podcast-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-between;
+        }
+        
+        .podcast-player-container {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .podcast-visual-container {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .key-points {
+            background: rgba(0, 0, 0, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+        
+        .key-points h4 {
+            margin-top: 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 8px;
+        }
+        
+        .key-points ul {
+            padding-left: 20px;
+        }
+        
+        .key-points li {
+            margin-bottom: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .podcast-container {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -49,8 +121,8 @@
 
                 <!-- SWITCH DARK-LIGHT MODE -->
                 <div class="switch" style="position: absolute;
-				top: 30%;
-				right: 5%;">
+                top: 30%;
+                right: 5%;">
 
                     <input hidden="" id="check" name="check" type="checkbox" onchange="toggleTheme()">
                     <label class="toggle" for="check">
@@ -89,446 +161,537 @@
     <main class="podcast-main">
         <section class="podcast-header" data-aos="fade-up">
             <div class="podcast-title">
-                <h1>I nostri Podcast</h1>
-                <p>Ascolta e impara i concetti matematici in un formato coinvolgente</p>
+                <h1>I nostri Podcast Matematici</h1>
+                <p>Esplora concetti matematici attraverso audio coinvolgenti e illustrazioni visuali</p>
             </div>
         </section>
 
-        <section class="podcast-player" data-aos="fade-up">
-            <div class="card podcast-card">
-                <!-- Menu a tendina -->
-                <div class="dropdown">
-                    <a class="card__btn card__btn-menu dropbtn" aria-label="Menu episodi">
-                        <svg fill="none" height="18" viewBox="0 0 24 18" width="24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="m0 0h24v3h-12-12zm0 7.5h24v3h-24zm0 7.5h24v3h-24z" fill="#fff"></path>
-                        </svg>
-                    </a>
-                    <div class="dropdown-content">
-                        <a onclick="showContent(0)">Introduzione ai limiti</a>
-                        <a onclick="showContent(1)">Limiti e continuità</a>
-                        <a onclick="showContent(2)">Limiti all'infinito</a>
-                        <a onclick="showContent(3)">Limiti notevoli</a>
-                        <a onclick="showContent(4)">Applicazioni dei limiti</a>
-                        <a onclick="showContent(5)">Limiti e derivate</a>
-                    </div>
-                </div>
+        <section class="podcast-content" data-aos="fade-up">
+            <div class="podcast-container">
+                <div class="podcast-player-container">
+                    <div class="card podcast-card">
+                        <!-- Menu a tendina -->
+                        <div class="dropdown">
+                            <a class="card__btn card__btn-menu dropbtn" aria-label="Menu episodi">
+                                <svg fill="none" height="18" viewBox="0 0 24 18" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="m0 0h24v3h-12-12zm0 7.5h24v3h-24zm0 7.5h24v3h-24z" fill="#fff"></path>
+                                </svg>
+                            </a>
+                            <div class="dropdown-content">
+                                <a onclick="showContent(0)">Introduzione ai limiti</a>
+                                <a onclick="showContent(1)">Limiti e continuità</a>
+                                <a onclick="showContent(2)">Limiti all'infinito</a>
+                                <a onclick="showContent(3)">Limiti notevoli</a>
+                                <a onclick="showContent(4)">Applicazioni dei limiti</a>
+                                <a onclick="showContent(5)">Limiti e derivate</a>
+                            </div>
+                        </div>
 
-                <!-- Visualizzazione principale -->
-                <div class="card__img">
-                    <!-- Carosello -->
-                    <div class="container podcast-carousel">
-                        <input type="radio" name="slider" id="item-1" checked>
-                        <input type="radio" name="slider" id="item-2">
-                        <input type="radio" name="slider" id="item-3">
-                        <input type="radio" name="slider" id="item-4">
-                        <input type="radio" name="slider" id="item-5">
-                        <input type="radio" name="slider" id="item-6">
-                        <input type="radio" name="slider" id="item-7">
-                        <div class="cards-carosello">
-                            <label class="card-carosello" for="item-1" id="song-1" onclick="showContent(0)">
-                                <img src="Media/img/pers/zanfo.jpg">
-                            </label>
-                            <!-- SVG CONTINUITA -->
-                            <label class="card-carosello" for="item-2" id="song-2" onclick="showContent(1)">
-                                <img src="Media/img/pers/francis.jpg">
-                            </label>
-                            <label class="card-carosello" for="item-3" id="song-3" onclick="showContent(2)">
-                                <img src="Media/img/pers/mattia.jpg">
-                            </label>
-                            <label class="card-carosello" for="item-4" id="song-4" onclick="showContent(3)">
-                                <img src="Media/img/pers/francis.jpg">
-                            </label>
-                            <label class="card-carosello" for="item-5" id="song-5" onclick="showContent(4)">
-                                <img src="Media/img/pers/zanfo.jpg">
-                            </label>
-                            <label class="card-carosello" for="item-6" id="song-6" onclick="showContent(5)">
-                                <img src="Media/img/pers/mattia.jpg" alt="Francis">
-                            </label>
+                        <!-- Visualizzazione principale -->
+                        <div class="card__img">
+                            <!-- Carosello -->
+                            <div class="container podcast-carousel">
+                                <input type="radio" name="slider" id="item-1" checked>
+                                <input type="radio" name="slider" id="item-2">
+                                <input type="radio" name="slider" id="item-3">
+                                <input type="radio" name="slider" id="item-4">
+                                <input type="radio" name="slider" id="item-5">
+                                <input type="radio" name="slider" id="item-6">
+                                <input type="radio" name="slider" id="item-7">
+                                <div class="cards-carosello">
+                                    <label class="card-carosello" for="item-1" id="song-1" onclick="showContent(0)">
+                                        <img src="Media/img/pers/zanfo.jpg">
+                                    </label>
+                                    <!-- SVG CONTINUITA -->
+                                    <label class="card-carosello" for="item-2" id="song-2" onclick="showContent(1)">
+                                        <img src="Media/img/pers/francis.jpg">
+                                    </label>
+                                    <label class="card-carosello" for="item-3" id="song-3" onclick="showContent(2)">
+                                        <img src="Media/img/pers/mattia.jpg">
+                                    </label>
+                                    <label class="card-carosello" for="item-4" id="song-4" onclick="showContent(3)">
+                                        <img src="Media/img/pers/francis.jpg">
+                                    </label>
+                                    <label class="card-carosello" for="item-5" id="song-5" onclick="showContent(4)">
+                                        <img src="Media/img/pers/zanfo.jpg">
+                                    </label>
+                                    <label class="card-carosello" for="item-6" id="song-6" onclick="showContent(5)">
+                                        <img src="Media/img/pers/mattia.jpg" alt="Francis">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="contenuto1" class="nascondi card__title">Cos'è un limite</div>
+                        <div id="contenuto1" class="nascondi card__subtitle">Nicolò Zanforlin</div>
+                        <div id="contenuto2" class="nascondi card__title">Limite e continuità</div>
+                        <div id="contenuto2" class="nascondi card__subtitle">Francesco Renesto</div>
+                        <div id="contenuto3" class="nascondi card__title">Funzioni all'infinito: concetti base</div>
+                        <div id="contenuto3" class="nascondi card__subtitle">Mattia Pavarin</div>
+                        <div id="contenuto4" class="nascondi card__title">I limiti fondamentali</div>
+                        <div id="contenuto4" class="nascondi card__subtitle">Francesco Renesto</div>
+                        <div id="contenuto5" class="nascondi card__title">I limiti negli altri settori</div>
+                        <div id="contenuto5" class="nascondi card__subtitle">Nicolò Zanforlin</div>
+                        <div id="contenuto6" class="nascondi card__title">Funzione derivata</div>
+                        <div id="contenuto6" class="nascondi card__subtitle">Mattia Pavarin</div>
+                        <!-- barra di progresso -->
+                        <div id="contenuto1" class="nascondi card__wrapper">
+                            <div style="position:relative; translate: -38% 125%;" class="card__time card__time-passed">0:00
+                            </div>
+                            <div style="position:relative; translate: 22% 0%; z-index: 10;" class="card__timeline"><progress
+                                    style="cursor: pointer;" value="0" max="100"></progress></div>
+                            <div style="position:relative; translate: 39% 0%; z-index: 0;" class="card__time card__time-left">
+                                0:00</div>
+                        </div>
+                        <div id="contenuto2" class="nascondi card__wrapper">
+                            <div style="position:relative; translate: -38% 125%;" class="card__time card__time-passed">0:00
+                            </div>
+                            <div style="position:relative; translate: 22% 0%; z-index: 10;" class="card__timeline"><progress
+                                    style="cursor: pointer;" value="0" max="100"></progress></div>
+                            <div style="position:relative; translate: 39% 0%; z-index: 0;" class="card__time card__time-left">
+                                0:00</div>
+                        </div>
+                        <div id="contenuto3" class="nascondi card__wrapper">
+                            <div style="position:relative; translate: -38% 125%;" class="card__time card__time-passed">0:00
+                            </div>
+                            <div style="position:relative; translate: 22% 0%; z-index: 10;" class="card__timeline"><progress
+                                    style="cursor: pointer;" value="0" max="100"></progress></div>
+                            <div style="position:relative; translate: 39% 0%; z-index: 0;" class="card__time card__time-left">
+                                0:00</div>
+                        </div>
+                        <div id="contenuto4" class="nascondi card__wrapper">
+                            <div style="position:relative; translate: -38% 125%;" class="card__time card__time-passed">0:00
+                            </div>
+                            <div style="position:relative; translate: 22% 0%; z-index: 10;" class="card__timeline"><progress
+                                    style="cursor: pointer;" value="0" max="100"></progress></div>
+                            <div style="position:relative; translate: 39% 0%; z-index: 0;" class="card__time card__time-left">
+                                0:00</div>
+                        </div>
+                        <div id="contenuto5" class="nascondi card__wrapper">
+                            <div style="position:relative; translate: -38% 125%;" class="card__time card__time-passed">0:00
+                            </div>
+                            <div style="position:relative; translate: 22% 0%; z-index: 10;" class="card__timeline"><progress
+                                    style="cursor: pointer;" value="0" max="100"></progress></div>
+                            <div style="position:relative; translate: 39% 0%; z-index: 0;" class="card__time card__time-left">
+                                0:00</div>
+                        </div>
+                        <div id="contenuto6" class="nascondi card__wrapper">
+                            <div style="position:relative; translate: -38% 125%;" class="card__time card__time-passed">0:00
+                            </div>
+                            <div style="position:relative; translate: 22% 0%; z-index: 10;" class="card__timeline"><progress
+                                    style="cursor: pointer;" value="0" max="100"></progress></div>
+                            <div style="position:relative; translate: 39% 0%; z-index: 0;" class="card__time card__time-left">
+                                0:00</div>
+                        </div>
+                        <!-- pulsanti -->
+                        <div class="card__controls"> <!-- Nuovo wrapper per i controlli -->
+                            <div class="card__navigation"> <!-- Contenitore per i pulsanti -->
+                                <a class="card__btn card__btn-prev" onclick="previousContent()">
+                                    <svg width="23" height="16" viewBox="0 0 23 16">
+                                        <path d="M11.5 8V0L0 8L11.5 16V8ZM23 0L11.5 8L23 16V0Z"></path>
+                                    </svg>
+                                </a>
+
+                                <a class="card__btn card__btn-play" onclick="playPauseAudio(currentIndex || 0)">
+                                    <svg width="50" height="50" viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm8.528-4.882a1 1 0 0 1 1.027.05l6 4a1 1 0 0 1 0 1.664l-6 4A1 1 0 0 1 9 16V8a1 1 0 0 1 .528-.882z" />
+                                    </svg>
+                                </a>
+
+                                <a class="card__btn card__btn-next" onclick="nextContent()">
+                                    <svg width="23" height="16" viewBox="0 0 23 16">
+                                        <path d="M11.5 8V0L23 8L11.5 16V8ZM0 0L11.5 8L0 16V0Z"></path>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div id="contenuto1" class="nascondi card__title">Cos'è un limite</div>
-                <div id="contenuto1" class="nascondi card__subtitle">Nicolò Zanforlin</div>
-                <div id="contenuto2" class="nascondi card__title">Limite e continuità</div>
-                <div id="contenuto2" class="nascondi card__subtitle">Francesco Renesto</div>
-                <div id="contenuto3" class="nascondi card__title">Funzioni all'infinito: concetti base</div>
-                <div id="contenuto3" class="nascondi card__subtitle">Mattia Pavarin</div>
-                <div id="contenuto4" class="nascondi card__title">I limiti fondamentali</div>
-                <div id="contenuto4" class="nascondi card__subtitle">Francesco Renesto</div>
-                <div id="contenuto5" class="nascondi card__title">I limiti negli altri settori</div>
-                <div id="contenuto5" class="nascondi card__subtitle">Nicolò Zanforlin</div>
-                <div id="contenuto6" class="nascondi card__title">Funzione derivata</div>
-                <div id="contenuto6" class="nascondi card__subtitle">Mattia Pavarin</div>
-                <!-- barra di progresso -->
-                <div id="contenuto1" class="nascondi card__wrapper">
-                    <div style="position:relative; translate: -38% 125%;" class="card__time card__time-passed">0:00
-                    </div>
-                    <div style="position:relative; translate: 22% 0%; z-index: 10;" class="card__timeline"><progress
-                            style="cursor: pointer;" value="0" max="100"></progress></div>
-                    <div style="position:relative; translate: 39% 0%; z-index: 0;" class="card__time card__time-left">
-                        0:00</div>
-                </div>
-                <div id="contenuto2" class="nascondi card__wrapper">
-                    <div style="position:relative; translate: -38% 125%;" class="card__time card__time-passed">0:00
-                    </div>
-                    <div style="position:relative; translate: 22% 0%; z-index: 10;" class="card__timeline"><progress
-                            style="cursor: pointer;" value="0" max="100"></progress></div>
-                    <div style="position:relative; translate: 39% 0%; z-index: 0;" class="card__time card__time-left">
-                        0:00</div>
-                </div>
-                <div id="contenuto3" class="nascondi card__wrapper">
-                    <div style="position:relative; translate: -38% 125%;" class="card__time card__time-passed">0:00
-                    </div>
-                    <div style="position:relative; translate: 22% 0%; z-index: 10;" class="card__timeline"><progress
-                            style="cursor: pointer;" value="0" max="100"></progress></div>
-                    <div style="position:relative; translate: 39% 0%; z-index: 0;" class="card__time card__time-left">
-                        0:00</div>
-                </div>
-                <div id="contenuto4" class="nascondi card__wrapper">
-                    <div style="position:relative; translate: -38% 125%;" class="card__time card__time-passed">0:00
-                    </div>
-                    <div style="position:relative; translate: 22% 0%; z-index: 10;" class="card__timeline"><progress
-                            style="cursor: pointer;" value="0" max="100"></progress></div>
-                    <div style="position:relative; translate: 39% 0%; z-index: 0;" class="card__time card__time-left">
-                        0:00</div>
-                </div>
-                <div id="contenuto5" class="nascondi card__wrapper">
-                    <div style="position:relative; translate: -38% 125%;" class="card__time card__time-passed">0:00
-                    </div>
-                    <div style="position:relative; translate: 22% 0%; z-index: 10;" class="card__timeline"><progress
-                            style="cursor: pointer;" value="0" max="100"></progress></div>
-                    <div style="position:relative; translate: 39% 0%; z-index: 0;" class="card__time card__time-left">
-                        0:00</div>
-                </div>
-                <div id="contenuto6" class="nascondi card__wrapper">
-                    <div style="position:relative; translate: -38% 125%;" class="card__time card__time-passed">0:00
-                    </div>
-                    <div style="position:relative; translate: 22% 0%; z-index: 10;" class="card__timeline"><progress
-                            style="cursor: pointer;" value="0" max="100"></progress></div>
-                    <div style="position:relative; translate: 39% 0%; z-index: 0;" class="card__time card__time-left">
-                        0:00</div>
-                </div>
-                <!-- pulsanti -->
-                <div class="card__controls"> <!-- Nuovo wrapper per i controlli -->
-                    <div class="card__navigation"> <!-- Contenitore per i pulsanti -->
-                        <a class="card__btn card__btn-prev" onclick="previousContent()">
-                            <svg width="23" height="16" viewBox="0 0 23 16">
-                                <path d="M11.5 8V0L0 8L11.5 16V8ZM23 0L11.5 8L23 16V0Z"></path>
-                            </svg>
-                        </a>
 
-                        <a class="card__btn card__btn-play" onclick="playPauseAudio(currentIndex || 0)">
-                            <svg width="50" height="50" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd"
-                                    d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm8.528-4.882a1 1 0 0 1 1.027.05l6 4a1 1 0 0 1 0 1.664l-6 4A1 1 0 0 1 9 16V8a1 1 0 0 1 .528-.882z" />
-                            </svg>
-                        </a>
+                <div class="podcast-visual-container">
+                    <!-- Visual content that changes with the podcast -->
+                    <div id="visual-content1" class="nascondi podcast-visual">
+                        <video src="Media/video/PODCAST.mp4" style="width: 830px;"></video>
+                        <div class="math-equation">
+                            $$ \lim_{x \to a} f(x) = L $$
+                        </div>
+                        <div class="key-points">
+                            <h4>Punti chiave</h4>
+                            <ul>
+                                <li>Il limite descrive il comportamento di una funzione vicino a un punto</li>
+                                <li>Non è necessario che la funzione sia definita nel punto</li>
+                                <li>La definizione epsilon-delta formalizza l'intuizione</li>
+                                <li>Esempio: lim<sub>x→1</sub> (x²-1)/(x-1) = 2</li>
+                            </ul>
+                        </div>
+                    </div>
 
-                        <a class="card__btn card__btn-next" onclick="nextContent()">
-                            <svg width="23" height="16" viewBox="0 0 23 16">
-                                <path d="M11.5 8V0L23 8L11.5 16V8ZM0 0L11.5 8L0 16V0Z"></path>
-                            </svg>
-                        </a>
+                    <div id="visual-content2" class="nascondi podcast-visual">
+                        <img src="Media/img/funzione-continua.png" alt="Funzione continua vs discontinua">
+                        <div class="math-equation">
+                            $$ \lim_{x \to c} f(x) = f(c) $$
+                        </div>
+                        <div class="key-points">
+                            <h4>Punti chiave</h4>
+                            <ul>
+                                <li>Una funzione è continua se non ha "salti" o "buchi"</li>
+                                <li>Tre condizioni: definita, limite esiste, limite = valore funzione</li>
+                                <li>Le funzioni polinomiali sono continue ovunque</li>
+                                <li>Le discontinuità possono essere eliminabili o essenziali</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="visual-content3" class="nascondi podcast-visual">
+                        <img src="Media/img/limite-infinito.png" alt="Comportamento all'infinito">
+                        <div class="math-equation">
+                            $$ \lim_{x \to \infty} \frac{1}{x} = 0 $$
+                        </div>
+                        <div class="key-points">
+                            <h4>Punti chiave</h4>
+                            <ul>
+                                <li>Tre comportamenti possibili: convergenza, divergenza, oscillazione</li>
+                                <li>Asintoti orizzontali: la funzione si avvicina a un valore finito</li>
+                                <li>Le funzioni polinomiali divergono all'infinito</li>
+                                <li>Le funzioni periodiche (es. seno) oscillano indefinitamente</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="visual-content4" class="nascondi podcast-visual">
+                        <img src="Media/img/limiti-notevoli.png" alt="Limiti notevoli">
+                        <div class="math-equation">
+                            $$ \lim_{x \to 0} \frac{\sin x}{x} = 1 $$
+                        </div>
+                        <div class="key-points">
+                            <h4>Punti chiave</h4>
+                            <ul>
+                                <li>Sono fondamentali per calcoli più complessi</li>
+                                <li>Limite seno(x)/x → 1 quando x→0</li>
+                                <li>Limite (1-cos(x))/x² → 1/2 quando x→0</li>
+                                <li>Limite (1+1/x)ˣ → e quando x→∞</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="visual-content5" class="nascondi podcast-visual">
+                        <img src="Media/img/applicazioni-limiti.png" alt="Applicazioni dei limiti">
+                        <div class="math-equation">
+                            $$ v(t) = \lim_{\Delta t \to 0} \frac{\Delta s}{\Delta t} $$
+                        </div>
+                        <div class="key-points">
+                            <h4>Punti chiave</h4>
+                            <ul>
+                                <li>Fisica: velocità e accelerazione istantanea</li>
+                                <li>Economia: costo marginale e analisi di mercato</li>
+                                <li>Ingegneria: resistenza dei materiali e fluidodinamica</li>
+                                <li>Informatica: ottimizzazione e machine learning</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="visual-content6" class="nascondi podcast-visual">
+                        <img src="Media/img/limite-derivata.png" alt="Limite e derivata">
+                        <div class="math-equation">
+                            $$ f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} $$
+                        </div>
+                        <div class="key-points">
+                            <h4>Punti chiave</h4>
+                            <ul>
+                                <li>La derivata è un limite che descrive il tasso di cambiamento</li>
+                                <li>Permette di trovare tangenti a curve</li>
+                                <li>Utile per trovare massimi e minimi di funzioni</li>
+                                <li>Base per le equazioni differenziali che modellano fenomeni reali</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <!-- testo -->
-                <div id="contenuto1" class="nascondi dati hover-scroll card_testo"
-                    style="overflow-y: hidden; display: inline-block; max-height: 200px; max-width: 400px; border-radius: 20px;"
-                    onmouseover="this.style.overflowY='scroll'; this.style.scrollbarWidth='none'; this.style.msOverflowStyle='none';"
-                    onmouseout="this.style.overflowY='hidden'">
-                    <header class="w3-container card_testo_titolo">
-                        <h4>Testo</h4>
-                    </header>
-                    <p>Cos'è un limite?
-                        <br>
-                        Il limite è un concetto fondamentale dell’analisi matematica che serve a descrivere il
-                        comportamento di una funzione o di una successione quando l’argomento si avvicina a un certo
-                        valore (finito o infinito).
-                        In parole semplici, il limite ci dice “a cosa si avvicina una funzione” quando la variabile
-                        indipendente si avvicina a un certo punto.
-                        <br>
-                        ⸻
-                        <br>
-                        Significato Intuitivo
-                        <br>
-                        Supponiamo di avere una funzione f(x). Ci chiediamo: Cosa succede a f(x) quando x si avvicina a
-                        un numero a?
-                        <br>
-                        Non ci interessa necessariamente cosa vale f(x) nel punto x = a, ma intorno ad esso.
-                        <br>
-                        Ad esempio, se f(x) = (x^2 - 1) / (x - 1), per x = 1 la funzione non è definita (divisione per
-                        zero).
-                        Ma se avviciniamo x a 1 da sinistra e da destra, vedremo che f(x) tende a 2.
-                        Quindi diremo che il limite di f(x) per x → 1 è 2, anche se la funzione non è definita in quel
-                        punto.
-                        <br>
-                        ⸻
-                        <br>
-                        Definizione Formale (epsilon-delta)
-                        <br>
-                        Per la funzione f(x), si dice che:
-                        <br>
-                        lim (x → a) f(x) = L
-                        <br>
-                        se per ogni ε > 0 esiste un δ > 0 tale che:
-                        <br>
-                        0 < |x - a| < δ ⇒ |f(x) - L| < ε Intuitivamente: Significa che possiamo avvicinarci quanto
-                            vogliamo al valore L, basta avvicinarsi abbastanza al punto a (senza toccarlo).</p>
-                </div>
-                <div id="contenuto2" class="nascondi dati hover-scroll card_testo"
-                    style="overflow-y: hidden; display: inline-block; max-height: 200px; max-width: 400px; border-radius: 20px;"
-                    onmouseover="this.style.overflowY='scroll'; this.style.scrollbarWidth='none'; this.style.msOverflowStyle='none';"
-                    onmouseout="this.style.overflowY='hidden'">
-                    <header class="w3-container card_testo_titolo">
-                        <h4>Testo</h4>
-                    </header>
-                    <p>In matematica, dire che una funzione è continua significa che il suo grafico non ha interruzioni
-                        Una funzione è continua in un punto se tre condizioni sono tutte vere:<br>
-                        1. La funzione è definita in quel punto, cioè ha un valore preciso.<br>
-                        2. Esiste un limite, cioè si può dire con certezza verso quale valore tende la funzione quando
-                        ci si avvicina a quel punto.<br>
-                        3. Il valore verso cui tende la funzione coincide con il valore che la funzione ha in quel
-                        punto.<br>
-                        Se anche solo una di queste condizioni non è soddisfatta, la funzione non è continua in quel
-                        punto.<br>
-                        Immagina una funzione che a ogni numero assegna il suo quadrato.
-                        Ad esempio: se metti due, ottieni quattro. Se metti tre, ottieni nove.
-                        <br>In questo caso:<br>
-                        • La funzione è definita ovunque.<br>
-                        • Quando ti avvicini a due da sinistra o da destra, ottieni sempre valori che si avvicinano a
-                        quattro.<br>
-                        • E in effetti, la funzione vale proprio quattro in quel punto.
-                        Quindi: è continua.
-                        Per essere continua, deve essere definita, avvicinarsi a un certo valore in modo regolare, e
-                        avere proprio quel valore.
-                        il limite è ciò che ci permette di studiare il comportamento della funzione intorno al punto,
-                        anche se nel punto stesso la funzione ha problemi.
-                        <br>
-                    </p>
-                </div>
-                <div id="contenuto3" class="nascondi dati hover-scroll card_testo"
-                    style="overflow-y: hidden; display: inline-block; max-height: 200px; max-width: 400px; border-radius: 20px;"
-                    onmouseover="this.style.overflowY='scroll'; this.style.scrollbarWidth='none'; this.style.msOverflowStyle='none';"
-                    onmouseout="this.style.overflowY='hidden'">
-                    <header class="w3-container card_testo_titolo">
-                        <h4>Testo</h4>
-                    </header>
-                    <p>Funzioni all'infinito: concetti base<br>
-                        Quando diciamo che “x tende all'infinito”, intendiamo che stiamo osservando il comportamento
-                        della funzione per valori molto grandi (positivi o negativi).
-                        <br>
-                        Esistono tre comportamenti principali:
-                        <br>
-                        La funzione cresce all'infinito
-                        <br>
-                        La funzione tende a un numero preciso
-                        <br>
-                        La funzione oscilla senza stabilizzarsi
-                        <br><br>
-                        1. Tende a un numero finito
-                        Alcune funzioni si avvicinano sempre di più a un certo valore, anche se x cresce tantissimo.
-                        <br>
-                        Esempio:
-                        Una frazione come uno diviso x
-                        <br>
-                        Quando x diventa molto grande, uno diviso x diventa sempre più piccolo
-                        <br>
-                        Si avvicina sempre di più a zero
-                        <br>
-                        Quindi, la funzione “tende a zero” per x che tende all'infinito
-                        <br>
-                        Questo comportamento si chiama asintoto orizzontale: la funzione si appiattisce verso una certa
-                        altezza.
-                        <br><br>
-                        2. Cresce (o decresce) all'infinito
-                        Alcune funzioni non si fermano mai: aumentano sempre.
-                        <br>
-                        Esempio:
-                        Una funzione come x al quadrato o x al cubo
-                        <br>
-                        Più x cresce, più il risultato cresce
-                        <br>
-                        Non si avvicina a nessun numero preciso
-                        <br>
-                        Diciamo che “la funzione tende all'infinito”
-                        <br>
-                        Questo è tipico delle funzioni potenti, come quelle polinomiali.
-                        <br><br>
-                        3. Oscilla senza limite
-                        Alcune funzioni non si stabilizzano mai, ma continuano a salire e scendere.
-                        <br>
-                        Esempio:
-                        Una funzione come seno di x
-                        <br>
-                        Anche se x cresce, la funzione continua a salire e scendere tra meno uno e uno
-                        <br>
-                        Non si ferma, ma non esplode nemmeno
-                        <br>
-                        Diciamo che oscilla indefinitamente
-                        <br>
-                        Questo accade con funzioni periodiche.
-                    </p>
-                </div>
-                <div id="contenuto4" class="nascondi dati hover-scroll card_testo"
-                    style="overflow-y: hidden; display: inline-block; max-height: 200px; max-width: 400px; border-radius: 20px;"
-                    onmouseover="this.style.overflowY='scroll'; this.style.scrollbarWidth='none'; this.style.msOverflowStyle='none';"
-                    onmouseout="this.style.overflowY='hidden'">
-                    <header class="w3-container card_testo_titolo">
-                        <h4>Testo</h4>
-                    </header>
-                    I limiti fondamentali sono come dei "mattoni base" che si usano per calcolare limiti più complessi,
-                    derivare formule e comprendere il comportamento delle funzioni.
-                    Limite del rapporto tra seno e x
+            </div>
+        </section>
+
+        <!-- Transcript section -->
+        <section class="podcast-transcript" data-aos="fade-up">
+            <div class="card_testo_titolo w3-container">
+                <h3 style="text-align: center;">Trascrizione</h3>
+            </div>
+            <div id="contenuto1" class="nascondi dati hover-scroll card_testo"
+                style="overflow-y: hidden; display: inline-block; max-height: 200px; max-width: 70%; border-radius: 20px; margin-left: 250px;"
+                onmouseover="this.style.overflowY='scroll'; this.style.scrollbarWidth='none'; this.style.msOverflowStyle='none';"
+                onmouseout="this.style.overflowY='hidden'">
+                <p>Cos'è un limite?
                     <br>
-                    > Quando x tende a zero:
+                    Il limite è un concetto fondamentale dell'analisi matematica che serve a descrivere il
+                    comportamento di una funzione o di una successione quando l'argomento si avvicina a un certo
+                    valore (finito o infinito).
+                    In parole semplici, il limite ci dice "a cosa si avvicina una funzione" quando la variabile
+                    indipendente si avvicina a un certo punto.
                     <br>
-                    il seno di x diviso x tende a uno
+                    ⸻
                     <br>
-                    Limite di uno meno coseno su x²
+                    Significato Intuitivo
                     <br>
-                    > Quando x tende a zero:
+                    Supponiamo di avere una funzione f(x). Ci chiediamo: Cosa succede a f(x) quando x si avvicina a
+                    un numero a?
                     <br>
-                    uno meno il coseno di x, diviso x al quadrato, tende a mezza unità
+                    Non ci interessa necessariamente cosa vale f(x) nel punto x = a, ma intorno ad esso.
                     <br>
-                    Limite di uno più uno su x, elevato a x
+                    Ad esempio, se f(x) = (x^2 - 1) / (x - 1), per x = 1 la funzione non è definita (divisione per
+                    zero).
+                    Ma se avviciniamo x a 1 da sinistra e da destra, vedremo che f(x) tende a 2.
+                    Quindi diremo che il limite di f(x) per x → 1 è 2, anche se la funzione non è definita in quel
+                    punto.
                     <br>
-                    > Quando x tende all'infinito:
+                    ⸻
                     <br>
-                    questo espressione tende a un numero speciale chiamato “e”, che vale circa due virgola sette uno
+                    Definizione Formale (epsilon-delta)
                     <br>
-                    Limite di x alla n (quando x tende a zero o infinito)
+                    Per la funzione f(x), si dice che:
                     <br>
-                    Se x tende a zero, allora x alla n tende a zero (per n positivo)
+                    lim (x → a) f(x) = L
                     <br>
-                    Se x tende all'infinito, x alla n cresce all'infinito (per n positivo)
+                    se per ogni ε > 0 esiste un δ > 0 tale che:
                     <br>
-                    Se n è negativo, l'effetto è inverso: si va verso zero o infinito a seconda del caso
+                    0 < |x - a| < δ ⇒ |f(x) - L| < ε Intuitivamente: Significa che possiamo avvicinarci quanto
+                        vogliamo al valore L, basta avvicinarsi abbastanza al punto a (senza toccarlo).</p>
+            </div>
+            <div id="contenuto2" class="nascondi dati hover-scroll card_testo"
+                style="overflow-y: hidden; display: inline-block; max-height: 200px; max-width: 100%; border-radius: 20px;"
+                onmouseover="this.style.overflowY='scroll'; this.style.scrollbarWidth='none'; this.style.msOverflowStyle='none';"
+                onmouseout="this.style.overflowY='hidden'">
+                <p>In matematica, dire che una funzione è continua significa che il suo grafico non ha interruzioni
+                    Una funzione è continua in un punto se tre condizioni sono tutte vere:<br>
+                    1. La funzione è definita in quel punto, cioè ha un valore preciso.<br>
+                    2. Esiste un limite, cioè si può dire con certezza verso quale valore tende la funzione quando
+                    ci si avvicina a quel punto.<br>
+                    3. Il valore verso cui tende la funzione coincide con il valore che la funzione ha in quel
+                    punto.<br>
+                    Se anche solo una di queste condizioni non è soddisfatta, la funzione non è continua in quel
+                    punto.<br>
+                    Immagina una funzione che a ogni numero assegna il suo quadrato.
+                    Ad esempio: se metti due, ottieni quattro. Se metti tre, ottieni nove.
+                    <br>In questo caso:<br>
+                    • La funzione è definita ovunque.<br>
+                    • Quando ti avvicini a due da sinistra o da destra, ottieni sempre valori che si avvicinano a
+                    quattro.<br>
+                    • E in effetti, la funzione vale proprio quattro in quel punto.
+                    Quindi: è continua.
+                    Per essere continua, deve essere definita, avvicinarsi a un certo valore in modo regolare, e
+                    avere proprio quel valore.
+                    il limite è ciò che ci permette di studiare il comportamento della funzione intorno al punto,
+                    anche se nel punto stesso la funzione ha problemi.
                     <br>
-                    Limite di uno su x
+                </p>
+            </div>
+            <div id="contenuto3" class="nascondi dati hover-scroll card_testo"
+                style="overflow-y: hidden; display: inline-block; max-height: 200px; max-width: 100%; border-radius: 20px;"
+                onmouseover="this.style.overflowY='scroll'; this.style.scrollbarWidth='none'; this.style.msOverflowStyle='none';"
+                onmouseout="this.style.overflowY='hidden'">
+                <p>Funzioni all'infinito: concetti base<br>
+                    Quando diciamo che "x tende all'infinito", intendiamo che stiamo osservando il comportamento
+                    della funzione per valori molto grandi (positivi o negativi).
                     <br>
-                    Quando x va verso zero da destra: il risultato va all'infinito
+                    Esistono tre comportamenti principali:
                     <br>
-                    Quando x va verso zero da sinistra: il risultato va a meno infinito
+                    La funzione cresce all'infinito
                     <br>
-                    Quindi: il limite non esiste in senso stretto, ma tende all'infinito o meno infinito
+                    La funzione tende a un numero preciso
                     <br>
-                    Limite della radice quadrata di x quando x tende a zero
-                    <br>
-                    Si avvicina sempre a zero da valori positivi
+                    La funzione oscilla senza stabilizzarsi
                     <br><br>
-                    Questi limiti:
+                    1. Tende a un numero finito
+                    Alcune funzioni si avvicinano sempre di più a un certo valore, anche se x cresce tantissimo.
                     <br>
-                    Servono per derivare le funzioni trigonometriche ed esponenziali
+                    Esempio:
+                    Una frazione come uno diviso x
                     <br>
-                    Aiutano a semplificare espressioni complesse
+                    Quando x diventa molto grande, uno diviso x diventa sempre più piccolo
                     <br>
-                    Sono la base per molti teoremi e regole
+                    Si avvicina sempre di più a zero
                     <br>
-                    Entrano in gioco nel calcolo infinitesimale, nello studio di serie, e molto altro</p>
-                </div>
-                <div id="contenuto5" class="nascondi dati hover-scroll card_testo"
-                    style="overflow-y: hidden; display: inline-block; max-height: 200px; max-width: 400px; border-radius: 20px;"
-                    onmouseover="this.style.overflowY='scroll'; this.style.scrollbarWidth='none'; this.style.msOverflowStyle='none';"
-                    onmouseout="this.style.overflowY='hidden'">
-                    <header class="w3-container card_testo_titolo">
-                        <h4>Testo</h4>
-                    </header>
-                    <p>I limiti non sono solo un concetto astratto della matematica, ma sono strumenti fondamentali
-                        usati in tantissime discipline per descrivere il cambiamento, analizzare situazioni estreme e
-                        modellare fenomeni reali.
-                        <br>
-                        Vediamolo settore per settore, in modo chiaro e intuitivo.
-                        <br><br>
-                        Fisica<br>
-                        In fisica, i limiti servono per descrivere il cambiamento continuo, come:
-                        <br>
-                        Velocità istantanea<br>
-                        La velocità istantanea è il limite del rapporto spazio/tempo quando l'intervallo di tempo tende
-                        a zero.
-                        <br>
-                        È come calcolare la velocità “in un punto preciso”, non su un tratto.
-                        <br>
-                        Accelerazione<br>
-                        Anche l'accelerazione è definita con un limite: è il cambiamento della velocità in un tempo
-                        infinitesimo.
-                        <br>
-                        Leggi fondamentali<br>
-                        Molte leggi fisiche (come quelle del moto, dell'energia, dell'elettromagnetismo) usano derivate,
-                        che dipendono dai limiti.
-                        <br><br>
-                        Economia<br>
-                        Nell'economia, i limiti aiutano a studiare il comportamento di funzioni economiche in situazioni
-                        estreme.
-                        <br>
-                        Costo marginale<br>
-                        È il limite del costo medio quando la produzione aumenta di pochissimo.
-                        <br>
-                        Serve a capire quanto costa produrre una singola unità in più.
-                        <br>
-                        Ricavi e profitti<br>
-                        Si usano limiti per analizzare l'andamento dei ricavi al crescere della produzione.
-                        <br>
-                        Anche per studiare punti critici, massimi o minimi di guadagno.
-                        <br>
-                        Tendenze di mercato<br>
-                        Si usa il concetto di limite all'infinito per capire come un mercato si comporta nel lungo
-                        periodo.
-                        <br><br>
-                        Ingegneria<br>
-                        In ingegneria, i limiti sono alla base del calcolo infinitesimale, usato per progettare
-                        strutture, macchine, sistemi.
-                        <br>
-                        Resistenza dei materiali<br>
-                        Quando si analizza la deformazione di un materiale sotto sforzo, si studia il comportamento al
-                        limite.
-                        <br><br>
-                        Elettronica<br>
-                        I circuiti usano modelli che approssimano il comportamento per valori molto piccoli o molto
-                        grandi.
-                        <br>
-                        I limiti aiutano a semplificare calcoli con resistenze, condensatori, segnali.
-                        <br><br>
-                        Fluidodinamica e termica<br>
-                        Limiti per analizzare il comportamento dei fluidi o il trasferimento di calore in condizioni
-                        critiche (ad esempio, vicino a una superficie o in un tubo molto stretto).
-                        <br><br>
-                        Informatica e intelligenza artificiale<br>
-                        Nell'ottimizzazione, si usano limiti per trovare valori minimi e massimi.
-                        <br>
-                        Nei modelli di apprendimento automatico (machine learning), si usano limiti per addestrare reti
-                        neurali in modo più preciso, ottimizzando funzioni molto complesse.
-                        <br><br>
-                        Scienze naturali e biologia<br>
-                        Tassi di crescita di popolazioni o virus sono spesso descritti da funzioni che usano limiti.
-                        <br>
-                        Nello studio del DNA, della diffusione di sostanze, della chimica delle reazioni: tutto si basa
-                        su approssimazioni infinitesimali.
-                    </p>
-                </div>
-                <div id="contenuto6" class="nascondi dati hover-scroll card_testo"
-                    style="overflow-y: hidden; display: inline-block; max-height: 200px; max-width: 400px; border-radius: 20px;"
-                    onmouseover="this.style.overflowY='scroll'; this.style.scrollbarWidth='none'; this.style.msOverflowStyle='none';"
-                    onmouseout="this.style.overflowY='hidden'">
-                    <header class="w3-container card_testo_titolo">
-                        <h4>Testo</h4>
-                    </header>
-                    <p>Una derivata ci dice quanto cambia una funzione in un certo punto.<br>
-                        Per capire quanto cambia una funzione, guardiamo due punti vicini e calcoliamo il rapporto tra
-                        quanto è cambiato il valore e quanto sono distanti i punti. Ma se vogliamo sapere quanto cambia
-                        esattamente in un solo punto, i due punti devono avvicinarsi sempre di più, fino a coincidere.
-                        La derivata è il limite del rapporto tra cambiamento della funzione e cambiamento della
-                        variabile, quando la distanza tra i due punti tende a zero.<br><br>
-                        In parole povere:<br>
-                        La derivata è il limite di una variazione media che diventa istantanea.
-                        Grazie al legame tra limiti e derivate, possiamo:
-                        1. Studiare l'andamento delle funzioni: dove crescono, dove decrescono, dove si fermano<br>
-                        2. Trovare massimi e minimi: i punti in cui la derivata è zero sono candidati a essere
-                        “picchi”<br>
-                        o “valli” <br>
-                        3. Disegnare curve con precisione: la derivata ci dice la pendenza in ogni punto<br>
-                        4. Risolvere equazioni differenziali: cioè equazioni in cui le derivate rappresentano
-                        leggi di cambiamento</p>
-                </div>
+                    Quindi, la funzione "tende a zero" per x che tende all'infinito
+                    <br>
+                    Questo comportamento si chiama asintoto orizzontale: la funzione si appiattisce verso una certa
+                    altezza.
+                    <br><br>
+                    2. Cresce (o decresce) all'infinito
+                    Alcune funzioni non si fermano mai: aumentano sempre.
+                    <br>
+                    Esempio:
+                    Una funzione come x al quadrato o x al cubo
+                    <br>
+                    Più x cresce, più il risultato cresce
+                    <br>
+                    Non si avvicina a nessun numero preciso
+                    <br>
+                    Diciamo che "la funzione tende all'infinito"
+                    <br>
+                    Questo è tipico delle funzioni potenti, come quelle polinomiali.
+                    <br><br>
+                    3. Oscilla senza limite
+                    Alcune funzioni non si stabilizzano mai, ma continuano a salire e scendere.
+                    <br>
+                    Esempio:
+                    Una funzione come seno di x
+                    <br>
+                    Anche se x cresce, la funzione continua a salire e scendere tra meno uno e uno
+                    <br>
+                    Non si ferma, ma non esplode nemmeno
+                    <br>
+                    Diciamo che oscilla indefinitamente
+                    <br>
+                    Questo accade con funzioni periodiche.
+                </p>
+            </div>
+            <div id="contenuto4" class="nascondi dati hover-scroll card_testo"
+                style="overflow-y: hidden; display: inline-block; max-height: 200px; max-width: 100%; border-radius: 20px;"
+                onmouseover="this.style.overflowY='scroll'; this.style.scrollbarWidth='none'; this.style.msOverflowStyle='none';"
+                onmouseout="this.style.overflowY='hidden'">
+                I limiti fondamentali sono come dei "mattoni base" che si usano per calcolare limiti più complessi,
+                derivare formule e comprendere il comportamento delle funzioni.
+                Limite del rapporto tra seno e x
+                <br>
+                > Quando x tende a zero:
+                <br>
+                il seno di x diviso x tende a uno
+                <br>
+                Limite di uno meno coseno su x²
+                <br>
+                > Quando x tende a zero:
+                <br>
+                uno meno il coseno di x, diviso x al quadrato, tende a mezza unità
+                <br>
+                Limite di uno più uno su x, elevato a x
+                <br>
+                > Quando x tende all'infinito:
+                <br>
+                questo espressione tende a un numero speciale chiamato "e", che vale circa due virgola sette uno
+                <br>
+                Limite di x alla n (quando x tende a zero o infinito)
+                <br>
+                Se x tende a zero, allora x alla n tende a zero (per n positivo)
+                <br>
+                Se x tende all'infinito, x alla n cresce all'infinito (per n positivo)
+                <br>
+                Se n è negativo, l'effetto è inverso: si va verso zero o infinito a seconda del caso
+                <br>
+                Limite di uno su x
+                <br>
+                Quando x va verso zero da destra: il risultato va all'infinito
+                <br>
+                Quando x va verso zero da sinistra: il risultato va a meno infinito
+                <br>
+                Quindi: il limite non esiste in senso stretto, ma tende all'infinito o meno infinito
+                <br>
+                Limite della radice quadrata di x quando x tende a zero
+                <br>
+                Si avvicina sempre a zero da valori positivi
+                <br><br>
+                Questi limiti:
+                <br>
+                Servono per derivare le funzioni trigonometriche ed esponenziali
+                <br>
+                Aiutano a semplificare espressioni complesse
+                <br>
+                Sono la base per molti teoremi e regole
+                <br>
+                Entrano in gioco nel calcolo infinitesimale, nello studio di serie, e molto altro</p>
+            </div>
+            <div id="contenuto5" class="nascondi dati hover-scroll card_testo"
+                style="overflow-y: hidden; display: inline-block; max-height: 200px; max-width: 100%; border-radius: 20px;"
+                onmouseover="this.style.overflowY='scroll'; this.style.scrollbarWidth='none'; this.style.msOverflowStyle='none';"
+                onmouseout="this.style.overflowY='hidden'">
+                <p>I limiti non sono solo un concetto astratto della matematica, ma sono strumenti fondamentali
+                    usati in tantissime discipline per descrivere il cambiamento, analizzare situazioni estreme e
+                    modellare fenomeni reali.
+                    <br>
+                    Vediamolo settore per settore, in modo chiaro e intuitivo.
+                    <br><br>
+                    Fisica<br>
+                    In fisica, i limiti servono per descrivere il cambiamento continuo, come:
+                    <br>
+                    Velocità istantanea<br>
+                    La velocità istantanea è il limite del rapporto spazio/tempo quando l'intervallo di tempo tende
+                    a zero.
+                    <br>
+                    È come calcolare la velocità "in un punto preciso", non su un tratto.
+                    <br>
+                    Accelerazione<br>
+                    Anche l'accelerazione è definita con un limite: è il cambiamento della velocità in un tempo
+                    infinitesimo.
+                    <br>
+                    Leggi fondamentali<br>
+                    Molte leggi fisiche (come quelle del moto, dell'energia, dell'elettromagnetismo) usano derivate,
+                    che dipendono dai limiti.
+                    <br><br>
+                    Economia<br>
+                    Nell'economia, i limiti aiutano a studiare il comportamento di funzioni economiche in situazioni
+                    estreme.
+                    <br>
+                    Costo marginale<br>
+                    È il limite del costo medio quando la produzione aumenta di pochissimo.
+                    <br>
+                    Serve a capire quanto costa produrre una singola unità in più.
+                    <br>
+                    Ricavi e profitti<br>
+                    Si usano limiti per analizzare l'andamento dei ricavi al crescere della produzione.
+                    <br>
+                    Anche per studiare punti critici, massimi o minimi di guadagno.
+                    <br>
+                    Tendenze di mercato<br>
+                    Si usa il concetto di limite all'infinito per capire come un mercato si comporta nel lungo
+                    periodo.
+                    <br><br>
+                    Ingegneria<br>
+                    In ingegneria, i limiti sono alla base del calcolo infinitesimale, usato per progettare
+                    strutture, macchine, sistemi.
+                    <br>
+                    Resistenza dei materiali<br>
+                    Quando si analizza la deformazione di un materiale sotto sforzo, si studia il comportamento al
+                    limite.
+                    <br><br>
+                    Elettronica<br>
+                    I circuiti usano modelli che approssimano il comportamento per valori molto piccoli o molto
+                    grandi.
+                    <br>
+                    I limiti aiutano a semplificare calcoli con resistenze, condensatori, segnali.
+                    <br><br>
+                    Fluidodinamica e termica<br>
+                    Limiti per analizzare il comportamento dei fluidi o il trasferimento di calore in condizioni
+                    critiche (ad esempio, vicino a una superficie o in un tubo molto stretto).
+                    <br><br>
+                    Informatica e intelligenza artificiale<br>
+                    Nell'ottimizzazione, si usano limiti per trovare valori minimi e massimi.
+                    <br>
+                    Nei modelli di apprendimento automatico (machine learning), si usano limiti per addestrare reti
+                    neurali in modo più preciso, ottimizzando funzioni molto complesse.
+                    <br><br>
+                    Scienze naturali e biologia<br>
+                    Tassi di crescita di popolazioni o virus sono spesso descritti da funzioni che usano limiti.
+                    <br>
+                    Nello studio del DNA, della diffusione di sostanze, della chimica delle reazioni: tutto si basa
+                    su approssimazioni infinitesimali.
+                </p>
+            </div>
+            <div id="contenuto6" class="nascondi dati hover-scroll card_testo"
+                style="overflow-y: hidden; display: inline-block; max-height: 200px; max-width: 100%; border-radius: 20px;"
+                onmouseover="this.style.overflowY='scroll'; this.style.scrollbarWidth='none'; this.style.msOverflowStyle='none';"
+                onmouseout="this.style.overflowY='hidden'">
+                <p>Una derivata ci dice quanto cambia una funzione in un certo punto.<br>
+                    Per capire quanto cambia una funzione, guardiamo due punti vicini e calcoliamo il rapporto tra
+                    quanto è cambiato il valore e quanto sono distanti i punti. Ma se vogliamo sapere quanto cambia
+                    esattamente in un solo punto, i due punti devono avvicinarsi sempre di più, fino a coincidere.
+                    La derivata è il limite del rapporto tra cambiamento della funzione e cambiamento della
+                    variabile, quando la distanza tra i due punti tende a zero.<br><br>
+                    In parole povere:<br>
+                    La derivata è il limite di una variazione media che diventa istantanea.
+                    Grazie al legame tra limiti e derivate, possiamo:
+                    1. Studiare l'andamento delle funzioni: dove crescono, dove decrescono, dove si fermano<br>
+                    2. Trovare massimi e minimi: i punti in cui la derivata è zero sono candidati a essere
+                    "picchi"<br>
+                    o "valli" <br>
+                    3. Disegnare curve con precisione: la derivata ci dice la pendenza in ogni punto<br>
+                    4. Risolvere equazioni differenziali: cioè equazioni in cui le derivate rappresentano
+                    leggi di cambiamento</p>
             </div>
         </section>
 
@@ -855,6 +1018,13 @@
                 content.style.display = "block";
             });
 
+            // Show the corresponding visual content
+            const visualContents = document.querySelectorAll(".podcast-visual");
+            visualContents.forEach(content => {
+                content.style.display = "none";
+            });
+            document.getElementById(`visual-content${index + 1}`).style.display = "block";
+
             // Update the carousel to the correct image
             const carouselRadio = document.getElementById(`item-${index + 1}`);
             if (carouselRadio) {
@@ -884,6 +1054,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             initializeAudioData(); // Initialize progress bars and time values
             showContent(0); // Show the first content without playing audio
+            document.getElementById("visual-content1").style.display = "block"; // Show first visual content
         });
     </script>
 
