@@ -5,13 +5,10 @@
     <link rel="icon" href="Media/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Risoluzione: Limite notevole del logaritmo - Vai oltre il limite</title>
-    <link rel="icon" href="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/icons/infinity.svg"
-        type="image/svg+xml">
+    <title>Risoluzione: Limite funzione razionale</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
@@ -31,7 +28,7 @@
                 <div class="switch" style="position: absolute;
 				top: 30%;
 				right: 5%;">
-                    
+
                     <input hidden="" id="check" name="check" type="checkbox" onchange="toggleTheme()">
                     <label class="toggle" for="check">
                         <div class="toggle__circle"></div>
@@ -54,7 +51,7 @@
                         <path d="M18.36 5.64L19.78 4.22" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" />
                     </svg>
-                    
+
                     <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                         class="moon-icon" style="flex-shrink: 0; position: relative; translate: 80% -100%;">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2"
@@ -66,109 +63,82 @@
     </nav>
 
     <main class="resolution-main">
-        <section class="resolution-header" data-aos="fade-up">
-            <h1 class="resolution-title">Risoluzione: Limite notevole del logaritmo</h1>
-            <p class="resolution-subtitle">Analisi e dimostrazione del limite fondamentale del logaritmo</p>
+        <section class="resolution-header">
+            <h1 class="resolution-title">Risoluzione: Limite funzione razionale</h1>
+            <p class="resolution-subtitle">Analisi del limite di una funzione razionale</p>
         </section>
 
-        <section class="example-box" data-aos="fade-up">
+        <section class="example-box">
             <h2>Esempio:</h2>
-            <div class="example-formula" data-aos="zoom-in">
-                \[ \lim_{x \to 0} \frac{\ln(1 + x)}{x} = 1 \]
+            <div class="example-formula">
+                \[ \lim_{x \to 2} \frac{x^2 - 4}{x - 2} \]
             </div>
-            <p>In questo esempio, calcoliamo uno dei limiti notevoli fondamentali del calcolo, che collega la funzione logaritmica alla sua approssimazione lineare vicino all'origine.</p>
+            <p>In questo esempio, calcoliamo il limite di una funzione razionale che presenta una forma indeterminata
+                0/0.</p>
         </section>
 
-        <!-- Modificare solo la sezione step-by-step, mantenendo tutto il resto -->
-<section class="step-by-step" data-aos="fade-up">
-    <h2>Risoluzione:</h2>
+        <section class="step-by-step">
+            <h2>Risoluzione:</h2>
 
-    <div class="step" data-aos="fade-right">
-        <div class="step-title">
-            <div class="step-number">1</div>
-            <span>Capire cosa succede per x piccolo</span>
-        </div>
-        <p>Quando x è molto vicino a 0, ln(1+x) si comporta in modo simile a x. Proviamo con alcuni valori:</p>
-        <p>Per x=0.1: ln(1.1) ≈ 0.0953, quindi ln(1.1)/0.1 ≈ 0.953</p>
-        <p>Per x=0.01: ln(1.01) ≈ 0.00995, quindi ln(1.01)/0.01 ≈ 0.995</p>
-        <p>Vediamo che più x si avvicina a 0, più il rapporto si avvicina a 1.</p>
-    </div>
+            <div class="step">
+                <div class="step-title">
+                    <div class="step-number">1</div>
+                    <span>Identificare la forma indeterminata</span>
+                </div>
+                <p>Sostituendo x=2 nella funzione otteniamo:</p>
+                <div class="step-formula">
+                    \[ \frac{2^2 - 4}{2 - 2} = \frac{0}{0} \]
+                </div>
+                <p>Questa è una forma indeterminata, quindi dobbiamo trovare un modo per semplificare l'espressione.</p>
+            </div>
 
-    <div class="step" data-aos="fade-right" data-aos-delay="100">
-        <div class="step-title">
-            <div class="step-number">2</div>
-            <span>Relazione con la derivata</span>
-        </div>
-        <p>Ricordiamo che la derivata di ln(x) in x=1 è:</p>
-        <div class="step-formula">
-            \[ \frac{d}{dx}\ln(x)\Big|_{x=1} = \lim_{h \to 0} \frac{\ln(1+h) - \ln(1)}{h} = \lim_{h \to 0} \frac{\ln(1+h)}{h} \]
-        </div>
-        <p>Ma sappiamo che la derivata di ln(x) è 1/x, quindi in x=1 vale 1.</p>
-        <p>Questo dimostra che il limite deve essere 1.</p>
-    </div>
+            <div class="step">
+                <div class="step-title">
+                    <div class="step-number">2</div>
+                    <span>Fattorizzare il numeratore</span>
+                </div>
+                <p>Il numeratore è una differenza di quadrati:</p>
+                <div class="step-formula">
+                    \[ x^2 - 4 = (x - 2)(x + 2) \]
+                </div>
+                <p>Quindi la funzione diventa:</p>
+                <div class="step-formula">
+                    \[ \frac{(x - 2)(x + 2)}{x - 2} \]
+                </div>
+            </div>
 
-    <div class="step" data-aos="fade-right" data-aos-delay="200">
-        <div class="step-title">
-            <div class="step-number">3</div>
-            <span>Interpretazione grafica</span>
-        </div>
-        <p>Il limite mostra che vicino a x=0, la funzione ln(1+x) è ben approssimata dalla retta y=x.</p>
-        <p>Questo è il significato geometrico della derivata: la retta tangente approssima la funzione vicino al punto.</p>
-    </div>
-</section>
+            <div class="step">
+                <div class="step-title">
+                    <div class="step-number">3</div>
+                    <span>Semplificare la frazione</span>
+                </div>
+                <p>Possiamo eliminare (x-2) al numeratore e denominatore (per x ≠ 2):</p>
+                <div class="step-formula">
+                    \[ x + 2 \]
+                </div>
+                <p>Ora la funzione è molto più semplice da calcolare!</p>
+            </div>
 
-        <div class="result-box" data-aos="zoom-in">
+            <div class="step">
+                <div class="step-title">
+                    <div class="step-number">4</div>
+                    <span>Calcolare il limite</span>
+                </div>
+                <p>Ora possiamo sostituire direttamente x=2:</p>
+                <div class="step-formula">
+                    \[ 2 + 2 = 4 \]
+                </div>
+                <p>Quindi il limite vale 4.</p>
+            </div>
+        </section>
+
+        <div class="result-box">
             <h2>Risultato finale:</h2>
             <div class="result-formula">
-                \[ \lim_{x \to 0} \frac{\ln(1 + x)}{x} = 1 \]
+                \[ \lim_{x \to 2} \frac{x^2 - 4}{x - 2} = 4 \]
             </div>
-            <p>Questo limite notevole è fondamentale in molte applicazioni del calcolo e rappresenta l'approssimazione lineare del logaritmo naturale vicino a \(x = 0\), suggerendo che \(\ln(1+x) \approx x\) per valori piccoli di \(x\).</p>
-        </div>
-
-        <div class="graph-image" data-aos="fade-up">
-            <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
-                <!-- Coordinate system -->
-                <line x1="50" y1="150" x2="450" y2="150" stroke="var(--text-color)" stroke-width="2" />
-                <line x1="250" y1="50" x2="250" y2="250" stroke="var(--text-color)" stroke-width="2" />
-                
-                <!-- Axis labels -->
-                <text x="460" y="150" fill="var(--text-color)" font-size="16">x</text>
-                <text x="250" y="40" fill="var(--text-color)" font-size="16">y</text>
-                
-                <!-- Origin point -->
-                <circle cx="250" cy="150" r="3" fill="var(--text-color)" />
-                <text x="240" y="170" fill="var(--text-color)" font-size="12">O</text>
-                
-                <!-- Function curves -->
-                <!-- ln(1+x) curve -->
-                <path d="M150,210 Q200,180 250,150 Q300,120 350,100" 
-                      stroke="var(--secondary-color)" stroke-width="2" fill="none" />
-                <text x="150" y="220" fill="var(--secondary-color)" font-size="14">ln(1+x)</text>
-                
-                <!-- x line (y = x) -->
-                <line x1="150" y1="200" x2="350" y2="100" stroke="var(--primary-color)" stroke-width="2" />
-                <text x="360" y="100" fill="var(--primary-color)" font-size="14">y = x</text>
-                
-                <!-- ln(1+x)/x = 1 label -->
-                <text x="250" y="270" fill="var(--accent-color)" font-size="16" text-anchor="middle">
-                    lim (ln(1+x)/x) = 1
-                </text>
-                <text x="250" y="290" fill="var(--accent-color)" font-size="14" text-anchor="middle">
-                    x → 0
-                </text>
-                
-                <!-- Point where functions meet -->
-                <circle cx="250" cy="150" r="5" fill="var(--accent-color)" />
-            </svg>
-        </div>
-
-        <div class="action-buttons" data-aos="fade-up">
-            <a href="esercizi.html" class="btn btn-secondary">
-                <i class="fas fa-arrow-left"></i> Torna agli esercizi
-            </a>
-            <a href="teoria.html" class="btn btn-primary">
-                Continua con la teoria <i class="fas fa-arrow-right"></i>
-            </a>
+            <p>Abbiamo risolto la forma indeterminata semplificando la frazione. Questo metodo funziona bene quando
+                numeratore e denominatore hanno fattori comuni.</p>
         </div>
     </main>
 
@@ -177,8 +147,8 @@
             <div class="footer-logo">
                 <a href="index.html" class="company-name-main">
                     <span class="logo-vai">Vai</span>
-                    <span class="logo-oltre">OLTRE</span> 
-                    <span class="logo-il">il</span> 
+                    <span class="logo-oltre">OLTRE</span>
+                    <span class="logo-il">il</span>
                     <span class="logo-limite">limite</span>
                 </a>
                 <p>Esplora il mondo affascinante dei limiti matematici</p>
@@ -213,7 +183,6 @@
             </p>
         </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/gsap.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
