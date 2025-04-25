@@ -1510,10 +1510,7 @@ input[type="radio"] {
 
 #item-1:checked ~ .cards-carosello #song-1,
 #item-2:checked ~ .cards-carosello #song-2,
-#item-3:checked ~ .cards-carosello #song-3,
-#item-4:checked ~ .cards-carosello #song-4,
-#item-5:checked ~ .cards-carosello #song-5,
-#item-6:checked ~ .cards-carosello #song-6{
+#item-3:checked ~ .cards-carosello #song-3 {
   transform: scale(1);
   opacity: 1;
   z-index: 1;
@@ -1521,10 +1518,7 @@ input[type="radio"] {
 
 #item-1:checked ~ .cards-carosello #song-2,
 #item-2:checked ~ .cards-carosello #song-3,
-#item-3:checked ~ .cards-carosello #song-4,
-#item-4:checked ~ .cards-carosello #song-5,
-#item-5:checked ~ .cards-carosello #song-6,
-#item-6:checked ~ .cards-carosello #song-1 {
+#item-3:checked ~ .cards-carosello #song-1 {
   transform: scale(0.8) translateX(40%);
   z-index: 0;
   opacity: 0.6;
@@ -1532,10 +1526,7 @@ input[type="radio"] {
 
 #item-2:checked ~ .cards-carosello #song-1,
 #item-3:checked ~ .cards-carosello #song-2,
-#item-4:checked ~ .cards-carosello #song-3,
-#item-5:checked ~ .cards-carosello #song-4,
-#item-6:checked ~ .cards-carosello #song-5,
-#item-1:checked ~ .cards-carosello #song-6 {
+#item-1:checked ~ .cards-carosello #song-3 {
   transform: scale(0.8) translateX(-40%);
   z-index: 0;
   opacity: 0.6;

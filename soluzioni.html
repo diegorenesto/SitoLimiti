@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <link rel="icon" href="Media/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
@@ -19,24 +20,24 @@
             margin: 0 auto;
             padding: 2rem;
         }
-        
+
         .solution-form {
             background-color: var(--card-bg);
             padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        
+
         .form-group {
             margin-bottom: 1.5rem;
         }
-        
+
         label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 500;
         }
-        
+
         input[type="text"],
         input[type="email"],
         select,
@@ -49,12 +50,12 @@
             background-color: var(--input-bg);
             color: var(--text-color);
         }
-        
+
         textarea {
             min-height: 150px;
             resize: vertical;
         }
-        
+
         .submit-btn {
             background-color: var(--accent-color);
             color: white;
@@ -65,23 +66,70 @@
             font-weight: 600;
             transition: background-color 0.3s;
         }
-        
+
         .submit-btn:hover {
-            background-color: var(--accent-hover);
+            background-color: rgb(185, 73, 241);
         }
-        
+
         .examples-section {
             margin-top: 3rem;
             padding: 2rem;
             background-color: var(--light-bg);
             border-radius: 8px;
         }
-        
+
         .example-card {
             margin-bottom: 1.5rem;
             padding: 1rem;
             border-left: 4px solid var(--accent-color);
             background-color: var(--card-bg);
+        }
+
+        .error {
+            border: 1px solid red !important;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+        }
+
+        .success-message {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            animation: fadeInOut 3s ease-in-out;
+            display: none;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+                top: 0;
+            }
+
+            10% {
+                opacity: 1;
+                top: 20px;
+            }
+
+            90% {
+                opacity: 1;
+                top: 20px;
+            }
+
+            100% {
+                opacity: 0;
+                top: 0;
+            }
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -121,7 +169,7 @@
                 <div class="switch" style="position: absolute;
 				top: 30%;
 				right: 5%;">
-                    
+
                     <input hidden="" id="check" name="check" type="checkbox" onchange="toggleTheme()">
                     <label class="toggle" for="check">
                         <div class="toggle__circle"></div>
@@ -144,14 +192,14 @@
                         <path d="M18.36 5.64L19.78 4.22" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" />
                     </svg>
-                    
+
                     <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                         class="moon-icon" style="flex-shrink: 0; position: relative; translate: 80% -120%;">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </div>
-                
+
             </div>
         </div>
     </nav>
@@ -159,60 +207,69 @@
     <main class="w3-padding-64">
         <section class="solution-container" data-aos="fade-up">
             <h1 class="w3-center" style="margin-bottom: 2rem;">Proponi la tua soluzione</h1>
-            
+
             <div class="solution-form">
-                <form id="solutionForm">
+                <form id="solutionForm" onsubmit="return validateForm()">
                     <div class="form-group">
                         <label for="name">Nome e cognome</label>
                         <input type="text" id="name" name="name" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="email">Email (facoltativa)</label>
                         <input type="email" id="email" name="email">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="exercise">Esercizio scelto</label>
                         <select id="exercise" name="exercise" required>
                             <option value="">-- Seleziona un esercizio --</option>
                             <option value="1">Rappresentazione grafica del conflitto interiore con la derivata</option>
                             <option value="2">Discontinuità tra apparenza e realtà nel Giorno di Parini</option>
-                            <option value="3">Uso del concetto di limite per descrivere l'evoluzione di un personaggio</option>
+                            <option value="3">Uso del concetto di limite per descrivere l'evoluzione di un personaggio
+                            </option>
                             <option value="other">Altro (specifica nel testo)</option>
                         </select>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="solution">La tua soluzione</label>
-                        <textarea id="solution" name="solution" required placeholder="Descrivi la tua soluzione creativa, puoi includere testo, formule matematiche (usando la sintassi LaTeX tra \( \) o \[ \]), o riferimenti letterari..."></textarea>
-                        <p class="w3-small">Puoi usare formule matematiche come: \( \lim_{x \to \infty} f(x) \) oppure \[ \frac{dy}{dx} \]</p>
+                        <textarea id="solution" name="solution" required
+                            placeholder="Descrivi la tua soluzione creativa, puoi includere testo, formule matematiche (usando la sintassi LaTeX tra \( \) o \[ \]), o riferimenti letterari..."></textarea>
+                        <p class="w3-small">Puoi usare formule matematiche come: \( \lim_{x \to \infty} f(x) \) oppure
+                            \[ \frac{dy}{dx} \]</p>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="attachment">Allega un'immagine (facoltativo)</label>
                         <input type="file" id="attachment" name="attachment" accept="image/*">
                     </div>
-                    
+
                     <div class="w3-center">
                         <button type="submit" class="submit-btn">Invia soluzione</button>
                     </div>
                 </form>
             </div>
-            
+
             <div class="examples-section">
                 <h3>Esempi di soluzioni creative</h3>
-                
+
                 <div class="example-card">
                     <h4>1. Il conflitto interiore di Saul come derivata seconda</h4>
-                    <p>Nella tragedia <em>Saul</em> di Alfieri, l'evoluzione del protagonista può essere rappresentata come una funzione \( S(t) \) dove t è il tempo drammatico. La derivata prima \( S'(t) \) rappresenta la sua volontà di potere, mentre la derivata seconda \( S''(t) \) mostra l'accelerazione del suo conflitto interiore...</p>
-                    <p class="w3-small w3-text-grey">Inviato da: Maria Rossi</p>
+                    <p>Nella tragedia <em>Saul</em> di Alfieri, l'evoluzione del protagonista può essere rappresentata
+                        come una funzione \( S(t) \) dove t è il tempo drammatico. La derivata prima \( S'(t) \)
+                        rappresenta la sua volontà di potere, mentre la derivata seconda \( S''(t) \) mostra
+                        l'accelerazione del suo conflitto interiore...</p>
+                    <p class="w3-small w3-text-grey">Inviato da: Diego Renesto</p>
                 </div>
-                
+
                 <div class="example-card">
                     <h4>2. Discontinuità di prima specie in Parini</h4>
-                    <p>Nel <em>Giorno</em>, la frattura tra apparenza e realtà può essere rappresentata come una funzione a gradino (discontinuità di prima specie). Da un lato (limite destro) abbiamo i valori superficiali della nobiltà \( f(x^+) \), dall'altro (limite sinistro) la realtà vuota \( f(x^-) \), con \( f(x^+) \neq f(x^-) \).</p>
-                    <p class="w3-small w3-text-grey">Inviato da: Luca Bianchi</p>
+                    <p>Nel <em>Giorno</em>, la frattura tra apparenza e realtà può essere rappresentata come una
+                        funzione a gradino (discontinuità di prima specie). Da un lato (limite destro) abbiamo i valori
+                        superficiali della nobiltà \( f(x^+) \), dall'altro (limite sinistro) la realtà vuota \( f(x^-)
+                        \), con \( f(x^+) \neq f(x^-) \).</p>
+                    <p class="w3-small w3-text-grey">Inviato da: Francesco Bazaj</p>
                 </div>
             </div>
         </section>
@@ -312,5 +369,68 @@
             applyTheme(savedTheme);
         };
     </script>
+    <script>
+        function validateForm() {
+            let isValid = true;
+
+            // Reset error states
+            document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+            document.querySelectorAll('.error-message').forEach(el => el.remove());
+
+            // Validate name
+            const name = document.getElementById('name');
+            if (!name.value.trim()) {
+                name.classList.add('error');
+                const errorMsg = document.createElement('span');
+                errorMsg.className = 'error-message';
+                errorMsg.textContent = 'Questo campo è obbligatorio';
+                name.parentNode.appendChild(errorMsg);
+                isValid = false;
+            }
+
+            // Validate exercise
+            const exercise = document.getElementById('exercise');
+            if (!exercise.value) {
+                exercise.classList.add('error');
+                const errorMsg = document.createElement('span');
+                errorMsg.className = 'error-message';
+                errorMsg.textContent = 'Questo campo è obbligatorio';
+                exercise.parentNode.appendChild(errorMsg);
+                isValid = false;
+            }
+
+            // Validate solution
+            const solution = document.getElementById('solution');
+            if (!solution.value.trim()) {
+                solution.classList.add('error');
+                const errorMsg = document.createElement('span');
+                errorMsg.className = 'error-message';
+                errorMsg.textContent = 'Questo campo è obbligatorio';
+                solution.parentNode.appendChild(errorMsg);
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Show success message
+                const successMessage = document.getElementById('successMessage');
+                successMessage.style.display = 'block';
+
+                // Hide after animation
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 3000);
+
+                // Here you would normally submit the form
+                // For now we just prevent actual submission
+                return false;
+            }
+
+            return false;
+        }
+    </script>
+    <div id="successMessage" class="success-message">
+        Messaggio inviato con successo!
+    </div>
 </body>
+
 </html>
