@@ -207,12 +207,9 @@
                                 </svg>
                             </a>
                             <div class="dropdown-content">
-                                <a onclick="showContent(0)">Introduzione ai limiti</a>
-                                <a onclick="showContent(1)">Limiti e continuità</a>
-                                <a onclick="showContent(2)">Limiti all'infinito</a>
-                                <a onclick="showContent(3)">Limiti notevoli</a>
-                                <a onclick="showContent(4)">Applicazioni dei limiti</a>
-                                <a onclick="showContent(5)">Limiti e derivate</a>
+                                <a onclick="showContent(0)">Limiti in matematica</a>
+                                <a onclick="showContent(1)">Limiti sociali ed economici</a>
+                                <a onclick="showContent(2)">Limiti letterari | Alfieri e Parini</a>
                             </div>
                         </div>
 
@@ -464,7 +461,8 @@
                 <div class="podcast-visual-container">
                     <!-- Visual content that changes with the podcast -->
                     <div id="visual-content1" class="nascondi podcast-visual">
-                        <video src="Media/video/PODCAST.mp4" style="width: 830px;" muted></video>
+                        <video src="Media/video/PODCAST.mp4" style="width: 830px;" muted
+                            onclick="playPauseAudio(currentIndex || 0)"></video>></video>
                         <div class="math-equation">
                             $$ \lim_{x \to a} f(x) = L $$
                         </div>
@@ -480,7 +478,8 @@
                     </div>
 
                     <div id="visual-content2" class="nascondi podcast-visual">
-                        <video src="Media/video/PODCAST2.mp4" style="width: 830px;" muted></video>
+                        <video src="Media/video/PODCAST2.mp4" style="width: 830px;" muted
+                            onclick="playPauseAudio(currentIndex || 0)"></video>></video>
                         <div class="math-equation">
                             $$ \lim_{x \to c} f(x) = f(c) $$
                         </div>
@@ -657,28 +656,37 @@
 
         function playPauseAudio(index) {
             const audioId = `audio${index + 1}`;
+            const videoId = `visual-content${index + 1}`;
             const audioElement = document.getElementById(audioId);
+            const videoElement = document.querySelector(`#${videoId} video`);
             const playButton = document.querySelector(".card__btn-play");
             const timePassed = document.querySelector(`#contenuto${index + 1} .card__time-passed`);
             const timeLeft = document.querySelector(`#contenuto${index + 1} .card__time-left`);
             const progressBar = document.querySelector(`#contenuto${index + 1} progress`);
 
             if (currentAudio && currentAudio !== audioElement) {
-                // Pause the currently playing audio if it's different
+                // Pause the currently playing audio and video if it's different
                 currentAudio.pause();
                 currentAudio.currentTime = 0;
+                if (currentVideo) {
+                    currentVideo.pause();
+                    currentVideo.currentTime = 0;
+                }
                 clearInterval(progressInterval);
             }
 
             if (currentAudio === audioElement && !audioElement.paused) {
-                // Pause the current audio
+                // Pause the current audio and video
                 audioElement.pause();
+                if (videoElement) videoElement.pause();
                 resetPlayButton();
                 clearInterval(progressInterval);
             } else {
-                // Play the selected audio
+                // Play the selected audio and video
                 audioElement.play();
+                if (videoElement) videoElement.play();
                 currentAudio = audioElement;
+                currentVideo = videoElement;
                 currentIndex = index;
 
                 playButton.innerHTML = `<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -703,6 +711,7 @@
                     if (currentTime >= duration) {
                         clearInterval(progressInterval);
                         resetPlayButton();
+                        if (videoElement) videoElement.pause();
                     }
                 }, 500);
             }
