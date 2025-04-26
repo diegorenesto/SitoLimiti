@@ -239,11 +239,11 @@
                             </div>
                         </div>
                         <div id="contenuto1" class="nascondi card__title">Limiti in matematica</div>
-                        <div id="contenuto1" class="nascondi card__subtitle">Francesco Renesto</div>
+                        <div id="contenuto1" class="nascondi card__subtitle">Mattia Pavarin</div>
                         <div id="contenuto2" class="nascondi card__title">Limiti sociali ed economici</div>
                         <div id="contenuto2" class="nascondi card__subtitle">Nicolò Zanforlin</div>
                         <div id="contenuto3" class="nascondi card__title">Limiti letterari | Alfieri e Parini</div>
-                        <div id="contenuto3" class="nascondi card__subtitle">Mattia Pavarin</div>
+                        <div id="contenuto3" class="nascondi card__subtitle">Francesco Renesto</div>
                         <!-- barra di progresso -->
                         <div id="contenuto1" class="nascondi card__wrapper">
                             <div style="position:relative; translate: -38% 125%;" class="card__time card__time-passed">
@@ -332,7 +332,7 @@
                                     <br>
                                     Non ci interessa necessariamente cosa vale f(x) nel punto x = a, ma intorno ad esso.
                                     <br>
-                                    Ad esempio, se f(x) = (x^2 - 1) / (x - 1), per x = 1 la funzione non è definita
+                                    Ad esempio, se f(x) = (x² - 1) / (x - 1), per x = 1 la funzione non è definita
                                     (divisione per
                                     zero).
                                     Ma se avviciniamo x a 1 da sinistra e da destra, vedremo che f(x) tende a 2.
@@ -462,7 +462,7 @@
                     <!-- Visual content that changes with the podcast -->
                     <div id="visual-content1" class="nascondi podcast-visual">
                         <video src="Media/video/PODCAST.mp4" style="width: 830px;" muted
-                            onclick="playPauseAudio(currentIndex || 0)"></video>></video>
+                            onclick="playPauseAudio(currentIndex || 0)"></video></video>
                         <div class="math-equation">
                             $$ \lim_{x \to a} f(x) = L $$
                         </div>
@@ -472,7 +472,7 @@
                                 <li>Il limite descrive il comportamento di una funzione vicino a un punto</li>
                                 <li>Non è necessario che la funzione sia definita nel punto</li>
                                 <li>La definizione epsilon-delta formalizza l'intuizione</li>
-                                <li>Esempio: lim<sub>x→1</sub> (x²-1)/(x-1) = 2</li>
+                                <li>Esempio: lim<sub>x→ -1</sub> (3x + 1) = -2</li>
                             </ul>
                         </div>
                     </div>
@@ -612,6 +612,7 @@
         let currentAudio = null; // To track the currently playing audio
         let currentIndex = null; // To track the current content index
         let progressInterval = null; // To update the progress bar
+        let currentVideo = null; // Aggiungo questa variabile per tenere traccia del video corrente
 
         function initializeAudioData() {
             const audios = document.querySelectorAll("audio");
@@ -620,16 +621,13 @@
                 const timePassed = document.querySelector(`#contenuto${index + 1} .card__time-passed`);
                 const timeLeft = document.querySelector(`#contenuto${index + 1} .card__time-left`);
 
-                // Set progress bar to 0
                 progressBar.value = 0;
 
-                // Set initial time values
                 audio.addEventListener("loadedmetadata", () => {
                     timePassed.textContent = formatTime(0);
                     timeLeft.textContent = formatTime(audio.duration || 0);
                 });
 
-                // Add click event to progress bar for seeking
                 progressBar.addEventListener("click", (event) => {
                     if (audio.duration) {
                         const rect = progressBar.getBoundingClientRect();
@@ -637,7 +635,13 @@
                         const newTime = (clickX / rect.width) * audio.duration;
                         audio.currentTime = newTime;
 
-                        // Update progress bar and time display immediately
+                        // Aggiungo la sincronizzazione con il video
+                        const videoId = `visual-content${index + 1}`;
+                        const videoElement = document.querySelector(`#${videoId} video`);
+                        if (videoElement) {
+                            videoElement.currentTime = newTime;
+                        }
+
                         timePassed.textContent = formatTime(audio.currentTime);
                         timeLeft.textContent = formatTime(audio.duration - audio.currentTime);
                         progressBar.value = (audio.currentTime / audio.duration) * 100;
@@ -665,7 +669,6 @@
             const progressBar = document.querySelector(`#contenuto${index + 1} progress`);
 
             if (currentAudio && currentAudio !== audioElement) {
-                // Pause the currently playing audio and video if it's different
                 currentAudio.pause();
                 currentAudio.currentTime = 0;
                 if (currentVideo) {
@@ -676,28 +679,25 @@
             }
 
             if (currentAudio === audioElement && !audioElement.paused) {
-                // Pause the current audio and video
                 audioElement.pause();
                 if (videoElement) videoElement.pause();
                 resetPlayButton();
                 clearInterval(progressInterval);
             } else {
-                // Play the selected audio and video
                 audioElement.play();
                 if (videoElement) videoElement.play();
                 currentAudio = audioElement;
-                currentVideo = videoElement;
+                currentVideo = videoElement; // Memorizzo il video corrente
                 currentIndex = index;
 
                 playButton.innerHTML = `<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    viewBox="0 0 310.284 310.284" style="enable-background:new 0 0 310.284 310.284;" xml:space="preserve">
-                    <path d="M155.142,0C69.597,0,0,69.597,0,155.142s69.597,155.142,155.142,155.142s155.142-69.597,155.142-155.142
-                        S240.688,0,155.142,0z M130.392,212.864c0,9.665-7.835,17.5-17.5,17.5s-17.5-7.835-17.5-17.5v-115c0-9.665,7.835-17.5,17.5-17.5
-                        s17.5,7.835,17.5,17.5V212.864z M209.392,212.864c0,9.665-7.835,17.5-17.5,17.5s-17.5-7.835-17.5-17.5v-115
-                        c0-9.665,7.835-17.5,17.5-17.5s17.5,7.835,17.5,17.5V212.864z"/>
-                </svg>`;
+                viewBox="0 0 310.284 310.284" style="enable-background:new 0 0 310.284 310.284;" xml:space="preserve">
+                <path d="M155.142,0C69.597,0,0,69.597,0,155.142s69.597,155.142,155.142,155.142s155.142-69.597,155.142-155.142
+                    S240.688,0,155.142,0z M130.392,212.864c0,9.665-7.835,17.5-17.5,17.5s-17.5-7.835-17.5-17.5v-115c0-9.665,7.835-17.5,17.5-17.5
+                    s17.5,7.835,17.5,17.5V212.864z M209.392,212.864c0,9.665-7.835,17.5-17.5,17.5s-17.5-7.835-17.5-17.5v-115
+                    c0-9.665,7.835-17.5,17.5-17.5s17.5,7.835,17.5,17.5V212.864z"/>
+            </svg>`;
 
-                // Update progress bar and time
                 progressInterval = setInterval(() => {
                     const currentTime = audioElement.currentTime;
                     const duration = audioElement.duration;
@@ -706,6 +706,11 @@
                         timePassed.textContent = formatTime(currentTime);
                         timeLeft.textContent = formatTime(duration - currentTime);
                         progressBar.value = (currentTime / duration) * 100;
+
+                        // Sincronizzo il video con l'audio
+                        if (videoElement) {
+                            videoElement.currentTime = currentTime;
+                        }
                     }
 
                     if (currentTime >= duration) {
@@ -790,12 +795,9 @@
     </script>
 
     <!-- Add audio elements for each content -->
-    <audio id="audio1" src="Media/audio/audio1.mp3"></audio>
+    <audio id="audio1" src="Media/audio/audio1.opus"></audio>
     <audio id="audio2" src="Media/audio/audio2.opus"></audio>
     <audio id="audio3" src="Media/audio/audio3.opus"></audio>
-    <audio id="audio4" src="Media/audio/audio4.opus"></audio>
-    <audio id="audio5" src="Media/audio/audio5.mp3"></audio>
-    <audio id="audio6" src="Media/audio/audio6.opus"></audio>
 </body>
 
 </html>
